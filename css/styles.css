@@ -14,8 +14,11 @@ padding-top:9px;
 
 .form_pad
 {
-  border:1px solid black;
+  border:0px solid black;
+  border-radius:5px;
+  background-color : #E0F8EC;
   margin-top: 10px;
+  padding-top:20px;
   margin-bottom: 10px;
 }
 .span4

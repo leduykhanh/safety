@@ -109,8 +109,8 @@ body {
                                           }
                                          ?>
                                 <div class="col-sm-12 form-row">
-                                    <div class="col-sm-4"><label style="font-family:CALIBRI">Staff ID:</label></div>
-                                    <div class="col-sm-6">
+                                    <!-- <div class="col-sm-4"><label style="font-family:CALIBRI">Staff ID:</label></div> -->
+                                    <div class="col-sm-6 col-sm-offset-3">
                                         <?php if(isset($_COOKIE['remember_me']))
                                         {
                                             $cookie_me=$_COOKIE['remember_me'];
@@ -120,14 +120,14 @@ body {
                                             $cookie_me="";
                                          }   
                                        ?>
-                                        <input class="span4" type="email" name="email" id="username" required value="<?php echo $cookie_me; ?>" />
+                                        <input class="form-control" type="email" name="email" id="username" placeholder="email" required value="<?php echo $cookie_me; ?>" />
                                     </div>                            
                                 </div>                        
                           
                                 <div class="col-sm-12 form-row">
-                                    <div class="col-sm-4">
+                                   <!-- <div class="col-sm-4">
                                         <label style="font-family:CALIBRI">Password</label>
-                                    </div>
+                                    </div> -->
                                         <?php if(isset($_COOKIE['remember_pass']))
                                         {
                                             $cookie_pass=$_COOKIE['remember_pass'];
@@ -137,18 +137,21 @@ body {
                                             $cookie_pass="";
                                          }   
                                        ?>
-                                    <div class="col-sm-6">
-                                        <input class="span4" type="password" name="password" id="password" required value="<?php echo $cookie_pass;?>"/>
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <input class="form-control" type="password" name="password" placeholder="password" id="password" required value="<?php echo $cookie_pass;?>"/>
                                     </div>                            
                                 </div> 
                           
                                 <div class="col-sm-12 form-row" style="margin-top: 10px;">
-                                    <div class=" col-sm-6" style=" margin-left:307px; margin-top:-20px;">
-                             
-                                            <!-- <input  type="checkbox" name='remember' value="1"  />
-                                            Remember Me --> 
-                                            <button type="submit" class="col-sm-6 btn btn-success btn-lg"><strong>Login</strong></button>
-                                            <!--<button class="button_send_documnet"><a href="forgotpassword.php"<strong>Forget Password</strong></a></button>-->
+                                    <div class=" col-sm-12 text-center" style=" margin-top:-20px;">
+											<div class="row">
+                                            <button type="submit" class="col-sm-6 col-sm-offset-3 btn btn-primary btn-lg"><strong>Login</strong></button>
+											</div>
+											<div class="row text-center">
+                                             <input  type="checkbox" name='remember' value="1"  />
+                                            Remember Me  
+											</div>
+                                            <!--<button class="button_send_documnet"><a href="forgotpassword.php"<strong>Forget Password</strong></a></button> -->
                                     </div>
                                 </div>                           
                             </div>
