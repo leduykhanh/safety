@@ -1,65 +1,6 @@
-<?php
-session_start();
- include_once 'header.php';
- include_once 'config.php';
-?>
-<style type="text/css">
-  .topdtb
-  {
-    display: none;
-  }
-
-  .container {
-    width: 1170px;
-    
-}
-
-</style>
 <?php 
-
- if(isset($_SESSION['adminid'])=="")
- {
- 
- ?><script type="text/javascript">window.location.assign('index.php');</script>
- <?php
-
- }
-
- if(isset($_GET['riskid']) && isset($_GET['updateStatus']) && isset($_GET['updateStatusSubmit']))
- {
-     
-$today = date('Y-m-d H:i:s');
-
-$afterSevenYears = date('Y-m-d H:i:s', strtotime('+3 years'));
-
-
-
-      $updateSql = "UPDATE  `riskassessment` SET  `status` =  '$_GET[updateStatus]',`approveDate` =  '$today',`revisionDate` =  '$afterSevenYears',`approveBy` =  '$_SESSION[adminid]',`approverEmail` =  '".$_SESSION['useremail']."' WHERE  `id` =$_GET[riskid]";
-   
-
-
-
-       if(mysqli_query($con, $updateSql))
-       {
-        $messageUpdate = 'Data Updated Successfuly ';
-        ?>
-        <script type="text/javascript">window.location.assign('listwork_activity.php?message=<?php echo $messageUpdate;?>');</script>
-        <?php
-
-      }
-      
-
- }
- else
- {
-   $messageUpdate = '';
- }
-?>
-  
-              <?php
-                //get count 
-              //0 outstanding 1 for draft 2 approved 3 archive
-                    $sqlOutStanding = "SELECT * FROM riskassessment where status = 0";
+function generate_list_work($con,$a){
+					$sqlOutStanding = "SELECT * FROM riskassessment where status = 0";
                     $resultlOutStanding = mysqli_query($con, $sqlOutStanding);
                     $outStandingRow= mysqli_num_rows($resultlOutStanding);
                     
@@ -74,28 +15,8 @@ $afterSevenYears = date('Y-m-d H:i:s', strtotime('+3 years'));
 
                     $sqlArchived = "SELECT * FROM riskassessment where status = 3";
                     $resultlArchived = mysqli_query($con, $sqlArchived);
-                    $OutArchived= mysqli_num_rows($resultlArchived);
-
-              ?>
-   <div class="container">
-   
-   <div class="row" style="padding-bottom: 10px;">
-   			<div class="col-sm-6" style="text-align:left; padding:0px"><strong>Risk Register Summary</strong></div>
-  			<div class="col-sm-6 pull-right" style="text-align:right; padding:0px">	
- 				<a href="divAddRemoveSubmit.php">
-              <button class="btn btn-success">
-                <strong>+ Add New Risk Assessment</strong>
-              </button>
-            </a>
-            </div>
-    </div>
-   
-   
-   <div class="claer-fix"></div>
-    <?php  require_once("listwork_function.php");
-		generate_list_work($con,1);
-	?>
-    <div class="row"  style="padding-bottom: 10px;">
+                    $OutArchived= mysqli_num_rows($resultlArchived);?>
+	    <div class="row"  style="padding-bottom: 10px;">
     		<div class="col-sm-5" style="text-align:left; padding:0px"><strong>QE Safety Consultancy Pte Ltd</strong></div>
             <div class="col-sm-7" style="padding:0px; text-align:right;"> 
 
@@ -488,31 +409,6 @@ $afterSevenYears = date('Y-m-d H:i:s', strtotime('+3 years'));
 
       </div>
       </div>
-      </div>
- 
-
- 
-<script>
-language="JavaScript" type="text/javascript">
- function $row['id']
- {
- if (confirm("Are you sure you want to copy data"))
- {
- window.location.href = 'copydata.php?riskid=<?php echo $row['id'];?>';
- }
- }
-</script>
-
-
-<script
- language="JavaScript" type="text/javascript">
- function delete_id(id)
- {
- if (confirm("Are you sure you want to delete"))
- {
- window.location.href = 'delete.php?id=' + id;
- }
- }
-</script>
-
-<?php include_once 'footer.php'; ?>
+	  <?php
+}
+?>
