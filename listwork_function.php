@@ -1,19 +1,19 @@
 <?php 
 function generate_list_work($con,$a){
-					$sqlOutStanding = "SELECT * FROM riskassessment where status = 0";
+					$sqlOutStanding = "SELECT * FROM riskassessment where status = 0 AND asTemplate = $a";
                     $resultlOutStanding = mysqli_query($con, $sqlOutStanding);
                     $outStandingRow= mysqli_num_rows($resultlOutStanding);
                     
-                    $sqlDraft = "SELECT * FROM riskassessment where status = 1";
+                    $sqlDraft = "SELECT * FROM riskassessment where status = 1 AND asTemplate = $a";
                     $resultlDraft = mysqli_query($con, $sqlDraft);
                     $draftRow= mysqli_num_rows($resultlDraft);
 
-                    $sqlApprove = "SELECT * FROM riskassessment where status = 2";
+                    $sqlApprove = "SELECT * FROM riskassessment where status = 2 AND asTemplate = $a";
                     $resultlApprove = mysqli_query($con, $sqlApprove);
                     $OutApprove= mysqli_num_rows($resultlApprove);
 
 
-                    $sqlArchived = "SELECT * FROM riskassessment where status = 3";
+                    $sqlArchived = "SELECT * FROM riskassessment where status = 3 AND asTemplate = $a";
                     $resultlArchived = mysqli_query($con, $sqlArchived);
                     $OutArchived= mysqli_num_rows($resultlArchived);?>
 	    <div class="row"  style="padding-bottom: 10px;">
@@ -231,7 +231,7 @@ function generate_list_work($con,$a){
         {
             $whereStatus = " WHERE  status = 0";
         }
-
+		$whereStatus.= " AND asTemplate = $a";
 
         $sql = "SELECT * FROM riskassessment $whereStatus $order";
         $result = mysqli_query($con, $sql);

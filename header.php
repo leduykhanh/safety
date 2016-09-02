@@ -39,7 +39,7 @@ body {
         </div>
         <div class="col-sm-10">
         <span class="logout">
-       	<a href="logout.php"><strong> Log Out</strong></a>
+       	<a href="logout.php"><button class="btn btn-danger"> Log Out</button></a>
         </span>
         </div>
         </div>
