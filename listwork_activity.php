@@ -93,10 +93,10 @@ $afterSevenYears = date('Y-m-d H:i:s', strtotime('+3 years'));
 	   
 	   <div class="claer-fix"></div>
 	   <ul class="nav nav-tabs">
-		  <li class="active"><a role="presentation" href="#po">Penta Ocean</a></li>
-		  <li><a role="presentation" href="#thiec">THI E&C</a></li>
-		  <li><a role="presentation" href="#skec">SK E&C</a></li>
-		  <li><a role="presentation" href="#lta">LTA</a></li>
+		  <li class="active"><a data-toggle="tab" href="#po">Penta Ocean</a></li>
+		  <li><a data-toggle="tab" href="#thiec">THI E&C</a></li>
+		  <li><a data-toggle="tab" href="#skec">SK E&C</a></li>
+		  <li><a data-toggle="tab" href="#lta">LTA</a></li>
 		</ul>
 
 		<div class="tab-content">
