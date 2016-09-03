@@ -1,19 +1,19 @@
 <?php 
 function generate_list_work($con,$a){
-					$sqlOutStanding = "SELECT * FROM riskassessment where status = 0";
+					$sqlOutStanding = "SELECT * FROM riskassessment where status = 0 AND asTemplate = $a";
                     $resultlOutStanding = mysqli_query($con, $sqlOutStanding);
                     $outStandingRow= mysqli_num_rows($resultlOutStanding);
                     
-                    $sqlDraft = "SELECT * FROM riskassessment where status = 1";
+                    $sqlDraft = "SELECT * FROM riskassessment where status = 1 AND asTemplate = $a";
                     $resultlDraft = mysqli_query($con, $sqlDraft);
                     $draftRow= mysqli_num_rows($resultlDraft);
 
-                    $sqlApprove = "SELECT * FROM riskassessment where status = 2";
+                    $sqlApprove = "SELECT * FROM riskassessment where status = 2 AND asTemplate = $a";
                     $resultlApprove = mysqli_query($con, $sqlApprove);
                     $OutApprove= mysqli_num_rows($resultlApprove);
 
 
-                    $sqlArchived = "SELECT * FROM riskassessment where status = 3";
+                    $sqlArchived = "SELECT * FROM riskassessment where status = 3 AND asTemplate = $a";
                     $resultlArchived = mysqli_query($con, $sqlArchived);
                     $OutArchived= mysqli_num_rows($resultlArchived);?>
 	    <div class="row"  style="padding-bottom: 10px;">
@@ -231,7 +231,7 @@ function generate_list_work($con,$a){
         {
             $whereStatus = " WHERE  status = 0";
         }
-
+		$whereStatus.= " AND asTemplate = $a";
 
         $sql = "SELECT * FROM riskassessment $whereStatus $order";
         $result = mysqli_query($con, $sql);
@@ -362,7 +362,7 @@ function generate_list_work($con,$a){
                                   
                                  &nbsp;<a href="divAddRemoveSubmitEdit.php?riskid=<?php echo $row['id'];?>" style="text-decoration: none"><input  type="button" name="updateStatusSubmit" value="Edit" class="btn btn-warning btn-sx" style="width:15%"></a>
                                   
-                                  &nbsp;<a href="companyreport.php?riskid=<?php echo $row['id'];?>" style="text-decoration: none"><input  type="button" name="updateStatusSubmit" value="View" class="btn btn-warning btn-sx"  style="width:15%" ></a>
+                                  &nbsp;<a href="companyreport<?php echo $a; ?>.php?riskid=<?php echo $row['id'];?>" style="text-decoration: none"><input  type="button" name="updateStatusSubmit" value="View" class="btn btn-warning btn-sx"  style="width:15%" ></a>
 
   &nbsp;<a href="copydata.php?riskid=<?php echo $row['id'];?>&status=0&message=document sents successfully" style="text-decoration: none">
  <input  type="button" name="updateStatusSubmit" value="Copy" class="btn btn-warning btn-sx"  style="width:15%" onclick="return confirm('Are you sure,you want to copy?')" ></a>
@@ -383,7 +383,7 @@ function generate_list_work($con,$a){
                                 {
                                   echo "<span class=\"btn btn-success btn-sm\">Approved</span>";
                                   echo "<a href=\"divAddRemoveSubmitEdit.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sm  btn_new\">Edit</span></a>";
-								  echo "<a href=\"companyreport.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sm btn_new \">View</span></a>";
+								  echo "<a href=\"companyreport$a.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sm btn_new \">View</span></a>";
 								   echo "<a href=\"copydata.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sm btn_new \">copy</span></a>";
                                 }
 
@@ -391,7 +391,7 @@ function generate_list_work($con,$a){
                                 {
                                   echo "<span class=\"btn btn-primary btn-sx \">Archived</span>";
                                   echo "<a href=\"divAddRemoveSubmitEdit.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sx btn_new \">Edit</span></a>";
-								  echo "<a href=\"companyreport.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sm btn_new \">View</span></a>";
+								  echo "<a href=\"companyreport$a.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sm btn_new \">View</span></a>";
 								  echo "<a href=\"copydata.php?riskid=$row[id]\"><span class=\"btn btn-warning btn-sm btn_new \">copy</span></a>";
                                 }
 
