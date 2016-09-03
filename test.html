@@ -1,0 +1,219 @@
+<html>
+<head>
+    <script type="text/javascript">
+        // later, we'll need to set the page height to the approximate size of the paper.
+        // for now, just use 100 for testing purposes.
+        var pageHeight = 100;
+        
+        function adjustHeaderAndFooter(){
+            var contentDiv = document.getElementById("contentDiv");
+            var headerDiv = document.getElementById("headerDiv");
+            var footerDiv = document.getElementById("footerDiv");
+            
+            var headerHeight = headerDiv.offsetHeight;
+            var footerHeight = footerDiv.offsetHeight;
+            headerDiv.style.display = "none";
+            footerDiv.style.display = "none";
+            
+            // hold original content
+            var orgHTML = contentDiv.innerHTML;
+            
+            // hold the header and footer html that will be inserted into the content to break it into pages
+            var headerHTML = "<div class='Header' style='style='page-break-before: always; height: 20px;'>Dyn added: " + headerDiv.innerHTML + "</div>";
+            var footerHTML = "<div class='Footer' style='style='height: 20px;'>Dyn added: " + footerDiv.innerHTML + "</div>";
+            
+            // add top header to content, first page doesn't need page-break
+            contentDiv.innerHTML = headerHTML.replace("page-break-before: always;'","")
+                                 + contentDiv.innerHTML
+            
+            // capture the doc height
+            var docHeight = getDocumentHeight();
+            
+            var pageIndex = 0;
+            var posForFooter = 0;
+            var footerSpacerHeight = 0;
+            
+            // if the doc height is greater than our page height, we need to break content into pages,
+            // dynamically adding a header and footer for each new page
+            while(docHeight > (pageHeight * (pageIndex+1))){
+            
+                // hold current state of content, will contain any headers and footers added previously
+                var contentSoFar = contentDiv.innerHTML;
+            
+                // hold the length of the current state of content
+                var j = contentSoFar.length;
+                
+                // Calculate footer position
+                posForFooter = ((pageHeight * (pageIndex + 1)) - footerHeight);
+                
+                // debug alert
+                alert("docHeight: " + docHeight + "\n"
+                    + "pageHeight: " + pageHeight + "\n"
+                    + "pageIndex: " + pageIndex + "\n"
+                    + "footerHeight: " + footerHeight + "\n"
+                    + "posForFooter: " + posForFooter + "\n");
+            
+                // From the end of the content going backwards character by character,
+                // look for a space to break the content on, so a header and footer can be added.
+                while(j > 0){
+                    // Find previous space. Only break the pages on a space....not mid-word
+                    var charToRemove = contentDiv.innerHTML.substring(j-1);
+                    while(charToRemove != " "){
+                        j--;
+                        charToRemove = contentDiv.innerHTML.substring(j-1, j);
+                        
+                        // skip HTML tags, if end > found, continue past the starting <
+                        if(charToRemove == ">"){
+                            while(charToRemove != "<"){
+                                j--;
+                                charToRemove = contentDiv.innerHTML.substring(j-1, j);
+                            }
+                        }
+                    }
+                    
+
+                    // Once space has been found, remove all content after the space
+                    var beginningHTML = contentDiv.innerHTML.substring(0, j-1);
+                    contentDiv.innerHTML = beginningHTML;
+                    
+
+                    // Get new document height
+                    docHeight = getDocumentHeight();
+                    
+
+                    // If the new docHeight is <= where the new footer should be, insert ending footer, and starting header
+                    if(docHeight <= posForFooter){
+                        pageIndex++;
+                        
+
+                        // create page marker, good for debugging purposes
+                        var endPageMarker =" + pageIndex + ";
+                        
+                        // calculate the height of the spacer that will push the footer to the bottom of the page
+                        footerSpacerHeight = ((pageHeight * (pageIndex)) - footerHeight) - docHeight;
+                        
+                        // debug alert
+                        alert("docHeight: " + docHeight + "\n"
+                            + "pageHeight: " + pageHeight + "\n"
+                            + "footerHeight: " + footerHeight + "\n"
+                            + "footerSpacerHeight: " + footerSpacerHeight + "\n"
+                            + "posForFooter: " + posForFooter + "\n");
+                        
+                        // put content back together with newly added header and footer in the middle
+                        contentDiv.innerHTML = beginningHTML
+                                             + "<div class='FooterSpacer' style='height: " + footerSpacerHeight + "px;'></div>"
+                                             + footerHTML
+                                             + headerHTML
+                                             + endPageMarker
+                                             + contentSoFar.substring(j-1);
+                        break;
+                    }
+                    j--;
+                }
+
+                // get new docHeight after header and footer have been dynamically added.
+                docHeight = getDocumentHeight();
+            }
+            
+            // calulate spacer that will push the last footer to the bottom of the page
+            footerSpacerHeight = ((pageHeight * (pageIndex+1)) - footerHeight) - docHeight;
+            
+            // add last footer with spacer
+            contentDiv.innerHTML += "<div class='FooterSpacer' style='height: " + footerSpacerHeight + "px;'></div>"
+                                  + footerHTML;
+        }
+        
+        function getDocumentHeight(){
+            var docHt = 0, sh, oh;
+            if (document.height)
+                docHt = document.height;
+            else if (document.body) {
+                if (document.all && document.body.scrollHeight) docHt = sh = document.body.scrollHeight;
+                if (!document.all && document.body.offsetHeight) docHt = oh = document.body.offsetHeight;
+                if (sh && oh) docHt = Math.max(sh, oh);
+            }
+            return docHt;
+        }
+    </script>
+    
+    <style type="text/css">
+        body
+        {
+            margin: 0px;
+        }
+        .Header
+        {
+            font-family: courier;
+            font-size: 12px;
+            background-color: red;
+            width: 100%;
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        .Footer
+        {
+            font-family: courier;
+            font-size: 12px;
+            background-color: green;
+            width: 100%;
+            font-weight: normal;
+            font-style: normal;
+        }
+        .FooterSpacer
+        {
+            background-color: orange;
+            width: 100%;
+        }
+        .Body
+        {
+            font-family: courier;
+            font-size: 11px;
+            width: 100%;
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body onload="adjustHeaderAndFooter();">
+    <div id="containerDiv" style="z-index: 1;width: 640px; height: auto;">
+        <div id="headerDiv" class="Header">
+            Here is the header.
+        </div>
+        <div id="contentDiv" style="width: 100%;" class="Body">
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+			This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+            dynamically added to each page that is printed. This is where the content that the user
+            This is where the content that the user entered from the wysiwyg editor would be placed.
+            The content for the header and footer can be determined elsewhere, but they need to be
+			
+        </div>
+        <div id="footerDiv" class="Footer" style="height: 20px;">
+            Here is the footer.
+        </div>
+    </div>
+</body>
+</html>
