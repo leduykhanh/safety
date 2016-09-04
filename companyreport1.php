@@ -100,6 +100,70 @@ include_once 'config.php';
 			background: #817F88;
 			color: #fff;
 		}
+		.green {
+			background-color: #70BC48;
+		}
+		.blue {
+			background-color: #73C9F5;
+		}
+		.light-green {
+			background-color: #D6ED97; 
+		}
+		.yellow{
+			background-color:#FFFD51;
+		}
+		.orange{
+			background-color:#F6B02C;
+		}
+		.red{
+			background-color:#FF0000;
+		}
+		.fluro-green{
+			background-color:#00FF00;
+		}
+		.pink{
+			background-color:#FFCCFF;
+		}
+		.dim-green{
+			background-color:#99FF99;
+		}
+		.grey{
+			background-color:#D9D9D9;
+		}
+		.aligncenter tr{
+			border:none;
+
+		}
+		.aligncenter tr td{
+			text-align:center;
+			font-family:"Arial",sans-serif;
+			border:none;
+			
+		}
+		.angle-table:nth-of-type(1) td {
+		  background-image: linear-gradient(
+			to top right,
+			white 48%,
+			black,
+			white 52%
+		  );
+		}
+		.angle-table:nth-of-type(2) td {
+		  background-image: linear-gradient(
+			to top right,
+			papayawhip calc(50% - 1px),
+			black,
+			papayawhip calc(50% + 1px)
+		  );
+		}
+		.angle{
+			height:1px;
+			width:100px;
+			background:#000;
+			-ms-transform: rotate(7deg); /* IE 9 */
+			-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+			transform: rotate(7deg);
+		}
 </style>
 
 <body>
@@ -261,7 +325,7 @@ function create_header(){
 		<p><u>Hierarchy of Control</u></p>
 		<p>The control of hazards and reduction of risks can be accomplished by following the WSH Hierarchy of Control (see Figure 1). These control measures are not usually mutually exclusive. Generally, it may be more effective to use multiple control measures, for example, engineering controls work better with administrative controls like training and Safe Work Procedures.</p>
 		<div><u>Figure 1</u></div>
-		<table border="1" class="table bordertable aligncenter">
+		<table border="1" class="table bordertable text-center aligncenter">
 			<tbody><tr>
 				<td class="green">ELMINATION</td><td><strong>Most Effective</strong></td><td class="green">Change design to eliminate risky maintenance works</td>
 			</tr>
