@@ -383,6 +383,12 @@ alert(attrName);
       <div class="col-sm-12 form_pad">
                 <h3>Add a New Risk Assessment</h3>
                 <hr class="add_risk">
+				<div class="col-sm-12 form-row">
+                            <div class="col-sm-8">
+                              <label class="col-sm-4">Project Title:</label>
+                              <label class="col-sm-8"><input name="project_title" class="span4" type="text" id="inputSaving" placeholder="" required=""></label>
+                            </div>
+                </div>
                 <div class="col-sm-12 form-row">
                             <div class="col-sm-6">
                               <label class="col-sm-4">RA Leader:</label>
@@ -435,6 +441,35 @@ alert(attrName);
                               </label>
                             </div>
 
+                </div>
+				<div class="col-sm-12 form-row onlyfortemplate5" style="display: block;">
+                    <div class="col-sm-6">
+                              <label class="col-sm-4">Stage contract:</label>
+                              <label class="col-sm-8">
+                                <input name="stage_contract" class="span4" type="text" id="inputSaving" placeholder="">
+                              </label>
+                    </div>
+
+                    <div class="col-sm-6">
+                              <label class="col-sm-4">Site Contract:</label>
+                              <label class="col-sm-8">
+                                <input name="site_contract" class="span4" type="text" id="inputSaving" placeholder="">
+                              </label>
+                    </div>
+
+                    <div class="col-sm-6">
+                              <label class="col-sm-4">Package:</label>
+                              <label class="col-sm-8">
+                                <input name="riskpackage" class="span4" type="text" id="inputSaving" placeholder="">
+                              </label>
+                    </div>
+
+                    <div class="col-sm-6">
+                              <label class="col-sm-4">STAGE:</label>
+                              <label class="col-sm-8">
+                                <input name="riskstage" class="span4" type="text" id="inputSaving" placeholder="">
+                              </label>
+                    </div>
                 </div>
 				<div class="row">
 			        <div class="col-md-12 col-md-offset-1">
@@ -979,6 +1014,93 @@ $('.draft').click(function(e){
 
   
 });
+
+$(".template1options").hide();
+$(".template5options").hide();
+
+$(".actiondatebox").hide();
+$(".onlyfortemplate5").hide();
+
+    	$('.btn-radio:first').addClass('active')
+            .siblings('input').prop('checked',true)
+    		.siblings('.img-radio').css('opacity','1');
+
+
+$(function () {
+    $('.btn-radio').click(function(e) {
+        $('.btn-radio').not(this).removeClass('active')
+    		.siblings('input').prop('checked',false)
+            .siblings('.img-radio').css('opacity','0.5');
+    	$(this).addClass('active')
+            .siblings('input').prop('checked',true)
+    		.siblings('.img-radio').css('opacity','1'); 
+        var templatename = $(this).html();
+        // alert(templatename);
+        if( (templatename == "Penta Ocean") ||  (templatename == "SK E&amp;C")||  (templatename == "LTA") )
+        {
+            $(".template1options").hide();
+            $(".template2options").show();
+            $(".template5options").hide();
+            $(".actiondatebox").hide();
+            $(".onlyfortemplate5").hide();
+            $(".remarksboxx").show();
+            $(".reviewmembersbox").show();
+            $('.followuplabel').html("Follow up Period:");
+            // $(".subworkhead").hide();
+
+            if(templatename=="Penta Ocean")
+            {
+           
+              // $(".subworkhead").show();
+            }
+
+            if(templatename=="LTA")
+            {
+              $(".onlyfortemplate5").show();
+              $(".template2options").hide();
+              $(".template5options").show();
+              $(".reviewmembersbox").hide();
+              $('.followuplabel').html("Risk Exposure Period:");
+             
+            }
+            if(templatename=="SK E&amp;C")
+            {
+              $(".remarksboxx").hide();
+              $('.followuplabel').html("Follow Up Date:");
+              $('.severity2 option[value="1"]').text("(I) Catastrophic");
+              $('.severity2 option[value="2"]').text("(II) Critical");
+              $('.severity2 option[value="3"]').text("(III) Marginal");
+              $('.severity2 option[value="4"]').text("(IV) Negligible");
+
+              $('.severitysecond option[value="1"]').text("(I) Catastrophic");
+              $('.severitysecond option[value="2"]').text("(II) Critical");
+              $('.severitysecond option[value="3"]').text("(III) Marginal");
+              $('.severitysecond option[value="4"]').text("(IV) Negligible");
+              
+
+            }
+        }
+        else{
+            $(".template1options").show();
+            $(".template2options").hide();
+            $(".template5options").hide();
+
+            $(".actiondatebox").show();
+            $(".onlyfortemplate5").hide();
+            $(".remarksboxx").show();
+            // $(".subworkhead").show();
+
+            $(".reviewmembersbox").hide();   //hide for THI
+            $('.followuplabel').html("Follow up Period:");
+
+
+        }
+
+
+    });
+});
+
+
   //  $('#edit-submitted-first-name').prop('required', false);
 
 </script>
