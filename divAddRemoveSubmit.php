@@ -436,6 +436,37 @@ alert(attrName);
                             </div>
 
                 </div>
+				<div class="row">
+			        <div class="col-md-12 col-md-offset-1">
+			        		<div class="row">
+			        			<!-- <div class="col-xs-2">
+			        				<img src="http://placehold.it/160x100" class="img-responsive img-radio">
+			        				<button type="button" class="btn btn-primary btn-radio active">Template1</button>
+			        				<input type="checkbox" name="template" value="temp1" id="left-item" class="hidden" checked="checked">
+			        			</div> -->
+			        			<div class="col-xs-2">
+			        				<img src="images/template2logo.png" class="img-responsive img-radio" style="opacity: 1;">
+			        				<button type="button" class="btn btn-primary btn-radio active">Penta Ocean</button>
+			        				<input type="checkbox" name="template" value="temp2" id="middle-item" class="hidden">
+			        			</div>
+			        			<div class="col-xs-2">
+			        				<img src="images/template3logo.png" class="img-responsive img-radio">
+			        				<button type="button" class="btn btn-primary btn-radio">THI E&amp;C</button>
+			        				<input type="checkbox" name="template" value="temp3" id="right-item" class="hidden">
+			        			</div>
+			        			<div class="col-xs-2">
+			        				<img src="images/template4logo.png" class="img-responsive img-radio">
+			        				<button type="button" class="btn btn-primary btn-radio">SK E&amp;C</button>
+			        				<input type="checkbox" name="template" value="temp4" id="right-item" class="hidden">
+			        			</div>
+			        			<div class="col-xs-2">
+			        				<img src="images/template5logo.png" class="img-responsive img-radio">
+			        				<button type="button" class="btn btn-primary btn-radio">LTA</button>
+			        				<input type="checkbox" name="template" value="temp5" id="right-item" class="hidden">
+			        			</div>
+			        		</div>
+			        </div>
+			    </div>
                 <div class="col-sm-12"> <hr class="add_activity"></div>
                
               
