@@ -189,7 +189,7 @@ include_once 'config.php';
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
         
         $valueAllUser = mysqli_fetch_assoc($resultAlluser);
-function create_header(){
+function create_header($page_number){
 	?>
 	<div class="main-header" style="width:756pt; background: #fff; top: 0;">
 			<div style="left:-100pt">
@@ -207,7 +207,7 @@ function create_header(){
 						<td style="width: 140.8pt;">
 							<div><strong>WSH Form 02-2  </strong></div>
 							<div> Revision:  00</div>
-							<div> Sheet:  Page 1 of 17</div>
+							<div> Sheet:  Page <?php echo $page_number; ?> of 17</div>
 							<div> Dated:  06 May  2015</div>
 						</td>
 					</tr>
@@ -228,7 +228,7 @@ function create_header(){
        
 ?>
 	<div class="page">
-		<?php create_header(); ?>
+		<?php create_header(1); ?>
 		<div >
 			<table>
 				<tr>
@@ -249,7 +249,7 @@ function create_header(){
 		</div>
 	</div>
 	<div class="page">
-		<?php create_header(); ?>
+		<?php create_header(2); ?>
 		<h4>Risk Matrices</h4>
 		<div>1. Assessment of <strong>Severity (Consequence)</strong> - with the existing risk controls in consideration, each Risk Assessment Team (RAT) member is to rate the most likely severity outcome of the possible injury or ill-health identified: see <span class="under-line">Table 1</span> below.</div>
 		<div >
@@ -276,7 +276,7 @@ function create_header(){
 	</div>
 
 	<div class="page">
-		<?php create_header(); ?>
+		<?php create_header(3); ?>
 		<p>2. Assessment of <strong>Likelihood</strong> - with the existing risk controls in consideration, each Risk Assessment Team (RAT) member is to rate the likelihood hazard that may cause the possible injury or ill-health: see <u>Table 2</u> below.</p>
 		<h3>Table-2</h3>
 		<table class="table bordertable" border="1">
@@ -305,7 +305,7 @@ function create_header(){
 		</table>
 	</div>
 	<div class="page">
-		<?php create_header(); ?>
+		<?php create_header(4); ?>
 		<p>4. Action for <strong>Risk Index </strong> the following actions are to be implemented based on the current Risk Level, as shown in <u>Table 4</u> below.</p>
 		<h3>Table-4</h3>
 		<table class="table bordertable" border="1">
@@ -320,7 +320,7 @@ function create_header(){
 	</div>
 	
 	<div class="page">
-		<?php create_header(); ?>
+		<?php create_header(5); ?>
 		<h4>Risk Control</h4>
 		<p><u>Hierarchy of Control</u></p>
 		<p>The control of hazards and reduction of risks can be accomplished by following the WSH Hierarchy of Control (see Figure 1). These control measures are not usually mutually exclusive. Generally, it may be more effective to use multiple control measures, for example, engineering controls work better with administrative controls like training and Safe Work Procedures.</p>
