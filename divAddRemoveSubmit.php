@@ -539,6 +539,7 @@ alert(attrName);
       <div id="clonedInput1"  class=" col-sm-12 form_pad clonedInput repeatingSection tocopy">
 
               <div class="col-sm-7"><h3>Work Activity 2 </h3></div>
+			  <?php $name = "";?>
 
                    <button class="col-sm-2 btn btn-success addWorkActivity" id="add_new_work">+ Add a new work activity</button>
                  
