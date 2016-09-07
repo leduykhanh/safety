@@ -19,60 +19,9 @@ include_once 'config.php';
    
     <meta charset="utf-8">
     <title>Inventory of Work Activities</title>
-
+	<link rel="stylesheet" type="text/css" href="css/template.css">
       </head>
-      <style type="text/css">
-	  
-	  .printbreak {
-       page-break-before: always;
-       }
-	  
 
-    table, tr, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-     vertical-align: text-top;
-    
-    }
-   #risk_register tr td {
-    padding: 8px;
-    
-    }  
-table .heading
-{
- 
- 
-  text-align: left;
-  background-color: #868080;
-  color:white;
-  font-size: 24px;
-
-
-}
-
-.no_border tr td 
-
-{
-border-left: 0px;
-    border-right: 0px;
-}
-
-th
-{
-    border:1px solid black;
-}
-td p{
-    border: 1px solid;
-    border-left: 0px;
-    border-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: -2px;
-    margin-right: -2px;
-    border-bottom: none;
-    padding-left: 10px;
-}
-</style>
 
 <body>
     <div class="container">
@@ -97,10 +46,82 @@ td p{
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
         
         $valueAllUser = mysqli_fetch_assoc($resultAlluser);
-		
+function create_header($page_number){
+	?>
+	<div class="main-header" style="width:756pt; background: #fff; top: 0;">
+			<div class="right_side">
+				<table>
+					<tr>
+						<td style="width: 615.2pt;">
+							<div><img src="images/THI_Engineering_and_construction_pte ltd.png" width="100" /></div>
+							<div><strong>THI ENGINEERING AND CONSTRUCTION PTE LTD</strong></div>
+							<div><strong>AMBER SKY PROJECT</strong></div>
+						</td>
+						<td style="width: 140.8pt;">
+							<div><strong>WSH Form 02-2  </strong></div>
+							<div> Revision:  00</div>
+							<div> Sheet:  Page <?php echo $page_number; ?> of 17</div>
+							<div> Dated:  06 May  2015</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="text-center"><strong>Risk Assessment for <span class="under-line"> Installation of Steel Platform, Staircase and Catladder </span></strong></div>
+							<div class="text-center"><strong>Undertaken by <span class="under-line"> THI Engineering & Construction Pte Ltd  </span></strong></div>		
+
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	<?php
+	
+} 		
        
 ?>
-
+	<div class="page">
+		<?php create_header(1); ?>
+		<table class="table bordertable" width="100%">
+			<tbody><tr bgcolor="#e6e6e6">
+				<td><b>Revision</b></td>
+				<td><b>00</b></td>
+				<td rowspan="2"><b>Signature</b></td>
+				<td><b>01</b></td>
+				<td rowspan="2"><b>Signature</b></td>
+				<td><b>02</b></td>
+				<td rowspan="2"><b>Signature</b></td>
+			</tr>
+		
+			 <tr>
+				 <td><b>Date</b></td>
+				 <td>27-04-2019</td>
+				
+				 <td>15-Apr-16</td>
+				 
+				 <td></td>
+				
+			 </tr>
+			 <tr>
+				 <td><b>Originated by</b></td>
+				 <td>Azhar</td>
+				 <td></td>
+				 <td>Azhar</td>
+				 <td></td>
+				 <td></td>
+				 <td></td>
+			 </tr>
+			 <tr>
+				 <td><b>Approved by</b></td>
+				 <td>Robin(PM)</td>
+				 <td></td>
+				 <td>Robin (PM)</td>
+				 <td></td>
+				 <td></td>
+				 <td></td>
+			 </tr>
+			
+		</tbody></table>
+	</div>
    
 
  <div id="risk_register" style="width:100%;margin-top:40px"> 
