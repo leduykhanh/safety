@@ -40,7 +40,7 @@ body {
         <div class="col-sm-10">
 		
         <span class="logout">
-			Hi <strong> <i><?php echo $_SESSION["name"]; ?> </i><strong>
+			Hi <strong> <i><?php error_reporting(E_ALL); echo $_SESSION["name"]; ?> </i><strong>
 			<a href="logout.php"><button class="btn btn-danger"> Log Out</button></a>
         </span>
         </div>
