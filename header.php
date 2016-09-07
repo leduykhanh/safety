@@ -38,8 +38,10 @@ body {
         <div class="logo"><a href="index.php"><img src="images/risklogo.png"/></a></div>
         </div>
         <div class="col-sm-10">
+		
         <span class="logout">
-       	<a href="logout.php"><button class="btn btn-danger"> Log Out</button></a>
+			Hi <strong> <i><?php echo $_SESSION["name"]; ?> </i><strong>
+			<a href="logout.php"><button class="btn btn-danger"> Log Out</button></a>
         </span>
         </div>
         </div>
