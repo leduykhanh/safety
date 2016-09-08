@@ -10,8 +10,8 @@ if(!$_SESSION['adminid'])
   <style type="text/css">
     body { padding: 10px;}
     .clonedInput { padding: 10px; border-radius: 5px; background-color: #def;}
-    
-   
+
+
 
     .red
     {
@@ -31,18 +31,18 @@ if(!$_SESSION['adminid'])
       font-size: 17px;
       font-weight: bolder;
     }
-	
+
 	.ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all
 	{
 		width:327;
 	}
-  
+
   </style>
 <script type='text/javascript'>//<![CDATA[
 $(window).load(function(){
 // Add a new repeating section
 var attrs = ['for', 'id', 'value'];
-function resetAttributeNames(section) { 
+function resetAttributeNames(section) {
     var tags = section.find('input, label'), idx = section.index();
     tags.each(function() {
       var $this = $(this);
@@ -57,11 +57,11 @@ function resetAttributeNames(section) {
 
       })
 
-        
+
     })
 }
 
-function resetHazaradsAttributeNames(section) { 
+function resetHazaradsAttributeNames(section) {
     var tags = section.find('input, label'), idx = section.index();
     tags.each(function() {
       var $this = $(this);
@@ -70,7 +70,7 @@ function resetHazaradsAttributeNames(section) {
         if (attr_val) {
             $this.attr(attr, attr_val.replace(/_\d+$/, '_'+(idx + 1)));
 
-            
+
 
         }
       })
@@ -78,7 +78,7 @@ function resetHazaradsAttributeNames(section) {
 
     })
 }
-  
+
 $('.addMember').click(function(e){
         e.preventDefault();
         var MemberCount = $('#RA_MemberCount').val();
@@ -90,20 +90,20 @@ $('.addMember').click(function(e){
 
         var toRepeatingGroup = $('.repeatingMember').first();
         var lastRepeatingGroup = $('.repeatingMember').last();
-        var cloned = toRepeatingGroup.clone(true);  
+        var cloned = toRepeatingGroup.clone(true);
         cloned.insertAfter(lastRepeatingGroup);
-       
+
 
         resetAttributeNames(cloned);
-        
 
-        
+
+
         var newMemberCount = parseInt(MemberCount) +1;
         $('#RA_MemberCount').val(newMemberCount);
 
     });
 
-    
+
     $('.deleteMember').click(function(e){
         e.preventDefault();
         var current_fight = $(this).parent('div');
@@ -119,13 +119,13 @@ $('.addMember').click(function(e){
             $('#RA_MemberCount').val(newMemberCount);
             // reset fight indexes
             other_fights.each(function() {
-               resetAttributeNames($(this)); 
-            })  
-            
+               resetAttributeNames($(this));
+            })
+
         })
-       
-        
-            
+
+
+
     });
 
 
@@ -134,12 +134,12 @@ $('.addWorkActivity').click(function(e){
         e.preventDefault();
         var toRepeatingGroup = $('.tocopy').first();
         var lastRepeatingGroup = $('.repeatingSection').last();
-        var cloned = toRepeatingGroup.clone(true);  
+        var cloned = toRepeatingGroup.clone(true);
         cloned.insertAfter(lastRepeatingGroup);
-       
+
 
         resetAttributeNames(cloned);
-        
+
 
         var workactivityCount = $('#workactivityCount').val();
         var newworkactivityCount = parseInt(workactivityCount) +1;
@@ -147,21 +147,21 @@ $('.addWorkActivity').click(function(e){
 
     });
 
-   
+
 
 $('.addHazards').click(function(e){
         e.preventDefault();
-       
+
         var currentHazardCounts = $(this).parent().parent().find('#hazardsCount').val();
         var nextHzardsCounts = parseInt(currentHazardCounts) + 1;
         $(this).parent().parent().find('#hazardsCount').val(nextHzardsCounts);
-        
+
 
 
 
         var lastRepeatingGroup = $('.hazardSectionCopy').first();
-        var cloned = lastRepeatingGroup.clone(true)  
-       
+        var cloned = lastRepeatingGroup.clone(true)
+
 
         cloned.insertAfter($(this).parent('div'));
         resetHazaradsAttributeNames(cloned)
@@ -169,9 +169,9 @@ $('.addHazards').click(function(e){
 
 $('.addActionMember').click(function(e){
         e.preventDefault();
-       
+
         var currentHazardsActionOfficerCount = $(this).parent().parent().find('#hazardsActionOfficerCount').val();
-        
+
         if(currentHazardsActionOfficerCount >= 5)
         {
            alert("You can't add more than 5 Action Officers");
@@ -180,13 +180,13 @@ $('.addActionMember').click(function(e){
 
         var nextHazardsActionOfficerCount = parseInt(currentHazardsActionOfficerCount) + 1;
         $(this).parent().parent().find('#hazardsActionOfficerCount').val(nextHazardsActionOfficerCount);
-        
+
 
 
 
         var lastRepeatingGroup = $('.repeatingActionOfficer').last();
-        var cloned = lastRepeatingGroup.clone(true)  
-       
+        var cloned = lastRepeatingGroup.clone(true)
+
 
         cloned.insertAfter($(this).parent('div'));
         resetHazaradsAttributeNames(cloned)
@@ -205,19 +205,19 @@ $('.deleteActonOfficer').click(function(e){
              var nextHazardsActionOfficerCount = parseInt(currentHazardsActionOfficerCount) - 1;
             $(this).parent().parent().find('#hazardsActionOfficerCount').val(nextHazardsActionOfficerCount);
             current_fight.remove();
-           
-            
+
+
             // reset fight indexes
             other_fights.each(function() {
-               resetAttributeNames($(this)); 
-            })  
-            
+               resetAttributeNames($(this));
+            })
+
         })
-       
-        
-            
+
+
+
     });
-                    
+
 // Delete a repeating section
 $('.deleteWorkActivity').click(function(e){
         e.preventDefault();
@@ -229,22 +229,22 @@ $('.deleteWorkActivity').click(function(e){
         }
         current_fight.slideUp('slow', function() {
             current_fight.remove();
-            
+
             // reset fight indexes
             other_fights.each(function() {
-               resetAttributeNames($(this)); 
-            })  
-            
+               resetAttributeNames($(this));
+            })
+
         })
         var workactivityCount = $('#workactivityCount').val();
         var newworkactivityCount = parseInt(workactivityCount) -1;
         $('#workactivityCount').val(newworkactivityCount);
-        
-            
+
+
     });
 
 
- 
+
 
 
 
@@ -253,7 +253,7 @@ $('.deleteWorkActivity').click(function(e){
 // Delete a repeating section
 $('.deleteHazards').click(function(e){
         e.preventDefault();
-       
+
         var current_fight = $(this).parent('div');
         var other_fights = current_fight.siblings('.hazardSection');
         if (other_fights.length === 0) {
@@ -262,19 +262,19 @@ $('.deleteHazards').click(function(e){
         }
         current_fight.slideUp('slow', function() {
             current_fight.remove();
-            
+
             // reset fight indexes
             other_fights.each(function() {
-               resetAttributeNames($(this)); 
-            })  
-            
+               resetAttributeNames($(this));
+            })
+
         })
 
         var currentHazardCounts = $(this).parent().parent().find('#hazardsCount').val();
         var nextHzardsCounts = parseInt(currentHazardCounts) - 1;
         $(this).parent().parent().find('#hazardsCount').val(nextHzardsCounts);
-        
-            
+
+
     });
 
 
@@ -282,13 +282,13 @@ $('.deleteHazards').click(function(e){
 
 $(".date").datepicker();
 
-//likelihood chnage 
-$('.likelihood').on('change', function() 
+//likelihood chnage
+$('.likelihood').on('change', function()
 {
   var likelihood = parseInt(this.value);
       var severity  =  parseInt($(this).parent().siblings().find('.severity').val());
       var riskValue = likelihood * severity;
-      
+
 
      if(riskValue > 0 && riskValue < 4)
      {
@@ -309,7 +309,7 @@ $('.likelihood').on('change', function()
      }
 
  //alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
- 
+
 
 
  $(this).parent().parent().siblings().find('.riskLevel').empty().append(htmlRisk);
@@ -318,13 +318,13 @@ $('.likelihood').on('change', function()
 });
 
 
-$('.severity').on('change', function() 
+$('.severity').on('change', function()
 {
 	   // or $(this).val()
 	  var severity = parseInt(this.value);
 	  var likelihood  =  parseInt($(this).parent().siblings().find('.likelihood').val());
 	  var riskValue = likelihood * severity;
-     
+
 
 	 if(riskValue > 0 && riskValue < 4)
 	 {
@@ -346,7 +346,7 @@ $('.severity').on('change', function()
 
 
  //alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
- 
+
 
 
  $(this).parent().parent().siblings().find('.riskLevel').empty().append(htmlRisk);
@@ -365,7 +365,7 @@ alert(attrName);
 });*/
 
 
-});//]]> 
+});//]]>
 
 </script>
 
@@ -375,7 +375,7 @@ alert(attrName);
 
 <form method="post" action="riskmange.php" class="inlineForm" enctype="multipart/form-data">
 
-            
+
   <input type="hidden" name="RA_MemberCount" id="RA_MemberCount" value="1" />
    <input type="hidden" name="workactivityCount" id="workactivityCount" value="1" />
 
@@ -408,9 +408,9 @@ alert(attrName);
                             <label class="col-sm-4">Reference No:</label>
                             <label class="col-sm-8">0000 (Ref. No. will be auto generated when saved.)</label>
 
-                          </div>                                           
+                          </div>
                 </div>
-                        
+
 
                 <div class="col-sm-12 form-row">
                           <div class="col-sm-6">
@@ -425,11 +425,11 @@ alert(attrName);
                             <label class="col-sm-4">Creation Date:</label>
                             <label class="col-sm-8">
                                <input name="creationDate" class="span4 date" type="text" id="creationDate" placeholder="" required></label>
-                              
+
 
                             </label>
 
-                          </div>                                           
+                          </div>
                 </div>
 
 
@@ -482,37 +482,37 @@ alert(attrName);
 			        			<div class="col-xs-2">
 			        				<img src="images/template2logo.png" class="img-responsive img-radio" style="opacity: 1;">
 			        				<button type="button" class="btn btn-primary btn-radio active">Penta Ocean</button>
-			        				<input type="checkbox" name="template" value="temp2" id="middle-item" class="hidden">
+			        				<input type="checkbox" name="template" value="1" id="middle-item" class="hidden">
 			        			</div>
 			        			<div class="col-xs-2">
 			        				<img src="images/template3logo.png" class="img-responsive img-radio">
 			        				<button type="button" class="btn btn-primary btn-radio">THI E&amp;C</button>
-			        				<input type="checkbox" name="template" value="temp3" id="right-item" class="hidden">
+			        				<input type="checkbox" name="template" value="2" id="right-item" class="hidden">
 			        			</div>
 			        			<div class="col-xs-2">
 			        				<img src="images/template4logo.png" class="img-responsive img-radio">
 			        				<button type="button" class="btn btn-primary btn-radio">SK E&amp;C</button>
-			        				<input type="checkbox" name="template" value="temp4" id="right-item" class="hidden">
+			        				<input type="checkbox" name="template" value="3" id="right-item" class="hidden">
 			        			</div>
 			        			<div class="col-xs-2">
 			        				<img src="images/template5logo.png" class="img-responsive img-radio">
 			        				<button type="button" class="btn btn-primary btn-radio">LTA</button>
-			        				<input type="checkbox" name="template" value="temp5" id="right-item" class="hidden">
+			        				<input type="checkbox" name="template" value="4" id="right-item" class="hidden">
 			        			</div>
 			        		</div>
 			        </div>
 			    </div>
                 <div class="col-sm-12"> <hr class="add_activity"></div>
-               
-              
-               <div class="col-sm-12 form-row"> 
-        
+
+
+               <div class="col-sm-12 form-row">
+
                   <button class="col-sm-2 btn btn-primary addMember" id="add_new_member">
                     +Add RA Member</button>
 
                </div>
-               
-                <div class="clear-fix"></div> 
+
+                <div class="clear-fix"></div>
 
 
 
@@ -525,12 +525,12 @@ alert(attrName);
                         </label>
                     </div>
                     <button class="col-sm-1 btn btn-danger deleteMember">Remove</button>
-                           
-              </div>  
-      
-      
-           
-     
+
+              </div>
+
+
+
+
 
 
 <div class="col-sm-12"> <hr class="add_risk"></div>
@@ -542,15 +542,15 @@ alert(attrName);
 			  <?php $name = "";?>
 
                    <button class="col-sm-2 btn btn-success addWorkActivity" id="add_new_work">+ Add a new work activity</button>
-                 
+
                    <input type="hidden" name="workactivity_a_id_1" id="workactivity_a_id_1" value="1" />
                    <input type="hidden" name="hazardsCount[]" id="hazardsCount" value="1" />
 
-                  
-                  
+
+
 
                   <button class="col-sm-2 btn btn-danger  deleteWorkActivity " style="margin-left:5px;">Remove work action</button>
-                         
+
 
                     <div class="col-sm-12">
                         <hr class="add_risk" />
@@ -564,29 +564,29 @@ alert(attrName);
                     </div>
 
                   <div class="col-sm-12 hazardSection hazardSectionCopy">
-                    
 
-                 
+
+
                         <div class="col-sm-6 form-row">
-                          <div class="form-row">  
+                          <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
                             <input class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required>
-                          </div>    
-                          <div class="form-row"> 
+                          </div>
+                          <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
                             <input class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required>
-                          </div>  
-                          <div class="form-row">   
+                          </div>
+                          <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
                         <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder="" ><?php echo $name;?></textarea>
-                        
-                          
-                          
+
+
+
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Severity:</label>
-                            
+
                             <select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity[]">
                               <option value="-">Select severity</option>
                               <option value="5">(5) Catastrophic</option>
@@ -595,11 +595,11 @@ alert(attrName);
                               <option value="2">(2) Minor</option>
                               <option value="1">(1) Negligible</option>
                             </select>
-                            
+
 
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Likelihood:</label>
                             <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood[]">
                               <option value="-">Select likelihood</option>
@@ -611,11 +611,11 @@ alert(attrName);
                             </select>
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
-                               <?php for ($i=1; $i < 32; $i++) 
-                              { 
+                               <?php for ($i=1; $i < 32; $i++)
+                              {
                                 # code...
                                 ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -625,8 +625,8 @@ alert(attrName);
                             </select>
 
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionMonth[]">
-                              <?php for ($i=1; $i < 13; $i++) 
-                              { 
+                              <?php for ($i=1; $i < 13; $i++)
+                              {
                                 # code...
                                 ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -636,8 +636,8 @@ alert(attrName);
                             </select>
 
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionYear[]">
-                              <?php for ($i=2016; $i < 2025; $i++) 
-                              { 
+                              <?php for ($i=2016; $i < 2025; $i++)
+                              {
                                 # code...
                                 ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -650,17 +650,17 @@ alert(attrName);
                           </div>
 
                         </div>
-                       
+
 
 
 
 
 
                         <div class="col-sm-6 form-row">
-                            
-                          
 
-                          <div class="form-row"> 
+
+
+                          <div class="form-row">
                             <label class="col-sm-4">Risk Level:</label>
                             <select class="col-sm-8 riskLevel" name="riskLevel">
 							  <option value="Low">Low</option>
@@ -671,18 +671,18 @@ alert(attrName);
 
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Additional Risk Control:</label>
-                            
+
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
-                           
+
 
                           </div>
                           <div class="clearfix"></div>
-                          
-                          <div class="form-row"> 
+
+                          <div class="form-row">
                             <label class="col-sm-6">Severity:</label>
-                            
+
                             <select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severitySecond[]">
                             <option value="-">Select severity</option>
                                <option value="5">(5) Catastrophic</option>
@@ -691,11 +691,11 @@ alert(attrName);
                               <option value="2">(2) Minor</option>
                               <option value="1">(1) Negligible</option>
                             </select>
-                            
+
 
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Likelihood:</label>
                             <select class="likelihood col-sm-6 btn btn-default  " id="inputSaving" name="likelihoodSecond[]">
                               <option value="-">Select likelihood</option>
@@ -709,36 +709,36 @@ alert(attrName);
 
 
 
-                          
 
-                          
+
+
 
                         </div>
                        <div class="clearfix"></div>
 
 
-                       <hr class="add_activity"/>  
-                       
-                      
+                       <hr class="add_activity"/>
 
-                       <div class="col-sm-12 form-row"> 
-                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="1" /> 
-                                <div class="row col-sm-12 form-row">  
-                                
+
+
+                       <div class="col-sm-12 form-row">
+                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="1" />
+                                <div class="row col-sm-12 form-row">
+
                                     <button class="col-sm-2 btn btn-primary addActionMember" id="add_new_member">+Action Officer</button>
                                 </div>
                                 <div id="clonedInput1" class="row repeatingActionOfficer">
 
                                     <div class="col-sm-6">
-                                       
+
                                         <label class="col-sm-6">Action Officer:</label>
-                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">                                
+                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
-                                </div>  
+                                </div>
                             </div>
 
-                      
+
                       <div class="clearfix"></div>
                       <hr class="add_activity"/>
 
@@ -750,10 +750,10 @@ alert(attrName);
                        <button class="col-sm-2 btn btn-success addHazards" id="add_new_work">+ Add hazards</button>
                        <button class="col-sm-2 btn btn-danger pull-right deleteHazards">Remove Hazards</button>
                       <div class="clearfix"></div>
-                        <hr class="add_activity"/>         
+                        <hr class="add_activity"/>
                   </div>
           </div>
-     
+
 </div>
 
           <div id="clonedInput1" class=" col-sm-12 form_pad clonedInput repeatingSection">
@@ -761,15 +761,15 @@ alert(attrName);
               <div class="col-sm-7"><h3>Work Activity 1</h3></div>
 
                    <button class="col-sm-2 btn btn-success addWorkActivity" id="add_new_work">+ Add a new work activity</button>
-                 
+
                    <input type="hidden" name="workactivity_a_id_1" id="workactivity_a_id_1" value="" />
                    <input type="hidden" name="hazardsCount[]" id="hazardsCount" value="1" />
 
-                 
+
 
 
                   <button class="col-sm-2 btn btn-danger deleteWorkActivity" style="margin-left: 5px;">Remove work activity</button>
-                         
+
 
                     <div class="col-sm-12">
                         <hr class="add_risk" />
@@ -783,26 +783,26 @@ alert(attrName);
                     </div>
 
                   <div class="col-sm-12 hazardSection">
-                    
 
-                 
+
+
                         <div class="col-sm-6 form-row">
-                          <div class="form-row">  
+                          <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
                             <input class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required>
-                          </div>    
-                          <div class="form-row"> 
+                          </div>
+                          <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
                             <input class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required>
-                          </div>  
-                          <div class="form-row">   
+                          </div>
+                          <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""><?php echo $name;?></textarea>
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Severity:</label>
-                            
+
                             <select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity[]">
                               <option value="-">Select severity</option>
                               <option value="5">(5) Catastrophic</option>
@@ -811,11 +811,11 @@ alert(attrName);
                               <option value="2">(2) Minor</option>
                               <option value="1">(1) Negligible</option>
                             </select>
-                            
+
 
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Likelihood:</label>
                             <select class="likelihood col-sm-6 btn btn-default  " id="inputSaving" name="likelihood[]">
                               <option value="-">Select likelihood</option>
@@ -827,11 +827,11 @@ alert(attrName);
                             </select>
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
-                               <?php for ($i=1; $i < 32; $i++) 
-                              { 
+                               <?php for ($i=1; $i < 32; $i++)
+                              {
                                 # code...
                                 ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -841,8 +841,8 @@ alert(attrName);
                             </select>
 
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionMonth[]">
-                              <?php for ($i=1; $i < 13; $i++) 
-                              { 
+                              <?php for ($i=1; $i < 13; $i++)
+                              {
                                 # code...
                                 ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -852,8 +852,8 @@ alert(attrName);
                             </select>
 
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionYear[]">
-                              <?php for ($i=2016; $i < 2025; $i++) 
-                              { 
+                              <?php for ($i=2016; $i < 2025; $i++)
+                              {
                                 # code...
                                 ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -866,17 +866,17 @@ alert(attrName);
                           </div>
 
                         </div>
-                       
+
 
 
 
 
 
                         <div class="col-sm-6 form-row">
-                            
-                          
 
-                          <div class="form-row"> 
+
+
+                          <div class="form-row">
                             <label class="col-sm-6">Risk Level:</label>
                             <select class="col-sm-6 riskLevel" name="riskLevel" id="riskLevel">
 							  <option value="Low">Low</option>
@@ -886,18 +886,18 @@ alert(attrName);
 							</select>
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Additional Risk Control:</label>
-                            
+
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
-                           
+
 
                           </div>
                           <div class="clearfix"></div>
-                          
-                          <div class="form-row"> 
+
+                          <div class="form-row">
                             <label class="col-sm-6">Severity:</label>
-                            
+
                             <select class="severity col-sm-6 btn btn-default " id="inputSaving" name="severitySecond[]">
                               <option value="-">Select severity</option>
                               <option value="5">(5) Catastrophic</option>
@@ -906,11 +906,11 @@ alert(attrName);
                               <option value="2">(2) Minor</option>
                               <option value="1">(1) Negligible</option>
                             </select>
-                            
+
 
                           </div>
 
-                          <div class="form-row"> 
+                          <div class="form-row">
                             <label class="col-sm-6">Likelihood:</label>
                             <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihoodSecond[]">
                               <option value="-">Select likelihood</option>
@@ -924,38 +924,38 @@ alert(attrName);
 
 
 
-                          
 
-                          
+
+
 
                         </div>
                        <div class="clearfix"></div>
 
 
-                       <hr class="add_activity"/>  
-                       
+                       <hr class="add_activity"/>
 
-                            <div class="col-sm-12 form-row"> 
-                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="1" /> 
-                                <div class="row col-sm-12 form-row">  
-                                
+
+                            <div class="col-sm-12 form-row">
+                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="1" />
+                                <div class="row col-sm-12 form-row">
+
                                     <button class="col-sm-2 btn btn-primary addActionMember" id="add_new_member">+Action Officer</button>
                                 </div>
                                 <div id="clonedInput1" class="row repeatingActionOfficer">
 
                                     <div class="col-sm-6">
-                                       
+
                                         <label class="col-sm-6">Action Officer:</label>
-                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">                                
+                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
-                                </div>  
+                                </div>
                             </div>
 
-      
-                      
 
-                      
+
+
+
                       <div class="clearfix"></div>
                       <hr class="add_activity"/>
 
@@ -964,7 +964,7 @@ alert(attrName);
                        <button class="col-sm-2 btn btn-success addHazards" id="add_new_work">+ Add hazards</button>
                        <button class="col-sm-2 btn btn-danger pull-right deleteHazards">Remove Hazards</button>
                       <div class="clearfix"></div>
-                        <hr class="add_activity"/>         
+                        <hr class="add_activity"/>
                   </div>
           </div>
 
@@ -978,15 +978,15 @@ alert(attrName);
                 </div>
             </div>
 
-                                   
+
 
             <div class="row form-below">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
                     <div class=" col-sm-8 btn-right">
-                       
-                        
-                           
+
+
+
                         <input class="btn btn-success draft" type="submit" value="Save as Draft" name="saveAsDraft"  >
 
                          <input class="btn btn-success draft" type="submit" value="Next" name="saveAsDraft" style="padding-left:30px; padding-right:30px;"  >
@@ -998,7 +998,7 @@ alert(attrName);
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
 
@@ -1017,13 +1017,13 @@ alert(attrName);
 
 
 
-  
+
 <script type="text/javascript">
-    
+
 $('.draft').click(function(e){
   $("#toCopyDiv input").prop('required', false);
 
-  
+
 });
 
 $(".template1options").hide();
@@ -1044,7 +1044,7 @@ $(function () {
             .siblings('.img-radio').css('opacity','0.5');
     	$(this).addClass('active')
             .siblings('input').prop('checked',true)
-    		.siblings('.img-radio').css('opacity','1'); 
+    		.siblings('.img-radio').css('opacity','1');
         var templatename = $(this).html();
         // alert(templatename);
         if( (templatename == "Penta Ocean") ||  (templatename == "SK E&amp;C")||  (templatename == "LTA") )
@@ -1061,7 +1061,7 @@ $(function () {
 
             if(templatename=="Penta Ocean")
             {
-           
+
               // $(".subworkhead").show();
             }
 
@@ -1072,7 +1072,7 @@ $(function () {
               $(".template5options").show();
               $(".reviewmembersbox").hide();
               $('.followuplabel').html("Risk Exposure Period:");
-             
+
             }
             if(templatename=="SK E&amp;C")
             {
@@ -1087,7 +1087,7 @@ $(function () {
               $('.severitysecond option[value="2"]').text("(II) Critical");
               $('.severitysecond option[value="3"]').text("(III) Marginal");
               $('.severitysecond option[value="4"]').text("(IV) Negligible");
-              
+
 
             }
         }
@@ -1116,4 +1116,3 @@ $(function () {
 
 </script>
  <?php include_once 'footer.php';?>
- 
