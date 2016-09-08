@@ -111,7 +111,8 @@ define('NON_ACTIVE', 0);
               $actonDateNow = date_format($actonDateToInsert, 'Y-m-d H:i:s'); // 2011-03-03 00:00:00
 
 
-            $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`) VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity'][$k]."', '".$_POST['severitySecond'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood'][$k]."', '".$_POST['likelihoodSecond'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', '".$_POST['riskLevel'][$k]."', '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
+            $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`) \
+            VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity'][$k]."', '".$_POST['severitySecond'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood'][$k]."', '".$_POST['likelihoodSecond'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', '".$_POST['riskLevel'][$k]."', '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
 
 
 
@@ -155,7 +156,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-    echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+    // echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {

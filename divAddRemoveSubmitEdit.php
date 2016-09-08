@@ -445,7 +445,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                           <div class="row">
                             <label class="col-sm-6">Risk Level:</label>
-                            <label class="col-sm-6 riskLevel"><?php echo $htmlRisk; ?></label>
+                            <input class="col-sm-6 riskLevel"><?php echo $htmlRisk; ?></input>
                           </div>
 
                           <div class="row">
