@@ -206,7 +206,7 @@ function create_header($page_number,$risk){
 						<td style="width: 140.8pt;">
 							<div><strong>WSH Form 02-2  </strong></div>
 							<div> Revision:  00</div>
-							<div> Sheet:  Page <?php echo $page_number; ?> of 17</div>
+							<div> Sheet:  Page <?php echo $page_number; ?> of 5</div>
 							<div> Dated:  06 May  2015</div>
 						</td>
 					</tr>
@@ -232,14 +232,11 @@ function create_header($page_number,$risk){
 			<table>
 				<tr>
 					<td class="text-center" style="width:756pt;font-size:22px;padding: 100pt 100pt 50pt 100pt;height: 400pt; margin-top:30pt;">
-						<strong>
+						<strong style="text-transform: uppercase;">
 						RISK ASSESSMENT FOR THE
 
 
-						INSTALLATION OF STEEL PLATFORM,
-
-
-						STAIRCASE & CATLADDER
+						<?php echo $risk["process"];?>
 						</strong>
 					</td>
 				</tr>
@@ -765,6 +762,8 @@ function create_header($page_number,$risk){
                  ?>
 
             </table>
+            <br />
+            <br />
             <div class="table-left">
             			<table class="table bordertable" border="1">
             			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RAT Leader <p>James</p></th><th rowspan="0">Approved By: <br>Contractor Senior Management <p>APPROVED MNGR field HERE</p></th></tr>
@@ -783,16 +782,18 @@ function create_header($page_number,$risk){
         					</tbody>
         			</table>
         		</div>
-            <table class="table bordertable" border="1">
-            	<thead>
-            		<tr class="table-firstrow"><th>Status*</th><th>*Delete where appropriate</th></tr>
-            	</thead>
-            	<tbody>
-             		<tr><td>Acp</td><td>Accepted</td></tr>
-             		<tr><td>Acp w/c</td><td>Accepted with comments</td></tr>
-             		<tr><td>Not Acp</td><td>Not Accepted</td></tr>
-            	</tbody>
-            </table>
+            <div style="width:50%">
+              <table class="table bordertable" border="1">
+              	<thead>
+              		<tr class="table-firstrow"><th>Status*</th><th>*Delete where appropriate</th></tr>
+              	</thead>
+              	<tbody>
+               		<tr><td>Acp</td><td>Accepted</td></tr>
+               		<tr><td>Acp w/c</td><td>Accepted with comments</td></tr>
+               		<tr><td>Not Acp</td><td>Not Accepted</td></tr>
+              	</tbody>
+              </table>
+            </div>
     </div>
 <br>
 <strong>Notes:</strong>
