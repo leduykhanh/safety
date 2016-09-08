@@ -70,7 +70,7 @@ define('NON_ACTIVE', 0);
   {
 
      $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`,`project_title`)
-     VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].",".$_POST['project_title'].");";
+     VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].",'".$_POST['project_title']."');";
 		// echo $riskassessment;
       $insert_riskassessment=mysqli_query($con, $riskassessment);
       // echo $insert_riskassessment;
@@ -112,7 +112,7 @@ define('NON_ACTIVE', 0);
 
 
             $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`) \
-            VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity'][$k]."', '".$_POST['severitySecond'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood'][$k]."', '".$_POST['likelihoodSecond'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', '".$_POST['riskLevel'][$k]."', '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
+            VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity'][$k]."', '".$_POST['severitySecond'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood'][$k]."', '".$_POST['likelihoodSecond'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', 0, '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
 
 
 
@@ -156,7 +156,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-    // echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+   echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {

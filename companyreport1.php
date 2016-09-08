@@ -347,7 +347,8 @@ function create_header($page_number,$risk){
 			</tr>
 		</tbody></table>
 	</div>
- <div id="risk_register" style="width:756pt;margin-top:40px">
+  <div class="page">
+    <?php create_header(5,$risk); ?>
     <h1>Inventory of Work Activities</h1>
     <table id="risk_register_2" style="width:756pt;">
         <tr >
@@ -431,9 +432,8 @@ function create_header($page_number,$risk){
             The contents of the Work Activity column in the Inventory of Work Activities Form is to be copied over to the Work Activity column in the Risk Assessment Form
         </li>
     </ol>
- </div>
-
-<div id="risk_register" style="width:756pt;" class="printbreak">
+    <br />
+    <br />
      <h1>Risk Assessment Form </h1>
 
         <?php
@@ -765,197 +765,37 @@ function create_header($page_number,$risk){
                  ?>
 
             </table>
+            <div class="table-left">
+            			<table class="table bordertable" border="1">
+            			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RAT Leader <p>James</p></th><th rowspan="0">Approved By: <br>Contractor Senior Management <p>APPROVED MNGR field HERE</p></th></tr>
+            			<tr class="table-firstrow"><th>Designation:  WSHC</th><th>Designation:  Senior P. Manager</th></tr>
+             <tr><td>Signature: <img width="80" src="staff/james.png"> <br> Date: DATE OF APPROVAL</td><td>Signature: APPROVED MNGR SIGNATURE HERE <br> Date: DATE OF APPROVAL</td></tr>
+             </tbody>
+            			</table>
+            </div>
+            <div class="table-right">
+        			<table class="table bordertable" border="1">
+        				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: DATE OF APPROVAL</p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
+        				<tr class="table-firstrow"><th>Name</th><th>Designation: </th><!--<th>Signature</th>--></tr>
+        					</tbody><tbody>
 
+
+        					</tbody>
+        			</table>
+        		</div>
+            <table class="table bordertable" border="1">
+            	<thead>
+            		<tr class="table-firstrow"><th>Status*</th><th>*Delete where appropriate</th></tr>
+            	</thead>
+            	<tbody>
+             		<tr><td>Acp</td><td>Accepted</td></tr>
+             		<tr><td>Acp w/c</td><td>Accepted with comments</td></tr>
+             		<tr><td>Not Acp</td><td>Not Accepted</td></tr>
+            	</tbody>
+            </table>
     </div>
 <br>
 <strong>Notes:</strong>
- <div id="risk_register" style="width:60%;margin-top:40px" class="printbreak">
- <h1>Risk Matrix </h1>
-<table id="risk_register_2" style="width:756pt;">
-                <tr >
-                    <td>Likelihood<br> Severity</td>
-                    <td>Rare <br>(1)</td>
-                    <td>Remote <br>(2)</td>
-                    <td>Occasional<br>(3)</td>
-                    <td>Frequent<br> (4) </td>
-                     <td>Almost<br>  Certain(5) </td>
-
-
-                </tr>
-                 <tr >
-                    <td>Catastrophic (5)</td>
-                    <td>5</td>
-                    <td>10</td>
-                    <td>15</td>
-                    <td>20</td>
-                     <td>25</td>
-
-
-                </tr>
-                 <tr>
-                    <td>Major (4)</td>
-                    <td>4</td>
-                    <td>8</td>
-                    <td>12</td>
-                    <td>16</td>
-                     <td>20</td>
-                </tr>
-
-                 <tr>
-                    <td>Moderate (3)</td>
-                    <td>4</td>
-                    <td>8</td>
-                    <td>12</td>
-                    <td>16</td>
-                     <td>20</td>
-                </tr>
-                 <tr>
-                    <td>Minor (2)</td>
-                    <td>3</td>
-                    <td>6</td>
-                    <td>9</td>
-                    <td>12</td>
-                     <td>15</td>
-                </tr>
-                 <tr>
-                    <td>Negligible (1)</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>6</td>
-                    <td>8</td>
-                     <td>10</td>
-                </tr>
-                </table>
-</div>
-
- <div id="risk_register" style="width:80%;margin-top:40px">
-<table id="risk_register_2" style="width:756pt;">
-                <tr >
-                    <td>Level</td>
-                    <td>Severity</td>
-                    <td>Description</td>
-
-
-
-                </tr>
-                 <tr >
-                    <td>5</td>
-                    <td>Catastrophic</td>
-                    <td>Fatality, fatal diseases or multiple major injuries</td>
-
-
-
-                </tr>
-                 <tr>
-                    <td>4</td>
-                    <td>Major</td>
-                    <td>Serious injuries or life-threatening occupational disease (include amputations, major fractures, multiple injuries, occupational cancer, acute poisoning)</td>
-
-                </tr>
-
-                 <tr>
-                    <td>3</td>
-                    <td>Moderate </td>
-                    <td>Injury requiring medical treatment or ill-health leading to disability (includes lacerations, burns, sprains, minor fractures, dermatitis, deafness, work-related upper limb disorders)</td>
-
-                </tr>
-                 <tr>
-                    <td>2</td>
-                    <td>Minor</td>
-                    <td>Injury or ill-health requiring first-aid only ( includes minor cuts and bruises, irritation, ill-health with temporary discomfort).</td>
-
-                </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>Negligible</td>
-                    <td>Not likely to cause injury or ill-health</td>
-
-                </tr>
-                </table>
-</div>
-
-
- <div id="risk_register" style="width:80%;margin-top:40px">
- <table id="risk_register_2" style="width:756pt;">
-                <tr >
-                    <td>Level</td>
-                    <td>Likelihood</td>
-                    <td>Description</td>
-
-
-
-                </tr>
-                 <tr >
-                    <td>1</td>
-                    <td>Rare</td>
-                    <td>Not expected to occur but still possible</td>
-
-
-
-                </tr>
-                 <tr>
-                    <td>2</td>
-                    <td>Remote</td>
-                    <td>Not likely to occur under normal circumstances</td>
-
-                </tr>
-
-                 <tr>
-                    <td>3</td>
-                    <td>Occasional</td>
-                    <td>Possible or known to occur</td>
-
-                </tr>
-                 <tr>
-                    <td>4</td>
-                    <td>Frequent</td>
-                    <td>Common occurrence</td>
-
-                </tr>
-                 <tr>
-                    <td>5</td>
-                    <td>Almost Certain</td>
-                    <td>Continual or repeating experience</td>
-
-                </tr>
-                </table>
-</div>
-
-<div id="risk_register" style="width:80%;margin-top:40px" class="printbreak">
-
-<h1>Risk Evaluation</h1>
- <table id="risk_register_2" style="width:756pt;">
-                <tr >
-                    <td>Risk Level</td>
-                    <td>Risk Acceptability</td>
-                    <td style="text-align:center">Recommended Actions</td>
-
-
-
-                </tr>
-                 <tr >
-                    <td>Low Risk</td>
-                    <td>Acceptable</td>
-                    <td><ul><li>No additional risk control measures may be needed</li><li>Frequent review and monitoring of hazards are required to ensure that the risk level assigned is accurate and does not increase  over time</li></ul></td>
-
-
-
-                </tr>
-                 <tr>
-                    <td>Medium Risk</td>
-                    <td>Tolerable</td>
-                    <td><ul><li>A careful evaluation of the hazards should be carried out to ensure that the risk level is reduced to as low as reasonably practicable (ALARP) within a defined time period.</li><li>Interim risk control measures, such as administrative controls or PPE, may be implemented while longer term measures are being established.</li><li>Management attention is required.</li></ul></td>
-
-                </tr>
-
-                 <tr>
-                    <td>High Risk</td>
-                    <td>Not acceptable</td>
-                    <td><ul><li>High Risk level must be reduced to at least Medium Risk before work commences.</li><li>There should not be any interim risk control measures. Risk control measures should not be overly dependent on PPE or appliances</li><li>If applicable, the hazard should be eliminated before work commences.</li><li>Management review is required before work commences.</li></ul></td>
-
-
-                </table>
-         </div>
        <div style="margin: 0 auto; width: 656px; text-align: center;"><button onClick="window.print()">Save as PDF</button></div>
  </div>
 <script src="js1/jquery.js"></script>
