@@ -877,8 +877,8 @@ alert(attrName);
                           
 
                           <div class="form-row"> 
-                            <label class="col-sm-4">Risk Level:</label>
-                            <select class="col-sm-4 riskLevel" name="riskLevel">
+                            <label class="col-sm-6">Risk Level:</label>
+                            <select class="col-sm-6 riskLevel" name="riskLevel" id="riskLevel">
 							  <option value="Low">Low</option>
                               <option value="Medium">Medium</option>
                               <option value="High">High</option>
