@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once 'config.php';
  //print_r($_SESSION);
@@ -8,40 +8,40 @@ include_once 'config.php';
  	<script type="text/javascript">window.location.assign('index.php');</script>
  <?php
  }
- 
+
 ?>
 <!DOCTYPE html>
 
 <html>
 <head>
- 
-    
-   
+
+
+
     <meta charset="utf-8">
     <title>Inventory of Work Activities</title>
 
       </head>
       <style type="text/css">
-	  
+
 	  .printbreak {
        page-break-before: always;
        }
-	  
+
 
     table, tr, td {
     border: 1px solid black;
     border-collapse: collapse;
      vertical-align: text-top;
-    
+
     }
    #risk_register tr td {
     padding: 8px;
-    
-    }  
+
+    }
 table .heading
 {
- 
- 
+
+
   text-align: left;
   background-color: #868080;
   color:white;
@@ -50,7 +50,7 @@ table .heading
 
 }
 
-.no_border tr td 
+.no_border tr td
 
 {
 border-left: 0px;
@@ -76,15 +76,27 @@ td p{
 
 <body>
 
-	
-	<!-- <div class="main-header" >
-			<div class="left_side">
-				<img src="images/LTA_logo.jpg" width="400" style="margin:20px;display:inline;float:left"/>
-				
-			</div>
-		
-	</div>
- -->
+
+  <?php
+   // risk assessment details
+          $sqlRisk = "SELECT * FROM riskassessment where id = $_GET[riskid]";
+          $resultlRisk = mysqli_query($con, $sqlRisk);
+          $riskRowCount= mysqli_num_rows($resultlRisk);
+          $risk = mysqli_fetch_assoc($resultlRisk);
+
+          $getAllWorkSql = "SELECT * FROM `workactivity` WHERE `riskId` = ".$_GET['riskid']." ORDER BY  `work_id` ASC ";
+          $resultAllWork=mysqli_query($con, $getAllWorkSql);
+          $totalWorkActivity = mysqli_num_rows($resultAllWork);
+
+          $valueAllWork = mysqli_fetch_assoc($resultAllWork);
+
+  		//get user details
+  		    $getAllUserSql = "SELECT * FROM `staff_login` WHERE `id` = ".$risk['createdBy']."";
+          $resultAlluser=mysqli_query($con, $getAllUserSql);
+         // $totalWorkActivity = mysqli_num_rows($resultAlluser);
+
+          $valueAllUser = mysqli_fetch_assoc($resultAlluser);
+          ?>
 
 
 
@@ -97,7 +109,7 @@ td p{
 		<tbody>
 		<tr>
 			<td>Project Name:</td>
-			<td></td>
+			<td><?php echo $risk["project_title"];?></td>
 			<td>Min. Easting</td>
 			<td>&nbsp;</td>
 			<td>Min. Northing</td>
@@ -105,7 +117,7 @@ td p{
 		</tr>
 		<tr>
 			<td>Date Created</td>
-			<td>27-04-2019	</td>
+			<td><?php echo $risk["createdDate"]?>	</td>
 			<td>Max. Easting</td>
 			<td>&nbsp;</td>
 			<td>Max. Northing</td>
@@ -147,8 +159,8 @@ lightbulb</td>
 		<table class="table bordertable template5table breakabaletable" width="100%">
 			<tbody><tr bgcolor="#FDE9D9">
 				<th colspan="3">1</th>
-				
-				
+
+
 				<th>2</th>
 				<th>3</th>
 				<th>4</th>
@@ -157,7 +169,7 @@ lightbulb</td>
 				<th colspan="3">7</th>
 				<th colspan="3">8</th>
 				<th colspan="3">9</th>
-				
+
 				<th>10</th>
 				<th>11</th>
 				<th>12</th>
@@ -166,7 +178,7 @@ lightbulb</td>
 				<th>15</th>
 				<th>16</th>
 				<th>17</th>
-				
+
 			</tr>
 			<tr bgcolor="#E4DFEC">
 				<th colspan="3">Risk ID</th>
@@ -194,14 +206,14 @@ lightbulb</td>
 				<th>Frequency</th>
 				<th>Severity</th>
 				<th>Risk</th>
-				
+
 				<th>Frequency</th>
 				<th>Severity</th>
 				<th>Risk</th>
-				
+
 			</tr>
-			
-			
+
+
 
 
 
@@ -376,39 +388,39 @@ lightbulb</td>
 				<th>Likelihood	</th>
 				<th>Rating</th>
 				<th>Description</th>
-				
+
 			</tr>
 			<tr>
 				<th>Frequent</th>
 				<td align="center">I</td>
 				<td>Likely to occur 12 times or more per year</td>
-				
+
 			</tr>
 			<tr>
 				<th>Probable</th>
 				<td align="center">II</td>
 				<td>Likely to occur 4 times per year</td>
-				
+
 			</tr>
 			<tr>
 				<th>Occassional</th>
 				<td align="center">III</td>
 				<td>Likely to occur once a year</td>
-				
+
 			</tr>
 			<tr>
 				<th>Remote</th>
 				<td align="center">IV</td>
 				<td>Likely to occur once in a 5 year project period</td>
-				
+
 			</tr>
 			<tr>
 				<th>Improbable</th>
 				<td align="center">V</td>
 				<td>Unlikely, but may exceptionally occur</td>
-				
+
 			</tr>
-		
+
 		</tbody>
 	</table>
 	<br>
@@ -429,7 +441,7 @@ lightbulb</td>
 			<td>I</td>
 			<td>
 				<ul>
-			        <li>Single or Multiple loss of life from injury or occupational disease, immediately or delayed and/or</li>	
+			        <li>Single or Multiple loss of life from injury or occupational disease, immediately or delayed and/or</li>
 			        <li>Loss of whole production for greater than 3 man-days and/or</li>
 			        <li>Total loss in excess of $1 million.</li>
 				</ul>
@@ -473,7 +485,7 @@ lightbulb</td>
 		</tr>
 	</tbody></table>
 
-	
+
 	<br>
 
 	<table class="table bordertable" align="center">
@@ -505,7 +517,7 @@ lightbulb</td>
 				<td align="center">A</td>
 				<td align="center">A</td>
 				<td align="center">A</td>
-				<td align="center">B</td>	
+				<td align="center">B</td>
 			</tr>
 			<tr>
 				<td align="center">II</td>
@@ -513,7 +525,7 @@ lightbulb</td>
 				<td align="center">A</td>
 				<td align="center">A</td>
 				<td align="center">B</td>
-				<td align="center">C</td>	
+				<td align="center">C</td>
 			</tr>
 			<tr>
 				<td align="center">III</td>
@@ -543,7 +555,7 @@ lightbulb</td>
 	</table>
 
 
-	
+
 	<br>
 	<table class="table bordertable">
 		<tbody><tr class="table-firstrow">
@@ -582,4 +594,3 @@ lightbulb</td>
 
 </body>
     </html>
-    
