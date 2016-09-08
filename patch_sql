@@ -1,0 +1,1 @@
+ALTER TABLE `riskassessment` ADD `project_title` VARCHAR(300) NOT NULL AFTER `ecpireReminder`;
