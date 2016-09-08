@@ -69,7 +69,8 @@ define('NON_ACTIVE', 0);
  else
   {
 
-     $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`) VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', '', '', '', '".$status."','');";
+     $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`)
+     VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', '', '', '', '".$status."','',".$_POST['template'].");";
 		echo $riskassessment;
       $insert_riskassessment=mysqli_query($con, $riskassessment);
       echo $insert_riskassessment;
@@ -154,7 +155,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-  //  echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+   echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {
