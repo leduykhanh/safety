@@ -1,0 +1,141 @@
+	  
+	  .printbreak {
+       page-break-before: always;
+       }
+	  
+
+			table, tr, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			 vertical-align: text-top;
+			
+			}
+		   #risk_register tr td {
+			padding: 8px;
+			
+			}  
+		table .heading
+		{
+		 
+		 
+		  text-align: left;
+		  background-color: #868080;
+		  color:white;
+		  font-size: 24px;
+
+
+		}
+
+		.no_border tr td 
+
+		{
+		border-left: 0px;
+			border-right: 0px;
+		}
+
+		th
+		{
+			border:1px solid black;
+		}
+		td p{
+			border: 1px solid;
+			border-left: 0px;
+			border-right: 0px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			margin-left: -2px;
+			margin-right: -2px;
+			border-bottom: none;
+			padding-left: 10px;
+		}
+		#container{
+			left:100pt;
+			position: relative;
+			font-family: Arial;
+		}
+		.main-header{
+			margin-bottom : 30pt;
+		}
+		.main-header td {
+			padding-top: 20pt;
+		}
+		body{
+			background-color: #ECEAE9;
+		}
+		.page{
+			background-color: #FFF;
+			margin : 10pt 0pt 10pt 0pt;
+			width:800pt;
+			padding: 22pt;
+		}
+		.under-line{
+			text-decoration: underline;
+		}
+		.table-firstrow {
+			background: #817F88;
+			color: #fff;
+		}
+		.green {
+			background-color: #70BC48;
+		}
+		.blue {
+			background-color: #73C9F5;
+		}
+		.light-green {
+			background-color: #D6ED97; 
+		}
+		.yellow{
+			background-color:#FFFD51;
+		}
+		.orange{
+			background-color:#F6B02C;
+		}
+		.red{
+			background-color:#FF0000;
+		}
+		.fluro-green{
+			background-color:#00FF00;
+		}
+		.pink{
+			background-color:#FFCCFF;
+		}
+		.dim-green{
+			background-color:#99FF99;
+		}
+		.grey{
+			background-color:#D9D9D9;
+		}
+		.aligncenter tr{
+			border:none;
+
+		}
+		.aligncenter tr td{
+			text-align:center;
+			font-family:"Arial",sans-serif;
+			border:none;
+			
+		}
+		.angle-table:nth-of-type(1) td {
+		  background-image: linear-gradient(
+			to top right,
+			white 48%,
+			black,
+			white 52%
+		  );
+		}
+		.angle-table:nth-of-type(2) td {
+		  background-image: linear-gradient(
+			to top right,
+			papayawhip calc(50% - 1px),
+			black,
+			papayawhip calc(50% + 1px)
+		  );
+		}
+		.angle{
+			height:1px;
+			width:100px;
+			background:#000;
+			-ms-transform: rotate(7deg); /* IE 9 */
+			-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+			transform: rotate(7deg);
+		}

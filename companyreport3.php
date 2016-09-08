@@ -103,617 +103,256 @@ td p{
 
    
 
- <div id="risk_register" style="width:100%;margin-top:40px"> 
-    <h1>Inventory of Work Activities</h1>
-    <table id="risk_register_2" style="width:100%;">
-        <tr >
-                    <td rowspan="1" colspan="4" style="width:75%"><b>Department:QE Safety Consultancy Pte Ltd</b></td>
-                    <td rowspan="1" colspan="1" style="width:25%"><b>Date <?php echo $date = date('d-m-Y', strtotime($risk['createdDate']));?></b></td>
-        </tr>
-         <tr style="background-color:#817F88; color:white;">
-                     <td rowspan="1" style="width:5%"><b>Ref</b></td>
-                     <td rowspan="1" style="width:15%"><b>Location</b></td>
-                     <td rowspan="1" style="width:20%"><b>Process</b></td>
-                     <td rowspan="1" style="width:30%"><b>Work Activity</b></td>
-                     <td rowspan="1" style="width:30%"><b>Remark</b></td>
-                     
-                </tr>
-        <tr>
-                     <td rowspan="1" ><b>1</b></td>
-                     <td rowspan="1" ><b><?php echo $risk['location'];?></b></td>
-                     <td rowspan="1" ><b><?php echo wordwrap ($risk['process'], 15, "\n", 1);?></b></td>
-                     <td rowspan="1" ><b><?php echo $valueAllWork['name'];?></b></td>
-                     <td rowspan="1" ><b></b></td>
-                     
-                </tr> 
-       <?php
-       $risCount = 1;
-       while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
-       {
-        if($risCount == 1)
-        {
-			
-       ?>
-
-       
-       <tr>
-                     <td rowspan="1"><b><?php echo $risCount+1;?></b></td>
-                     <td></td>
-                     <td><b></b></td>
-                     <td rowspan="1" ><b><?php echo $valueAllWork['name'];?></b></td>
-                     <td rowspan="1" ><b></b></td>
-                     
-        </tr>
-        <?php
-        $risCount++;
-        }
-        else
-        {
-        ?>        
-        <tr>
-                     <td rowspan="1"><b><?php echo $risCount+1;?></b></td>
-                    <td></td>
-                    <td></td>
-
-                     <td rowspan="1" ><b><?php echo $valueAllWork['name'];?></b></td>
-                     <td rowspan="1" ><b></b></td>
-                     
-        </tr>
-    <?php
-        $risCount++;
-        }//else if ends
-        }//while ends
-    ?>
-     <tr>
-                     <td rowspan="1" ><b><?php echo $risCount+1;?></b></td>
-                    </b></td>
-                     
-                     <td colspan="2" ><b></b></td>
-                     <td rowspan="1" ><b>Total:<?php echo $totalWorkActivity;?> Pages</b></td>
-                     <td rowspan="1" ><b>Reference Number P-0<?php echo $risk['id']; echo $risk['id'];?></b></td>
-                     
-                </tr> 
-    </table>
-
-    <br />
-    <strong>Note:</strong>
-    <ol>
-        
-
-        <li>
-            This form is to be completed before filling in the Risk Assessment Form.
-        </li>
-        <li>
-            The contents of the Work Activity column in the Inventory of Work Activities Form is to be copied over to the Work Activity column in the Risk Assessment Form
-        </li>
-    </ol>  
- </div>
-
-<div id="risk_register" style="width:100%;" class="printbreak">
-     <h1>Risk Assessment Form </h1>
-       
-        <?php
-         $today = date('d-m-Y');
-       
-        //get all the ra leader from signe table for the risk assesment 
-
-        $sqlSigning = "SELECT * FROM signing where riskid = $_GET[riskid]";
-        $resultlSigning = mysqli_query($con, $sqlSigning);
-        $signingRowCount= mysqli_num_rows($resultlSigning);
-        ?>    
+ <body>
 
 
 
-            <table id="risk_register_2" style="width:100%;">
-            <?php
-            $signee = mysqli_fetch_assoc($resultlSigning);
-            $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `riskid` = $_GET[riskid]";
-            $resultlRAMember = mysqli_query($con, $sqlRAMember);
-            $RAMemberRowCount= mysqli_num_rows($resultlRAMember);
-            ?>
-            <tr >
-                    <td rowspan="1" colspan="1" style="width:15%;vertical-align: middle;">Department:</td>
-                    <td rowspan="1" colspan="1" style="width:20%;vertical-align: middle;">QE Safety Consultancy Pte Ltd</td>
-                    <td rowspan="1" colspan="1" style="width:25%;vertical-align: middle;">RA Leader :<?php echo $valueAllUser['name'];?> <?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?></td>
-                    <td rowspan="3" colspan="1" style="width:15%;vertical-align: middle;">Approved by:Signature:</td>
-                    <td rowspan="3" colspan="1" style="width:15%;vertical-align: middle;">
-                    <?php if($risk['status'] ==2)
-                        {
-							echo '<img width="120" src="staff/'.$signee["signature"].'"/>';
-						}
-						?>
-                     </td>
-                    <td rowspan="6" colspan="1" style="width:10%;vertical-align: middle;">Reference Number<h1>P-0<?php echo $risk['id'];?></h1></td>
-                        
-                </tr>
-                 <tr>
-                     <td rowspan="1" colspan="1" style="width:15%">Process:</td>
-                     <td rowspan="1" colspan="1" style="width:20%"><?php echo wordwrap ($risk['process'], 15, "\n", 1);?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 1: <?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                </tr>
-                <tr>
-                     <td rowspan="1" colspan="1"style="width:15%">Process / Activity Location:</td>
-                     <td rowspan="1" colspan="1" style="width:20%" ><?php echo $risk['location'];?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 2: <?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                </tr>
-
-                <tr>
-                     <td rowspan="1" colspan="1" style="width:15%">Original Assessment Date:</td>
-                     <td rowspan="1" colspan="1" style="width:20%"><?php echo $date = date('d-m-Y', strtotime($risk['createdDate']));?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 3:<?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                     <td rowspan="1" colspan="1" style="width:15%">Name:</td>
-                     <td rowspan="1" colspan="1" style="width:15%"><?php if($risk['status'] ==2){ echo $signee['name'];}?></td>
-                </tr>
-
-                <tr>
-                     <td rowspan="1" colspan="1" style="width:15%">Last Review Date:</td>
-                     <td rowspan="1" colspan="1" style="width:20%"><?php if($risk['approveDate'] !='0000-00-00 00:00:00')
-                        {
-							echo $date = date('d-m-Y', strtotime($risk['approveDate']));
-						}
-						?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 4:<?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                     <td rowspan="1" colspan="1" style="width:15%">Designation:</td>
-                     <td rowspan="1" colspan="1" style="width:15%">
-                        
-                     <?php if($risk['status'] ==2)
-                        {
-                            echo $signee['designation'];
-                        }
-                        ?></td>
-                </tr>
-
-                 <tr>
-                     <td rowspan="1" colspan="1" style="width:15%" >Next Review Date:</td>
-                     <td rowspan="1" colspan="1" style="width:20%">
-					 <?php 
-					 
-					 if($risk['approveDate'] !='0000-00-00 00:00:00')
-                        {
-                          echo $date = date('d-m-Y', strtotime('+3 years', strtotime($risk['approveDate'])));
-                     
-                        }
-                        else if($risk['createdDate'] != '0000-00-00 00:00:00')
-                        {
-							echo $date = date('d-m-Y', strtotime('+3 years', strtotime($risk['createdDate'])));	
-						}
-						else
-						{
-							echo '';
-						}
-						
-					 
-					 ?>
-					 
-					 
-                     
-                     
-                     </td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 5:<?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                     <td rowspan="1" colspan="1" style="width:15%">Date:</td>
-                     <td rowspan="1" colspan="1" style="width:15%"><?php echo $today;?></td>
-                </tr>
-
-               
-
-
-                </table>
-                
-
-                <table style="width:100%;">
-                
-                <tr style="background-color:#817F88; color:white;">
-                     <td rowspan="1" colspan="3"><b>Hazard Identification</b></td>
-                     <td rowspan="1" colspan="5"><b>Risk Evaluation</b></td>
-                     <td rowspan="1" colspan="7"><b>Risk Control</b></td>
-                     
-                </tr>
-                
-                
-                <tr style="background-color:#817F88; color:white;">
-                     <td rowspan="1" colspan="1"><b>Ref</b></td>
-                     <td rowspan="1" colspan="1"><b>Work Activity</b></td>
-                     <td rowspan="1" colspan="1"><b>Hazard</b></td>
-                     <td rowspan="1" colspan="1"><b>Possible Injury / III-health</b></td>
-                     <td rowspan="1" colspan="1"><b>Existing Risk Controls</b></td>
-                     <td rowspan="1" colspan="1"><b>S</b></td>
-                     <td rowspan="1" colspan="1"><b>L</b></td>
-                     <td rowspan="1" colspan="1"><b>RPN</b></td>
-                     <td rowspan="1" colspan="1"><b>Additional Controls</b></td>
-                    <td rowspan="1" colspan="1"><b>S</b></td>
-                     <td rowspan="1" colspan="1"><b>L</b></td>
-                     <td rowspan="1" colspan="1"><b>RPN</b></td>
-
-                     <td rowspan="1" colspan="1"><b>Implementation Person</b></td>
-                     <td rowspan="1" colspan="1"><b>Due Date</b></td>
-                     <td rowspan="1" colspan="1"><b>Remarks</b></td>
-                     
-                </tr>
-            <?php
-                //get total work activity
-
-                 $getAllWorkSql = "SELECT * FROM `workactivity` WHERE `riskId` = ".$_GET['riskid']." ORDER BY  `work_id` ASC ";
-                 $resultAllWork=mysqli_query($con, $getAllWorkSql);
-                 $totalWorkActivity = mysqli_num_rows($resultAllWork);
-               $riskids = 1;
-                $m=0;
-				while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
-                {
-                    $m++;
-					//number of hazards in workactivity
-                  $getAllHazardsSql = "SELECT * FROM `hazard` WHERE `work_id` = ".$valueAllWork['work_id']." ORDER BY `hazard_id` ASC";
-                 $resultAllHazards=mysqli_query($con, $getAllHazardsSql);
-                 $totalHazards = mysqli_num_rows($resultAllHazards);
-                    
-                    $hazrdsControl = 1;
-                    while($hzardsValue = mysqli_fetch_assoc($resultAllHazards))
-					
-                    {
-						
-                        if($hazrdsControl == 1)
-                        {
-							
-							
-                ?>    
+ 
+ 
 
 
 
-                                <tr>
-                                    <td rowspan="<?php echo $totalHazards;?>" colspan="1"> <?php echo $m; ?></td>
-                                    <td rowspan="<?php echo $totalHazards;?>" colspan="1">  <?php echo $valueAllWork['name'];?></td>
-                                    <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?></td>
+	<table class="table bordertable" width="100%">
+	<tbody><tr>
+		<th width="280"><img src="images/SKengineering.png" width="250"></th>
+		<th colspan="3" valign="top"><h1 style="margin:0px; padding:0px;">Risk Assessment Form<br>change
+lightbulb</h1></th>
+	</tr>
+	<tr>
+		<td>Company</td>
+		<td>SK E&amp;C (Singapore Branch)</td>
+		<td>Conducted by:</td>
+		<td>rajesh</td>							
+	</tr>
+	<tr>
+		<td>Location of shafts:</td>
+		<td>warehouse</td>
+		<td>Names,designations:</td>
+		<td style="padding:0px;"><table border="0" class="no_border">		<tbody><tr>
+					<td width="200"></td>
+					<td width="200"></td><td><img src="images/" height="60"></td></tr> 
+						</tbody></table>
+			</td>
+	</tr>
+
+	<tr>
+		<td>Approved by:</td>
+		<td rowspan="3">  Julius Lim, manager<img src="images/julius.png"> </td>
+		<td>(Date)</td>
+		<td>27-04-2019</td>
+	</tr>
+
+	<tr>
+		<td>(Name,designation)</td>
+		<td rowspan="2">Last Review Date:27-04-2016</td>
+		<td rowspan="2">Next Review Date: 25-04-2022</td>
+	</tr>
+
+	<tr>
+		<td>(Date)</td>
+	</tr>
 
 
-                                    <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo $hzardsValue['accident'];?> </td>
-                                    
-                                    <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
-                                    <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                                    <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
-                                    
-                                      <?php
-									if($hzardsValue['likehood']=="-"|| $hzardsValue['security']=="-")
-									{
-										$RPN_TWO="-";
-									}
-									else
-									{
-										$RPN_TWO=$hzardsValue['security'] * $hzardsValue['likehood'];
-									}
-									?>
-                                    
-                                   <td rowspan="1" colspan="1"><?php echo $RPN_TWO;?>
-                                     </td>
-                                     
-                                     
-                                    <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
-                                    
-                                    <?php
-									if($hzardsValue['risk_additional']=="")
-									{
-										$securitysecond="-";
-										$likehoodsecond="-";
-										$RPN="-";
-									}
-									else
-									{
-										$securitysecond= $hzardsValue['securitysecond'];
-										$likehoodsecond= $hzardsValue['likehoodsecond'];
-										$RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
-									}
-									?>
-                                    
-                                     <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
-                                     
-                                     <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
-                                     
-                                     
-                                     
-
-                                    
-                                    <td rowspan="1" colspan="1"><?php echo $RPN;?>
-                                     </td>
-
-                                   <td rowspan="1" colspan="1"> <?php 
-
-                                         $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
-                                              $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
-                                          
-
-                                              while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
-                                              {
-                                                echo "<div>$valueAllActionOfficer[name]</div>";
-                                              }
+	<tr>
+		<td colspan="4"><b>TITLE OF PROCESS (TRADE ACTIVITY) :</b></td>
+	</tr>
 
 
 
-                                      ?> </td>
-                                      
-                                       <?php
-									if($hzardsValue['risk_additional']=="")
-									{
-										$action_date="-";
-									}
-									else
-									{
-										$action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
-									}
-									?>
-                                      
-                                      
-                                      
-                                    <td rowspan="1" colspan="1"> <?php echo $action_date ;?> </td>
-                                    <td rowspan="1" colspan="1"> - </td>
-                                 </tr>
-                <?php
-                            } 
-                            else
-                            {
-                                ?>
-                                    <tr>
-                                      <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
-                                      <td rowspan="1" colspan="1"> <?php echo $hzardsValue['accident'];?> </td>
-                                      <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_control'];?> </td>
-                                      <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                                      <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
-                                      <td rowspan="1" colspan="1"><?php echo $hzardsValue['security'] * $hzardsValue['likehood'];?>
-                                     </td>
-                                      <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
-                                        <?php
-									if($hzardsValue['risk_additional']=="")
-									{
-										$securitysecond="-";
-										$likehoodsecond="-";
-										$RPN="-";
-									}
-									else
-									{
-										$securitysecond= $hzardsValue['securitysecond'];
-										$likehoodsecond= $hzardsValue['likehoodsecond'];
-										$RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
-									}
-									?>
-                                      
-                                      
-                                  <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
-                                     
-                                     <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
-                                     
-                                      <td rowspan="1" colspan="1"><?php echo $RPN;?>
-                                     </td>
-
-                                      <td rowspan="1" colspan="1"> <?php 
-
-                                         $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
-                                              $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
-                                          
-
-                                              while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
-                                              {
-                                                echo "<div>$valueAllActionOfficer[name]</div>";
-                                              }
+	
+</tbody></table>
 
 
 
-                                      ?> </td>
-                                         <?php
-									if($hzardsValue['risk_additional']=="")
-									{
-										$action_date="-";
-									}
-									else
-									{
-										$action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
-									}
-									?>
-                                      
-                                      
-                                      
-                                    <td rowspan="1" colspan="1"> <?php echo $action_date ;?> </td>
-                                      <td rowspan="1" colspan="1"> - </td> 
-                                  </tr>
-                                <?php
-                            }
-                            $hazrdsControl++;
-                        }//hazards while contols
-               
-			   
-			   }//end of while  workactivity
-                 ?> 
+<table class="table bordertable" width="100%">
+	<tbody><tr bgcolor="#817F88">
+		<td colspan="13">SKEC (Main Contractor) - Reviewed and Accepted by:</td>
+	</tr>
+</tbody></table>
+<table class="table bordertable" width="100%">
+	<tbody><tr>
 
-            </table>
-        
-    </div>
+
+	
+	</tr>
+</tbody></table>
+
+<table class="table bordertable" width="100%">
+	<tbody><tr>
+		<td colspan="13">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<th colspan="4">1. Hazard Identification</th><th colspan="4">2. Risk Evaluation</th><th colspan="5">3. Risk Control</th>
+	</tr>
+	<tr>
+		<th>1a</th>
+		<th>1b</th>
+		<th>1c</th>
+		<th>1d</th>
+		<th>2a</th>
+		<th>2b</th>
+		<th>2c</th>
+		<th>2d</th>
+		<th>3a</th>
+		<th>3b</th>
+		<th>3c</th>	
+		<th>3d</th>
+		<th>3e</th>
+	</tr>
+	<tr>
+		<th>No</th>
+		<th>Work Activity</th>
+		<th>Hazard</th>
+		<th>Possible Accident / <br>III Health &amp; Persons-<br>at- Risk</th>	
+ 		<th>Existing Risk Control (if any)</th>
+ 		<th>Severity</th>
+ 		<th>Likelihood</th>
+ 		<th>Risk Level</th>
+ 		<th>Additional Risk<br> Control</th><th>Severity</th>
+ 		<th>Likelihood</th><th>Risk Level</th>	
+ 		<th>Action Officer, Designation<br>(Follow-up date)</th>
+		
+	</tr>
+
+				</tbody></table>
+
 <br>
-<strong>Notes:</strong>
- <div id="risk_register" style="width:60%;margin-top:40px" class="printbreak">   
- <h1>Risk Matrix </h1>   
-<table id="risk_register_2" style="width:100%;">
-                <tr >
-                    <td>Likelihood<br> Severity</td>
-                    <td>Rare <br>(1)</td>
-                    <td>Remote <br>(2)</td>
-                    <td>Occasional<br>(3)</td>
-                    <td>Frequent<br> (4) </td>
-                     <td>Almost<br>  Certain(5) </td>
-                  
-                        
-                </tr>
-                 <tr >
-                    <td>Catastrophic (5)</td>
-                    <td>5</td>
-                    <td>10</td>
-                    <td>15</td>
-                    <td>20</td>
-                     <td>25</td>
-                  
-                        
-                </tr>
-                 <tr>
-                    <td>Major (4)</td>
-                    <td>4</td>
-                    <td>8</td>
-                    <td>12</td>
-                    <td>16</td>
-                     <td>20</td>
-                </tr>
+<br>
 
-                 <tr>
-                    <td>Moderate (3)</td>
-                    <td>4</td>
-                    <td>8</td>
-                    <td>12</td>
-                    <td>16</td>
-                     <td>20</td>
-                </tr>
-                 <tr>
-                    <td>Minor (2)</td>
-                    <td>3</td>
-                    <td>6</td>
-                    <td>9</td>
-                    <td>12</td>
-                     <td>15</td>
-                </tr>
-                 <tr>
-                    <td>Negligible (1)</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>6</td>
-                    <td>8</td>
-                     <td>10</td>
-                </tr>
-                </table>
+<div class="table-left">
+	<table class="table bordertable">
+		<thead>
+			<tr class="table-firstrow">
+				<th colspan="4">TABLE 1 ACCIDENT FREQUENCY</th>
+			</tr>
+		</thead>
+		<tbody>
+		 	<tr>
+			 	<th>Likelihood</th>
+			 	<th>Rating</th>
+			 	<th>&nbsp;</th>
+			 	<th>Description</th>
+		 	</tr>
+		 	<tr>
+			 	<td>Frequent</td>
+			 	<td>I</td>
+			 	<td>&nbsp;</td>
+			 	<td>Likely to occur 12 times or more per year</td>
+		 	</tr>
+		 	<tr>
+			 	<td>Probable</td>
+			 	<td> II</td>
+			 	<td>&nbsp;</td>
+			 	<td>Likely to occur 4 times per year</td>
+		 	</tr>
+		 	<tr>
+			 	<td>Occasional</td>
+			 	<td>III</td>
+			 	<td>&nbsp;</td>
+			 	<td>Likely to occur once a year</td>
+		 	</tr>
+		 	<tr>
+			 	<td>Remote</td>
+			 	<td>IV</td>
+			 	<td>&nbsp;</td>
+			 	<td>Likely to occur once in 5 year</td>
+		 	</tr>
+		</tbody>
+	</table>
+</div>
+<div class="table-right">
+	<table class="table bordertable">
+		<thead>
+			<tr class="table-firstrow">
+			<th colspan="7">Table 3 Risk Index Matrix</th>
+			</tr>
+			</thead>
+		<tbody>
+			 <tr>
+				 <th rowspan="3" colspan="3">Risk Category</th>
+				 <th colspan="7">Accident Severity Category</th>
+			 </tr>
+			 <tr>
+				 <th>I</th>
+				 <th>II</th>
+				 <th>III</th>
+				 <th>IV</th>
+			 </tr>
+			 <tr>
+				 <th>Catastrophic</th>
+				 <th>Critical</th>
+				 <th>Marginal</th>
+				 <th>Negligible</th>
+			 </tr>
+			 <tr>
+				 <td>Accident</td>
+				 <td>I</td>
+				 <td>Frequent</td>
+				 <td class="red">A</td>
+				 <td class="red">A</td>
+				 <td class="red">A</td>
+				 <td class="orange">B</td>
+			 </tr>
+			 <tr>
+				 <td>Frequency</td>
+				 <td>II</td>
+				 <td>Probable</td>
+				 <td class="red">A</td>
+				 <td class="red">A</td>
+				 <td class="orange">B</td>
+				 <td class="yellow">C</td>
+			 </tr>
+			 <tr>
+				 <td>Category</td>
+				 <td>III</td>
+				 <td>Occasional</td>
+				 <td class="red">A</td>
+				 <td class="orange">B</td>
+				 <td class="yellow">C</td>
+				 <td class="yellow">C</td>
+			 </tr>
+			 <tr>
+				 <td>&nbsp;</td>
+				 <td>IV</td>
+				 <td>Remote</td>
+				 <td class="orange">B</td>
+				 <td class="orange">B</td>
+				 <td class="yellow">C</td>
+				 <td class="fluro-green">D</td>
+			 </tr>
+		</tbody>
+    </table><br><br>
 </div>
 
- <div id="risk_register" style="width:80%;margin-top:40px">   
-<table id="risk_register_2" style="width:100%;">
-                <tr >
-                    <td>Level</td>
-                    <td>Severity</td>
-                    <td>Description</td>
-                    
-                  
-                        
-                </tr>
-                 <tr >
-                    <td>5</td>
-                    <td>Catastrophic</td>
-                    <td>Fatality, fatal diseases or multiple major injuries</td>
-                    
-                  
-                        
-                </tr>
-                 <tr>
-                    <td>4</td>
-                    <td>Major</td>
-                    <td>Serious injuries or life-threatening occupational disease (include amputations, major fractures, multiple injuries, occupational cancer, acute poisoning)</td>
-                   
-                </tr>
+<br>
+<table class="table bordertable" width="100%">
+<thead><tr class="table-firstrow"><th colspan="4">TABLE 2 ACCIDENT SEVERITY</th></tr></thead><tbody>
+ <tr><th>No</th><th>Consequence</th><th>Rating</th><th>Description (*)</th></tr>
+ <tr><td>1</td><td>CASTASTROPIC</td><td>I</td><td>-   Fatality, fatal diseases or multiple major injuries; or</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Loss of whole production for greater than 10 calendar days; or</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Total loss in excess of S$3 million.</td></tr>
+ <tr><td>2</td><td>Critical</td><td>II</td><td>-   Serious injuries of life-threatening occupational disease (includes amputations, major fractures, multiple injuries, occupational cancer, acutue poisoning); or</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Damaged to works or plants causing delays greater than 3 but   up to 10 calendar days; or</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-  Total loss in excess of S$1 million but up to S$3 million.</td></tr>
+ <tr><td>3</td><td>Marginal</td><td>III</td><td>-   Injury requiring medical treatment or ill-health leading to disability (including lacerations, burns, sprains, minor fractures, dermatitis, deafness, work-related upper limb disorders); or</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Damage to works or plants causing delays greater than 1 but up to 3 calendar days; or,</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Total loss in excess of S$0.3 million but up to S$1 million.</td></tr>
+ <tr><td>4</td><td>Negligible</td><td>IV</td><td>-   Not likely to cause injury or ill-health, or requiring first-aid only (including minor cuts and bruises, irritation, ill-health with temporary discomfort); or</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Damage to works or plants causing delays up to 1 calendar day; or</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Total loss of up to S$0.3 million.</td></tr>
+</tbody></table>
+<br>
+<table class="table bordertable" width="100%">
+<thead><tr class="table-firstrow"><th colspan="3">Table 4 Definition of Risk Index</th></tr></thead><tbody>
+ <tr><th>Risk Index</th><th>Description</th><th>Definition</th></tr>
+ <tr><td>A</td><td>Intolerable</td><td>This risk is unacceptable.  The risk shall be reduced at least to tolerable or undesirable category regardless of the costs of the risk mitigation.  Senior management attention needed with action plans and management responsibility specified.  Work must not start until risk has been reduced.  If risk cannot be reduced, the related activity or the project should not proceed.</td></tr>
+ <tr><td>B</td><td>Undesirable</td><td>This risk is only acceptable if further risk reduction is not practicable.  The measures implemented shall be such as to reduce the risk as low as reasonably practical.  Management attention is required.  Risk mitigation measures shall be identified with management responsibility assigned.</td></tr>
+ <tr><td>C</td><td>Tolerable</td><td>This risk is acceptable subject to demonstration that the level of risk is as low as reasonably practical.  The hazard shall be managed by routine procedures through the project.</td></tr>
+ <tr><td>D</td><td>Acceptable</td><td>This risk is acceptable.</td></tr>
+</tbody></table>
 
-                 <tr>
-                    <td>3</td>
-                    <td>Moderate </td>
-                    <td>Injury requiring medical treatment or ill-health leading to disability (includes lacerations, burns, sprains, minor fractures, dermatitis, deafness, work-related upper limb disorders)</td>
-                    
-                </tr>
-                 <tr>
-                    <td>2</td>
-                    <td>Minor</td>
-                    <td>Injury or ill-health requiring first-aid only ( includes minor cuts and bruises, irritation, ill-health with temporary discomfort).</td>
-                    
-                </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>Negligible</td>
-                    <td>Not likely to cause injury or ill-health</td>
-                   
-                </tr>
-                </table>
-</div>
-
-
- <div id="risk_register" style="width:80%;margin-top:40px">   
- <table id="risk_register_2" style="width:100%;">
-                <tr >
-                    <td>Level</td>
-                    <td>Likelihood</td>
-                    <td>Description</td>
-                    
-                  
-                        
-                </tr>
-                 <tr >
-                    <td>1</td>
-                    <td>Rare</td>
-                    <td>Not expected to occur but still possible</td>
-                    
-                  
-                        
-                </tr>
-                 <tr>
-                    <td>2</td>
-                    <td>Remote</td>
-                    <td>Not likely to occur under normal circumstances</td>
-                   
-                </tr>
-
-                 <tr>
-                    <td>3</td>
-                    <td>Occasional</td>
-                    <td>Possible or known to occur</td>
-                    
-                </tr>
-                 <tr>
-                    <td>4</td>
-                    <td>Frequent</td>
-                    <td>Common occurrence</td>
-                    
-                </tr>
-                 <tr>
-                    <td>5</td>
-                    <td>Almost Certain</td>
-                    <td>Continual or repeating experience</td>
-                   
-                </tr>
-                </table>
-</div>
-
-<div id="risk_register" style="width:80%;margin-top:40px" class="printbreak">   
-
-<h1>Risk Evaluation</h1> 
- <table id="risk_register_2" style="width:100%;">
-                <tr >
-                    <td>Risk Level</td>
-                    <td>Risk Acceptability</td>
-                    <td style="text-align:center">Recommended Actions</td>
-                    
-                  
-                        
-                </tr>
-                 <tr >
-                    <td>Low Risk</td>
-                    <td>Acceptable</td>
-                    <td><ul><li>No additional risk control measures may be needed</li><li>Frequent review and monitoring of hazards are required to ensure that the risk level assigned is accurate and does not increase  over time</li></ul></td>
-                    
-                  
-                        
-                </tr>
-                 <tr>
-                    <td>Medium Risk</td>
-                    <td>Tolerable</td>
-                    <td><ul><li>A careful evaluation of the hazards should be carried out to ensure that the risk level is reduced to as low as reasonably practicable (ALARP) within a defined time period.</li><li>Interim risk control measures, such as administrative controls or PPE, may be implemented while longer term measures are being established.</li><li>Management attention is required.</li></ul></td>
-                   
-                </tr>
-
-                 <tr>
-                    <td>High Risk</td>
-                    <td>Not acceptable</td>
-                    <td><ul><li>High Risk level must be reduced to at least Medium Risk before work commences.</li><li>There should not be any interim risk control measures. Risk control measures should not be overly dependent on PPE or appliances</li><li>If applicable, the hazard should be eliminated before work commences.</li><li>Management review is required before work commences.</li></ul></td>
-                    
-               
-                </table>
-         </div>
-       <div style="margin: 0 auto; width: 656px; text-align: center;"><button onClick="window.print()">Save as PDF</button></div>
- </div>    
+</body>    
 
 
     </body>
