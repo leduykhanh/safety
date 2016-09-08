@@ -662,7 +662,12 @@ alert(attrName);
 
                           <div class="form-row"> 
                             <label class="col-sm-4">Risk Level:</label>
-                            <label class="col-sm-8 riskLevel"></label>
+                            <select class="col-sm-8 riskLevel" name="riskLevel">
+							  <option value="Low">Low</option>
+                              <option value="Medium">Medium</option>
+                              <option value="High">High</option>
+
+							</select>
 
                           </div>
 
@@ -873,7 +878,12 @@ alert(attrName);
 
                           <div class="form-row"> 
                             <label class="col-sm-4">Risk Level:</label>
-                            <label class="col-sm-8 riskLevel"></label>
+                            <select class="col-sm-4 riskLevel" name="riskLevel">
+							  <option value="Low">Low</option>
+                              <option value="Medium">Medium</option>
+                              <option value="High">High</option>
+
+							</select>
                           </div>
 
                           <div class="form-row"> 
