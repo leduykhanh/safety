@@ -71,9 +71,9 @@ define('NON_ACTIVE', 0);
 
      $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`)
      VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].");";
-		echo $riskassessment;
+		// echo $riskassessment;
       $insert_riskassessment=mysqli_query($con, $riskassessment);
-      echo $insert_riskassessment;
+      // echo $insert_riskassessment;
       $riskassessmentId = mysqli_insert_id($con);
 
       //insert all the ra members
@@ -155,7 +155,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-  //  echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+    echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {
