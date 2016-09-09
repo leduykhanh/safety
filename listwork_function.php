@@ -1,9 +1,9 @@
-<?php 
+<?php
 function generate_list_work($con,$a){
 					$sqlOutStanding = "SELECT * FROM riskassessment where status = 0 AND asTemplate = $a";
                     $resultlOutStanding = mysqli_query($con, $sqlOutStanding);
                     $outStandingRow= mysqli_num_rows($resultlOutStanding);
-                    
+
                     $sqlDraft = "SELECT * FROM riskassessment where status = 1 AND asTemplate = $a";
                     $resultlDraft = mysqli_query($con, $sqlDraft);
                     $draftRow= mysqli_num_rows($resultlDraft);
@@ -18,7 +18,7 @@ function generate_list_work($con,$a){
                     $OutArchived= mysqli_num_rows($resultlArchived);?>
 	    <div class="row"  style="padding-bottom: 10px;">
     		<div class="col-sm-5" style="text-align:left; padding:0px"><strong>QE Safety Consultancy Pte Ltd</strong></div>
-            <div class="col-sm-7" style="padding:0px; text-align:right;"> 
+            <div class="col-sm-7" style="padding:0px; text-align:right;">
 
                           <?php
 						  $status = 0;
@@ -29,9 +29,9 @@ function generate_list_work($con,$a){
                           }
 
                           if($status==0){
-							  
+
                             ?><a href="listwork_activity.php?status=0"><u><b>Outstanding (<?php echo $outStandingRow;?>)</b></u> </a>&nbsp;<strong>|</strong>&nbsp;
-                            
+
                             <?php
                           }
                           else
@@ -39,9 +39,9 @@ function generate_list_work($con,$a){
                           ?>
                           <a href="listwork_activity.php?status=0">Outstanding (<?php echo $outStandingRow;?>) </a>&nbsp;<strong>|</strong>&nbsp;
                           <?php } ?>
-                          
-                          
-                          
+
+
+
                              <?php
                           if(isset($_GET['status']))
 
@@ -52,7 +52,7 @@ function generate_list_work($con,$a){
                           if($status==1){
                             ?>
 
-                          
+
                           <a href="listwork_activity.php?status=1"><u><b> Draft (<?php echo $draftRow;?>)</b></u> </a> &nbsp;<strong>|</strong>&nbsp;
                              <?php
                           }
@@ -60,10 +60,10 @@ function generate_list_work($con,$a){
                           {
                           ?>
                              <a href="listwork_activity.php?status=1"> Draft (<?php echo $draftRow;?>) </a> &nbsp;<strong>|</strong>&nbsp;
-                             
-                        <?php } ?>  
-                        
-                        
+
+                        <?php } ?>
+
+
                               <?php
                           if(isset($_GET['status']))
 
@@ -73,9 +73,9 @@ function generate_list_work($con,$a){
 
                           if($status==2){
                             ?>
- 
-                          
-                          
+
+
+
                           <a href="listwork_activity.php?status=2"><u><b> Approved (<?php echo $OutApprove;?>)</b></u> </a>&nbsp; <strong>|</strong>&nbsp;
                              <?php
                           }
@@ -83,8 +83,8 @@ function generate_list_work($con,$a){
                           {
                           ?>
                           <a href="listwork_activity.php?status=2"> Approved (<?php echo $OutApprove;?>) </a>&nbsp; <strong>|</strong>&nbsp;
-                             <?php } ?>  
-                             
+                             <?php } ?>
+
                                     <?php
                           if(isset($_GET['status']))
 
@@ -94,31 +94,31 @@ function generate_list_work($con,$a){
 
                           if($status==3){
                             ?>
- 
-                          
-                          
-                      
-                          
+
+
+
+
+
                           <a href="listwork_activity.php?status=3"><u><b> Archived (<?php echo $OutArchived;?>)</b></u></a>    <strong>|</strong>&nbsp;
                              <?php
                           }
                           else
                           {
                           ?>
-                          
-                          
-                          
-                          
+
+
+
+
                              <a href="listwork_activity.php?status=3"> Archived (<?php echo $OutArchived;?>)</a>    <strong>|</strong>&nbsp;
-                               <?php } ?> 
-                             
-                             
+                               <?php } ?>
+
+
               </div>
-              
+
               <div class="claer-fix"></div>
     </div>
-    
-    
+
+
    <div class="row">
       <?php if(isset($_GET['msg_error']))
       {?>
@@ -131,10 +131,10 @@ function generate_list_work($con,$a){
     <?php
       }
       ?>
-      
 
 
-          <div class="table-responsive"> 
+
+          <div class="table-responsive">
             <?php
             if(isset($_GET['message']) && $_GET['message'] != '')
             {
@@ -155,15 +155,15 @@ function generate_list_work($con,$a){
               <?php
             }
             ?>
-            
 
-              <!--sorting data--> 
-  
+
+              <!--sorting data-->
+
     <table id="dttbl"  class="table table-bordered table table-striped" style="table-layout: fixed;
     width: 100%;">
-  
+
         <thead style="background-color: #D7EBF9;">
-       
+
              <tr>
                <th  class="heading" style="width:6% !important">
                         Ref No
@@ -184,17 +184,17 @@ function generate_list_work($con,$a){
              		 Approving Mngr
             	</th>
                <th>       Status
-                   
+
                   </th>
-                
-                
+
+
             </tr>
         </thead>
         <tbody id="myTable">
-        <?php 
+        <?php
         if(isset($_GET['sort']))
         {
-            
+
              if ($_GET['sort'] == 'ASC' && $_GET['field'] !='')
              {
                 $order = " ORDER BY $_GET[field] ASC";
@@ -208,7 +208,7 @@ function generate_list_work($con,$a){
                 $order= " ORDER BY id ASC";
               }
 
-            
+
 
         }
         else
@@ -220,12 +220,12 @@ function generate_list_work($con,$a){
         {
             if(isset($_GET['id']) && $_GET['id'] !='')
             {
-              $whereStatus = " WHERE  status = $_GET[status] AND id= $_GET[id]";   
+              $whereStatus = " WHERE  status = $_GET[status] AND id= $_GET[id]";
             }
             else
-            { 
+            {
               $whereStatus = " WHERE  status = $_GET[status]";
-            }  
+            }
         }
         else
         {
@@ -238,10 +238,10 @@ function generate_list_work($con,$a){
         $num_row= mysqli_num_rows($result);
        if($num_row>0)
        {
-               while($row = mysqli_fetch_assoc($result)) 
+               while($row = mysqli_fetch_assoc($result))
                {
 
-             ?> 
+             ?>
                      <tr>
                         <td ><?php echo $row['id'];?></td>
                         <td ><?php echo $row['location'];?></td>
@@ -255,27 +255,27 @@ function generate_list_work($con,$a){
                           echo $date = date('d-m-Y', strtotime($row['approveDate']));
                         }
                         ?></td>
-                        <td > 
+                        <td >
                        <?php if($row['approveDate'] =='0000-00-00 00:00:00')
                         {
                           echo '';
                         }
                         else
                         {
-                      
-					   
+
+
 					   echo $creationDate =  date('d-m-Y', strtotime('+3 years', strtotime($row['approveDate'])));
 						}
                         ?></td>
-                         
-                        <td ><?php 
+
+                        <td ><?php
                                  $sqlUser = "SELECT * FROM staff_login where id = $row[createdBy]";
                                 $resultlUser = mysqli_fetch_assoc(mysqli_query($con, $sqlUser));
                                 if($resultlUser)
                                 {
                                   echo '<p><strong>'.$resultlUser['name'].'</strong></p>';
-                                }  
-                                
+                                }
+
 
 
 
@@ -295,12 +295,12 @@ function generate_list_work($con,$a){
                                     if($row['approverEmail'] == $resultSignee['email'])
                                     {
                                         if($resultSignee['name'] != '')
-                                        { 
+                                        {
 
                                          echo '<p><span class="glyphicon glyphicon-ok"></span> <strong>';
                                          echo $resultSignee['name'];
-                                        
-                                         //get designation 
+
+                                         //get designation
                                           //$sqlUser = "SELECT * FROM staff_login where email = '$resultSignee[email]'";
                                           //$resultlUser = mysqli_fetch_assoc(mysqli_query($con, $sqlUser));
 
@@ -309,12 +309,12 @@ function generate_list_work($con,$a){
 
                                     }
                                     else
-                                    { 
+                                    {
                                         if($resultSignee['name'] != '')
                                         {
                                          echo '<p><strong>'.$resultSignee['name'].'</p>';
                                         // echo " , ";
-                                         //get designation 
+                                         //get designation
                                          // $sqlUser = "SELECT * FROM staff_login where email = '$resultSignee[email]'";
                                          // $resultlUser = mysqli_fetch_assoc(mysqli_query($con, $sqlUser));
 
@@ -327,16 +327,16 @@ function generate_list_work($con,$a){
 
 
                         </td>
-                        <td><?php 
+                        <td><?php
                                 if($row['status'] == 0)
                                 {
                                 //check whether he is authorized or not
-                                
+
                                  $sqlSigning = "SELECT * FROM signing where riskid = $row[id] AND email = '".$_SESSION['useremail']."'";
                                 $exeSigning = mysqli_query($con, $sqlSigning);
                                 $resultlSigning = mysqli_fetch_assoc($exeSigning);
-                                
-                                $signingCount = mysqli_num_rows($exeSigning);  
+
+                                $signingCount = mysqli_num_rows($exeSigning);
                                 if($signingCount > 0)
                                 {
                                   $disabled = '';
@@ -345,23 +345,23 @@ function generate_list_work($con,$a){
                                 {
                                   $disabled = 'disabled="disabled"';
                                 }
-                                  
+
                                   ?>
                                   <form id="updateFormId<?php echo $row['id'];?>" name="updateForm<?php echo $row['id'];?>" action="listwork_activity.php" method="get" >
                                       <input name="riskid" value="<?php echo $row['id'];?>" type="hidden">
 
                                        <input name="updateStatus" value="2" type="hidden">
 
-                                     
-                                       
-                                       <input <?php echo $disabled;?> type="submit" name="updateStatusSubmit" value="Click to approve" class="btn btn-danger btn-sx"> 
-                                        
-                                    
 
-                                  
-                                  
+
+                                       <input <?php echo $disabled;?> type="submit" name="updateStatusSubmit" value="Click to approve" class="btn btn-danger btn-sx">
+
+
+
+
+
                                  &nbsp;<a href="divAddRemoveSubmitEdit.php?riskid=<?php echo $row['id'];?>" style="text-decoration: none"><input  type="button" name="updateStatusSubmit" value="Edit" class="btn btn-warning btn-sx" style="width:15%"></a>
-                                  
+
                                   &nbsp;<a href="companyreport<?php echo $a; ?>.php?riskid=<?php echo $row['id'];?>" style="text-decoration: none"><input  type="button" name="updateStatusSubmit" value="View" class="btn btn-warning btn-sx"  style="width:15%" ></a>
 
   &nbsp;<a href="copydata.php?riskid=<?php echo $row['id'];?>&status=0&message=document sents successfully" style="text-decoration: none">
@@ -370,7 +370,7 @@ function generate_list_work($con,$a){
 
                                   </form>
                                   <?php
-								  
+
                                 }
 
                                 if($row['status'] == 1)
@@ -402,7 +402,7 @@ function generate_list_work($con,$a){
                 } // end of while
         }
         ?>
-           
+
 
         </tbody>
     </table>
@@ -410,5 +410,91 @@ function generate_list_work($con,$a){
       </div>
       </div>
 	  <?php
+}
+function create_options(){
+	?>
+	<div class="template1options" style="display: none;">
+
+			<div class="form-row">
+				<label class="col-sm-6">Severity:</label>
+
+				<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity[]">
+					<option value="-">Select severity</option>
+					<option value="5">(5) Catastrophic</option>
+					<option value="4">(4) Major</option>
+					<option value="3">(3) Moderate</option>
+					<option value="2">(2) Minor</option>
+					<option value="1">(1) Negligible</option>
+				</select>
+
+
+			</div>
+
+			<div class="form-row">
+				<label class="col-sm-6">Likelihood:</label>
+				<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood[]">
+					<option value="-">Select likelihood</option>
+					<option value="5">(5) Almost Certain</option>
+					<option value="4">(4) Frequent</option>
+					<option value="3">(3) Occasional</option>
+					<option value="2">(2) Remote</option>
+					<option value="1">(1) Rare</option>
+				</select>
+			</div>
+	</div>
+	<div class="template2options">
+
+			<div class="form-row">
+				<label class="col-sm-6">Accident Severity:</label>
+
+				<select class="severity2 col-sm-6 btn btn-default  " id="inputSaving" name="severity2[]">
+					<option value="-">Select severity</option>
+					<option value="1">(1) Catastrophic</option>
+					<option value="2">(2) Critical</option>
+					<option value="3">(3) Marginal</option>
+					<option value="4">(4) Negligible</option>
+				</select>
+
+
+			</div>
+
+			<div class="form-row">
+				<label class="col-sm-6">Accident Frequency:</label>
+				<select class="likelihood2 col-sm-6 btn btn-default " id="inputSaving" name="likelihood2[]">
+					<option value="-">Select Frequency</option>
+					<option value="1">(I) Frequent</option>
+					<option value="2">(II) Probable</option>
+					<option value="3">(III) Occasional</option>
+					<option value="4">(IV) Remote</option>
+				</select>
+			</div>
+	</div>
+	<div class="template5options" style="display: none;">
+
+			<div class="form-row">
+				<label class="col-sm-6">Accident Severity:</label>
+				<select class="severity3 col-sm-6 btn btn-default  " id="inputSaving" name="severity3[]">
+					<option value="-">Select severity</option>
+					<option value="1">(1) Catastrophic</option>
+					<option value="2">(2) Critical</option>
+					<option value="3">(3) Marginal</option>
+					<option value="4">(4) Negligible</option>
+				</select>
+
+			</div>
+
+			<div class="form-row">
+				<label class="col-sm-6">Accident Frequency:</label>
+				<select class="likelihood3 col-sm-6 btn btn-default " id="inputSaving" name="likelihood3[]">
+					<option value="-">Select Frequency</option>
+					<option value="1">(I) Frequent</option>
+					<option value="2">(II) Probable</option>
+					<option value="3">(III) Occasional</option>
+					<option value="4">(IV) Remote</option>
+					<option value="5">(V) Improbable</option>
+				</select>
+			</div>
+	</div>
+	<?php
 }
 ?>

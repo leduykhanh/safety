@@ -89,7 +89,7 @@ function create_header($page_number,$risk){
 		<div >
 			<table>
 				<tr>
-					<td class="text-center" style="width:756pt;font-size:22px;padding: 100pt 100pt 50pt 100pt;height: 400pt; margin-top:30pt;">
+					<td class="text-center" style="width:756pt;font-size:22px;padding: 100pt 100pt 50pt 100pt;height: 395pt; margin-top:30pt;">
 						<strong style="text-transform: uppercase;">
 						RISK ASSESSMENT FOR THE
 

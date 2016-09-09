@@ -1,5 +1,5 @@
 <?php session_start(); include_once 'header.php';
-
+include_once 'listwork_function.php';
 if(!$_SESSION['adminid'])
 {
     ?><script type="text/javascript">window.location.assign("index.php")</script>
@@ -584,32 +584,8 @@ alert(attrName);
 
                           </div>
 
-                          <div class="form-row">
-                            <label class="col-sm-6">Severity:</label>
+                          <?php create_options() ;?>
 
-                            <select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity[]">
-                              <option value="-">Select severity</option>
-                              <option value="5">(5) Catastrophic</option>
-                              <option value="4">(4) Major</option>
-                              <option value="3">(3) Moderate</option>
-                              <option value="2">(2) Minor</option>
-                              <option value="1">(1) Negligible</option>
-                            </select>
-
-
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Likelihood:</label>
-                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5">(5) Almost Certain</option>
-                              <option value="4">(4) Frequent</option>
-                              <option value="3">(3) Occasional</option>
-                              <option value="2">(2) Remote</option>
-                              <option value="1">(1) Rare</option>
-                            </select>
-                          </div>
 
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
@@ -675,38 +651,7 @@ alert(attrName);
                           </div>
                           <div class="clearfix"></div>
 
-                          <div class="form-row">
-                            <label class="col-sm-6">Severity:</label>
-
-                            <select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severitySecond[]">
-                            <option value="-">Select severity</option>
-                               <option value="5">(5) Catastrophic</option>
-                              <option value="4">(4) Major</option>
-                              <option value="3">(3) Moderate</option>
-                              <option value="2">(2) Minor</option>
-                              <option value="1">(1) Negligible</option>
-                            </select>
-
-
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Likelihood:</label>
-                            <select class="likelihood col-sm-6 btn btn-default  " id="inputSaving" name="likelihoodSecond[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5">(5) Almost Certain</option>
-                              <option value="4">(4) Frequent</option>
-                              <option value="3">(3) Occasional</option>
-                              <option value="2">(2) Remote</option>
-                              <option value="1">(1) Rare</option>
-                            </select>
-                          </div>
-
-
-
-
-
-
+                          <?php create_options(); ?>
 
                         </div>
                        <div class="clearfix"></div>
@@ -795,32 +740,7 @@ alert(attrName);
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""><?php echo $name;?></textarea>
                           </div>
 
-                          <div class="form-row">
-                            <label class="col-sm-6">Severity:</label>
-
-                            <select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity[]">
-                              <option value="-">Select severity</option>
-                              <option value="5">(5) Catastrophic</option>
-                              <option value="4">(4) Major</option>
-                              <option value="3">(3) Moderate</option>
-                              <option value="2">(2) Minor</option>
-                              <option value="1">(1) Negligible</option>
-                            </select>
-
-
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Likelihood:</label>
-                            <select class="likelihood col-sm-6 btn btn-default  " id="inputSaving" name="likelihood[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5">(5) Almost Certain</option>
-                              <option value="4">(4) Frequent</option>
-                              <option value="3">(3) Occasional</option>
-                              <option value="2">(2) Remote</option>
-                              <option value="1">(1) Rare</option>
-                            </select>
-                          </div>
+                            <?php create_options(); ?>
 
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
@@ -1031,7 +951,7 @@ $(function () {
     $('.btn-radio').click(function(e) {
         $('.btn-radio').not(this).removeClass('active')
     		.siblings('input').prop('checked',false)
-            .siblings('.img-radio').css('opacity','0.5');
+            .siblings('.img-radio').css('opacity','0.2');
     	$(this).addClass('active')
             .siblings('input').prop('checked',true)
     		.siblings('.img-radio').css('opacity','1');
