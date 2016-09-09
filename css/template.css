@@ -1,23 +1,23 @@
-	  
+
 	  .printbreak {
        page-break-before: always;
        }
-	  
+
 
 			table, tr, td {
 			border: 1px solid black;
 			border-collapse: collapse;
 			 vertical-align: text-top;
-			
+
 			}
 		   #risk_register tr td {
 			padding: 8px;
-			
-			}  
+
+			}
 		table .heading
 		{
-		 
-		 
+
+
 		  text-align: left;
 		  background-color: #868080;
 		  color:white;
@@ -26,7 +26,7 @@
 
 		}
 
-		.no_border tr td 
+		.no_border tr td
 
 		{
 		border-left: 0px;
@@ -66,6 +66,7 @@
 			background-color: #FFF;
 			margin : 10pt 0pt 10pt 0pt;
 			width:800pt;
+			height: 595pt;
 			padding: 22pt;
 		}
 		.under-line{
@@ -82,7 +83,7 @@
 			background-color: #73C9F5;
 		}
 		.light-green {
-			background-color: #D6ED97; 
+			background-color: #D6ED97;
 		}
 		.yellow{
 			background-color:#FFFD51;
@@ -113,7 +114,7 @@
 			text-align:center;
 			font-family:"Arial",sans-serif;
 			border:none;
-			
+
 		}
 		.angle-table:nth-of-type(1) td {
 		  background-image: linear-gradient(
@@ -138,4 +139,7 @@
 			-ms-transform: rotate(7deg); /* IE 9 */
 			-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
 			transform: rotate(7deg);
+		}
+		table td{
+			padding:5px;
 		}

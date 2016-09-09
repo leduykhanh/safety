@@ -20,151 +20,9 @@ include_once 'config.php';
     <meta charset="utf-8">
     <title>Inventory of Work Activities</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
+  <link rel="stylesheet" type="text/css" href="css/template.css">
       </head>
-      <style type="text/css">
 
-	  .printbreak {
-       page-break-before: always;
-       }
-
-
-			table, tr, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-			 vertical-align: text-top;
-
-			}
-		   #risk_register tr td {
-			padding: 8px;
-
-			}
-		table .heading
-		{
-
-
-		  text-align: left;
-		  background-color: #868080;
-		  color:white;
-		  font-size: 24px;
-
-
-		}
-
-		.no_border tr td
-
-		{
-		border-left: 0px;
-			border-right: 0px;
-		}
-
-		th
-		{
-			border:1px solid black;
-		}
-		td p{
-			border: 1px solid;
-			border-left: 0px;
-			border-right: 0px;
-			margin-top: 0px;
-			margin-bottom: 0px;
-			margin-left: -2px;
-			margin-right: -2px;
-			border-bottom: none;
-			padding-left: 10px;
-		}
-		#container{
-			left:100pt;
-			position: relative;
-			font-family: Arial;
-		}
-		.main-header{
-			margin-bottom : 30pt;
-		}
-		.main-header td {
-			padding-top: 20pt;
-		}
-		body{
-			background-color: #ECEAE9;
-		}
-		.page{
-			background-color: #FFF;
-			margin : 10pt 0pt 10pt 0pt;
-			width:800pt;
-			padding: 22pt;
-		}
-		.under-line{
-			text-decoration: underline;
-		}
-		.table-firstrow {
-			background: #817F88;
-			color: #fff;
-		}
-		.green {
-			background-color: #70BC48;
-		}
-		.blue {
-			background-color: #73C9F5;
-		}
-		.light-green {
-			background-color: #D6ED97;
-		}
-		.yellow{
-			background-color:#FFFD51;
-		}
-		.orange{
-			background-color:#F6B02C;
-		}
-		.red{
-			background-color:#FF0000;
-		}
-		.fluro-green{
-			background-color:#00FF00;
-		}
-		.pink{
-			background-color:#FFCCFF;
-		}
-		.dim-green{
-			background-color:#99FF99;
-		}
-		.grey{
-			background-color:#D9D9D9;
-		}
-		.aligncenter tr{
-			border:none;
-
-		}
-		.aligncenter tr td{
-			text-align:center;
-			font-family:"Arial",sans-serif;
-			border:none;
-
-		}
-		.angle-table:nth-of-type(1) td {
-		  background-image: linear-gradient(
-			to top right,
-			white 48%,
-			black,
-			white 52%
-		  );
-		}
-		.angle-table:nth-of-type(2) td {
-		  background-image: linear-gradient(
-			to top right,
-			papayawhip calc(50% - 1px),
-			black,
-			papayawhip calc(50% + 1px)
-		  );
-		}
-		.angle{
-			height:1px;
-			width:100px;
-			background:#000;
-			-ms-transform: rotate(7deg); /* IE 9 */
-			-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
-			transform: rotate(7deg);
-		}
-</style>
 
 <body>
     <div id="container">
@@ -206,7 +64,7 @@ function create_header($page_number,$risk){
 						<td style="width: 140.8pt;">
 							<div><strong>WSH Form 02-2  </strong></div>
 							<div> Revision:  00</div>
-							<div> Sheet:  Page <?php echo $page_number; ?> of 5</div>
+							<div> Sheet:  Page <?php echo $page_number; ?> of 9</div>
 							<div> Dated:  <?php echo $risk["createdDate"]?></div>
 						</td>
 					</tr>
@@ -284,6 +142,9 @@ function create_header($page_number,$risk){
 					 <tr><td>Remote </td><td>IV </td><td>Likely to occur once in 5 year </td></tr>
 				</tbody>
 		</table>
+  </div>
+  <div class="page">
+    <?php create_header(4,$risk); ?>
 		<p>3. <strong>Risk Category</strong> provides the useful framework to classify risks identified: see <u>Table 3</u> below.</p>
 		<h3>Table-3</h3>
 		<table class="table bordertable" border="1">
@@ -301,7 +162,7 @@ function create_header($page_number,$risk){
 		</table>
 	</div>
 	<div class="page">
-		<?php create_header(4,$risk); ?>
+		<?php create_header(5,$risk); ?>
 		<p>4. Action for <strong>Risk Index </strong> the following actions are to be implemented based on the current Risk Level, as shown in <u>Table 4</u> below.</p>
 		<h3>Table-4</h3>
 		<table class="table bordertable" border="1">
@@ -316,7 +177,7 @@ function create_header($page_number,$risk){
 	</div>
 
 	<div class="page">
-		<?php create_header(5,$risk); ?>
+		<?php create_header(6,$risk); ?>
 		<h4>Risk Control</h4>
 		<p><u>Hierarchy of Control</u></p>
 		<p>The control of hazards and reduction of risks can be accomplished by following the WSH Hierarchy of Control (see Figure 1). These control measures are not usually mutually exclusive. Generally, it may be more effective to use multiple control measures, for example, engineering controls work better with administrative controls like training and Safe Work Procedures.</p>
@@ -345,15 +206,15 @@ function create_header($page_number,$risk){
 		</tbody></table>
 	</div>
   <div class="page">
-    <?php create_header(5,$risk); ?>
-    <h1>Inventory of Work Activities</h1>
+    <?php create_header(7,$risk); ?>
+    <h3>Inventory of Work Activities and Harzards Identification</h3>
     <table id="risk_register_2" style="width:756pt;">
         <tr >
                     <td rowspan="1" colspan="4" style="width:75%"><b>Department:QE Safety Consultancy Pte Ltd</b></td>
                     <td rowspan="1" colspan="1" style="width:25%"><b>Date <?php echo $date = date('d-m-Y', strtotime($risk['createdDate']));?></b></td>
         </tr>
          <tr style="background-color:#817F88; color:white;">
-                     <td rowspan="1" style="width:5%"><b>Ref</b></td>
+                     <td rowspan="1" style="width:5%"><b>S/No</b></td>
                      <td rowspan="1" style="width:15%"><b>Location</b></td>
                      <td rowspan="1" style="width:20%"><b>Process</b></td>
                      <td rowspan="1" style="width:30%"><b>Work Activity</b></td>
@@ -431,6 +292,9 @@ function create_header($page_number,$risk){
     </ol>
     <br />
     <br />
+  </div>
+  <div class="page">
+    <?php create_header(8,$risk); ?>
      <h1>Risk Assessment Form </h1>
 
         <?php
@@ -764,6 +628,9 @@ function create_header($page_number,$risk){
             </table>
             <br />
             <br />
+    </div>
+    <div class="page">
+      <?php create_header(8,$risk); ?>
             <div class="table-left">
             			<table class="table bordertable" border="1">
             			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RAT Leader <p>James</p></th><th rowspan="0">Approved By: <br>Contractor Senior Management <p>APPROVED MNGR field HERE</p></th></tr>
@@ -797,7 +664,7 @@ function create_header($page_number,$risk){
     </div>
 <br>
 <strong>Notes:</strong>
-       <div style="margin: 0 auto; width: 656px; text-align: center;"><button onClick="window.print()">Save as PDF</button></div>
+       <div style="margin: 0 auto; width: 656px; text-align: center;"><button onClick="window.print()">Print</button></div>
  </div>
 <script src="js1/jquery.js"></script>
 <!-- <script src="js/splitPage.js"></script> -->
