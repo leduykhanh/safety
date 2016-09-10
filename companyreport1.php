@@ -633,9 +633,9 @@ function create_header($page_number,$risk){
       <?php create_header(8,$risk); ?>
             <div class="table-left">
             			<table class="table bordertable" border="1">
-            			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RAT Leader <p>James</p></th><th rowspan="0">Approved By: <br>Contractor Senior Management <p>APPROVED MNGR field HERE</p></th></tr>
+            			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RA Leader <p><?php echo $valueAllUser['name'];?></p></th><th rowspan="0">Approved By: <br>Contractor Senior Management <p>APPROVED MNGR field HERE</p></th></tr>
             			<tr class="table-firstrow"><th>Designation:  WSHC</th><th>Designation:  Senior P. Manager</th></tr>
-             <tr><td>Signature: <img width="80" src="staff/james.png"> <br> Date: DATE OF APPROVAL</td><td>Signature: APPROVED MNGR SIGNATURE HERE <br> Date: DATE OF APPROVAL</td></tr>
+             <tr><td>Signature: <img width="80" src="<?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?>"> <br> Date: DATE OF APPROVAL</td><td>Signature: APPROVED MNGR SIGNATURE HERE <br> Date: DATE OF APPROVAL</td></tr>
              </tbody>
             			</table>
             </div>
