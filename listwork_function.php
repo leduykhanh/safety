@@ -411,14 +411,14 @@ function generate_list_work($con,$a){
       </div>
 	  <?php
 }
-function create_options(){
+function create_options($name){
 	?>
 	<div class="template1options" style="display: none;">
 
 			<div class="form-row">
 				<label class="col-sm-6">Severity:</label>
 
-				<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity[]">
+				<select class="severity<?php echo $name; ?> col-sm-6 btn btn-default  " id="inputSaving" name="severity<?php echo $name; ?>[]">
 					<option value="-">Select severity</option>
 					<option value="5">(5) Catastrophic</option>
 					<option value="4">(4) Major</option>
@@ -432,7 +432,7 @@ function create_options(){
 
 			<div class="form-row">
 				<label class="col-sm-6">Likelihood:</label>
-				<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood[]">
+				<select class="likelihood<?php echo $name; ?> col-sm-6 btn btn-default " id="inputSaving" name="likelihood<?php echo $name; ?>[]">
 					<option value="-">Select likelihood</option>
 					<option value="5">(5) Almost Certain</option>
 					<option value="4">(4) Frequent</option>

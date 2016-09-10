@@ -1,5 +1,6 @@
 <?php session_start(); include_once 'header.php';
 include_once 'listwork_function.php';
+include_once 'config.php';
 if(!$_SESSION['adminid'])
 {
     ?><script type="text/javascript">window.location.assign("index.php")</script>
@@ -38,338 +39,13 @@ if(!$_SESSION['adminid'])
 	}
 
   </style>
-<script type='text/javascript'>//<![CDATA[
-$(window).load(function(){
-// Add a new repeating section
-var attrs = ['for', 'id', 'value'];
-function resetAttributeNames(section) {
-    var tags = section.find('input, label'), idx = section.index();
-    tags.each(function() {
-      var $this = $(this);
-      $.each(attrs, function(i, attr) {
-        var attr_val = $this.attr(attr);
-        if (attr_val) {
-            $this.attr(attr, attr_val.replace(/_\d+$/, '_'+(idx + 1)));
-
-
-
-        }
-
-      })
-
-
-    })
-}
-
-function resetHazaradsAttributeNames(section) {
-    var tags = section.find('input, label'), idx = section.index();
-    tags.each(function() {
-      var $this = $(this);
-      $.each(attrs, function(i, attr) {
-        var attr_val = $this.attr(attr);
-        if (attr_val) {
-            $this.attr(attr, attr_val.replace(/_\d+$/, '_'+(idx + 1)));
-
-
-
-        }
-      })
-
-
-    })
-}
-
-$('.addMember').click(function(e){
-        e.preventDefault();
-        var MemberCount = $('#RA_MemberCount').val();
-        if(MemberCount >= 5)
-        {
-           alert("You can't add more than 5 RA Member");
-            return;
-        }
-
-        var toRepeatingGroup = $('.repeatingMember').first();
-        var lastRepeatingGroup = $('.repeatingMember').last();
-        var cloned = toRepeatingGroup.clone(true);
-        cloned.insertAfter(lastRepeatingGroup);
-
-
-        resetAttributeNames(cloned);
-
-
-
-        var newMemberCount = parseInt(MemberCount) +1;
-        $('#RA_MemberCount').val(newMemberCount);
-
-    });
-
-
-    $('.deleteMember').click(function(e){
-        e.preventDefault();
-        var current_fight = $(this).parent('div');
-        var other_fights = current_fight.siblings('.repeatingMember');
-        if (other_fights.length === 0) {
-            alert("You should atleast have one RA Member");
-            return;
-        }
-        current_fight.slideUp('slow', function() {
-            current_fight.remove();
-            var MemberCount = $('#RA_MemberCount').val();
-            var newMemberCount = parseInt(MemberCount) -1;
-            $('#RA_MemberCount').val(newMemberCount);
-            // reset fight indexes
-            other_fights.each(function() {
-               resetAttributeNames($(this));
-            })
-
-        })
-
-
-
-    });
-
-
-
-$('.addWorkActivity').click(function(e){
-        e.preventDefault();
-        var toRepeatingGroup = $('.tocopy').first();
-        var lastRepeatingGroup = $('.repeatingSection').last();
-        var cloned = toRepeatingGroup.clone(true);
-        cloned.insertAfter(lastRepeatingGroup);
-
-
-        resetAttributeNames(cloned);
-
-
-        var workactivityCount = $('#workactivityCount').val();
-        var newworkactivityCount = parseInt(workactivityCount) +1;
-        $('#workactivityCount').val(newworkactivityCount);
-
-    });
-
-
-
-$('.addHazards').click(function(e){
-        e.preventDefault();
-
-        var currentHazardCounts = $(this).parent().parent().find('#hazardsCount').val();
-        var nextHzardsCounts = parseInt(currentHazardCounts) + 1;
-        $(this).parent().parent().find('#hazardsCount').val(nextHzardsCounts);
-
-
-
-
-        var lastRepeatingGroup = $('.hazardSectionCopy').first();
-        var cloned = lastRepeatingGroup.clone(true)
-
-
-        cloned.insertAfter($(this).parent('div'));
-        resetHazaradsAttributeNames(cloned)
-    });
-
-$('.addActionMember').click(function(e){
-        e.preventDefault();
-
-        var currentHazardsActionOfficerCount = $(this).parent().parent().find('#hazardsActionOfficerCount').val();
-
-        if(currentHazardsActionOfficerCount >= 5)
-        {
-           alert("You can't add more than 5 Action Officers");
-            return;
-        }
-
-        var nextHazardsActionOfficerCount = parseInt(currentHazardsActionOfficerCount) + 1;
-        $(this).parent().parent().find('#hazardsActionOfficerCount').val(nextHazardsActionOfficerCount);
-
-
-
-
-        var lastRepeatingGroup = $('.repeatingActionOfficer').last();
-        var cloned = lastRepeatingGroup.clone(true)
-
-
-        cloned.insertAfter($(this).parent('div'));
-        resetHazaradsAttributeNames(cloned)
-    });
-
-$('.deleteActonOfficer').click(function(e){
-        e.preventDefault();
-        var current_fight = $(this).parent('div');
-        var other_fights = current_fight.siblings('.repeatingActionOfficer');
-        if (other_fights.length === 0) {
-            alert("You should atleast have one Action officer Member");
-            return;
-        }
-        current_fight.slideUp('slow', function() {
-              var currentHazardsActionOfficerCount = $(this).parent().parent().find('#hazardsActionOfficerCount').val();
-             var nextHazardsActionOfficerCount = parseInt(currentHazardsActionOfficerCount) - 1;
-            $(this).parent().parent().find('#hazardsActionOfficerCount').val(nextHazardsActionOfficerCount);
-            current_fight.remove();
-
-
-            // reset fight indexes
-            other_fights.each(function() {
-               resetAttributeNames($(this));
-            })
-
-        })
-
-
-
-    });
-
-// Delete a repeating section
-$('.deleteWorkActivity').click(function(e){
-        e.preventDefault();
-        var current_fight = $(this).parent('div');
-        var other_fights = current_fight.siblings('.repeatingSection');
-        if (other_fights.length === 0) {
-            alert("You should atleast have one workactivity");
-            return;
-        }
-        current_fight.slideUp('slow', function() {
-            current_fight.remove();
-
-            // reset fight indexes
-            other_fights.each(function() {
-               resetAttributeNames($(this));
-            })
-
-        })
-        var workactivityCount = $('#workactivityCount').val();
-        var newworkactivityCount = parseInt(workactivityCount) -1;
-        $('#workactivityCount').val(newworkactivityCount);
-
-
-    });
-
-
-
-
-
-
-
-
-// Delete a repeating section
-$('.deleteHazards').click(function(e){
-        e.preventDefault();
-
-        var current_fight = $(this).parent('div');
-        var other_fights = current_fight.siblings('.hazardSection');
-        if (other_fights.length === 0) {
-            alert("You should atleast have one hazards");
-            return;
-        }
-        current_fight.slideUp('slow', function() {
-            current_fight.remove();
-
-            // reset fight indexes
-            other_fights.each(function() {
-               resetAttributeNames($(this));
-            })
-
-        })
-
-        var currentHazardCounts = $(this).parent().parent().find('#hazardsCount').val();
-        var nextHzardsCounts = parseInt(currentHazardCounts) - 1;
-        $(this).parent().parent().find('#hazardsCount').val(nextHzardsCounts);
-
-
-    });
-
-
-
-
-$(".date").datepicker();
-
-//likelihood chnage
-$('.likelihood').on('change', function()
-{
-  var likelihood = parseInt(this.value);
-      var severity  =  parseInt($(this).parent().siblings().find('.severity').val());
-      var riskValue = likelihood * severity;
-
-
-     if(riskValue > 0 && riskValue < 4)
-     {
-        var htmlRisk = '<span class="green">Low Risk</span>';
-
-     }
-     else if(riskValue > 3 && riskValue < 13)
-     {
-        var htmlRisk = '<span class="yellow">Medium Risk</span>';
-     }
-     else if(riskValue > 13 && riskValue < 26)
-     {
-        var htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
-     }
-     else
-     {
-        var htmlRisk = '';
-     }
-
- //alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
-
-
-
- $(this).parent().parent().siblings().find('.riskLevel').empty().append(htmlRisk);
-
-
-});
-
-
-$('.severity').on('change', function()
-{
-	   // or $(this).val()
-	  var severity = parseInt(this.value);
-	  var likelihood  =  parseInt($(this).parent().siblings().find('.likelihood').val());
-	  var riskValue = likelihood * severity;
-
-
-	 if(riskValue > 0 && riskValue < 4)
-	 {
-	    var htmlRisk = '<span class="green">Low Risk</span>';
-
-	 }
-	 else if(riskValue > 3 && riskValue < 13)
-	 {
-	 	var htmlRisk = '<span class="yellow">Medium Risk</span>';
-	 }
-	 else if(riskValue > 13 && riskValue < 26)
-	 {
-	 	var htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
-	 }
-	 else
-	 {
-	 	var htmlRisk = '';
-	 }
-
-
- //alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
-
-
-
- $(this).parent().parent().siblings().find('.riskLevel').empty().append(htmlRisk);
-
-});
-
-
-
-
-
-/*$('.date').each(function(e){
-
-  attrName = $(this).attr("id");
-alert(attrName);
-    $(this).datepicker();
-});*/
-
-
-});//]]>
-
-</script>
-
-
+  <?php
+    $raMembers =(mysqli_query($con,"SELECT * FROM ramember"));
+    // foreach ($raMembers as $raMember) {
+    //   var_dump($raMember["name"]);
+    // }
+  ?>
+<script type='text/javascript' src="js/divAddRemoveSubmit.js" ></script>
 
 <div class="container" style="border:2px solid black;">
 
@@ -521,7 +197,12 @@ alert(attrName);
                     <div class="col-sm-6">
                         <label class="col-sm-4">RA Members:</label>
                         <label class="col-sm-8">
-                        <input  name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="">
+                        <select  name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="">
+                          <?php foreach ($raMembers as $raMember) {
+
+                            echo "<option value=".$raMember["id"].">".$raMember["name"]."</option>";
+                          }?>
+                        </select>
                         </label>
                     </div>
                     <button class="col-sm-1 btn btn-danger deleteMember">Remove</button>
@@ -584,7 +265,7 @@ alert(attrName);
 
                           </div>
 
-                          <?php create_options() ;?>
+                          <?php create_options("") ;?>
 
 
                           <div class="form-row">
@@ -651,7 +332,7 @@ alert(attrName);
                           </div>
                           <div class="clearfix"></div>
 
-                          <?php create_options(); ?>
+                          <?php create_options("Second"); ?>
 
                         </div>
                        <div class="clearfix"></div>
@@ -740,7 +421,7 @@ alert(attrName);
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""><?php echo $name;?></textarea>
                           </div>
 
-                            <?php create_options(); ?>
+                            <?php create_options(""); ?>
 
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
@@ -805,39 +486,7 @@ alert(attrName);
                           </div>
                           <div class="clearfix"></div>
 
-                          <div class="form-row">
-                            <label class="col-sm-6">Severity:</label>
-
-                            <select class="severity col-sm-6 btn btn-default " id="inputSaving" name="severitySecond[]">
-                              <option value="-">Select severity</option>
-                              <option value="5">(5) Catastrophic</option>
-                              <option value="4">(4) Major</option>
-                              <option value="3">(3) Moderate</option>
-                              <option value="2">(2) Minor</option>
-                              <option value="1">(1) Negligible</option>
-                            </select>
-
-
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Likelihood:</label>
-                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihoodSecond[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5">(5) Almost Certain</option>
-                              <option value="4">(4) Frequent</option>
-                              <option value="3">(3) Occasional</option>
-                              <option value="2">(2) Remote</option>
-                              <option value="1">(1) Rare</option>
-                            </select>
-                          </div>
-
-
-
-
-
-
-
+                          <?php create_options("Second"); ?>
                         </div>
                        <div class="clearfix"></div>
 
