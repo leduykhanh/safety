@@ -71,16 +71,17 @@ define('NON_ACTIVE', 0);
 
      $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`,`project_title`)
      VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].",'".$_POST['project_title']."');";
-		 echo $riskassessment;
+		//  echo $riskassessment;
       $insert_riskassessment=mysqli_query($con, $riskassessment);
       $riskassessmentId = mysqli_insert_id($con);
-      echo $riskassessmentId;
+      // echo $riskassessmentId;
 
       //insert all the ra members
        foreach ($_POST['RA_Member'] as $RA_Member)
         {
-          $raMemberSql = "INSERT INTO `risk_ramember` (`id`, `riskid`, `ramemberId`) VALUES (NULL, '".$riskassessmentId."', '".$RA_Member."')";
+          $raMemberSql = "INSERT INTO `risk_ramemeber` (`id`, `riskid`, `ramemberId`) VALUES (NULL, '".$riskassessmentId."', '".$RA_Member."')";
           mysqli_query($con, $raMemberSql);
+          // echo $raMemberSql;
         }
   }
 
@@ -157,7 +158,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-  //  echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+   echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {

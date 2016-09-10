@@ -42,8 +42,22 @@ include_once 'config.php';
         $valueAllWork = mysqli_fetch_assoc($resultAllWork);
 
 		//get user details
-		$getAllUserSql = "SELECT * FROM `staff_login` WHERE `id` = ".$risk['createdBy']."";
+		    $getAllUserSql = "SELECT * FROM `staff_login` WHERE `id` = ".$risk['createdBy']."";
         $resultAlluser=mysqli_query($con, $getAllUserSql);
+        //Get Approvers details:
+        $appoverSingature = "";
+        $appoverName = "";
+        $appoverDesignation = "";
+        $getApproverSql = "SELECT * FROM `approvingmanager` WHERE `email` = '".$risk['approverEmail']."'";
+        $resuApprover=mysqli_query($con, $getApproverSql);
+
+        if(mysqli_num_rows($resuApprover) > 0){
+          $approver = mysqli_fetch_assoc($resuApprover);
+          //var_dump($approver);
+          $appoverSingature = $approver["image"];
+          $appoverName = $approver["name"];
+          $appoverDesignation = $approver["designation"];
+        };
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
 
         $valueAllUser = mysqli_fetch_assoc($resultAlluser);
@@ -312,7 +326,7 @@ function create_header($page_number,$risk){
             <table id="risk_register_2" style="width:756pt;">
             <?php
             $signee = mysqli_fetch_assoc($resultlSigning);
-            $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `riskid` = $_GET[riskid]";
+            $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
             $resultlRAMember = mysqli_query($con, $sqlRAMember);
             $RAMemberRowCount= mysqli_num_rows($resultlRAMember);
             ?>
@@ -633,15 +647,17 @@ function create_header($page_number,$risk){
       <?php create_header(8,$risk); ?>
             <div class="table-left">
             			<table class="table bordertable" border="1">
-            			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RA Leader <p><?php echo $valueAllUser['name'];?></p></th><th rowspan="0">Approved By: <br>Contractor Senior Management <p>APPROVED MNGR field HERE</p></th></tr>
-            			<tr class="table-firstrow"><th>Designation:  WSHC</th><th>Designation:  Senior P. Manager</th></tr>
-             <tr><td>Signature: <?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?> <br> Date: DATE OF APPROVAL</td><td>Signature: APPROVED MNGR SIGNATURE HERE <br> Date: DATE OF APPROVAL</td></tr>
+            			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RA Leader <p><?php echo $valueAllUser['name'];?></p></th>
+                    <th rowspan="0">Approved By: <br>Contractor Senior Management <p><?php echo $appoverName;?></p></th></tr>
+            			<tr class="table-firstrow"><th>Designation:  WSHC</th><th>Designation:  <?php echo $appoverDesignation;?></th></tr>
+             <tr><td>Signature: <?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?> <br> Date: <?php echo $risk["createdDate"];?> </td>
+               <td>Signature: <?php echo '<img width="80" src="staff/'.$appoverSingature.'"/>';?> <br> Date: <?php echo $risk["approveDate"];?></td></tr>
              </tbody>
             			</table>
             </div>
             <div class="table-right">
         			<table class="table bordertable" border="1">
-        				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: DATE OF APPROVAL</p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
+        				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: <?php echo $risk["revisionDate"];?></p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
         				<tr class="table-firstrow"><th>Name</th><th>Designation: </th><!--<th>Signature</th>--></tr>
         					</tbody><tbody>
 
