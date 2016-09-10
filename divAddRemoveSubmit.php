@@ -353,7 +353,11 @@ if(!$_SESSION['adminid'])
                                     <div class="col-sm-6">
 
                                         <label class="col-sm-6">Action Officer:</label>
-                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+                                        <select name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+                                          <?php foreach ($raMembers as $raMember) {
+                                            echo "<option value=".$raMember["id"].">".$raMember["name"]."</option>";
+                                          }?>
+                                        </select>
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
                                 </div>
@@ -505,7 +509,11 @@ if(!$_SESSION['adminid'])
                                     <div class="col-sm-6">
 
                                         <label class="col-sm-6">Action Officer:</label>
-                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+                                        <select name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+                                          <?php foreach ($raMembers as $raMember) {
+                                            echo "<option value=".$raMember["id"].">".$raMember["name"]."</option>";
+                                          }?>
+                                        </select>
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
                                 </div>
