@@ -650,7 +650,7 @@ function create_header($page_number,$risk){
             			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RA Leader <p><?php echo $valueAllUser['name'];?></p></th>
                     <th rowspan="0">Approved By: <br>Contractor Senior Management <p><?php echo $appoverName;?></p></th></tr>
             			<tr class="table-firstrow"><th>Designation:  WSHC</th><th>Designation:  <?php echo $appoverDesignation;?></th></tr>
-             <tr><td>Signature: <?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?> <br> Date: <?php echo $risk["createdDate"];?> </td>
+             <tr><td>Signature: <?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?> <br> Date: <?php echo $risk["createdDate"];?> </td>
                <td>Signature: <?php echo '<img width="80" src="staff/'.$appoverSingature.'"/>';?> <br> Date: <?php echo $risk["approveDate"];?></td></tr>
              </tbody>
             			</table>
