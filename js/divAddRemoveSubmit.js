@@ -242,12 +242,11 @@ $('.deleteHazards').click(function(e){
 $(".date").datepicker();
 
 //likelihood chnage
-$('.likelihood').on('change', function()
+$('.likelihood2').on('change', function()
 {
   var likelihood = parseInt(this.value);
-      var severity  =  parseInt($(this).parent().siblings().find('.severity').val());
+      var severity  =  parseInt($(this).siblings().find('.severity2').val());
       var riskValue = likelihood * severity;
-
 
      if(riskValue > 0 && riskValue < 4)
      {
@@ -267,7 +266,7 @@ $('.likelihood').on('change', function()
         var htmlRisk = '';
      }
 
- //alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
+ // alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
 
 
 
@@ -277,13 +276,12 @@ $('.likelihood').on('change', function()
 });
 
 
-$('.severity').on('change', function()
+$('.severity2').on('change', function()
 {
 	   // or $(this).val()
 	  var severity = parseInt(this.value);
-	  var likelihood  =  parseInt($(this).parent().siblings().find('.likelihood').val());
+	  var likelihood  =  parseInt($(this).parent().siblings().find('.likelihood2').val());
 	  var riskValue = likelihood * severity;
-
 
 	 if(riskValue > 0 && riskValue < 4)
 	 {
@@ -304,11 +302,10 @@ $('.severity').on('change', function()
 	 }
 
 
- //alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
+ console.log($(this).parent().siblings().find('.riskLevel').empty());
 
 
-
- $(this).parent().parent().siblings().find('.riskLevel').empty().append(htmlRisk);
+ $(this).parent().siblings().find('.riskLevel').empty().append(htmlRisk);
 
 });
 

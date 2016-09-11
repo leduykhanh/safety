@@ -97,7 +97,6 @@ define('NON_ACTIVE', 0);
       $sqlWorkActivity = "INSERT INTO `workactivity` (`work_id`, `riskId`, `name`, `created_by`, `created_on`, `status`) VALUES (NULL, '".$riskassessmentId."', '".$workactivities."', '".$_SESSION['name']."', '".$today."', '0');";
         $insertWorkActivity=mysqli_query($con, $sqlWorkActivity);
         $workActivityId = mysqli_insert_id($con);
-
         //now we have to chk how many hazards we have
         if($_POST['hazardsCount'][$i] > 0)
         {
@@ -113,9 +112,9 @@ define('NON_ACTIVE', 0);
               $actonDateNow = date_format($actonDateToInsert, 'Y-m-d H:i:s'); // 2011-03-03 00:00:00
 
 
-            $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`) \
+            $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`)
             VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity'][$k]."', '".$_POST['severitySecond'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood'][$k]."', '".$_POST['likelihoodSecond'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', 0, '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
-
+            // echo $sqlHazards;
 
 
              $insertHazards=mysqli_query($con, $sqlHazards);

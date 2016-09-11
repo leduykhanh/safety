@@ -447,7 +447,7 @@ function create_options($name){
 			<div class="form-row">
 				<label class="col-sm-6">Accident Severity:</label>
 
-				<select class="severity2 col-sm-6 btn btn-default  " id="inputSaving" name="severity2[]">
+				<select class="severity2<?php echo $name; ?>  col-sm-6 btn btn-default  " id="inputSaving" name="severity2[]">
 					<option value="-">Select severity</option>
 					<option value="1">(1) Catastrophic</option>
 					<option value="2">(2) Critical</option>
@@ -460,7 +460,7 @@ function create_options($name){
 
 			<div class="form-row">
 				<label class="col-sm-6">Accident Frequency:</label>
-				<select class="likelihood2 col-sm-6 btn btn-default " id="inputSaving" name="likelihood2[]">
+				<select class="likelihood2<?php echo $name; ?>  col-sm-6 btn btn-default " id="inputSaving" name="likelihood2[]">
 					<option value="-">Select Frequency</option>
 					<option value="1">(I) Frequent</option>
 					<option value="2">(II) Probable</option>

@@ -60,6 +60,8 @@ if(isset($_GET['riskid']) && $_GET['riskid'] != '')
   $getAllWorkSql = "SELECT * FROM `workactivity` WHERE `riskId` = ".$valueRisk['id']."";
   $resultAllWork=mysqli_query($con, $getAllWorkSql);
 
+  //get RA list
+  $raMembers =(mysqli_query($con,"SELECT * FROM ramember"));
 
 }
 else
@@ -74,7 +76,7 @@ else
 <form method="post" action="riskmange.php?riskid=<?php echo $_GET['riskid'];?>" class="inlineForm" enctype="multipart/form-data">
 
     <?php
-      $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `riskid` =$_GET[riskid]";
+      $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (select ramemberId  from risk_ramemeber where riskId =$_GET[riskid])";
       $resultRAMember=mysqli_query($con, $sqlRAMember);
       $numRAMamber =  mysqli_num_rows($resultRAMember);
       if($numRAMamber > 0)
@@ -187,7 +189,13 @@ else
                     <div class="col-sm-6">
                         <label class="col-sm-4">RA Members:</label>
                         <label class="col-sm-8">
-                        <input name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="" value="<?php echo $valueRAMember['name'];?>">
+                          <select  name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="">
+                            <?php foreach ($raMembers as $raMember) {
+                              $selected = $valueRAMember["id"] == $raMember["id"]?"selected":"";
+                              echo "<option $selected value=".$raMember["id"].">".$raMember["name"]."</option>";
+                            }?>
+                          </select>
+                        <!-- <input name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="" value="<?php echo $valueRAMember['name'];?>"> -->
                         </label>
                     </div>
                     <button class="col-sm-1 btn btn-danger deleteMember">Remove</button>
@@ -528,8 +536,13 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                                     <div class="col-sm-6">
                                       <div class="row">
                                         <label class="col-sm-6">Action Officer:</label>
-
-                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder=""  value="<?php echo $valueActionOfficer[name];?>" >
+                                        <select name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+                                          <?php foreach ($raMembers as $raMember) {
+                                              $selected = $valueActionOfficer["id"] == $raMember["id"]?"selected":"";
+                                            echo "<option $selected value=".$raMember["id"].">".$raMember["name"]."</option>";
+                                          }?>
+                                        </select>
+                                        <!-- <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder=""  value="<?php echo $valueActionOfficer[name];?>" > -->
                                       </div>
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
