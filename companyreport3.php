@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once 'config.php';
  //print_r($_SESSION);
@@ -8,40 +8,40 @@ include_once 'config.php';
  	<script type="text/javascript">window.location.assign('index.php');</script>
  <?php
  }
- 
+
 ?>
 <!DOCTYPE html>
 
 <html>
 <head>
- 
-    
-   
+
+
+
     <meta charset="utf-8">
     <title>Inventory of Work Activities</title>
 
       </head>
       <style type="text/css">
-	  
+
 	  .printbreak {
        page-break-before: always;
        }
-	  
+
 
     table, tr, td {
     border: 1px solid black;
     border-collapse: collapse;
      vertical-align: text-top;
-    
+
     }
    #risk_register tr td {
     padding: 8px;
-    
-    }  
+
+    }
 table .heading
 {
- 
- 
+
+
   text-align: left;
   background-color: #868080;
   color:white;
@@ -50,7 +50,7 @@ table .heading
 
 }
 
-.no_border tr td 
+.no_border tr td
 
 {
 border-left: 0px;
@@ -76,7 +76,7 @@ td p{
 
 <body>
     <div class="container">
-   
+
 
 <?php
  // risk assessment details
@@ -88,41 +88,40 @@ td p{
         $getAllWorkSql = "SELECT * FROM `workactivity` WHERE `riskId` = ".$_GET['riskid']." ORDER BY  `work_id` ASC ";
         $resultAllWork=mysqli_query($con, $getAllWorkSql);
         $totalWorkActivity = mysqli_num_rows($resultAllWork);
-        
+
         $valueAllWork = mysqli_fetch_assoc($resultAllWork);
-		
+
 		//get user details
 		$getAllUserSql = "SELECT * FROM `staff_login` WHERE `id` = ".$risk['createdBy']."";
         $resultAlluser=mysqli_query($con, $getAllUserSql);
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
-        
+
         $valueAllUser = mysqli_fetch_assoc($resultAlluser);
-		
-       
+
+
 ?>
 
-   
+
 
  <body>
 
 
 
- 
- 
+
+
 
 
 
 	<table class="table bordertable" width="100%">
 	<tbody><tr>
 		<th width="280"><img src="images/SKengineering.png" width="250"></th>
-		<th colspan="3" valign="top"><h1 style="margin:0px; padding:0px;">Risk Assessment Form<br>change
-lightbulb</h1></th>
+		<th colspan="3" valign="top"><h1 style="margin:0px; padding:0px;">Risk Assessment Form<br><?php echo $risk["process"]; ?></h1></th>
 	</tr>
 	<tr>
 		<td>Company</td>
 		<td>SK E&amp;C (Singapore Branch)</td>
 		<td>Conducted by:</td>
-		<td>rajesh</td>							
+		<td><?php echo $valueAllUser['name'];?></td>
 	</tr>
 	<tr>
 		<td>Location of shafts:</td>
@@ -130,7 +129,7 @@ lightbulb</h1></th>
 		<td>Names,designations:</td>
 		<td style="padding:0px;"><table border="0" class="no_border">		<tbody><tr>
 					<td width="200"></td>
-					<td width="200"></td><td><img src="images/" height="60"></td></tr> 
+					<td width="200"></td><td><?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?></td></tr>
 						</tbody></table>
 			</td>
 	</tr>
@@ -159,7 +158,7 @@ lightbulb</h1></th>
 
 
 
-	
+
 </tbody></table>
 
 
@@ -173,7 +172,7 @@ lightbulb</h1></th>
 	<tbody><tr>
 
 
-	
+
 	</tr>
 </tbody></table>
 
@@ -196,7 +195,7 @@ lightbulb</h1></th>
 		<th>2d</th>
 		<th>3a</th>
 		<th>3b</th>
-		<th>3c</th>	
+		<th>3c</th>
 		<th>3d</th>
 		<th>3e</th>
 	</tr>
@@ -204,15 +203,15 @@ lightbulb</h1></th>
 		<th>No</th>
 		<th>Work Activity</th>
 		<th>Hazard</th>
-		<th>Possible Accident / <br>III Health &amp; Persons-<br>at- Risk</th>	
+		<th>Possible Accident / <br>III Health &amp; Persons-<br>at- Risk</th>
  		<th>Existing Risk Control (if any)</th>
  		<th>Severity</th>
  		<th>Likelihood</th>
  		<th>Risk Level</th>
  		<th>Additional Risk<br> Control</th><th>Severity</th>
- 		<th>Likelihood</th><th>Risk Level</th>	
+ 		<th>Likelihood</th><th>Risk Level</th>
  		<th>Action Officer, Designation<br>(Follow-up date)</th>
-		
+
 	</tr>
 
 				</tbody></table>
@@ -352,9 +351,8 @@ lightbulb</h1></th>
  <tr><td>D</td><td>Acceptable</td><td>This risk is acceptable.</td></tr>
 </tbody></table>
 
-</body>    
+</body>
 
 
     </body>
     </html>
-    
