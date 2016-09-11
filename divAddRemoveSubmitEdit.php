@@ -214,7 +214,12 @@ else
                     <div class="col-sm-6">
                         <label class="col-sm-4">RA Members:</label>
                         <label class="col-sm-8">
-                        <input name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="" value="">
+                          <select  name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="">
+                            <?php foreach ($raMembers as $raMember) {
+                              echo "<option  value=".$raMember["id"].">".$raMember["name"]."</option>";
+                            }?>
+                          </select>
+                        <!-- <input name="RA_Member[]" class="span4" type="text" id="inputSaving" placeholder="" value=""> -->
                         </label>
                     </div>
                     <button class="col-sm-1 btn btn-danger deleteMember">Remove</button>
@@ -561,8 +566,12 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                                     <div class="col-sm-6">
                                       <div class="row">
                                         <label class="col-sm-6">Action Officer:</label>
-
-                                        <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder=""  value="" >
+                                        <select name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+                                          <?php foreach ($raMembers as $raMember) {
+                                            echo "<option  value=".$raMember["id"].">".$raMember["name"]."</option>";
+                                          }?>
+                                        </select>
+                                        <!-- <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder=""  value="" > -->
                                       </div>
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
