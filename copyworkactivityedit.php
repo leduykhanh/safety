@@ -41,7 +41,7 @@
                           </div>
                           <div class="row">
                             <label class="col-sm-6">Existing Risk Control:</label>
-                           <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""><?php echo $valueAllHazards['risk_control'];?></textarea>
+                           <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""></textarea>
 
                           </div>
 
