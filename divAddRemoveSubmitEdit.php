@@ -94,10 +94,10 @@ else
 
 
       <div class="col-sm-12 form_pad">
-                <h3>Add a New Risk Assessment</h3>
+                <h3>Edit Risk Assessment</h3>
                 <hr class="add_risk">
                 <div class="col-sm-12 form-row">
-                            <div class="col-sm-8">
+                            <div class="col-sm-12">
                               <label class="col-sm-2">Project Title:</label>
                               <label class="col-sm-10"><input name="project_title" value="<?php echo $valueRisk['project_title'];?>"class="span4" type="text" id="inputSaving" placeholder="" required=""></label>
                             </div>
@@ -133,7 +133,7 @@ else
 <div class="row">
                             <label class="col-sm-4">Loaction:</label>
                             <label class="col-sm-8">
-                              <input name="location" class="span4" type="text" id="inputSaving" placeholder="" required value="<?php echo $valueRisk['location'];?>"></label>
+                              <textarea rows="2" name="location" class="span4" type="text" id="inputSaving" placeholder="" required value="<?php echo $valueRisk['location'];?>"><?php echo $valueRisk['location'];?></textarea></label>
                               </div>
                           </div>
 
@@ -155,7 +155,7 @@ else
                             <div class="row">
                               <label class="col-sm-4">Risk Process:</label>
                               <label class="col-sm-8">
-                                <input name="process" class="span4" type="text" id="inputSaving" placeholder="" required value="<?php echo $valueRisk['process'];?>">
+                                <textarea rows="2" name="process" class="span4" type="text" id="inputSaving" placeholder="" required value="<?php echo $valueRisk['process'];?>"><?php echo $valueRisk['process'];?></textarea>
                               </label>
                               </div>
                             </div>
@@ -274,10 +274,10 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                     <div class="row">
                     <div class="col-sm-12">
                         <div class="row">
-                        <div class="col-sm-6 form-row">
+                        <div class="col-sm-12 form-row">
                         <div class="row">
-                            <label class="col-sm-6" style="padding-left:29px;">Work Activity Name:</label>
-                            <input class="col-sm-6" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $valueAllWork['name'];?>" placeholder="" style="width:48%; margin-left:9px;" required>
+                            <label class="col-sm-3" style="padding-left:29px;">Work Activity Name:</label>
+                            <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $valueAllWork['name'];?>" placeholder="" style="width:72%; margin-left:9px;" required>
                         </div>
                         </div>
                         </div>
@@ -299,7 +299,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                          <div class="row">
                             <label class="col-sm-6">Hazard:</label>
 
-                            <input type="text" class="col-sm-6" id="inputSaving" name="Hazard[]" value="<?php echo $valueAllHazards['name'];?>" placeholder="" required>
+                            <textarea rows="2" type="text" class="col-sm-6" id="inputSaving" name="Hazard[]" value="<?php echo $valueAllHazards['name'];?>" placeholder="" required><?php echo $valueAllHazards['name'];?></textarea>
 
                           </div>
                           <div class="row">

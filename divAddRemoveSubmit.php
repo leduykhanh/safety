@@ -93,7 +93,7 @@ if(!$_SESSION['adminid'])
 
                             <label class="col-sm-4">Risk Location:</label>
                             <label class="col-sm-8">
-                              <input name="location" class="span4" type="text" id="inputSaving" placeholder="" required></label>
+                              <textarea rows="2" name="location" class="span4" type="text" id="inputSaving" placeholder="" required></textarea></label>
                           </div>
 
                           <div class="col-sm-6">
@@ -113,7 +113,7 @@ if(!$_SESSION['adminid'])
                             <div class="col-sm-6">
                               <label class="col-sm-4">Risk Process:</label>
                               <label class="col-sm-8">
-                                <input name="process" class="span4" type="text" id="inputSaving" placeholder="" required>
+                                <textarea rows="2" name="process" class="span4" type="text" id="inputSaving" placeholder="" required></textarea>
                               </label>
                             </div>
 
@@ -235,9 +235,9 @@ if(!$_SESSION['adminid'])
 
                     <div class="col-sm-12">
                         <hr class="add_risk" />
-                        <div class="col-sm-6 form-row">
-                            <label class="col-sm-6">Work Activity Name:</label>
-                            <input class="col-sm-6" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $name;?>" placeholder="" required>
+                        <div class="col-sm-12 form-row">
+                            <label class="col-sm-3">Work Activity Name:</label>
+                            <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $name;?>" placeholder="" required>
                         </div>
                        <div class="clearfix"></div>
                        <hr class="add_activity"/>
@@ -251,11 +251,11 @@ if(!$_SESSION['adminid'])
                         <div class="col-sm-6 form-row">
                           <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
-                            <input class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required>
+                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
-                            <input class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required>
+                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]"  placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
@@ -398,9 +398,9 @@ if(!$_SESSION['adminid'])
 
                     <div class="col-sm-12">
                         <hr class="add_risk" />
-                        <div class="col-sm-6 form-row">
-                            <label class="col-sm-6" >Work Activity Name:</label>
-                            <input class="col-sm-6" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $name;?>" placeholder="" required>
+                        <div class="col-sm-12 form-row">
+                            <label class="col-sm-3" >Work Activity Name:</label>
+                            <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $name;?>" placeholder="" required>
                         </div>
                        <div class="clearfix"></div>
                        <hr class="add_activity"/>
@@ -414,11 +414,11 @@ if(!$_SESSION['adminid'])
                         <div class="col-sm-6 form-row">
                           <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
-                            <input class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required>
+                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
-                            <input class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required>
+                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
