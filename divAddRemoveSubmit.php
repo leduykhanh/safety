@@ -49,7 +49,7 @@ if(!$_SESSION['adminid'])
 
 <div class="container" style="border:2px solid black;">
 
-<form method="post" action="riskmange.php" class="inlineForm" enctype="multipart/form-data">
+<form method="post"  action="riskmange.php" class="inlineForm" enctype="multipart/form-data">
 
 
   <input type="hidden" name="RA_MemberCount" id="RA_MemberCount" value="1" />
@@ -251,11 +251,11 @@ if(!$_SESSION['adminid'])
                         <div class="col-sm-6 form-row">
                           <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
-                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required></textarea>
+                            <textarea rows="2" class="col-sm-6"  name="Hazard[]"  placeholder="" required><?php echo $name;?></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
-                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required></textarea>
+                            <textarea rows="2" class="col-sm-6"  name="InjuryAccident[]"  placeholder="" required><?php echo $name;?></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
@@ -414,11 +414,11 @@ if(!$_SESSION['adminid'])
                         <div class="col-sm-6 form-row">
                           <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
-                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]" value="<?php echo $name;?>" placeholder="" required></textarea>
+                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]"  placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
-                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required></textarea>
+                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]"  placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
