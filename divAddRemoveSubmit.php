@@ -60,9 +60,9 @@ if(!$_SESSION['adminid'])
                 <h3>Add a New Risk Assessment</h3>
                 <hr class="add_risk">
 		            <div class="col-sm-12 form-row">
-                            <div class="col-sm-8">
-                              <label class="col-sm-4">Project Title:</label>
-                              <label class="col-sm-8"><input name="project_title" class="span4" type="text" id="inputSaving" placeholder="" required=""></label>
+                            <div class="col-sm-12">
+                              <label class="col-sm-2">Project Title:</label>
+                              <label class="col-sm-10"><input name="project_title" class="span4" type="text" id="inputSaving" placeholder="" required=""></label>
                             </div>
                 </div>
                 <div class="col-sm-12 form-row">
