@@ -115,7 +115,7 @@ else
                           <div class="col-sm-6">
 							<div class="row">
                             <label class="col-sm-4">Company:</label>
-                            <label class="col-sm-8">QE Safety Consultancy Pte Ltd</label>
+                            <label class="col-sm-8">THI Engineering & Construction Pte Ltd</label>
                             </div>
                           </div>
 
@@ -305,7 +305,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
 
-                            <input type="text" class="col-sm-6" id="inputSaving" name="InjuryAccident[]" value="<?php echo $valueAllHazards['accident'];?>" placeholder="" required>
+                            <input type="text" class="col-sm-6" id="inputSaving" name="InjuryAccident[]" value="<?php echo $valueAllHazards['accident'];?>" placeholder="" required />
 
                           </div>
                           <div class="row">

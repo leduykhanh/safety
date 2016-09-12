@@ -33,11 +33,11 @@
                         <div class="col-sm-6">
                           <div class="row">
                             <label class="col-sm-6">Hazard:</label>
-                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]"  placeholder="" required></textarea>
+                            <input rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]"  placeholder="" required></input>
                           </div>
                           <div class="row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
-                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" placeholder="" required></textarea>
+                            <input rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" placeholder="" required></input>
                           </div>
                           <div class="row">
                             <label class="col-sm-6">Existing Risk Control:</label>
@@ -191,7 +191,11 @@
      <div class="col-sm-6">
         <div class="row">
           <label class="col-sm-6">Action Officer:</label>
-          <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+          <select name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
+            <?php foreach ($raMembers as $raMember) {
+              echo "<option value=".$raMember["id"].">".$raMember["name"]."</option>";
+            }?>
+          </select>
 
          </div>
       </div>

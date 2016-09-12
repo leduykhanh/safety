@@ -76,7 +76,7 @@ if(!$_SESSION['adminid'])
                           <div class="col-sm-6">
 
                             <label class="col-sm-4">Company:</label>
-                            <label class="col-sm-8">QE Safety Consultancy Pte Ltd</label>
+                            <label class="col-sm-8">THI Engineering & Construction Pte Ltd</label>
                           </div>
 
                           <div class="col-sm-6">
@@ -255,7 +255,7 @@ if(!$_SESSION['adminid'])
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
-                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]"  placeholder="" required></textarea>
+                            <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" value="<?php echo $name;?> " placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
