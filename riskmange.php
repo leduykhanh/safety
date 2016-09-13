@@ -69,8 +69,8 @@ define('NON_ACTIVE', 0);
  else
   {
 
-     $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`,`project_title`)
-     VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].",'".$_POST['project_title']."');";
+     $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`,`project_title`,`expiry_date`)
+     VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].",'".$_POST['project_title']."',".$_POST["expiry_date"].");";
 		//  echo $riskassessment;
       $insert_riskassessment=mysqli_query($con, $riskassessment);
       $riskassessmentId = mysqli_insert_id($con);

@@ -116,6 +116,14 @@ if(!$_SESSION['adminid'])
                                 <textarea rows="2" name="process" class="span4" type="text" id="inputSaving" placeholder="" required></textarea>
                               </label>
                             </div>
+                            <div class="col-sm-6">
+                              <label class="col-sm-4">Expiry Date:</label>
+                              <select  name="expiry_date">
+                                <option value="1" selected>1</option>
+                                <option value="2" >2</option>
+                                <option value="3" >3</option>
+                              </select>
+                            </div>
 
                 </div>
 				<div class="col-sm-12 form-row onlyfortemplate5" style="display: block;">
@@ -343,7 +351,7 @@ if(!$_SESSION['adminid'])
 
 
                        <div class="col-sm-12 form-row">
-                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="1" />
+                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="0" />
                                 <div class="row col-sm-12 form-row">
 
                                     <button class="col-sm-2 btn btn-primary addActionMember" id="add_new_member">+Action Officer</button>
@@ -499,12 +507,12 @@ if(!$_SESSION['adminid'])
 
 
                             <div class="col-sm-12 form-row">
-                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="1" />
+                             <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="0" />
                                 <div class="row col-sm-12 form-row">
 
                                     <button class="col-sm-2 btn btn-primary addActionMember" id="add_new_member">+Action Officer</button>
                                 </div>
-                                <div id="clonedInput1" class="row repeatingActionOfficer">
+                                <!-- <div id="clonedInput1" class="row repeatingActionOfficer">
 
                                     <div class="col-sm-6">
 
@@ -516,7 +524,7 @@ if(!$_SESSION['adminid'])
                                         </select>
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
-                                </div>
+                                </div> -->
                             </div>
 
 

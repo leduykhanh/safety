@@ -159,6 +159,14 @@ else
                               </label>
                               </div>
                             </div>
+                            <div class="col-sm-6">
+                              <label class="col-sm-4">Expiry Date:</label>
+                              <select  name="expiry_date">
+                                <option value="1" selected>1</option>
+                                <option value="2" >2</option>
+                                <option value="3" >3</option>
+                              </select>
+                            </div>
                 </div>
       </div>
 
