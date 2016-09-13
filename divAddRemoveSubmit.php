@@ -59,9 +59,10 @@ if(!$_SESSION['adminid'])
       <div class="col-sm-12 form_pad">
                 <h3>Add a New Risk Assessment</h3>
                 <hr class="add_risk">
+                <div class="row text-right" style="font-weight:normal;font-style:italic">Fields with (<span class="compulsary"><span>) are required</div>
 		            <div class="col-sm-12 form-row">
                             <div class="col-sm-12">
-                              <label class="col-sm-2">Project Title:</label>
+                              <label class="col-sm-2 compulsary">Project Title:</label>
                               <label class="col-sm-10"><input name="project_title" class="span4" type="text" id="inputSaving" placeholder="" required=""></label>
                             </div>
                 </div>
@@ -91,14 +92,14 @@ if(!$_SESSION['adminid'])
                 <div class="col-sm-12 form-row">
                           <div class="col-sm-6">
 
-                            <label class="col-sm-4">Risk Location:</label>
+                            <label class="col-sm-4 compulsary">Risk Location:</label>
                             <label class="col-sm-8">
                               <textarea rows="2" name="location" class="span4" type="text" id="inputSaving" placeholder="" required></textarea></label>
                           </div>
 
                           <div class="col-sm-6">
 
-                            <label class="col-sm-4">Creation Date:</label>
+                            <label class="col-sm-4 compulsary">Creation Date:</label>
                             <label class="col-sm-8">
                                <input name="creationDate" class="span4 date" type="text" id="creationDate" placeholder="" required></label>
 
@@ -111,13 +112,13 @@ if(!$_SESSION['adminid'])
 
                 <div class="col-sm-12 form-row">
                             <div class="col-sm-6">
-                              <label class="col-sm-4">Risk Process:</label>
+                              <label class="col-sm-4 compulsary">Risk Process:</label>
                               <label class="col-sm-8">
                                 <textarea rows="2" name="process" class="span4" type="text" id="inputSaving" placeholder="" required></textarea>
                               </label>
                             </div>
                             <div class="col-sm-6">
-                              <label class="col-sm-4">Expiry Date:</label>
+                              <label class="col-sm-4 compulsary">Expiry Date:</label>
                               <select  name="expiry_date">
                                 <option value="1" selected>1</option>
                                 <option value="2" >2</option>
@@ -244,7 +245,7 @@ if(!$_SESSION['adminid'])
                     <div class="col-sm-12">
                         <hr class="add_risk" />
                         <div class="col-sm-12 form-row">
-                            <label class="col-sm-3">Work Activity Name:</label>
+                            <label class="col-sm-3 compulsary">Work Activity Name:</label>
                             <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $name;?>" placeholder="" required>
                         </div>
                        <div class="clearfix"></div>
@@ -258,7 +259,7 @@ if(!$_SESSION['adminid'])
 
                         <div class="col-sm-6 form-row">
                           <div class="form-row">
-                            <label class="col-sm-6">Hazard:</label>
+                            <label class="col-sm-6 compulsary">Hazard:</label>
                             <textarea rows="2" class="col-sm-6"  name="Hazard[]"  placeholder="" ><?php echo $name;?></textarea>
                           </div>
                           <div class="form-row">
