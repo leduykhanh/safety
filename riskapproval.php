@@ -137,11 +137,6 @@ session_start();
 
 
 	  ?>
-    <html>
-    <head>
-      <title>Birthday Reminders for August</title>
-    </head>
-    <body>
 
       Dear <?php echo $apovngmngrname['name'];?> , RA (00<?php echo $_GET['riskId'];?>) is ready for your approval.
 
@@ -156,8 +151,7 @@ session_start();
 
 
       Thanks
-    </body>
-    </html>
+
       <?php   $sql = "SELECT created_by FROM workactivity WHERE riskid='".$_GET['riskId']."'";
       $result_new = mysqli_query($con, $sql);
 	  $raleader = mysqli_fetch_assoc($result_new);
