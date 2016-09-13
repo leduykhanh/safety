@@ -137,9 +137,13 @@ session_start();
 
 
 	  ?>
+    <html>
+    <head>
+      <title>Birthday Reminders for August</title>
+    </head>
+    <body>
 
-
-      Dear <u> <?php echo $apovngmngrname['name'];?> </u>, RA (00<?php echo $_GET['riskId'];?>) is ready for your approval.
+      Dear <?php echo $apovngmngrname['name'];?> , RA (00<?php echo $_GET['riskId'];?>) is ready for your approval.
 
       Please click on the link below to approve the Risk assessment.
 
@@ -152,6 +156,8 @@ session_start();
 
 
       Thanks
+    </body>
+    </html>
       <?php   $sql = "SELECT created_by FROM workactivity WHERE riskid='".$_GET['riskId']."'";
       $result_new = mysqli_query($con, $sql);
 	  $raleader = mysqli_fetch_assoc($result_new);
@@ -174,7 +180,7 @@ session_start();
 
 
    ?>
-    <!-- <script type="text/javascript">window.location.assign("listwork_activity.php?id=<?php echo $_GET['riskId'];?>&status=0&message=document sents successfully")</script> -->
+    <script type="text/javascript">window.location.assign("listwork_activity.php?id=<?php echo $_GET['riskId'];?>&status=0&message=document sents successfully")</script>
     <?php
 
 
