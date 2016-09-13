@@ -251,15 +251,15 @@ if(!$_SESSION['adminid'])
                         <div class="col-sm-6 form-row">
                           <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
-                            <textarea rows="2" class="col-sm-6"  name="Hazard[]"  placeholder="" required><?php echo $name;?></textarea>
+                            <textarea rows="2" class="col-sm-6"  name="Hazard[]"  placeholder="" ><?php echo $name;?></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
-                            <textarea rows="2" class="col-sm-6"  name="InjuryAccident[]"  placeholder="" required><?php echo $name;?></textarea>
+                            <textarea rows="2" class="col-sm-6"  name="InjuryAccident[]"  placeholder="" ><?php echo $name;?></textarea>
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
-                        <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder="" ><?php echo $name;?></textarea>
+                        <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" rows="5" placeholder="" ><?php echo $name;?></textarea>
 
 
 
@@ -326,7 +326,7 @@ if(!$_SESSION['adminid'])
                           <div class="form-row">
                             <label class="col-sm-6">Additional Risk Control:</label>
 
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" rows="5"></textarea>
 
 
                           </div>
@@ -422,7 +422,7 @@ if(!$_SESSION['adminid'])
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""><?php echo $name;?></textarea>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" rows="5" placeholder=""><?php echo $name;?></textarea>
                           </div>
 
                             <?php create_options(""); ?>
@@ -484,7 +484,7 @@ if(!$_SESSION['adminid'])
                           <div class="form-row">
                             <label class="col-sm-6">Additional Risk Control:</label>
 
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" rows="5"></textarea>
 
 
                           </div>

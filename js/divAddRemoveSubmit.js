@@ -2,9 +2,10 @@ $(window).load(function(){
 // Add a new repeating section
 var attrs = ['for', 'id', 'value'];
 function resetAttributeNames(section) {
-    var tags = section.find('input, label'), idx = section.index();
+    var tags = section.find('input, label, h3'), idx = section.index();
     tags.each(function() {
       var $this = $(this);
+      $this.html($this.html().replace(/\d/g,parseInt($('#workactivityCount').val()) + 1));
       $.each(attrs, function(i, attr) {
         var attr_val = $this.attr(attr);
         if (attr_val) {
