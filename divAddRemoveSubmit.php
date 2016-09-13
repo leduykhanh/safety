@@ -422,15 +422,15 @@ if(!$_SESSION['adminid'])
 
                         <div class="col-sm-6 form-row">
                           <div class="form-row">
-                            <label class="col-sm-6">Hazard:</label>
+                            <label class="col-sm-6 compulsary">Hazard:</label>
                             <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]"  placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
-                            <label class="col-sm-6">Possible Injury / Accident:</label>
+                            <label class="col-sm-6 compulsary">Possible Injury / Accident:</label>
                             <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]"  placeholder="" required></textarea>
                           </div>
                           <div class="form-row">
-                            <label class="col-sm-6">Existing Risk Control:</label>
+                            <label class="col-sm-6 compulsary">Existing Risk Control:</label>
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" rows="5" placeholder=""><?php echo $name;?></textarea>
                           </div>
 
