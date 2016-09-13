@@ -19,7 +19,7 @@ include_once 'config.php';
 
     <meta charset="utf-8">
     <title>Inventory of Work Activities</title>
-
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       </head>
       <style type="text/css">
 
@@ -377,217 +377,230 @@ lightbulb</td>
 		</tbody>
 	</table>
 	<br>
-	<table class="table bordertable">
-		<thead>
-			<tr class="table-firstrow">
-				<th colspan="5">TABLE 1: Accident Frequency</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th>Likelihood	</th>
-				<th>Rating</th>
-				<th>Description</th>
+  <div class="row">
+    <div class="col-sm-6">
+      <table class="table bordertable">
+        <thead>
+          <tr class="table-firstrow">
+            <th colspan="5">TABLE 1: Accident Frequency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Likelihood	</th>
+            <th>Rating</th>
+            <th>Description</th>
 
-			</tr>
-			<tr>
-				<th>Frequent</th>
-				<td align="center">I</td>
-				<td>Likely to occur 12 times or more per year</td>
+          </tr>
+          <tr>
+            <th>Frequent</th>
+            <td align="center">I</td>
+            <td>Likely to occur 12 times or more per year</td>
 
-			</tr>
-			<tr>
-				<th>Probable</th>
-				<td align="center">II</td>
-				<td>Likely to occur 4 times per year</td>
+          </tr>
+          <tr>
+            <th>Probable</th>
+            <td align="center">II</td>
+            <td>Likely to occur 4 times per year</td>
 
-			</tr>
-			<tr>
-				<th>Occassional</th>
-				<td align="center">III</td>
-				<td>Likely to occur once a year</td>
+          </tr>
+          <tr>
+            <th>Occassional</th>
+            <td align="center">III</td>
+            <td>Likely to occur once a year</td>
 
-			</tr>
-			<tr>
-				<th>Remote</th>
-				<td align="center">IV</td>
-				<td>Likely to occur once in a 5 year project period</td>
+          </tr>
+          <tr>
+            <th>Remote</th>
+            <td align="center">IV</td>
+            <td>Likely to occur once in a 5 year project period</td>
 
-			</tr>
-			<tr>
-				<th>Improbable</th>
-				<td align="center">V</td>
-				<td>Unlikely, but may exceptionally occur</td>
+          </tr>
+          <tr>
+            <th>Improbable</th>
+            <td align="center">V</td>
+            <td>Unlikely, but may exceptionally occur</td>
 
-			</tr>
+          </tr>
 
-		</tbody>
-	</table>
+        </tbody>
+      </table>
+      <br>
+    </div>
+    <div class="col-sm-6">
+      <table class="table bordertable" align="center">
+        <thead>
+          <tr class="table-firstrow">
+            <th colspan="6">TABLE 3: Risk Index Matrix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th rowspan="3" colspan="2">Accident Frequency Category</th>
+            <th colspan="4">Accident Severity Category</th>
+          </tr>
+          <tr>
+            <th align="center">I</th>
+            <th align="center">II</th>
+            <th align="center">III</th>
+            <th align="center">IV</th>
+          </tr>
+          <tr>
+            <th align="center">Catastrophic</th>
+            <th align="center">Critical</th>
+            <th align="center">Marginal</th>
+            <th align="center">Negligible</th>
+          </tr>
+          <tr>
+            <td align="center">I</td>
+            <td align="center">Frequent</td>
+            <td align="center">A</td>
+            <td align="center">A</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+          </tr>
+          <tr>
+            <td align="center">II</td>
+            <td align="center">Probable</td>
+            <td align="center">A</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+          </tr>
+          <tr>
+            <td align="center">III</td>
+            <td align="center">Occasional</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">C</td>
+          </tr>
+          <tr>
+            <td align="center">IV</td>
+            <td align="center">Remote</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">C</td>
+            <td align="center">D</td>
+          </tr>
+          <tr>
+            <td align="center">V</td>
+            <td align="center">Improbable</td>
+            <td align="center">C</td>
+            <td align="center">C</td>
+            <td align="center">D</td>
+            <td align="center">D</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+
+    </div>
+  <div>
+  <div class="row">
+    <div class="col-sm-6">
+      <table class="table bordertable">
+        <tbody><tr class="table-firstrow">
+          <th colspan="5">TABLE 2: Accident Severity</th>
+        </tr>
+        <tr>
+          <th>No.</th>
+          <th>Consequence</th>
+          <th>Rating</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Catastrophic</td>
+          <td>I</td>
+          <td>
+            <ul>
+                  <li>Single or Multiple loss of life from injury or occupational disease, immediately or delayed and/or</li>
+                  <li>Loss of whole production for greater than 3 man-days and/or</li>
+                  <li>Total loss in excess of $1 million.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Critical</td>
+          <td>II</td>
+          <td>
+            <ul>
+              <li>Reportable major injury<sup>1</sup>, occupational disease or dangerous occurrence; and/or</li>
+              <li>Damaged to works or plants causing delays of up to  3 man-days     and/or</li>
+              <li>Total loss in excess of $250,000 but up to $1 million.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Marginal</td>
+          <td>III</td>
+          <td>
+            <ul>
+              <li>Reportable injury<sup>2</sup>,  occupational disease and/or</li>
+              <li>Damaged to works or plants causing delays of up to  1 man-days and/or</li>
+              <li> Total loss in excess of $25,000 but up to $250,000.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Negligible</td>
+          <td>IV</td>
+          <td>
+            <ul>
+              <li>Minor injury<sup>3</sup>, no lost time or person involved returns to work during the shift after treatment; and/or</li>
+              <li>Damaged to works or plants that does not cause significant delays;   and/or</li>
+              <li>Total loss of up to $25,000.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="col-sm-6">
+      <table class="table bordertable">
+        <tbody><tr class="table-firstrow">
+          <th colspan="3">TABLE 4: Definition of Risk Index</th>
+        </tr>
+        <tr>
+          <th>Risk Index</th>
+          <th>Description</th>
+          <th>Definition</th>
+        </tr>
+        <tr>
+          <td align="center">A</td>
+          <td align="center">Intolerable</td>
+          <td align="center">Risk shall be reduced by whatever means possible.</td>
+        </tr>
+        <tr>
+          <td align="center">B</td>
+          <td align="center">Undesirable</td>
+          <td align="center">Risk shall only be accepted if further risk reduction is not practicable.</td>
+        </tr>
+        <tr>
+          <td align="center">C</td>
+          <td align="center">Tolerable</td>
+          <td align="center">Risk shall be accepted subject to demonstration that the level of risk is as low as reasonably practicable.</td>
+        </tr>
+        <tr>
+          <td align="center">D</td>
+          <td align="center">Acceptable</td>
+          <td align="center">Risk is acceptable.</td>
+        </tr>
+      </tbody></table>
+    <br>
+    </div>
+  <div>
+
+
+
+
+
 	<br>
 
-	<table class="table bordertable">
-		<tbody><tr class="table-firstrow">
-			<th colspan="5">TABLE 2: Accident Severity</th>
-		</tr>
-		<tr>
-			<th>No.</th>
-			<th>Consequence</th>
-			<th>Rating</th>
-			<th>Description</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Catastrophic</td>
-			<td>I</td>
-			<td>
-				<ul>
-			        <li>Single or Multiple loss of life from injury or occupational disease, immediately or delayed and/or</li>
-			        <li>Loss of whole production for greater than 3 man-days and/or</li>
-			        <li>Total loss in excess of $1 million.</li>
-				</ul>
-			</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>Critical</td>
-			<td>II</td>
-			<td>
-				<ul>
-					<li>Reportable major injury<sup>1</sup>, occupational disease or dangerous occurrence; and/or</li>
-					<li>Damaged to works or plants causing delays of up to  3 man-days     and/or</li>
-					<li>Total loss in excess of $250,000 but up to $1 million.</li>
-				</ul>
-			</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>Marginal</td>
-			<td>III</td>
-			<td>
-				<ul>
-					<li>Reportable injury<sup>2</sup>,  occupational disease and/or</li>
-					<li>Damaged to works or plants causing delays of up to  1 man-days and/or</li>
-					<li> Total loss in excess of $25,000 but up to $250,000.</li>
-				</ul>
-			</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>Negligible</td>
-			<td>IV</td>
-			<td>
-				<ul>
-					<li>Minor injury<sup>3</sup>, no lost time or person involved returns to work during the shift after treatment; and/or</li>
-					<li>Damaged to works or plants that does not cause significant delays;   and/or</li>
-					<li>Total loss of up to $25,000.</li>
-				</ul>
-			</td>
-		</tr>
-	</tbody></table>
 
-
-	<br>
-
-	<table class="table bordertable" align="center">
-		<thead>
-			<tr class="table-firstrow">
-				<th colspan="6">TABLE 3: Risk Index Matrix</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th rowspan="3" colspan="2">Accident Frequency Category</th>
-				<th colspan="4">Accident Severity Category</th>
-			</tr>
-			<tr>
-				<th align="center">I</th>
-				<th align="center">II</th>
-				<th align="center">III</th>
-				<th align="center">IV</th>
-			</tr>
-			<tr>
-				<th align="center">Catastrophic</th>
-				<th align="center">Critical</th>
-				<th align="center">Marginal</th>
-				<th align="center">Negligible</th>
-			</tr>
-			<tr>
-				<td align="center">I</td>
-				<td align="center">Frequent</td>
-				<td align="center">A</td>
-				<td align="center">A</td>
-				<td align="center">A</td>
-				<td align="center">B</td>
-			</tr>
-			<tr>
-				<td align="center">II</td>
-				<td align="center">Probable</td>
-				<td align="center">A</td>
-				<td align="center">A</td>
-				<td align="center">B</td>
-				<td align="center">C</td>
-			</tr>
-			<tr>
-				<td align="center">III</td>
-				<td align="center">Occasional</td>
-				<td align="center">A</td>
-				<td align="center">B</td>
-				<td align="center">C</td>
-				<td align="center">C</td>
-			</tr>
-			<tr>
-				<td align="center">IV</td>
-				<td align="center">Remote</td>
-				<td align="center">B</td>
-				<td align="center">C</td>
-				<td align="center">C</td>
-				<td align="center">D</td>
-			</tr>
-			<tr>
-				<td align="center">V</td>
-				<td align="center">Improbable</td>
-				<td align="center">C</td>
-				<td align="center">C</td>
-				<td align="center">D</td>
-				<td align="center">D</td>
-			</tr>
-		</tbody>
-	</table>
-
-
-
-	<br>
-	<table class="table bordertable">
-		<tbody><tr class="table-firstrow">
-			<th colspan="3">TABLE 4: Definition of Risk Index</th>
-		</tr>
-		<tr>
-			<th>Risk Index</th>
-			<th>Description</th>
-			<th>Definition</th>
-		</tr>
-		<tr>
-			<td align="center">A</td>
-			<td align="center">Intolerable</td>
-			<td align="center">Risk shall be reduced by whatever means possible.</td>
-		</tr>
-		<tr>
-			<td align="center">B</td>
-			<td align="center">Undesirable</td>
-			<td align="center">Risk shall only be accepted if further risk reduction is not practicable.</td>
-		</tr>
-		<tr>
-			<td align="center">C</td>
-			<td align="center">Tolerable</td>
-			<td align="center">Risk shall be accepted subject to demonstration that the level of risk is as low as reasonably practicable.</td>
-		</tr>
-		<tr>
-			<td align="center">D</td>
-			<td align="center">Acceptable</td>
-			<td align="center">Risk is acceptable.</td>
-		</tr>
-	</tbody></table>
-<br>
 <br>
 	<p>Note: (*) If more than one of the descriptions occurs, the severity rating would be increased to the next higher level. Applicable to item numbers 2 and 3 only.</p>
 
