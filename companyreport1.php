@@ -165,7 +165,7 @@ function create_header($page_number,$risk){
 
 			<tbody><tr class="table-firstrow"><th rowspan="3" colspan="3">Risk Category</th><th colspan="4">Accident Severity Category</th></tr>
 
-			 <tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+			 <tr><td>I</td><td>II</td><td>III</td><td>IV</td></tr>
 			 <tr><td>Catastrophic</td><td>Critical</td><td>Marginal</td><td>Negligible</td></tr>
 			 <tr><td rowspan="4">Accident Frequency Category</td><td>I</td><td>Frequent </td><td bgcolor="#FF0000">A</td><td bgcolor="#FF0000">A</td><td bgcolor="#FF0000">A</td><td bgcolor="#FF9900">B</td></tr>
 			 <tr><td>II</td><td>Probable </td><td bgcolor="#FF0000">A</td><td bgcolor="#FF0000">A</td><td bgcolor="#FF9900">B</td><td bgcolor="#FFFF00">C</td></tr>
