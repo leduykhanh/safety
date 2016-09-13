@@ -389,12 +389,12 @@ function create_header($page_number,$risk){
 
 					 if($risk['approveDate'] !='0000-00-00 00:00:00')
                         {
-                          echo $date = date('d-m-Y', strtotime('+3 years', strtotime($risk['approveDate'])));
+                          echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
 
                         }
                         else if($risk['createdDate'] != '0000-00-00 00:00:00')
                         {
-							echo $date = date('d-m-Y', strtotime('+3 years', strtotime($risk['createdDate'])));
+							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
 						}
 						else
 						{
