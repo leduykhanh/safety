@@ -454,7 +454,7 @@ $('.deleteWorkActivity').click(function(e){
                    <div class="col-sm-8">
 
 
-                        <a class="btn btn-success" target="_blank" href="companyreport.php?riskid=<?php echo $_GET['riskId'];?>">  <strong>Preview</strong></a>
+                        <a class="btn btn-success" target="_blank" href="companyreport<?php echo $valueRisk["asTemplate"] ?>.php?riskid=<?php echo $_GET['riskId'];?>">  <strong>Preview</strong></a>
 
 
 
