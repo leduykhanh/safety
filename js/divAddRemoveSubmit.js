@@ -5,7 +5,7 @@ function resetAttributeNames(section) {
     var tags = section.find('input, label, h3'), idx = section.index();
     tags.each(function() {
       var $this = $(this);
-      $this.html($this.html().replace(/Work Activity \d/g,"Work Activity " + parseInt($('#workactivityCount').val()) + 1));
+      $this.html($this.html().replace(/Work Activity \d/g,"Work Activity " + (parseInt($('#workactivityCount').val()) + 1)));
       $.each(attrs, function(i, attr) {
         var attr_val = $this.attr(attr);
         if (attr_val) {

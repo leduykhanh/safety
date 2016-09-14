@@ -247,7 +247,7 @@ if(!$_SESSION['adminid'])
                         <hr class="add_risk" />
                         <div class="col-sm-12 form-row">
                             <label class="col-sm-3 compulsary">Work Activity Name:</label>
-                            <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $name;?>" placeholder="" required>
+                            <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]" placeholder="" required>
                         </div>
                        <div class="clearfix"></div>
                        <hr class="add_activity"/>
@@ -410,7 +410,7 @@ if(!$_SESSION['adminid'])
                         <hr class="add_risk" />
                         <div class="col-sm-12 form-row">
                             <label class="col-sm-3" >Work Activity Name:</label>
-                            <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]" value="<?php echo $name;?>" placeholder="" required>
+                            <input class="col-sm-9" type="text" id="inputSaving" name="work_activity[]"  placeholder="" required>
                         </div>
                        <div class="clearfix"></div>
                        <hr class="add_activity"/>
