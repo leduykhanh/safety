@@ -188,7 +188,7 @@ echo $date = date('d-m-Y', strtotime($risk['approveDate']));
 
 
 	<tr>
-		<td colspan="4"><b>TITLE OF PROCESS (TRADE ACTIVITY) :</b></td>
+		<td colspan="4"><strong style="text-transform: uppercase;">TITLE OF PROCESS (TRADE ACTIVITY) : <?php echo $risk["process"];?></strong></td>
 	</tr>
 
 

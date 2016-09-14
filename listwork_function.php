@@ -420,11 +420,11 @@ function create_options($name){
 
 				<select class="severity<?php echo $name; ?> col-sm-6 btn btn-default  " id="inputSaving" name="severity<?php echo $name; ?>[]">
 					<option value="-">Select severity</option>
-					<option value="5">(V) Catastrophic</option>
-					<option value="4">(IV) Major</option>
-					<option value="3">(III) Moderate</option>
-					<option value="2">(II) Minor</option>
-					<option value="1">(I) Negligible</option>
+					<option value="5">(5) Catastrophic</option>
+					<option value="4">(4) Major</option>
+					<option value="3">(3) Moderate</option>
+					<option value="2">(2) Minor</option>
+					<option value="1">(1) Negligible</option>
 				</select>
 
 
@@ -449,10 +449,10 @@ function create_options($name){
 
 				<select class="severity2<?php echo $name; ?>  col-sm-6 btn btn-default  " id="inputSaving" name="severity2[]">
 					<option value="-">Select severity</option>
-					<option value="1">(I) Catastrophic</option>
-					<option value="2">(II) Critical</option>
-					<option value="3">(III) Marginal</option>
-					<option value="4">(IV) Negligible</option>
+					<option value="1">(1) Catastrophic</option>
+					<option value="2">(2) Critical</option>
+					<option value="3">(3) Marginal</option>
+					<option value="4">(4) Negligible</option>
 				</select>
 
 
