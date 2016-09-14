@@ -124,6 +124,7 @@ if(!$_SESSION['adminid'])
                                 <option value="2" >2</option>
                                 <option value="3" >3</option>
                               </select>
+                              <span>year(s)</span>
                             </div>
 
                 </div>

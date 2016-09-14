@@ -81,7 +81,7 @@ function create_header($page_number,$risk){
 					<tr>
 						<td colspan="2">
 							<div class="text-center"><strong>Risk Assessment for <span class="under-line"> <?php echo $risk["process"];?> </span></strong></div>
-							<div class="text-center"><strong>Undertaken by <span class="under-line"> THI Engineering & Construction Pte Ltd  </span></strong></div>
+							<div class="text-center"><strong>Undertaken by <span class="under-line"> QE Safety Consultancy  </span></strong></div>
 
 						</td>
 					</tr>
@@ -127,9 +127,9 @@ function create_header($page_number,$risk){
 			 </tr>
 			 <tr>
 				 <td><b>Approved by</b></td>
-				 <td>Robin(PM)</td>
 				 <td></td>
-				 <td>Robin (PM)</td>
+				 <td></td>
+				 <td></td>
 				 <td></td>
 				 <td></td>
 				 <td></td>
@@ -364,18 +364,66 @@ function create_header($page_number,$risk){
   <div class="page">
     <?php create_header(7,$risk); ?>
     <strong>Inventory of Work Activities and Hazard Identification: <?php echo $risk["process"]; ?></strong>
-    <table class="table bordertable" width="100%">
-			<thead>
-				<tr class="table-firstrow">
-					<th>S/No.</th>
-					<th>Process / Location:</th>
-					<th>Work Activities</th>
-				</tr>
-			</thead>
-			<tbody>
+    <table id="risk_register_2" style="width:756pt;">
+        <!-- <tr >
+                    <td rowspan="1" colspan="4" style="width:75%"><b>Department:QE Safety Consultancy Pte Ltd</b></td>
+                    <td rowspan="1" colspan="1" style="width:25%"><b>Date <?php echo $date = date('d-m-Y', strtotime($risk['createdDate']));?></b></td>
+        </tr> -->
+         <tr style="background-color:#817F88; color:white;">
+                     <td rowspan="1" style="width:5%"><b>S/No</b></td>
+                     <td rowspan="1" style="width:45%"><b>Process/Location</b></td>
+                     <td rowspan="1" style="width:50%"><b>Work Activities</b></td>
 
-			</tbody>
-		</table>
+                </tr>
+        <tr>
+                     <td rowspan="1" >1</td>
+                     <td rowspan="1" ><?php echo wordwrap ($risk['process'], 15, "\n", 1);?> at <?php echo $risk['location'];?></td>
+                     <td rowspan="1" ><?php echo $valueAllWork['name'];?></td>
+
+                </tr>
+       <?php
+       $risCount = 1;
+       while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
+       {
+        if($risCount == 1)
+        {
+
+       ?>
+
+
+       <tr>
+           <td rowspan="1"><b><?php echo $risCount+1;?></b></td>
+           <td rowspan="1" ><?php echo wordwrap ($risk['process'], 15, "\n", 1);?> at <?php echo $risk['location'];?></td>
+           <td rowspan="1" ><?php echo $valueAllWork['name'];?></td>
+
+        </tr>
+        <?php
+        $risCount++;
+        }
+        else
+        {
+        ?>
+        <tr>
+          <td rowspan="1"><b><?php echo $risCount+1;?></b></td>
+          <td rowspan="1" ><?php echo wordwrap ($risk['process'], 15, "\n", 1);?> at <?php echo $risk['location'];?></td>
+          <td rowspan="1" ><?php echo $valueAllWork['name'];?></td>
+
+        </tr>
+    <?php
+        $risCount++;
+        }//else if ends
+        }//while ends
+    ?>
+     <!-- <tr>
+                     <td rowspan="1" ><b><?php echo $risCount+1;?></b></td>
+                    </b></td>
+
+                     <td colspan="2" ><b></b></td>
+                     <td rowspan="1" ><b>Total:<?php echo $totalWorkActivity;?> Pages</b></td>
+                     <td rowspan="1" ><b>Reference Number P-0<?php echo $risk['id']; echo $risk['id'];?></b></td>
+
+                </tr> -->
+    </table>
   </div>
   <div class="page">
     <?php create_header(8,$risk); ?>
@@ -411,7 +459,7 @@ function create_header($page_number,$risk){
 			</tr>
 			<tr>
 				<td class="grey">Original Assessment Date:</td>
-				<td>27-04-2019</td>
+				<td><?php echo date('d-m-Y', strtotime($risk['createdDate'])); ?></td>
 				<td class="grey">3) Member</td>
 				<td></td>
 				<td></td>
@@ -422,7 +470,10 @@ function create_header($page_number,$risk){
 			<tr>
 				<td class="grey">Last Review Date:</td>
 				<td>
-				27-04-2016				</td>
+          <?php if($risk['approveDate'] !='0000-00-00 00:00:00')
+             {
+   echo $date = date('d-m-Y', strtotime($risk['approveDate']));
+ } ?>				</td>
 				<td class="grey">4) Member</td>
 				<td></td>
 				<td></td>
@@ -433,15 +484,283 @@ function create_header($page_number,$risk){
 			<tr>
 				<td class="grey">Next Review Date:</td>
 				<td>
-				25-04-2022				</td>
+          <?php
+
+          if($risk['approveDate'] !='0000-00-00 00:00:00')
+                       {
+                         echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
+
+                       }
+                       else if($risk['createdDate'] != '0000-00-00 00:00:00')
+                       {
+             echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
+           }
+           else
+           {
+             echo '';
+           }
+
+
+          ?>
+        				</td>
 				<td class="grey">5) Member</td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td class="grey">Date:</td>
-				<td>27-04-2019</td>
+				<td><?php
+
+        if($risk['approveDate'] !='0000-00-00 00:00:00')
+                     {
+                       echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
+
+                     }
+                     else if($risk['createdDate'] != '0000-00-00 00:00:00')
+                     {
+           echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
+         }
+         else
+         {
+           echo '';
+         }
+
+
+        ?></td>
 			</tr>
 		</tbody></table>
+  </div>
+  <div style="background-color: #FFF;
+        margin : 10pt 0pt 10pt 0pt;
+        width:800pt;
+        padding: 22pt;">
+        <?php create_header(9,$risk); ?>
+    <table style="width:756pt;">
+
+    <!-- <tr style="background-color:#817F88; color:white;">
+         <td rowspan="1" colspan="3"><b>Hazard Identification</b></td>
+         <td rowspan="1" colspan="5"><b>Risk Evaluation</b></td>
+         <td rowspan="1" colspan="7"><b>Risk Control</b></td>
+
+    </tr> -->
+
+
+    <tr style="background-color:#FFF; color:blue;">
+         <td rowspan="2" colspan="1"><b>No</b></td>
+         <td rowspan="2" colspan="1"><b>Work Activity</b></td>
+         <td rowspan="2" colspan="1"><b>Hazard</b></td>
+         <td rowspan="2" colspan="1"><b>Possible Accident / III-Health & Persons-at-Risk</b></td>
+         <td rowspan="2" colspan="1"><b>Existing Risk Controls</b></td>
+         <td rowspan="1" colspan="3"><b>Initial Risk Index</b></td>
+         <td rowspan="2" colspan="1"><b>Additional Risk Controls</b></td>
+         <td rowspan="1" colspan="3"><b>Residual Risk Index</b></td>
+         <td rowspan="1" colspan="3"><b>Risk Owner (Action Officer)</b></td>
+
+    </tr>
+    <tr>
+      <td rowspan="1" colspan="1"><b>S</b></td>
+      <td rowspan="1" colspan="1"><b>L</b></td>
+      <td rowspan="1" colspan="1"><b>R</b></td>
+      <td rowspan="1" colspan="1"><b>S</b></td>
+       <td rowspan="1" colspan="1"><b>L</b></td>
+       <td rowspan="1" colspan="1"><b>R</b></td>
+       <td rowspan="1" colspan="1"><b>Name</b></td>
+        <td rowspan="1" colspan="1"><b>Designation</b></td>
+        <td rowspan="1" colspan="1"><b>Follow-up period</b></td>
+    </tr>
+<?php
+    //get total work activity
+
+     $getAllWorkSql = "SELECT * FROM `workactivity` WHERE `riskId` = ".$_GET['riskid']." ORDER BY  `work_id` ASC ";
+     $resultAllWork=mysqli_query($con, $getAllWorkSql);
+     $totalWorkActivity = mysqli_num_rows($resultAllWork);
+   $riskids = 1;
+    $m=0;
+while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
+    {
+        $m++;
+//number of hazards in workactivity
+      $getAllHazardsSql = "SELECT * FROM `hazard` WHERE `work_id` = ".$valueAllWork['work_id']." ORDER BY `hazard_id` ASC";
+     $resultAllHazards=mysqli_query($con, $getAllHazardsSql);
+     $totalHazards = mysqli_num_rows($resultAllHazards);
+
+        $hazrdsControl = 1;
+        while($hzardsValue = mysqli_fetch_assoc($resultAllHazards))
+
+        {
+
+            if($hazrdsControl == 1)
+            {
+
+
+    ?>
+
+
+
+                    <tr>
+                        <td rowspan="<?php echo $totalHazards;?>" colspan="1"> <?php echo $m; ?></td>
+                        <td rowspan="<?php echo $totalHazards;?>" colspan="1">  <?php echo $valueAllWork['name'];?></td>
+                        <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?></td>
+
+
+                        <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo $hzardsValue['accident'];?> </td>
+
+                        <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
+                        <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
+                        <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
+
+                          <?php
+      if($hzardsValue['likehood']=="-"|| $hzardsValue['security']=="-")
+      {
+        $RPN_TWO="-";
+      }
+      else
+      {
+        $RPN_TWO=$hzardsValue['security'] * $hzardsValue['likehood'];
+      }
+      ?>
+
+                       <td rowspan="1" colspan="1"><?php echo $RPN_TWO;?>
+                         </td>
+
+
+                        <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
+
+                        <?php
+      if($hzardsValue['risk_additional']=="")
+      {
+        $securitysecond="-";
+        $likehoodsecond="-";
+        $RPN="-";
+      }
+      else
+      {
+        $securitysecond= $hzardsValue['securitysecond'];
+        $likehoodsecond= $hzardsValue['likehoodsecond'];
+        $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+      }
+      ?>
+
+                         <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+
+                         <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+
+
+
+
+
+                        <td rowspan="1" colspan="1"><?php echo $RPN;?>
+                         </td>
+
+                       <td rowspan="1" colspan="1"> <?php
+
+                             $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
+                                  $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
+
+
+                                  while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
+                                  {
+                                    echo "<div>$valueAllActionOfficer[name]</div>";
+                                  }
+
+
+
+                          ?> </td>
+
+                           <?php
+      if($hzardsValue['risk_additional']=="")
+      {
+        $action_date="-";
+      }
+      else
+      {
+        $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+      }
+      ?>
+
+
+
+                        <td rowspan="1" colspan="1"> <?php echo "" ;?> </td>
+                        <td rowspan="1" colspan="1"> - </td>
+                     </tr>
+    <?php
+                }
+                else
+                {
+                    ?>
+                        <tr>
+                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
+                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['accident'];?> </td>
+                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_control'];?> </td>
+                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
+                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
+                          <td rowspan="1" colspan="1"><?php echo $hzardsValue['security'] * $hzardsValue['likehood'];?>
+                         </td>
+                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
+                            <?php
+      if($hzardsValue['risk_additional']=="")
+      {
+        $securitysecond="-";
+        $likehoodsecond="-";
+        $RPN="-";
+      }
+      else
+      {
+        $securitysecond= $hzardsValue['securitysecond'];
+        $likehoodsecond= $hzardsValue['likehoodsecond'];
+        $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+      }
+      ?>
+
+
+                      <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+
+                         <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+
+                          <td rowspan="1" colspan="1"><?php echo $RPN;?>
+                         </td>
+
+                          <td rowspan="1" colspan="1"> <?php
+
+                             $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
+                                  $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
+
+
+                                  while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
+                                  {
+                                    echo "<div>$valueAllActionOfficer[name]</div>";
+                                  }
+
+
+
+                          ?> </td>
+                             <?php
+      if($hzardsValue['risk_additional']=="")
+      {
+        $action_date="-";
+      }
+      else
+      {
+        $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+      }
+      ?>
+
+
+
+                        <td rowspan="1" colspan="1"> <?php echo $hzardsValue["action_officer"] ;?> </td>
+                          <td rowspan="1" colspan="1"> - </td>
+                      </tr>
+                    <?php
+                }
+                $hazrdsControl++;
+            }//hazards while contols
+
+
+}//end of while  workactivity
+     ?>
+
+</table>
+<br />
+<br />
   </div>
 
        <div style="margin: 0 auto; width: 656px; text-align: center;"><button onClick="window.print()">Save as PDF</button></div>

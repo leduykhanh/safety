@@ -79,7 +79,7 @@ function create_header($page_number,$risk){
 							<div><strong>WSH Form 02-2  </strong></div>
 							<div> Revision:  00</div>
 							<div> Sheet:  Page <?php echo $page_number; ?> of 10</div>
-							<div> Dated:  <?php echo $risk["createdDate"]?></div>
+							<div> Dated:  <?php echo date('d-m-Y', strtotime($risk['createdDate']));?></div>
 						</td>
 					</tr>
 					<tr>
