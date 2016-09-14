@@ -117,7 +117,7 @@ td p{
 		</tr>
 		<tr>
 			<td>Date Created</td>
-			<td><?php echo $risk["createdDate"]?>	</td>
+			<td><?php echo date('d-m-Y', strtotime($risk['createdDate']));?>	</td>
 			<td>Max. Easting</td>
 			<td>&nbsp;</td>
 			<td>Max. Northing</td>
@@ -139,18 +139,18 @@ td p{
 <br>
 
 		<table class="table bordertable " width="100%">
-			<tbody><tr>
-				<td>Project Title</td>
-				<td>change
-lightbulb</td>
-				<td>STAGE:</td>
-				<td></td>
-				<td>PREPARED BY: rajesh</td>
-				<td>REVISION:</td>
-				<td>-</td>
-				<td>DATE:</td>
-				<td>CREATION DATE </td>
-				<td>27-04-2019</td>
+			<tbody>
+        <tr>
+  				<td>Project Title</td>
+  				<td colspan="6"><strong style="text-transform: uppercase;"><?php echo $risk["project_title"];?></strong></td>
+  				<td>STAGE:</td>
+  				<td></td>
+  				<td>PREPARED BY: <?php echo $valueAllUser['name'];?></td>
+  				<td>REVISION:</td>
+  				<td>-</td>
+  				<td>DATE:</td>
+  				<td>CREATION DATE </td>
+  				<td><?php echo date('d-m-Y', strtotime($risk['createdDate']));?></td>
 			</tr>
 		</tbody></table>
 <br>
@@ -212,168 +212,197 @@ lightbulb</td>
 				<th>Risk</th>
 
 			</tr>
+      <?php
+          //get total work activity
+
+           $getAllWorkSql = "SELECT * FROM `workactivity` WHERE `riskId` = ".$_GET['riskid']." ORDER BY  `work_id` ASC ";
+           $resultAllWork=mysqli_query($con, $getAllWorkSql);
+           $totalWorkActivity = mysqli_num_rows($resultAllWork);
+         $riskids = 1;
+          $m=0;
+    while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
+          {
+              $m++;
+    //number of hazards in workactivity
+            $getAllHazardsSql = "SELECT * FROM `hazard` WHERE `work_id` = ".$valueAllWork['work_id']." ORDER BY `hazard_id` ASC";
+           $resultAllHazards=mysqli_query($con, $getAllHazardsSql);
+           $totalHazards = mysqli_num_rows($resultAllHazards);
+
+              $hazrdsControl = 1;
+              while($hzardsValue = mysqli_fetch_assoc($resultAllHazards))
+
+              {
+
+                  if($hazrdsControl == 1)
+                  {
+
+
+          ?>
 
 
 
+        <tr>
+            <td rowspan="1" colspan="1"> <?php echo $hzardsValue["hazard_id"];  ?></td>
+            <td rowspan="1" colspan="1">  </td>
+            <td rowspan="1" colspan="1"> <?php echo $m;?></td>
+            <td rowspan="1" colspan="1"> <?php echo $hzardsValue["hazard_id"] - 1;  ?></td>
+            <td rowspan="1" colspan="1"> <?php echo $valueAllWork['name'];?> </td>
+            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
+            <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?></td>
+            <td rowspan="1" colspan="1">   <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
+            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
+            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
+
+              <?php
+            if($hzardsValue['likehood']=="-"|| $hzardsValue['security']=="-")
+            {
+              $RPN_TWO="-";
+            }
+            else
+            {
+              $RPN_TWO=$hzardsValue['security'] * $hzardsValue['likehood'];
+            }
+            ?>
+
+           <td rowspan="1" colspan="1"><?php echo $RPN_TWO;?>
+             <td rowspan="1" colspan="3" style="text-align: justify;">  </td>
+             </td>
+
+            <?php
+            if($hzardsValue['risk_additional']=="")
+            {
+              $securitysecond="-";
+              $likehoodsecond="-";
+              $RPN="-";
+            }
+            else
+            {
+              $securitysecond= $hzardsValue['securitysecond'];
+              $likehoodsecond= $hzardsValue['likehoodsecond'];
+              $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+            }
+            ?>
+
+               <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+
+               <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+
+              <td rowspan="1" colspan="1"><?php echo $RPN;?></td>
+              <td rowspan="1" colspan="1"></td>
+              <td rowspan="1" colspan="1">
+                <?php $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
+                $resultlRAMember = mysqli_query($con, $sqlRAMember);
+                foreach ($resultlRAMember as $ra){
+                  echo "<div>".$ra["name"]."</div>";
+                }
+                ?>
+              </td>
+              <td rowspan="1" colspan="1"></td>
+             <td rowspan="1" colspan="1"> <?php
+
+                   $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
+                        $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
+
+
+                        foreach($resultActtionOfficer as $valueAllActionOfficer)
+                        {
+                          echo "<div>$valueAllActionOfficer[name]</div>";
+                        }
 
 
 
-			<!-- <tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>b) Outrigger did not extend fully when lifting</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td colspan="3">2) Provide enough space for outrigger and lifting operations</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>2) Failure of lifting gears</td>
-				<td>a) Failure to check validity and condition of lifting gears</td>
-				<td>i. Injury/death to worker</td>
-				<td>III</td>
-				<td>II</td>
-				<td>B</td>
-				<td colspan="3">1. Only LM and LG's with 6month validity certificate to be used with validPTW</td>
-				<td>IV</td>
-				<td>II</td>
-				<td>C</td>
-				<td>Apply PTWfor lifting operation</td>
-				<td></td>
-				<td>Kumar</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>b) Damage lifting gears</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td colspan="3">3. Lifting supervisor to check all lifting gears daily beforethe lifting operation</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>Follow SWP of lifting operation</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>c) Lifting gears with missing safety latch</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td colspan="3">4.Check condition of Lifting gears before lifting</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>use magnifier to check the LG</td>
-				<td></td>
-				<td>Ripon</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td colspan="3">5. Lifting supervisor must know weight ofthe load before it is hoisted</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>lifting supervisor to check with site engineer if doubt on weight of the load</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td colspan="3">6. Craneoperator should not exceed the safe working load of the crane. FollowSWP</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>Follow vehicle entry/exit SWP procedure at site</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>  -->
+                ?> </td>
+
+                                 <?php
+            if($hzardsValue['risk_additional']=="")
+            {
+              $action_date="-";
+            }
+            else
+            {
+              $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+            }
+            ?>
+            <td rowspan="1" colspan="1"> - </td>
+            <td rowspan="1" colspan="1"> - </td>
+            <td rowspan="1" colspan="1"> <?php echo $risk["status"]; ?> </td>
+            <td rowspan="1" colspan="1"> - </td>
+                           </tr>
+          <?php
+                      }
+                      else
+                      {
+                          ?>
+                              <tr>
+                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
+                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['accident'];?> </td>
+                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_control'];?> </td>
+                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
+                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
+                                <td rowspan="1" colspan="1"><?php echo $hzardsValue['security'] * $hzardsValue['likehood'];?>
+                               </td>
+                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
+                                  <?php
+            if($hzardsValue['risk_additional']=="")
+            {
+              $securitysecond="-";
+              $likehoodsecond="-";
+              $RPN="-";
+            }
+            else
+            {
+              $securitysecond= $hzardsValue['securitysecond'];
+              $likehoodsecond= $hzardsValue['likehoodsecond'];
+              $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+            }
+            ?>
+
+
+                            <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+
+                               <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+
+                                <td rowspan="1" colspan="1"><?php echo $RPN;?>
+                               </td>
+
+                                <td rowspan="1" colspan="1"> <?php
+
+                                   $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
+                                        $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
+
+
+                                        while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
+                                        {
+                                          echo "<div>$valueAllActionOfficer[name]</div>";
+                                        }
+
+
+
+                                ?> </td>
+                                   <?php
+            if($hzardsValue['risk_additional']=="")
+            {
+              $action_date="-";
+            }
+            else
+            {
+              $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+            }
+            ?>
+
+
+
+                              <td rowspan="1" colspan="1"> <?php echo $hzardsValue["action_officer"] ;?> </td>
+                                <td rowspan="1" colspan="1"> - </td>
+                            </tr>
+                          <?php
+                      }
+                      $hazrdsControl++;
+                  }//hazards while contols
+
+
+    }//end of while  workactivity
+           ?>
 		</tbody>
 	</table>
 	<br>

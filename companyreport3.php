@@ -334,18 +334,15 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                          <td rowspan="1" colspan="1"> <?php
 
-                               $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
-                                    $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
+                             $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
+                              $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
 
 
-                                    while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
-                                    {
-                                      echo "<div>$valueAllActionOfficer[name]</div>";
-                                    }
-
-
-
-                            ?> </td>
+                              foreach($resultActtionOfficer as $valueAllActionOfficer)
+                              {
+                                echo "<div>".$valueAllActionOfficer["name"].",".$valueAllActionOfficer["designation"]."</div>";
+                              }
+                         ?> </td>
 
                              <?php
         if($hzardsValue['risk_additional']=="")
@@ -392,27 +389,24 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
         ?>
 
 
-                        <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+          <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
 
-                           <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+             <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
 
-                            <td rowspan="1" colspan="1"><?php echo $RPN;?>
-                           </td>
+              <td rowspan="1" colspan="1">nnn<?php echo $RPN;?>
+             </td>
 
-                            <td rowspan="1" colspan="1"> <?php
+              <td rowspan="1" colspan="1">jjj <?php
 
-                               $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
-                                    $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
-
-
-                                    while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
-                                    {
-                                      echo "<div>$valueAllActionOfficer[name]</div>";
-                                    }
+                  $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
+                   $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
 
 
-
-                            ?> </td>
+                   foreach($resultActtionOfficer as $valueAllActionOfficer)
+                   {
+                     echo "<div>".$valueAllActionOfficer["name"]."</div>";
+                   }
+              ?> </td>
                                <?php
         if($hzardsValue['risk_additional']=="")
         {
@@ -423,10 +417,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
           $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
         }
         ?>
-
-
-
-                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue["action_officer"] ;?> </td>
                         </tr>
                       <?php
                   }
@@ -440,138 +430,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 <br>
 <br>
-
-<div class="table-left">
-	<table class="table bordertable">
-		<thead>
-			<tr class="table-firstrow">
-				<th colspan="4">TABLE 1 ACCIDENT FREQUENCY</th>
-			</tr>
-		</thead>
-		<tbody>
-		 	<tr>
-			 	<th>Likelihood</th>
-			 	<th>Rating</th>
-			 	<th>&nbsp;</th>
-			 	<th>Description</th>
-		 	</tr>
-		 	<tr>
-			 	<td>Frequent</td>
-			 	<td>I</td>
-			 	<td>&nbsp;</td>
-			 	<td>Likely to occur 12 times or more per year</td>
-		 	</tr>
-		 	<tr>
-			 	<td>Probable</td>
-			 	<td> II</td>
-			 	<td>&nbsp;</td>
-			 	<td>Likely to occur 4 times per year</td>
-		 	</tr>
-		 	<tr>
-			 	<td>Occasional</td>
-			 	<td>III</td>
-			 	<td>&nbsp;</td>
-			 	<td>Likely to occur once a year</td>
-		 	</tr>
-		 	<tr>
-			 	<td>Remote</td>
-			 	<td>IV</td>
-			 	<td>&nbsp;</td>
-			 	<td>Likely to occur once in 5 year</td>
-		 	</tr>
-		</tbody>
-	</table>
-</div>
-<div class="table-right">
-	<table class="table bordertable">
-		<thead>
-			<tr class="table-firstrow">
-			<th colspan="7">Table 3 Risk Index Matrix</th>
-			</tr>
-			</thead>
-		<tbody>
-			 <tr>
-				 <th rowspan="3" colspan="3">Risk Category</th>
-				 <th colspan="7">Accident Severity Category</th>
-			 </tr>
-			 <tr>
-				 <th>I</th>
-				 <th>II</th>
-				 <th>III</th>
-				 <th>IV</th>
-			 </tr>
-			 <tr>
-				 <th>Catastrophic</th>
-				 <th>Critical</th>
-				 <th>Marginal</th>
-				 <th>Negligible</th>
-			 </tr>
-			 <tr>
-				 <td>Accident</td>
-				 <td>I</td>
-				 <td>Frequent</td>
-				 <td class="red">A</td>
-				 <td class="red">A</td>
-				 <td class="red">A</td>
-				 <td class="orange">B</td>
-			 </tr>
-			 <tr>
-				 <td>Frequency</td>
-				 <td>II</td>
-				 <td>Probable</td>
-				 <td class="red">A</td>
-				 <td class="red">A</td>
-				 <td class="orange">B</td>
-				 <td class="yellow">C</td>
-			 </tr>
-			 <tr>
-				 <td>Category</td>
-				 <td>III</td>
-				 <td>Occasional</td>
-				 <td class="red">A</td>
-				 <td class="orange">B</td>
-				 <td class="yellow">C</td>
-				 <td class="yellow">C</td>
-			 </tr>
-			 <tr>
-				 <td>&nbsp;</td>
-				 <td>IV</td>
-				 <td>Remote</td>
-				 <td class="orange">B</td>
-				 <td class="orange">B</td>
-				 <td class="yellow">C</td>
-				 <td class="fluro-green">D</td>
-			 </tr>
-		</tbody>
-    </table><br><br>
-</div>
-
-<br>
-<table class="table bordertable" width="100%">
-<thead><tr class="table-firstrow"><th colspan="4">TABLE 2 ACCIDENT SEVERITY</th></tr></thead><tbody>
- <tr><th>No</th><th>Consequence</th><th>Rating</th><th>Description (*)</th></tr>
- <tr><td>1</td><td>CASTASTROPIC</td><td>I</td><td>-   Fatality, fatal diseases or multiple major injuries; or</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Loss of whole production for greater than 10 calendar days; or</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Total loss in excess of S$3 million.</td></tr>
- <tr><td>2</td><td>Critical</td><td>II</td><td>-   Serious injuries of life-threatening occupational disease (includes amputations, major fractures, multiple injuries, occupational cancer, acutue poisoning); or</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Damaged to works or plants causing delays greater than 3 but   up to 10 calendar days; or</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-  Total loss in excess of S$1 million but up to S$3 million.</td></tr>
- <tr><td>3</td><td>Marginal</td><td>III</td><td>-   Injury requiring medical treatment or ill-health leading to disability (including lacerations, burns, sprains, minor fractures, dermatitis, deafness, work-related upper limb disorders); or</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Damage to works or plants causing delays greater than 1 but up to 3 calendar days; or,</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Total loss in excess of S$0.3 million but up to S$1 million.</td></tr>
- <tr><td>4</td><td>Negligible</td><td>IV</td><td>-   Not likely to cause injury or ill-health, or requiring first-aid only (including minor cuts and bruises, irritation, ill-health with temporary discomfort); or</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Damage to works or plants causing delays up to 1 calendar day; or</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>-   Total loss of up to S$0.3 million.</td></tr>
-</tbody></table>
-<br>
-<table class="table bordertable" width="100%">
-<thead><tr class="table-firstrow"><th colspan="3">Table 4 Definition of Risk Index</th></tr></thead><tbody>
- <tr><th>Risk Index</th><th>Description</th><th>Definition</th></tr>
- <tr><td>A</td><td>Intolerable</td><td>This risk is unacceptable.  The risk shall be reduced at least to tolerable or undesirable category regardless of the costs of the risk mitigation.  Senior management attention needed with action plans and management responsibility specified.  Work must not start until risk has been reduced.  If risk cannot be reduced, the related activity or the project should not proceed.</td></tr>
- <tr><td>B</td><td>Undesirable</td><td>This risk is only acceptable if further risk reduction is not practicable.  The measures implemented shall be such as to reduce the risk as low as reasonably practical.  Management attention is required.  Risk mitigation measures shall be identified with management responsibility assigned.</td></tr>
- <tr><td>C</td><td>Tolerable</td><td>This risk is acceptable subject to demonstration that the level of risk is as low as reasonably practical.  The hazard shall be managed by routine procedures through the project.</td></tr>
- <tr><td>D</td><td>Acceptable</td><td>This risk is acceptable.</td></tr>
-</tbody></table>
 
 </body>
 
