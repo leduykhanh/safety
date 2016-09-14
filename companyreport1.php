@@ -223,24 +223,20 @@ function create_header($page_number,$risk){
     <?php create_header(7,$risk); ?>
     <h3>Inventory of Work Activities and Harzards Identification</h3>
     <table id="risk_register_2" style="width:756pt;">
-        <tr >
+        <!-- <tr >
                     <td rowspan="1" colspan="4" style="width:75%"><b>Department:QE Safety Consultancy Pte Ltd</b></td>
                     <td rowspan="1" colspan="1" style="width:25%"><b>Date <?php echo $date = date('d-m-Y', strtotime($risk['createdDate']));?></b></td>
-        </tr>
+        </tr> -->
          <tr style="background-color:#817F88; color:white;">
                      <td rowspan="1" style="width:5%"><b>S/No</b></td>
-                     <td rowspan="1" style="width:15%"><b>Location</b></td>
-                     <td rowspan="1" style="width:20%"><b>Process</b></td>
-                     <td rowspan="1" style="width:30%"><b>Work Activity</b></td>
-                     <td rowspan="1" style="width:30%"><b>Remark</b></td>
+                     <td rowspan="1" style="width:45%"><b>Process/Location</b></td>
+                     <td rowspan="1" style="width:50%"><b>Work Activities</b></td>
 
                 </tr>
         <tr>
-                     <td rowspan="1" ><b>1</b></td>
-                     <td rowspan="1" ><b><?php echo $risk['location'];?></b></td>
-                     <td rowspan="1" ><b><?php echo wordwrap ($risk['process'], 15, "\n", 1);?></b></td>
-                     <td rowspan="1" ><b><?php echo $valueAllWork['name'];?></b></td>
-                     <td rowspan="1" ><b></b></td>
+                     <td rowspan="1" >1</td>
+                     <td rowspan="1" ><?php echo wordwrap ($risk['process'], 15, "\n", 1);?> at <?php echo $risk['location'];?></td>
+                     <td rowspan="1" ><?php echo $valueAllWork['name'];?></td>
 
                 </tr>
        <?php
@@ -281,7 +277,7 @@ function create_header($page_number,$risk){
         }//else if ends
         }//while ends
     ?>
-     <tr>
+     <!-- <tr>
                      <td rowspan="1" ><b><?php echo $risCount+1;?></b></td>
                     </b></td>
 
@@ -289,7 +285,7 @@ function create_header($page_number,$risk){
                      <td rowspan="1" ><b>Total:<?php echo $totalWorkActivity;?> Pages</b></td>
                      <td rowspan="1" ><b>Reference Number P-0<?php echo $risk['id']; echo $risk['id'];?></b></td>
 
-                </tr>
+                </tr> -->
     </table>
 
     <br />
@@ -425,32 +421,36 @@ function create_header($page_number,$risk){
           <?php create_header(9,$risk); ?>
       <table style="width:756pt;">
 
-      <tr style="background-color:#817F88; color:white;">
+      <!-- <tr style="background-color:#817F88; color:white;">
            <td rowspan="1" colspan="3"><b>Hazard Identification</b></td>
            <td rowspan="1" colspan="5"><b>Risk Evaluation</b></td>
            <td rowspan="1" colspan="7"><b>Risk Control</b></td>
 
+      </tr> -->
+
+
+      <tr style="background-color:#FFF; color:blue;">
+           <td rowspan="2" colspan="1"><b>No</b></td>
+           <td rowspan="2" colspan="1"><b>Work Activity</b></td>
+           <td rowspan="2" colspan="1"><b>Hazard</b></td>
+           <td rowspan="2" colspan="1"><b>Possible Accident / III-Health & Persons-at-Risk</b></td>
+           <td rowspan="2" colspan="1"><b>Existing Risk Controls</b></td>
+           <td rowspan="1" colspan="3"><b>Initial Risk Index</b></td>
+           <td rowspan="2" colspan="1"><b>Additional Risk Controls</b></td>
+           <td rowspan="1" colspan="3"><b>Residual Risk Index</b></td>
+           <td rowspan="1" colspan="3"><b>Risk Owner (Action Officer)</b></td>
+
       </tr>
-
-
-      <tr style="background-color:#817F88; color:white;">
-           <td rowspan="1" colspan="1"><b>Ref</b></td>
-           <td rowspan="1" colspan="1"><b>Work Activity</b></td>
-           <td rowspan="1" colspan="1"><b>Hazard</b></td>
-           <td rowspan="1" colspan="1"><b>Possible Injury / III-health</b></td>
-           <td rowspan="1" colspan="1"><b>Existing Risk Controls</b></td>
-           <td rowspan="1" colspan="1"><b>S</b></td>
-           <td rowspan="1" colspan="1"><b>L</b></td>
-           <td rowspan="1" colspan="1"><b>RPN</b></td>
-           <td rowspan="1" colspan="1"><b>Additional Controls</b></td>
-          <td rowspan="1" colspan="1"><b>S</b></td>
-           <td rowspan="1" colspan="1"><b>L</b></td>
-           <td rowspan="1" colspan="1"><b>RPN</b></td>
-
-           <td rowspan="1" colspan="1"><b>Implementation Person</b></td>
-           <td rowspan="1" colspan="1"><b>Due Date</b></td>
-           <td rowspan="1" colspan="1"><b>Remarks</b></td>
-
+      <tr>
+        <td rowspan="1" colspan="1"><b>S</b></td>
+        <td rowspan="1" colspan="1"><b>L</b></td>
+        <td rowspan="1" colspan="1"><b>R</b></td>
+        <td rowspan="1" colspan="1"><b>S</b></td>
+         <td rowspan="1" colspan="1"><b>L</b></td>
+         <td rowspan="1" colspan="1"><b>R</b></td>
+         <td rowspan="1" colspan="1"><b>Name</b></td>
+          <td rowspan="1" colspan="1"><b>Designation</b></td>
+          <td rowspan="1" colspan="1"><b>Follow-up period</b></td>
       </tr>
   <?php
       //get total work activity
@@ -564,7 +564,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 
 
-                          <td rowspan="1" colspan="1"> <?php echo $action_date ;?> </td>
+                          <td rowspan="1" colspan="1"> <?php echo "" ;?> </td>
                           <td rowspan="1" colspan="1"> - </td>
                        </tr>
       <?php
@@ -631,7 +631,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 
 
-                          <td rowspan="1" colspan="1"> <?php echo $action_date ;?> </td>
+                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue["action_officer"] ;?> </td>
                             <td rowspan="1" colspan="1"> - </td>
                         </tr>
                       <?php
