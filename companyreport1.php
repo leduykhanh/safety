@@ -306,7 +306,7 @@ function create_header($page_number,$risk){
   </div>
   <div class="page">
     <?php create_header(8,$risk); ?>
-     <h1>Risk Assessment Form </h1>
+     <!-- <h1>Risk Assessment Form </h1> -->
 
         <?php
          $today = date('d-m-Y');
@@ -326,94 +326,110 @@ function create_header($page_number,$risk){
             $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
             $resultlRAMember = mysqli_query($con, $sqlRAMember);
             $RAMemberRowCount= mysqli_num_rows($resultlRAMember);
+            $raMember = mysqli_fetch_assoc($resultlRAMember);
+
             ?>
             <tr >
-                    <td rowspan="1" colspan="1" style="width:15%;vertical-align: middle;">Department:</td>
-                    <td rowspan="1" colspan="1" style="width:20%;vertical-align: middle;">QE Safety Consultancy Pte Ltd</td>
-                    <td rowspan="1" colspan="1" style="width:25%;vertical-align: middle;">RA Leader :<?php echo $valueAllUser['name'];?> <?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?></td>
-                    <td rowspan="3" colspan="1" style="width:15%;vertical-align: middle;">Approved by:Signature:</td>
-                    <td rowspan="3" colspan="1" style="width:15%;vertical-align: middle;">
-                    <?php if($risk['status'] ==2)
-                        {
-							echo '<img width="120" src="staff/'.$signee["signature"].'"/>';
-						}
-						?>
-                     </td>
-                    <td rowspan="6" colspan="1" style="width:10%;vertical-align: middle;">Reference Number<h1>P-0<?php echo $risk['id'];?></h1></td>
+                    <td rowspan="1" colspan="1" style="width:15%;vertical-align: middle;"><strong>Company:</strong></td>
+                    <td rowspan="1" colspan="1" style="width:20%;vertical-align: middle;"><strong>THI Engineering & Construction P/L</strong></td>
+                    <td rowspan="1" colspan="1" style="width:25%;vertical-align: middle;"><strong>Risk Assessment Team (RAT)</strong></td>
+                    <td rowspan="1" colspan="1" style="width:15%;vertical-align: middle;"><strong>Name</strong></td>
+                    <td rowspan="1" colspan="1" style="width:15%;vertical-align: middle;"><strong>Designation</strong></td>
+                    <td rowspan="1" colspan="1" style="width:15%;vertical-align: middle;"><strong>Signature</strong></td>
+
+                    <!-- <td rowspan="6" colspan="1" style="width:10%;vertical-align: middle;">Reference Number<h1>P-0<?php echo $risk['id'];?></h1></td> -->
 
                 </tr>
                  <tr>
                      <td rowspan="1" colspan="1" style="width:15%">Process:</td>
                      <td rowspan="1" colspan="1" style="width:20%"><?php echo wordwrap ($risk['process'], 15, "\n", 1);?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 1: <?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];
-                                              echo $raMember['name']?"<img width='80' src='staff/".$raMember['signature']."'>":""; ?></td>
+                     <td rowspan="1" colspan="1" style="width:15%">1)RAT Leader</td>
+                     <td rowspan="1" colspan="1" style="width:15%"><?php echo $valueAllUser['name'];?></td>
+                     <td rowspan="1" colspan="1" style="width:15%"><?php echo $valueAllUser['designation'];?></td>
+                     <td rowspan="1" colspan="1" style="width:15%"><?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?></td>
+
                 </tr>
                 <tr>
-                     <td rowspan="1" colspan="1"style="width:15%">Process / Activity Location:</td>
-                     <td rowspan="1" colspan="1" style="width:20%" ><?php echo $risk['location'];?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 2: <?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
+                     <td rowspan="<?php echo $RAMemberRowCount; ?>" colspan="1"style="width:15%">Activity Location:</td>
+                     <td rowspan="<?php echo $RAMemberRowCount; ?>" colspan="1" style="width:20%" ><?php echo $risk['location'];?></td>
+                     <td rowspan="1" colspan="1" style="width:25%">2)RAT Member</td>
+                     <td rowspan="1" colspan="1" style="width:25%"><?php  echo $raMember['name'];?></td>
+                     <td rowspan="1" colspan="1" style="width:25%"><?php echo $raMember['designation'];?></td>
+                     <td rowspan="1" colspan="1" style="width:25%"> <?php echo $raMember['name']?"<img width='80' src='staff/".$raMember['signature']."'>":""; ?></td>
+                </tr>
+                <?php $i=0;
+                foreach($resultlRAMember as $ra ){
+                    $i++;
+                    if ($i==1) continue;
+                  ?>
+                <tr>
+                  <td rowspan="1" colspan="1" style=""><?php echo $i+1 ; ?>)RAT Member</td>
+                  <td rowspan="1" colspan="1" style=""><?php  echo $ra['name'];?></td>
+                  <td rowspan="1" colspan="1" style=""><?php echo $ra['designation'];?></td>
+                  <td rowspan="1" colspan="1" style=""> <?php echo $ra['name']?"<img width='80' src='staff/".$ra['signature']."'>":""; ?></td>
+                </tr>
+                <?php } ?>
+                <tr>
+
+                  <td rowspan="1" colspan="3" style="vertical-align: middle;">
+                    Approved By: <?php echo $appoverName;
+                                      if ($appoverDesignation!="") echo "(".$appoverDesignation.")";
+                                  ?>
+                    </br>
+                    Date and Signature:<?php if($risk['approveDate'] !='0000-00-00 00:00:00')
+                                         {
+                                           echo $date = date('d-m-Y', strtotime($risk['approveDate']));
+                                         }
+                             if($risk['status'] ==2)
+                                   {
+                        echo '<img width="120" src="staff/'.$signee["signature"].'"/>';
+                      }
+                      ?>
+                    </td>
+                     <td rowspan="1" colspan="3"></td>
                 </tr>
 
                 <tr>
-                     <td rowspan="1" colspan="1" style="width:15%">Original Assessment Date:</td>
-                     <td rowspan="1" colspan="1" style="width:20%"><?php echo $date = date('d-m-Y', strtotime($risk['createdDate']));?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 3:<?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                     <td rowspan="1" colspan="1" style="width:15%">Name:</td>
-                     <td rowspan="1" colspan="1" style="width:15%"><?php if($risk['status'] ==2){ echo $signee['name'];}?></td>
+                     <td rowspan="1" colspan="1">Assessment Date:</td>
+                     <td rowspan="1" colspan="1" ><?php echo $today;?></td>
+                     <td rowspan="3" colspan="4"><strong>Remarks:</strong>
+                       <br />
+                       <br />
+                       Risk assessment will be reviewed every 12 monthly.<br />
+                       It should be reviewed immediately if there are any new risk/hazard introduced and accident encountered.
+                     </td>
                 </tr>
-
                 <tr>
                      <td rowspan="1" colspan="1" style="width:15%">Last Review Date:</td>
                      <td rowspan="1" colspan="1" style="width:20%"><?php if($risk['approveDate'] !='0000-00-00 00:00:00')
-                        {
-							echo $date = date('d-m-Y', strtotime($risk['approveDate']));
-						}
-						?></td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 4:<?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                     <td rowspan="1" colspan="1" style="width:15%">Designation:</td>
-                     <td rowspan="1" colspan="1" style="width:15%">
-
-                     <?php if($risk['status'] ==2)
-                        {
-                            echo $signee['designation'];
-                        }
-                        ?></td>
+                                {
+        							echo $date = date('d-m-Y', strtotime($risk['approveDate']));
+        						}
+        						?></td>
                 </tr>
+                <tr>
+                     <td rowspan="1" colspan="1" >Next Review Date:</td>
+                     <td rowspan="1" colspan="1" >
+          					 <?php
 
-                 <tr>
-                     <td rowspan="1" colspan="1" style="width:15%" >Next Review Date:</td>
-                     <td rowspan="1" colspan="1" style="width:20%">
-					 <?php
+          					 if($risk['approveDate'] !='0000-00-00 00:00:00')
+                                  {
+                                    echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
 
-					 if($risk['approveDate'] !='0000-00-00 00:00:00')
-                        {
-                          echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
-
-                        }
-                        else if($risk['createdDate'] != '0000-00-00 00:00:00')
-                        {
-							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
-						}
-						else
-						{
-							echo '';
-						}
-
-
-					 ?>
+                                  }
+                                  else if($risk['createdDate'] != '0000-00-00 00:00:00')
+                                  {
+          							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
+          						}
+          						else
+          						{
+          							echo '';
+          						}
 
 
-
-
-                     </td>
-                     <td rowspan="1" colspan="1" style="width:25%">RA Member 5:<?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];?></td>
-                     <td rowspan="1" colspan="1" style="width:15%">Date:</td>
-                     <td rowspan="1" colspan="1" style="width:15%"><?php echo $today;?></td>
+          					 ?>
+                   </td>
                 </tr>
-
-
-
-
                 </table>
     </div>
     <div style="background-color: #FFF;
