@@ -18,7 +18,7 @@ include_once 'config.php';
 
 
     <meta charset="utf-8">
-    <title>Inventory of Work Activities</title>
+    <title>Inventory of Work Activities and Hazards Indetification</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/template.css">
       </head>
@@ -64,14 +64,18 @@ include_once 'config.php';
 function create_header($page_number,$risk){
 	?>
 	<div class="main-header" style="width:756pt; background: #fff; top: 0;">
-			<div style="left:-100pt">
+			<!-- <div style="left:-100pt">
 				<img src="images/PentaOcean.jpg" width="100" style="margin-left:-100pt;display:inline;float:left" />
 
-			</div>
+			</div> -->
 			<div class="right_side">
 				<table>
 					<tr>
 						<td style="width: 615.2pt;">
+              <div style="">
+                <img src="images/PentaOcean.jpg" width="100" style="margin-left:-0pt;display:inline;float:left" />
+
+              </div>
 							<div><strong>PENTA-OCEAN CONSTRUCTION CO., LTD.</strong></div>
 							<div><strong style="text-transform: uppercase;"><?php echo $risk["project_title"];?></strong></div>
 						</td>
