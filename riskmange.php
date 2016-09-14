@@ -41,17 +41,17 @@ define('NON_ACTIVE', 0);
 
       //delete all the RA members
 
-      mysqli_query($con, "DELETE FROM `ramember` WHERE `riskid` = ".$_GET['riskid']."");
+      mysqli_query($con, "DELETE FROM `risk_ramemeber` WHERE `riskid` = ".$_GET['riskid']."");
 
       //insert new one
 
       //insert all the ra members
-       foreach ($_POST['RA_Member'] as $RA_Member)
-        {
-          $raMemberSql = "INSERT INTO `ramember` (`id`, `riskid`, `name`, `stauts`) VALUES (NULL, '".$_GET['riskid']."', '".$RA_Member."', '')";
-
-          mysqli_query($con, $raMemberSql);
-        }
+      foreach ($_POST['RA_Member'] as $RA_Member)
+       {
+         $raMemberSql = "INSERT INTO `risk_ramemeber` (`id`, `riskid`, `ramemberId`) VALUES (NULL, '".$_GET['riskid']."', '".$RA_Member."')";
+         mysqli_query($con, $raMemberSql);
+         // echo $raMemberSql;
+       }
 
       //delete all the work activity and hazards
       $getAllWorkSql = "SELECT * FROM `workactivity` WHERE `riskId` = ".$_GET['riskid']."";
@@ -126,9 +126,9 @@ define('NON_ACTIVE', 0);
 
                  for($numOfAction = 1; $numOfAction <= $numOfActionOfficer; $numOfAction++)
                   {
+                    var_dump($_POST['actionOfficer'][$l]);
 
-
-                   $sqlHazardsActionOfficer = "INSERT INTO `actionofficer` (`id`, `hazardid`, `name`) VALUES (NULL, '".$insertHazardsId."', '".$_POST['actionOfficer'][$l]."')";
+                   $sqlHazardsActionOfficer = "INSERT INTO `hazard_actionofficer` (`id`, `hazardid`, `ramemberId`) VALUES (NULL, '".$insertHazardsId."', '".$_POST['actionOfficer'][$l]."')";
                    mysqli_query($con, $sqlHazardsActionOfficer);
 
                    $l++;
@@ -157,7 +157,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-   echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+  //  echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {
