@@ -150,7 +150,7 @@ td p{
 
 	<tr>
 		<td>Approved by:</td>
-		<td rowspan="3">  <?php echo$appoverName.", manager"; ?><?php echo $appoverSingature!= ""?"<img src='staff/".$appoverSingature."'>" ?> </td>
+		<td rowspan="3">  <?php echo$appoverName.", manager"; ?><?php echo $appoverSingature!= ""?"<img src='staff/".$appoverSingature."'>":"" ?> </td>
 		<td>(Date)</td>
 		<td><?php echo $risk["approveDate"]; ?></td>
 	</tr>
