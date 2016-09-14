@@ -109,9 +109,9 @@ function create_header($page_number,$risk){
 
 			 <tr>
 				 <td><b>Date</b></td>
-				 <td>27-04-2019</td>
+				 <td><?php echo date('d-m-Y', strtotime($risk['createdDate']));?></td>
 
-				 <td>15-Apr-16</td>
+				 <td><?php echo date('d-m-Y', strtotime($risk['approveDate']));?></td>
 
 				 <td></td>
 
