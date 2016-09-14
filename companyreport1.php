@@ -560,7 +560,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                                     $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
 
 
-                                    while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
+                                    foreach($resultActtionOfficer as $valueAllActionOfficer)
                                     {
                                       echo "<div>$valueAllActionOfficer[name]</div>";
                                     }
@@ -583,7 +583,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 
             <td rowspan="1" colspan="1"> <?php
-              while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
+              foreach($resultActtionOfficer as $valueAllActionOfficer)
               {
                 echo "<div>".$valueAllActionOfficer["designation"]."</div>";
               }?>
