@@ -97,6 +97,20 @@ td p{
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
 
         $valueAllUser = mysqli_fetch_assoc($resultAlluser);
+        //Get Approvers details:
+        $appoverSingature = "";
+        $appoverName = "";
+        $appoverDesignation = "";
+        $getApproverSql = "SELECT * FROM `approvingmanager` WHERE `email` = '".$risk['approverEmail']."'";
+        $resuApprover=mysqli_query($con, $getApproverSql);
+
+        if(mysqli_num_rows($resuApprover) > 0){
+          $approver = mysqli_fetch_assoc($resuApprover);
+          //var_dump($approver);
+          $appoverSingature = $approver["image"];
+          $appoverName = $approver["name"];
+          $appoverDesignation = $approver["designation"];
+        };
 
 
 ?>
@@ -136,15 +150,36 @@ td p{
 
 	<tr>
 		<td>Approved by:</td>
-		<td rowspan="3">  Julius Lim, manager<img src="images/julius.png"> </td>
+		<td rowspan="3">  <?php echo$appoverName.", manager"; ?><?php echo $appoverSingature!= ""?"<img src='staff/".$appoverSingature."'>" ?> </td>
 		<td>(Date)</td>
-		<td>27-04-2019</td>
+		<td><?php echo $risk["approveDate"]; ?></td>
 	</tr>
 
 	<tr>
 		<td>(Name,designation)</td>
-		<td rowspan="2">Last Review Date:27-04-2016</td>
-		<td rowspan="2">Next Review Date: 25-04-2022</td>
+		<td rowspan="2">Last Review Date:<?php if($risk['approveDate'] !='0000-00-00 00:00:00')
+       {
+echo $date = date('d-m-Y', strtotime($risk['approveDate']));
+}
+?></td>
+		<td rowspan="2">Next Review Date: 					 <?php
+
+    					 if($risk['approveDate'] !='0000-00-00 00:00:00')
+                            {
+                              echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
+
+                            }
+                            else if($risk['createdDate'] != '0000-00-00 00:00:00')
+                            {
+    							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
+    						}
+    						else
+    						{
+    							echo '';
+    						}
+
+
+    					 ?></td>
 	</tr>
 
 	<tr>
