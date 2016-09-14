@@ -626,9 +626,9 @@ $(function () {
         // alert(templatename);
         if( (templatename == "Penta Ocean") ||  (templatename == "SK E&amp;C")||  (templatename == "LTA") )
         {
-            $(".template1options").hide();
-            $(".template2options").show();
-            $(".template5options").hide();
+            $(".template2options").hide();
+            $(".template1options").show();
+            $(".template3options").hide();
             $(".actiondatebox").hide();
             $(".onlyfortemplate5").hide();
             $(".remarksboxx").show();
@@ -640,13 +640,19 @@ $(function () {
             {
 
               // $(".subworkhead").show();
+              $(".template2options").hide();
+              $(".template1options").show();
+              $(".template3options").hide();
+              $(".template4options").hide();
             }
 
             if(templatename=="LTA")
             {
-              $(".onlyfortemplate5").show();
               $(".template2options").hide();
-              $(".template5options").show();
+              $(".template1options").hide();
+              $(".template3options").hide();
+              $(".template4options").show();
+              $(".onlyfortemplate5").show();
               $(".reviewmembersbox").hide();
               $('.followuplabel').html("Risk Exposure Period:");
 
@@ -654,6 +660,10 @@ $(function () {
             if(templatename=="SK E&amp;C")
             {
               $(".remarksboxx").hide();
+              $(".template2options").hide();
+              $(".template1options").hide();
+              $(".template3options").show();
+              $(".template4options").hide();
               $('.followuplabel').html("Follow Up Date:");
               $('.severity2 option[value="1"]').text("(I) Catastrophic");
               $('.severity2 option[value="2"]').text("(II) Critical");

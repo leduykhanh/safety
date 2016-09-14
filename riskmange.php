@@ -100,7 +100,7 @@ define('NON_ACTIVE', 0);
         //now we have to chk how many hazards we have
         if($_POST['hazardsCount'][$i] > 0)
         {
-            // var_dump($_POST['severitySecond']);
+            // var_dump($_POST['severity1']);
             // echo $k;
             //we have to loop for hazarads
             for($j=1; $j <= $_POST['hazardsCount'][$i]; $j++)
@@ -113,8 +113,8 @@ define('NON_ACTIVE', 0);
 
 
             $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`)
-            VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity2'][$k]."', '".$_POST['severitySecond'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood2'][$k]."', '".$_POST['likelihoodSecond'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', 0, '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
-            // echo $sqlHazards;
+            VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity1'][$k]."', '".$_POST['severity1Second'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood1'][$k]."', '".$_POST['likelihood1Second'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', 0, '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
+            //  echo $sqlHazards;
 
 
              $insertHazards=mysqli_query($con, $sqlHazards);
@@ -126,7 +126,7 @@ define('NON_ACTIVE', 0);
 
                  for($numOfAction = 1; $numOfAction <= $numOfActionOfficer; $numOfAction++)
                   {
-                    var_dump($_POST['actionOfficer'][$l]);
+                    // var_dump($_POST['actionOfficer'][$l]);
 
                    $sqlHazardsActionOfficer = "INSERT INTO `hazard_actionofficer` (`id`, `hazardid`, `ramemberId`) VALUES (NULL, '".$insertHazardsId."', '".$_POST['actionOfficer'][$l]."')";
                    mysqli_query($con, $sqlHazardsActionOfficer);

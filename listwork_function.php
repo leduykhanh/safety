@@ -418,7 +418,7 @@ function create_options($name){
 			<div class="form-row">
 				<label class="col-sm-6">Severity:</label>
 
-				<select class="severity<?php echo $name; ?> col-sm-6 btn btn-default  " id="inputSaving" name="severity<?php echo $name; ?>[]">
+				<select class="severity1 col-sm-6 btn btn-default  " id="inputSaving" name="severity1<?php echo $name; ?>[]">
 					<option value="-">Select severity</option>
 					<option value="5">(5) Catastrophic</option>
 					<option value="4">(4) Major</option>
@@ -432,7 +432,7 @@ function create_options($name){
 
 			<div class="form-row">
 				<label class="col-sm-6">Likelihood:</label>
-				<select class="likelihood<?php echo $name; ?> col-sm-6 btn btn-default " id="inputSaving" name="likelihood<?php echo $name; ?>[]">
+				<select class="likelihood1 col-sm-6 btn btn-default " id="inputSaving" name="likelihood1<?php echo $name; ?>[]">
 					<option value="-">Select likelihood</option>
 					<option value="5">(V) Almost Certain</option>
 					<option value="4">(IV) Frequent</option>
@@ -447,7 +447,7 @@ function create_options($name){
 			<div class="form-row">
 				<label class="col-sm-6">Accident Severity:</label>
 
-				<select class="severity2<?php echo $name; ?>  col-sm-6 btn btn-default  " id="inputSaving" name="severity2[]">
+				<select class="severity2 col-sm-6 btn btn-default  " id="inputSaving" name="severity2<?php echo $name; ?>[]">
 					<option value="-">Select severity</option>
 					<option value="1">(1) Catastrophic</option>
 					<option value="2">(2) Critical</option>
@@ -460,7 +460,7 @@ function create_options($name){
 
 			<div class="form-row">
 				<label class="col-sm-6">Accident Frequency:</label>
-				<select class="likelihood2<?php echo $name; ?>  col-sm-6 btn btn-default " id="inputSaving" name="likelihood2[]">
+				<select class="likelihood2  col-sm-6 btn btn-default " id="inputSaving" name="likelihood2<?php echo $name; ?>[]">
 					<option value="-">Select Frequency</option>
 					<option value="1">(I) Frequent</option>
 					<option value="2">(II) Probable</option>
@@ -469,11 +469,11 @@ function create_options($name){
 				</select>
 			</div>
 	</div>
-	<div class="template5options" style="display: none;">
+	<div class="template3options" style="display: none;">
 
 			<div class="form-row">
 				<label class="col-sm-6">Accident Severity:</label>
-				<select class="severity3 col-sm-6 btn btn-default  " id="inputSaving" name="severity3[]">
+				<select class="severity3 col-sm-6 btn btn-default  " id="inputSaving" name="severity3<?php echo $name; ?>[]">
 					<option value="-">Select severity</option>
 					<option value="1">(I) Catastrophic</option>
 					<option value="2">(II) Critical</option>
@@ -485,7 +485,33 @@ function create_options($name){
 
 			<div class="form-row">
 				<label class="col-sm-6">Accident Frequency:</label>
-				<select class="likelihood3 col-sm-6 btn btn-default " id="inputSaving" name="likelihood3[]">
+				<select class="likelihood3 col-sm-6 btn btn-default " id="inputSaving" name="likelihood3<?php echo $name; ?>[]">
+					<option value="-">Select Frequency</option>
+					<option value="1">(I) Frequent</option>
+					<option value="2">(II) Probable</option>
+					<option value="3">(III) Occasional</option>
+					<option value="4">(IV) Remote</option>
+					<option value="5">(V) Improbable</option>
+				</select>
+			</div>
+	</div>
+	<div class="template4options" style="display: none;">
+
+			<div class="form-row">
+				<label class="col-sm-6">Accident Severity:</label>
+				<select class="severity3 col-sm-6 btn btn-default  " id="inputSaving" name="severity4<?php echo $name; ?>[]">
+					<option value="-">Select severity</option>
+					<option value="1">(I) Catastrophic</option>
+					<option value="2">(II) Critical</option>
+					<option value="3">(III) Marginal</option>
+					<option value="4">(IV) Negligible</option>
+				</select>
+
+			</div>
+
+			<div class="form-row">
+				<label class="col-sm-6">Accident Frequency:</label>
+				<select class="likelihood3 col-sm-6 btn btn-default " id="inputSaving" name="likelihood4<?php echo $name; ?>[]">
 					<option value="-">Select Frequency</option>
 					<option value="1">(I) Frequent</option>
 					<option value="2">(II) Probable</option>

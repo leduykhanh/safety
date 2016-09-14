@@ -61,6 +61,7 @@ include_once 'config.php';
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
 
         $valueAllUser = mysqli_fetch_assoc($resultAlluser);
+        $romans = array("1"=>"I","2"=>"II","3"=>"III","4"=>"IV","5"=>"V","-"=>"-");
 function create_header($page_number,$risk){
 	?>
 	<div class="main-header" style="width:756pt; background: #fff; top: 0;">
@@ -509,7 +510,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                           <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
                           <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
+                          <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
 
                             <?php
         if($hzardsValue['likehood']=="-"|| $hzardsValue['security']=="-")
