@@ -121,7 +121,7 @@ function create_header($page_number,$risk){
 				 <td><?php echo $valueAllUser['name'];?></td>
 				 <td><?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?></td>
 				 <td><?php echo $appoverName;?></td>
-				 <td><?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?></td>
+				 <td><?php echo $appoverSingature!=""?'<img width="80" src="staff/'.$appoverSingature.'"/>':""; ?></td>
 				 <td></td>
 				 <td></td>
 			 </tr>
