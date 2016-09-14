@@ -166,6 +166,7 @@ else
                                 <option value="2" >2</option>
                                 <option value="3" >3</option>
                               </select>
+                              years
                             </div>
                 </div>
       </div>
@@ -327,7 +328,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="row" >
                             <label class="col-sm-6">Severity:</label>
 
-                            <select class="severity col-sm-6 btn btn-default "  id="inputSaving" name="severity[]">
+                            <select class="severity col-sm-6 btn btn-default "  id="inputSaving" name="severity2[]">
                               <option value="-">Select severity</option>
                               <option value="5" <?php if($valueAllHazards['security'] == '5') echo 'selected="selected"';?>>(5) Catastrophic</option>
                               <option value="4" <?php if($valueAllHazards['security'] == '4') echo 'selected="selected"';?>>(4) Major</option>
@@ -342,7 +343,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="row" >
                             <label class="col-sm-6">Likelihood:</label>
 
-                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood[]">
+                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood2[]">
                               <option value="-">Select likelihood</option>
                               <option value="5" <?php if($valueAllHazards['likehood'] == '5') echo 'selected="selected"';?>>(5) Almost Certain</option>
                               <option value="4" <?php if($valueAllHazards['likehood'] == '4') echo 'selected="selected"';?>>(4) Frequent</option>
