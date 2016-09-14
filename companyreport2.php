@@ -651,20 +651,20 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                         <td rowspan="1" colspan="1"><?php echo $RPN;?>
                          </td>
 
-                       <td rowspan="1" colspan="1"> <?php
+                         <td rowspan="1" colspan="1"> <?php
 
-                             $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
-                                  $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
-
-
-                                  while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
-                                  {
-                                    echo "<div>$valueAllActionOfficer[name]</div>";
-                                  }
+                               $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
+                                    $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
 
 
+                                    foreach($resultActtionOfficer as $valueAllActionOfficer)
+                                    {
+                                      echo "<div>".$valueAllActionOfficer["name"]."</div>";
+                                    }
 
-                          ?> </td>
+
+
+                            ?> </td>
 
                            <?php
       if($hzardsValue['risk_additional']=="")
@@ -679,8 +679,13 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 
 
-                        <td rowspan="1" colspan="1"> <?php echo "" ;?> </td>
-                        <td rowspan="1" colspan="1"> - </td>
+      <td rowspan="1" colspan="1"> <?php
+        foreach($resultActtionOfficer as $valueAllActionOfficer)
+        {
+          echo "<div>".$valueAllActionOfficer["designation"]."</div>";
+        }?>
+     </td>
+      <td rowspan="1" colspan="1"> - </td>
                      </tr>
     <?php
                 }
