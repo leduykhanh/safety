@@ -340,7 +340,7 @@ function create_header($page_number,$risk){
                      <td rowspan="1" colspan="1" style="width:15%">Process:</td>
                      <td rowspan="1" colspan="1" style="width:20%"><?php echo wordwrap ($risk['process'], 15, "\n", 1);?></td>
                      <td rowspan="1" colspan="1" style="width:25%">RA Member 1: <?php $raMember = mysqli_fetch_assoc($resultlRAMember); echo $raMember['name'];
-                                              echo $raMember['name']?"<img src='staff/".$raMember['signature']."'>":""; ?></td>
+                                              echo $raMember['name']?"<img width='80' src='staff/".$raMember['signature']."'>":""; ?></td>
                 </tr>
                 <tr>
                      <td rowspan="1" colspan="1"style="width:15%">Process / Activity Location:</td>
