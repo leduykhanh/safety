@@ -120,12 +120,6 @@ td p{
  <body>
 
 
-
-
-
-
-
-
 	<table class="table bordertable" width="100%">
 	<tbody><tr>
 		<th width="280"><img src="images/SKengineering.png" width="250"></th>
@@ -150,7 +144,7 @@ td p{
 
 	<tr>
 		<td>Approved by:</td>
-		<td rowspan="3">  <?php echo$appoverName.", manager"; ?><?php echo $appoverSingature!= ""?"<img src='staff/".$appoverSingature."'>":"" ?> </td>
+		<td rowspan="3">  <?php echo$appoverName.", ".$appoverDesignation.""; ?><?php echo $appoverSingature!= ""?"<img width='80' src='staff/".$appoverSingature."'>":"" ?> </td>
 		<td>(Date)</td>
 		<td><?php echo $risk["approveDate"]; ?></td>
 	</tr>
