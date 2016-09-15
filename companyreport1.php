@@ -617,6 +617,11 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
           $securitysecond= $hzardsValue['securitysecond'];
           $likehoodsecond= $hzardsValue['likehoodsecond'];
           $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+          $RPNLabel = "A";
+          if($RPN>0 && $RPN<4){$RPNLabel = "A";}
+          if($RPN>3 && $RPN<13){$RPNLabel = "B";}
+          if($RPN>13 && $RPN<25){$RPNLabel = "C";}
+          if($RPN>24){$RPNLabel = "D";}
         }
         ?>
 
@@ -625,7 +630,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                            <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
 
-                            <td rowspan="1" colspan="1"><?php echo $RPN;?>
+                            <td rowspan="1" colspan="1"><?php echo $RPNLabel;?>
                            </td>
 
                             <td rowspan="1" colspan="1"> <?php
