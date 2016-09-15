@@ -442,7 +442,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           $riskValue = $likelihood * $severity;
                           if($riskValue > 0 && $riskValue < 4)
                            {
-                              $htmlRisk = '<span class="green">Low Risk</span>';
+                             $htmlRisk = '<span class="red">High Risk</span>';
 
                            }
                            else if($riskValue > 3 && $riskValue < 13)
@@ -451,7 +451,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                            }
                            else if($riskValue > 13 && $riskValue < 26)
                            {
-                              $htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
+                              $htmlRisk = '<span class="green">Low Risk</span>';
                            }
                            else
                            {
