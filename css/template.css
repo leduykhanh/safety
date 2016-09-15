@@ -143,3 +143,10 @@
 		table td{
 			padding:5px;
 		}
+@media print {
+  .page{
+    height: 210mm;
+    width: 297mm;
+  }
+  /* ... the rest of the rules ... */
+}
