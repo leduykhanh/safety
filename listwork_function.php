@@ -413,12 +413,12 @@ function generate_list_work($con,$a){
 }
 function create_options($name){
 	?>
-	<div class="template1options" style="display: none;">
+	<div class="template2options" style="display: none;">
 
 			<div class="form-row">
 				<label class="col-sm-6">Severity:</label>
 
-				<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity1<?php echo $name; ?>[]">
+				<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity2<?php echo $name; ?>[]">
 					<option value="-">Select severity</option>
 					<option value="5">(5) Catastrophic</option>
 					<option value="4">(4) Major</option>
@@ -432,7 +432,7 @@ function create_options($name){
 
 			<div class="form-row">
 				<label class="col-sm-6">Likelihood:</label>
-				<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood1<?php echo $name; ?>[]">
+				<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood2<?php echo $name; ?>[]">
 					<option value="-">Select likelihood</option>
 					<option value="5">(V) Almost Certain</option>
 					<option value="4">(IV) Frequent</option>
@@ -442,12 +442,12 @@ function create_options($name){
 				</select>
 			</div>
 	</div>
-	<div class="template2options">
+	<div class="template1options">
 
 			<div class="form-row">
 				<label class="col-sm-6">Accident Severity:</label>
 
-				<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity2<?php echo $name; ?>[]">
+				<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity1<?php echo $name; ?>[]">
 					<option value="-">Select severity</option>
 					<option value="1">(1) Catastrophic</option>
 					<option value="2">(2) Critical</option>
@@ -460,7 +460,7 @@ function create_options($name){
 
 			<div class="form-row">
 				<label class="col-sm-6">Accident Frequency:</label>
-				<select class="likelihood  col-sm-6 btn btn-default " id="inputSaving" name="likelihood2<?php echo $name; ?>[]">
+				<select class="likelihood  col-sm-6 btn btn-default " id="inputSaving" name="likelihood1<?php echo $name; ?>[]">
 					<option value="-">Select Frequency</option>
 					<option value="1">(I) Frequent</option>
 					<option value="2">(II) Probable</option>

@@ -242,30 +242,42 @@ $('.deleteHazards').click(function(e){
 
 $(".date").datepicker();
 
+function getRiskLeverl(severity,likelihood,template){
+  var riskValue = likelihood * severity;
+  var htmlRisk = '';
+  if(riskValue > 0 && riskValue < 4)
+  {
+    if(template=="1")
+      htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
+    else
+     htmlRisk = '<span class="green">Low Risk</span>';
+
+  }
+  else if(riskValue > 3 && riskValue < 13)
+  {
+   htmlRisk = '<span class="yellow">Medium Risk</span>';
+  }
+  else if(riskValue > 13 && riskValue < 26)
+  {
+    if(template=="1")
+     htmlRisk = '<span class="green">Low Risk</span>';
+    else
+   htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
+  }
+  else
+  {
+   htmlRisk = '';
+  }
+  return htmlRisk;
+}
 //likelihood chnage
 $('.likelihood').on('change', function()
 {
   var likelihood = parseInt(this.value);
       var severity  =  parseInt($(this).parent().siblings().find('.severity').val());
       var riskValue = likelihood * severity;
-      // console.log(severity);
-     if(riskValue > 0 && riskValue < 4)
-     {
-        var htmlRisk = '<span class="green">Low Risk</span>';
-
-     }
-     else if(riskValue > 3 && riskValue < 13)
-     {
-        var htmlRisk = '<span class="yellow">Medium Risk</span>';
-     }
-     else if(riskValue > 13 && riskValue < 26)
-     {
-        var htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
-     }
-     else
-     {
-        var htmlRisk = '';
-     }
+      var template = $('input[name="template"]:checked')[0].value;
+      var htmlRisk = getRiskLeverl(severity,likelihood,template);
 
  // alert(htmlRisk+$(this).parent().parent().siblings().find('.riskLevel').html());
 
@@ -276,35 +288,17 @@ $('.likelihood').on('change', function()
 
 
 });
-
-
 $('.severity').on('change', function()
 {
 	   // or $(this).val()
 	  var severity = parseInt(this.value);
 	  var likelihood  =  parseInt($(this).parent().siblings().find('.likelihood').val());
 	  var riskValue = likelihood * severity;
-    // console.log(likelihood);
-	 if(riskValue > 0 && riskValue < 4)
-	 {
-	    var htmlRisk = '<span class="green">Low Risk</span>';
-
-	 }
-	 else if(riskValue > 3 && riskValue < 13)
-	 {
-	 	var htmlRisk = '<span class="yellow">Medium Risk</span>';
-	 }
-	 else if(riskValue > 13 && riskValue < 26)
-	 {
-	 	var htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
-	 }
-	 else
-	 {
-	 	var htmlRisk = '';
-	 }
+    var template = $('input[name="template"]:checked')[0].value;
+    var htmlRisk = getRiskLeverl(severity,likelihood,template);
 
 
- console.log($(this).parent().siblings().find('.riskLevel').empty());
+ // console.log($(this).parent().siblings().find('.riskLevel').empty());
 
 
  $(this).parent().parent().parent().siblings().find('.riskLevel').empty().append(htmlRisk);

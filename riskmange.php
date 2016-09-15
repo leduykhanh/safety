@@ -11,7 +11,7 @@ define('NON_ACTIVE', 0);
   $i = 0;
   $k = 1; // this is for keep track of j and loop from next level
   $l = 1; //for action officer
-
+  $asTemplate = 1;
 
 
     $creationDates = new DateTime($_POST['creationDate']);
@@ -68,7 +68,7 @@ define('NON_ACTIVE', 0);
  }
  else
   {
-
+    $asTemplate = $_POST["template"];
      $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`,`project_title`,`expiry_date`)
      VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].",'".$_POST['project_title']."',".$_POST["expiry_date"].");";
 		//  echo $riskassessment;
@@ -101,6 +101,8 @@ define('NON_ACTIVE', 0);
         if($_POST['hazardsCount'][$i] > 0)
         {
             // var_dump($_POST['severity1']);
+            $security = $_POST["severity".$asTemplate];
+            $likehood = $_POST["likelihood".$asTemplate];
             // echo $k;
             //we have to loop for hazarads
             for($j=1; $j <= $_POST['hazardsCount'][$i]; $j++)
@@ -113,7 +115,7 @@ define('NON_ACTIVE', 0);
 
 
             $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`)
-            VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$_POST['severity1'][$k]."', '".$_POST['severity1Second'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$_POST['likelihood1'][$k]."', '".$_POST['likelihood1Second'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', 0, '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
+            VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$security[$k]."', '".$_POST['severity1Second'][$k]."', '".$_POST['InjuryAccident'][$k]."', '".$likehood[$k]."', '".$_POST['likelihood1Second'][$k]."', '".$_POST['ExistingRiskControl'][$k]."', 0, '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
             //  echo $sqlHazards;
 
 

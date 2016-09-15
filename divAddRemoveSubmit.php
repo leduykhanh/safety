@@ -168,7 +168,7 @@ if(!$_SESSION['adminid'])
 			        			<div class="col-xs-2">
 			        				<img src="images/template2logo.png" class="img-responsive img-radio" style="opacity: 1;">
 			        				<button type="button" class="btn btn-primary btn-radio active">Penta Ocean</button>
-			        				<input type="checkbox" name="template" value="1" id="middle-item" class="hidden">
+			        				<input type="checkbox" name="template" checked value="1" id="middle-item" class="hidden">
 			        			</div>
 			        			<div class="col-xs-2">
 			        				<img src="images/template3logo.png" class="img-responsive img-radio">
