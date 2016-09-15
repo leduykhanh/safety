@@ -679,10 +679,10 @@ $(function () {
             }
         }
         else{
-            $(".template1options").show();
-            $(".template2options").hide();
-            $(".template5options").hide();
-
+            $(".template1options").hide();
+            $(".template2options").show();
+            $(".template3options").hide();
+            $(".template4options").hide();
             $(".actiondatebox").show();
             $(".onlyfortemplate5").hide();
             $(".remarksboxx").show();

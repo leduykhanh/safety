@@ -243,10 +243,10 @@ $('.deleteHazards').click(function(e){
 $(".date").datepicker();
 
 //likelihood chnage
-$('.likelihood2').on('change', function()
+$('.likelihood').on('change', function()
 {
   var likelihood = parseInt(this.value);
-      var severity  =  parseInt($(this).parent().siblings().find('.severity2').val());
+      var severity  =  parseInt($(this).parent().siblings().find('.severity').val());
       var riskValue = likelihood * severity;
       // console.log(severity);
      if(riskValue > 0 && riskValue < 4)
@@ -278,11 +278,11 @@ $('.likelihood2').on('change', function()
 });
 
 
-$('.severity2').on('change', function()
+$('.severity').on('change', function()
 {
 	   // or $(this).val()
 	  var severity = parseInt(this.value);
-	  var likelihood  =  parseInt($(this).parent().siblings().find('.likelihood2').val());
+	  var likelihood  =  parseInt($(this).parent().siblings().find('.likelihood').val());
 	  var riskValue = likelihood * severity;
     // console.log(likelihood);
 	 if(riskValue > 0 && riskValue < 4)
