@@ -326,30 +326,28 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           </div>
 
                           <div class="row" >
-                            <label class="col-sm-6">Severity:</label>
+                            <label class="col-sm-6">Accident Severity:</label>
 
                             <select class="severity col-sm-6 btn btn-default "  id="inputSaving" name="severity1[]">
                               <option value="-">Select severity</option>
-                              <option value="5" <?php if($valueAllHazards['security'] == '5') echo 'selected="selected"';?>>(5) Catastrophic</option>
-                              <option value="4" <?php if($valueAllHazards['security'] == '4') echo 'selected="selected"';?>>(4) Major</option>
-                              <option value="3" <?php if($valueAllHazards['security'] == '3') echo 'selected="selected"';?>>(3) Moderate</option>
-                              <option value="2" <?php if($valueAllHazards['security'] == '2') echo 'selected="selected"';?>>(2) Minor</option>
-                              <option value="1" <?php if($valueAllHazards['security'] == '1') echo 'selected="selected"';?>>(1) Negligible</option>
+                              <option value="1" <?php if($valueAllHazards['security'] == '1') echo 'selected="selected"';?>>(1) Catastrophic</option>
+                              <option value="2" <?php if($valueAllHazards['security'] == '2') echo 'selected="selected"';?>>(2) Critical</option>
+                              <option value="3" <?php if($valueAllHazards['security'] == '3') echo 'selected="selected"';?>>(3) Marginal</option>
+                              <option value="4" <?php if($valueAllHazards['security'] == '4') echo 'selected="selected"';?>>(4) Negligible</option>
                             </select>
 
 
                           </div>
 
                           <div class="row" >
-                            <label class="col-sm-6">Likelihood:</label>
+                            <label class="col-sm-6">Accident Frequency:</label>
 
                             <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood1[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5" <?php if($valueAllHazards['likehood'] == '5') echo 'selected="selected"';?>>(5) Almost Certain</option>
-                              <option value="4" <?php if($valueAllHazards['likehood'] == '4') echo 'selected="selected"';?>>(4) Frequent</option>
-                              <option value="3" <?php if($valueAllHazards['likehood'] == '3') echo 'selected="selected"';?>>(3) Occasional</option>
-                              <option value="2" <?php if($valueAllHazards['likehood'] == '2') echo 'selected="selected"';?>>(2) Remote</option>
-                              <option value="1" <?php if($valueAllHazards['likehood'] == '1') echo 'selected="selected"';?>>(1) Rare</option>
+                              <option value="-">Select Frequency</option>
+                              <option value="1" <?php if($valueAllHazards['likehood'] == '1') echo 'selected="selected"';?>>(I) Frequent</option>
+                              <option value="2" <?php if($valueAllHazards['likehood'] == '2') echo 'selected="selected"';?>>(II) Probable</option>
+                              <option value="3" <?php if($valueAllHazards['likehood'] == '3') echo 'selected="selected"';?>>(III) Occasional</option>
+                              <option value="4" <?php if($valueAllHazards['likehood'] == '4') echo 'selected="selected"';?>>(IV) Remote</option>
                             </select>
 
                           </div>
@@ -480,30 +478,28 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="clearfix"></div>
 
                           <div class="row">
-                            <label class="col-sm-6">Severity:</label>
+                            <label class="col-sm-6">Accident Severity:</label>
 
                             <select class="col-sm-6 severity btn btn-default" id="inputSaving" name="severity1Second[]">
                               <option value="-">Select severity</option>
-                              <option value="5" <?php if($valueAllHazards['securitysecond'] == '5') echo 'selected="selected"';?>>(5) Catastrophic</option>
-                              <option value="4" <?php if($valueAllHazards['securitysecond'] == '4') echo 'selected="selected"';?>>(4) Major</option>
-                              <option value="3" <?php if($valueAllHazards['securitysecond'] == '3') echo 'selected="selected"';?>>(3) Moderate</option>
-                              <option value="2" <?php if($valueAllHazards['securitysecond'] == '2') echo 'selected="selected"';?>>(2) Minor</option>
-                              <option value="1" <?php if($valueAllHazards['securitysecond'] == '1') echo 'selected="selected"';?>>(1) Negligible</option>
+                              <option value="1" <?php if($valueAllHazards['securitysecond'] == '1') echo 'selected="selected"';?>>(1) Catastrophic</option>
+                              <option value="2" <?php if($valueAllHazards['securitysecond'] == '2') echo 'selected="selected"';?>>(2) Critical</option>
+                              <option value="3" <?php if($valueAllHazards['securitysecond'] == '3') echo 'selected="selected"';?>>(3) Marginal</option>
+                              <option value="4" <?php if($valueAllHazards['securitysecond'] == '4') echo 'selected="selected"';?>>(4) Negligible</option>
                             </select>
 
 
                           </div>
 
                           <div class="row">
-                            <label class="col-sm-6">Likelihood:</label>
+                            <label class="col-sm-6">Accident Frequency:</label>
 
                             <select class="col-sm-6 likelihood btn btn-default" id="inputSaving" name="likelihood1Second[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5" <?php if($valueAllHazards['likehoodsecond'] == '5') echo 'selected="selected"';?>>(5) Almost Certain</option>
-                              <option value="4" <?php if($valueAllHazards['likehoodsecond'] == '4') echo 'selected="selected"';?>>(4) Frequent</option>
-                              <option value="3" <?php if($valueAllHazards['likehoodsecond'] == '3') echo 'selected="selected"';?>>(3) Occasional</option>
-                              <option value="2" <?php if($valueAllHazards['likehoodsecond'] == '2') echo 'selected="selected"';?>>(2) Remote</option>
-                              <option value="1" <?php if($valueAllHazards['likehoodsecond'] == '1') echo 'selected="selected"';?>>(1) Rare</option>
+                              <option value="-">Select Frequency</option>
+                              <option value="1" <?php if($valueAllHazards['likehoodsecond'] == '1') echo 'selected="selected"';?>>(I) Frequent</option>
+                              <option value="2" <?php if($valueAllHazards['likehoodsecond'] == '2') echo 'selected="selected"';?>>(II) Probable</option>
+                              <option value="3" <?php if($valueAllHazards['likehoodsecond'] == '3') echo 'selected="selected"';?>>(III) Occasional</option>
+                              <option value="4" <?php if($valueAllHazards['likehoodsecond'] == '4') echo 'selected="selected"';?>>(IV) Remote</option>
                             </select>
 
                           </div>
@@ -657,11 +653,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
         location.href = "listwork_activity.php";
     };
 </script>
-
-
-
-
-
 
 <script type="text/javascript">
 

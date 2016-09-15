@@ -32,10 +32,10 @@ define('NON_ACTIVE', 0);
     $status = 0;
   }
 
-
-
  if(isset($_GET['riskid']) && $_GET['riskid'] != '')
   {
+      $k = 0;
+      $l = 0;
       $riskassessment = "UPDATE  `riskassessment` SET  `createdDate` =  '".$creationDate."' ,`location` =  '".$_POST['location']."',`process` =  '".$_POST['process']."' WHERE `id` =".$_GET['riskid']."";
       $update_riskassessment=mysqli_query($con, $riskassessment);
 
@@ -103,11 +103,12 @@ define('NON_ACTIVE', 0);
             // var_dump($_POST['severity1']);
             $security = $_POST["severity".$asTemplate];
             $likehood = $_POST["likelihood".$asTemplate];
-            // echo $k;
+            // var_dump( $security);
             //we have to loop for hazarads
             for($j=1; $j <= $_POST['hazardsCount'][$i]; $j++)
             {
-
+              // echo $k;
+              // var_dump( $security[$k]);
               $actionDate = $_POST['actionMonth'][$k].'/'.$_POST['actionDate'][$k].'/'.$_POST['actionYear'][$k];
 
               $actonDateToInsert = new DateTime($actionDate);
