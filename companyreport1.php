@@ -563,7 +563,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                                     foreach($resultActtionOfficer as $valueAllActionOfficer)
                                     {
-                                      echo "<div>".$valueAllActionOfficer["name"]."</div><div><img width='40 src='staff/".$valueAllActionOfficer["signature"]."'/></div>";
+                                      echo "<div>".$valueAllActionOfficer["name"]."</div><div><img width='40 src='staff//".$valueAllActionOfficer["signature"]."'/></div>";
                                     }
 
 
