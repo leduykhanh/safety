@@ -65,10 +65,10 @@
 		.page{
 			background-color: #FFF;
 			margin : 10pt 0pt 10pt 0pt;
-			size: A4;
-			/*width:800pt;
+			/*size: A4;*/
+			width:800pt;
 			height: 600pt;
-			padding: 22pt;*/
+			padding: 22pt;
 		}
 		.under-line{
 			text-decoration: underline;
