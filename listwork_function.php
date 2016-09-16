@@ -30,14 +30,14 @@ function generate_list_work($con,$a){
 
                           if($status==0){
 
-                            ?><a href="listwork_activity.php?status=0"><u><b>Outstanding (<?php echo $outStandingRow;?>)</b></u> </a>&nbsp;<strong>|</strong>&nbsp;
+                            ?><a href="listwork_activity.php?status=0&asTemplate=<?php echo $a; ?>"><u><b>Outstanding (<?php echo $outStandingRow;?>)</b></u> </a>&nbsp;<strong>|</strong>&nbsp;
 
                             <?php
                           }
                           else
                           {
                           ?>
-                          <a href="listwork_activity.php?status=0">Outstanding (<?php echo $outStandingRow;?>) </a>&nbsp;<strong>|</strong>&nbsp;
+                          <a href="listwork_activity.php?status=0&asTemplate=<?php echo $a; ?>">Outstanding (<?php echo $outStandingRow;?>) </a>&nbsp;<strong>|</strong>&nbsp;
                           <?php } ?>
 
 
@@ -53,13 +53,13 @@ function generate_list_work($con,$a){
                             ?>
 
 
-                          <a href="listwork_activity.php?status=1"><u><b> Draft (<?php echo $draftRow;?>)</b></u> </a> &nbsp;<strong>|</strong>&nbsp;
+                          <a href="listwork_activity.php?status=1&asTemplate=<?php echo $a; ?>"><u><b> Draft (<?php echo $draftRow;?>)</b></u> </a> &nbsp;<strong>|</strong>&nbsp;
                              <?php
                           }
                           else
                           {
                           ?>
-                             <a href="listwork_activity.php?status=1"> Draft (<?php echo $draftRow;?>) </a> &nbsp;<strong>|</strong>&nbsp;
+                             <a href="listwork_activity.php?status=1&asTemplate=<?php echo $a; ?>"> Draft (<?php echo $draftRow;?>) </a> &nbsp;<strong>|</strong>&nbsp;
 
                         <?php } ?>
 
@@ -76,13 +76,13 @@ function generate_list_work($con,$a){
 
 
 
-                          <a href="listwork_activity.php?status=2"><u><b> Approved (<?php echo $OutApprove;?>)</b></u> </a>&nbsp; <strong>|</strong>&nbsp;
+                          <a href="listwork_activity.php?status=2&asTemplate=<?php echo $a; ?>"><u><b> Approved (<?php echo $OutApprove;?>)</b></u> </a>&nbsp; <strong>|</strong>&nbsp;
                              <?php
                           }
                           else
                           {
                           ?>
-                          <a href="listwork_activity.php?status=2"> Approved (<?php echo $OutApprove;?>) </a>&nbsp; <strong>|</strong>&nbsp;
+                          <a href="listwork_activity.php?status=2&asTemplate=<?php echo $a; ?>"> Approved (<?php echo $OutApprove;?>) </a>&nbsp; <strong>|</strong>&nbsp;
                              <?php } ?>
 
                                     <?php
@@ -99,7 +99,7 @@ function generate_list_work($con,$a){
 
 
 
-                          <a href="listwork_activity.php?status=3"><u><b> Archived (<?php echo $OutArchived;?>)</b></u></a>    <strong>|</strong>&nbsp;
+                          <a href="listwork_activity.php?status=3&asTemplate=<?php echo $a; ?>"><u><b> Archived (<?php echo $OutArchived;?>)</b></u></a>    <strong>|</strong>&nbsp;
                              <?php
                           }
                           else
@@ -109,7 +109,7 @@ function generate_list_work($con,$a){
 
 
 
-                             <a href="listwork_activity.php?status=3"> Archived (<?php echo $OutArchived;?>)</a>    <strong>|</strong>&nbsp;
+                             <a href="listwork_activity.php?status=3&asTemplate=<?php echo $a; ?>"> Archived (<?php echo $OutArchived;?>)</a>    <strong>|</strong>&nbsp;
                                <?php } ?>
 
 
