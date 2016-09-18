@@ -393,7 +393,7 @@ function create_header($page_number,$risk){
 
        <tr>
            <td rowspan="1"><b><?php echo $risCount+1;?></b></td>
-           <td rowspan="1" ><?php echo wordwrap ($risk['process'], 15, "\n", 1);?> at <?php echo $risk['location'];?></td>
+           <td rowspan="1" ></td>
            <td rowspan="1" ><?php echo $valueAllWork['name'];?></td>
 
         </tr>
@@ -405,7 +405,7 @@ function create_header($page_number,$risk){
         ?>
         <tr>
           <td rowspan="1"><b><?php echo $risCount+1;?></b></td>
-          <td rowspan="1" ><?php echo wordwrap ($risk['process'], 15, "\n", 1);?> at <?php echo $risk['location'];?></td>
+          <td rowspan="1" ></td>
           <td rowspan="1" ><?php echo $valueAllWork['name'];?></td>
 
         </tr>
