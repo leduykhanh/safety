@@ -684,7 +684,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
     </div>
     <div class="page">
       <?php create_header(10,$risk); ?>
-            <div class="table-left">
+            <div style="width:45%;float:left">
             			<table class="table bordertable" border="1">
             			<tbody><tr><th rowspan="0">Prepared By: <br> Contractor RA Leader <p><?php echo $valueAllUser['name'];?></p></th>
                     <th rowspan="0">Approved By: <br>Contractor Senior Management <p><?php echo $appoverName;?></p></th></tr>
@@ -694,7 +694,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
              </tbody>
             			</table>
             </div>
-            <div class="table-right">
+            <div style="width:45%;float:right">
         			<table class="table bordertable" border="1">
         				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: <?php echo $risk["revisionDate"];?></p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
         				<tr class="table-firstrow"><th>Name</th><th>Designation: </th><!--<th>Signature</th>--></tr>
@@ -704,7 +704,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
         					</tbody>
         			</table>
         		</div>
-            <div style="width:50%">
+            <div style="width:30%">
               <table class="table bordertable" border="1">
               	<thead>
               		<tr class="table-firstrow"><th>Status*</th><th>*Delete where appropriate</th></tr>
@@ -718,7 +718,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
             </div>
     </div>
 <br>
-<strong>Notes:</strong>
        <div style="margin: 0 auto; width: 656px; text-align: center;"><button onClick="window.print()">Print</button></div>
  </div>
 <script src="js1/jquery.js"></script>
