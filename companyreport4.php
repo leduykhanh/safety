@@ -415,38 +415,38 @@ td p{
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr bgcolor="#FDE9D9">
             <th>Likelihood	</th>
             <th>Rating</th>
             <th>Description</th>
 
           </tr>
           <tr>
-            <th>Frequent</th>
+            <th bgcolor="#daeef3" >Frequent</th>
             <td align="center">I</td>
             <td>Likely to occur 12 times or more per year</td>
 
           </tr>
           <tr>
-            <th>Probable</th>
+            <th bgcolor="#daeef3" >Probable</th>
             <td align="center">II</td>
             <td>Likely to occur 4 times per year</td>
 
           </tr>
           <tr>
-            <th>Occassional</th>
+            <th bgcolor="#daeef3" >Occassional</th>
             <td align="center">III</td>
             <td>Likely to occur once a year</td>
 
           </tr>
           <tr>
-            <th>Remote</th>
+            <th bgcolor="#daeef3" >Remote</th>
             <td align="center">IV</td>
             <td>Likely to occur once in a 5 year project period</td>
 
           </tr>
           <tr>
-            <th>Improbable</th>
+            <th bgcolor="#daeef3" >Improbable</th>
             <td align="center">V</td>
             <td>Unlikely, but may exceptionally occur</td>
 
@@ -466,7 +466,7 @@ td p{
         <tbody>
           <tr>
             <th rowspan="3" colspan="2">Accident Frequency Category</th>
-            <th colspan="4">Accident Severity Category</th>
+            <th bgcolor="#FDE9D9" colspan="4">Accident Severity Category</th>
           </tr>
           <tr>
             <th align="center">I</th>
@@ -475,50 +475,50 @@ td p{
             <th align="center">IV</th>
           </tr>
           <tr>
-            <th align="center">Catastrophic</th>
-            <th align="center">Critical</th>
-            <th align="center">Marginal</th>
-            <th align="center">Negligible</th>
+            <th bgcolor="#E4DFEC" align="center">Catastrophic</th>
+            <th bgcolor="#E4DFEC" align="center">Critical</th>
+            <th bgcolor="#E4DFEC" align="center">Marginal</th>
+            <th bgcolor="#E4DFEC" align="center">Negligible</th>
           </tr>
           <tr>
             <td align="center">I</td>
-            <td align="center">Frequent</td>
-            <td align="center">A</td>
-            <td align="center">A</td>
-            <td align="center">A</td>
-            <td align="center">B</td>
+            <td bgcolor="#daeef3" align="center">Frequent</td>
+            <td bgcolor="#eaf1dd" align="center">A</td>
+            <td bgcolor="#eaf1dd" align="center">A</td>
+            <td bgcolor="#eaf1dd" align="center">A</td>
+            <td bgcolor="#eaf1dd" align="center">B</td>
           </tr>
           <tr>
             <td align="center">II</td>
-            <td align="center">Probable</td>
-            <td align="center">A</td>
-            <td align="center">A</td>
-            <td align="center">B</td>
-            <td align="center">C</td>
+            <td bgcolor="#daeef3" align="center">Probable</td>
+            <td bgcolor="#eaf1dd" align="center">A</td>
+            <td bgcolor="#eaf1dd" align="center">A</td>
+            <td bgcolor="#eaf1dd" align="center">B</td>
+            <td bgcolor="#eaf1dd" align="center">C</td>
           </tr>
           <tr>
             <td align="center">III</td>
-            <td align="center">Occasional</td>
-            <td align="center">A</td>
-            <td align="center">B</td>
-            <td align="center">C</td>
-            <td align="center">C</td>
+            <td bgcolor="#daeef3" align="center">Occasional</td>
+            <td bgcolor="#eaf1dd" align="center">A</td>
+            <td bgcolor="#eaf1dd" align="center">B</td>
+            <td bgcolor="#eaf1dd" align="center">C</td>
+            <td bgcolor="#eaf1dd" align="center">C</td>
           </tr>
           <tr>
             <td align="center">IV</td>
-            <td align="center">Remote</td>
-            <td align="center">B</td>
-            <td align="center">C</td>
-            <td align="center">C</td>
-            <td align="center">D</td>
+            <td bgcolor="#daeef3" align="center">Remote</td>
+            <td bgcolor="#eaf1dd" align="center">B</td>
+            <td bgcolor="#eaf1dd" align="center">C</td>
+            <td bgcolor="#eaf1dd" align="center">C</td>
+            <td bgcolor="#eaf1dd" align="center">D</td>
           </tr>
           <tr>
             <td align="center">V</td>
-            <td align="center">Improbable</td>
-            <td align="center">C</td>
-            <td align="center">C</td>
-            <td align="center">D</td>
-            <td align="center">D</td>
+            <td bgcolor="#daeef3" align="center">Improbable</td>
+            <td bgcolor="#eaf1dd" align="center">C</td>
+            <td bgcolor="#eaf1dd" align="center">C</td>
+            <td bgcolor="#eaf1dd" align="center">D</td>
+            <td bgcolor="#eaf1dd" align="center">D</td>
           </tr>
         </tbody>
       </table>
@@ -532,7 +532,7 @@ td p{
         <tbody><tr class="table-firstrow">
           <th colspan="5">TABLE 2: Accident Severity</th>
         </tr>
-        <tr>
+        <tr bgcolor="#FDE9D9">
           <th>No.</th>
           <th>Consequence</th>
           <th>Rating</th>
@@ -540,7 +540,7 @@ td p{
         </tr>
         <tr>
           <td>1</td>
-          <td>Catastrophic</td>
+          <td bgcolor="#E4DFEC">Catastrophic</td>
           <td>I</td>
           <td>
             <ul>
@@ -552,7 +552,7 @@ td p{
         </tr>
         <tr>
           <td>2</td>
-          <td>Critical</td>
+          <td bgcolor="#E4DFEC">Critical</td>
           <td>II</td>
           <td>
             <ul>
@@ -564,7 +564,7 @@ td p{
         </tr>
         <tr>
           <td>3</td>
-          <td>Marginal</td>
+          <td bgcolor="#E4DFEC">Marginal</td>
           <td>III</td>
           <td>
             <ul>
@@ -576,7 +576,7 @@ td p{
         </tr>
         <tr>
           <td>4</td>
-          <td>Negligible</td>
+          <td bgcolor="#E4DFEC">Negligible</td>
           <td>IV</td>
           <td>
             <ul>
@@ -593,28 +593,28 @@ td p{
         <tbody><tr class="table-firstrow">
           <th colspan="3">TABLE 4: Definition of Risk Index</th>
         </tr>
-        <tr>
+        <tr bgcolor="#FDE9D9">
           <th>Risk Index</th>
           <th>Description</th>
           <th>Definition</th>
         </tr>
         <tr>
-          <td align="center">A</td>
+          <td bgcolor="#eaf1dd" align="center">A</td>
           <td align="center">Intolerable</td>
           <td align="center">Risk shall be reduced by whatever means possible.</td>
         </tr>
         <tr>
-          <td align="center">B</td>
+          <td bgcolor="#eaf1dd" align="center">B</td>
           <td align="center">Undesirable</td>
           <td align="center">Risk shall only be accepted if further risk reduction is not practicable.</td>
         </tr>
         <tr>
-          <td align="center">C</td>
+          <td bgcolor="#eaf1dd" align="center">C</td>
           <td align="center">Tolerable</td>
           <td align="center">Risk shall be accepted subject to demonstration that the level of risk is as low as reasonably practicable.</td>
         </tr>
         <tr>
-          <td align="center">D</td>
+          <td bgcolor="#eaf1dd" align="center">D</td>
           <td align="center">Acceptable</td>
           <td align="center">Risk is acceptable.</td>
         </tr>
