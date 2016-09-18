@@ -113,7 +113,9 @@ td p{
           $appoverName = $approver["name"];
           $appoverDesignation = $approver["designation"];
         };
-
+        $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
+        $resultlRAMember = mysqli_query($con, $sqlRAMember);
+        $romans = array("1"=>"I","2"=>"II","3"=>"III","4"=>"IV","5"=>"V","-"=>"-");
 
 ?>
 
@@ -131,16 +133,21 @@ td p{
 		<td>Company</td>
 		<td>SK E&amp;C (Singapore Branch)</td>
 		<td>Conducted by:</td>
-		<td><?php echo $valueAllUser['name'];?></td>
+		<td>RA team</td>
 	</tr>
 	<tr>
 		<td>Location of shafts:</td>
-		<td>warehouse</td>
-		<td>Names,designations:</td>
-		<td style="padding:0px;"><table border="0" class="no_border">		<tbody><tr>
-					<td width="200"></td>
-					<td width="200"></td><td><?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?></td></tr>
-						</tbody></table>
+		<td><?php echo $risk['location'];?></td>
+		<td>Names,designations:<br />
+      <?php echo $valueAllUser['name'];?> <br />
+      <?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?>
+    </td>
+		<td style="padding:0px;">
+      <?php foreach($resultlRAMember as $ra )
+        {
+          echo $ra["name"]."(".$ra["designation"]. ") <br />";
+        }
+       ?>
 			</td>
 	</tr>
 
@@ -282,10 +289,11 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo $hzardsValue['accident'];?> </td>
 
                           <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
-                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
+                          <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
+                          <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
 
-                            <?php
+      <?php
+        $RPN_TWOLabel = "-";
         if($hzardsValue['likehood']=="-"|| $hzardsValue['security']=="-")
         {
           $RPN_TWO="-";
@@ -293,10 +301,14 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
         else
         {
           $RPN_TWO=$hzardsValue['security'] * $hzardsValue['likehood'];
+          if($RPN_TWO>0 && $RPN_TWO<4){$RPN_TWOLabel = "A";}
+          if($RPN_TWO>3 && $RPN_TWO<13){$RPN_TWOLabel = "B";}
+          if($RPN_TWO>13 && $RPN_TWO<16){$RPN_TWOLabel = "C";}
+          if($RPN_TWO>15){$RPN_TWOLabel = "D";}
         }
         ?>
 
-                         <td rowspan="1" colspan="1"><?php echo $RPN_TWO;?>
+                         <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?>
                            </td>
 
 

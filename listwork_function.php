@@ -491,7 +491,6 @@ function create_options($name){
 					<option value="2">(II) Probable</option>
 					<option value="3">(III) Occasional</option>
 					<option value="4">(IV) Remote</option>
-					<option value="5">(V) Improbable</option>
 				</select>
 			</div>
 	</div>

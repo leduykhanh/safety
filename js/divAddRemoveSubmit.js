@@ -247,7 +247,7 @@ function getRiskLeverl(severity,likelihood,template){
   var htmlRisk = '';
   if(riskValue > 0 && riskValue < 4)
   {
-    if(template=="1")
+    if(template=="1" || template=="3")
       htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
     else
      htmlRisk = '<span class="green">Low Risk</span>';
@@ -255,11 +255,15 @@ function getRiskLeverl(severity,likelihood,template){
   }
   else if(riskValue > 3 && riskValue < 13)
   {
+    if(template=="3" && riskValue==4 && likelihood==2){
+      htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
+    }
+    else
    htmlRisk = '<span class="yellow">Medium Risk</span>';
   }
   else if(riskValue > 13 && riskValue < 26)
   {
-    if(template=="1")
+    if(template=="1" || template=="3")
      htmlRisk = '<span class="green">Low Risk</span>';
     else
    htmlRisk = '<span class="red">High Risk - Additional Risk Control is required below</span>';
