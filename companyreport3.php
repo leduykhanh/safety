@@ -417,14 +417,14 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
         ?>
 
 
-          <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+          <td rowspan="1" colspan="1"><?php echo $romans[$securitysecond];?></td>
 
-             <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+             <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
 
-              <td rowspan="1" colspan="1">nnn<?php echo $RPN;?>
+              <td rowspan="1" colspan="1"><?php echo $RPN;?>
              </td>
 
-              <td rowspan="1" colspan="1">jjj <?php
+              <td rowspan="1" colspan="1"> <?php
 
                   $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
                    $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
