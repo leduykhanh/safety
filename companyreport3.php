@@ -386,14 +386,19 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                   }
                   else
                   {
+                    $RPN_TWO=$hzardsValue['security'] * $hzardsValue['likehood'];
+                    if($RPN_TWO>0 && $RPN_TWO<4){$RPN_TWOLabel = "A";}
+                    if($RPN_TWO>3 && $RPN_TWO<13){$RPN_TWOLabel = "B";}
+                    if($RPN_TWO>13 && $RPN_TWO<16){$RPN_TWOLabel = "C";}
+                    if($RPN_TWO>15){$RPN_TWOLabel = "D";}
                       ?>
                           <tr>
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['accident'];?> </td>
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_control'];?> </td>
-                            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
-                            <td rowspan="1" colspan="1"><?php echo $hzardsValue['security'] * $hzardsValue['likehood'];?>
+                            <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
+                            <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
+                            <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?>
                            </td>
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
                               <?php
