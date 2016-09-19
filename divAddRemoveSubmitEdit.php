@@ -328,7 +328,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="row" >
                             <label class="col-sm-6">Accident Severity:</label>
 
-                            <select class="severity col-sm-6 btn btn-default "  id="inputSaving" name="severity1[]">
+                            <select class="severity col-sm-6 btn btn-default "  id="inputSaving" name="severity1[1]">
                               <option value="-">Select severity</option>
                               <option value="1" <?php if($valueAllHazards['security'] == '1') echo 'selected="selected"';?>>(1) Catastrophic</option>
                               <option value="2" <?php if($valueAllHazards['security'] == '2') echo 'selected="selected"';?>>(2) Critical</option>
@@ -342,7 +342,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="row" >
                             <label class="col-sm-6">Accident Frequency:</label>
 
-                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood1[]">
+                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood1[1]">
                               <option value="-">Select Frequency</option>
                               <option value="1" <?php if($valueAllHazards['likehood'] == '1') echo 'selected="selected"';?>>(I) Frequent</option>
                               <option value="2" <?php if($valueAllHazards['likehood'] == '2') echo 'selected="selected"';?>>(II) Probable</option>

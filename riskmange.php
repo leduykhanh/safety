@@ -34,8 +34,8 @@ define('NON_ACTIVE', 0);
 
  if(isset($_GET['riskid']) && $_GET['riskid'] != '')
   {
-      $k = 0;
-      $l = 0;
+      // $k = 0;
+      // $l = 0;
       $riskassessment = "UPDATE  `riskassessment` SET  `createdDate` =  '".$creationDate."' ,`location` =  '".$_POST['location']."',`process` =  '".$_POST['process']."' WHERE `id` =".$_GET['riskid']."";
       $update_riskassessment=mysqli_query($con, $riskassessment);
 

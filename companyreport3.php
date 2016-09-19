@@ -202,10 +202,29 @@ echo $date = date('d-m-Y', strtotime($risk['approveDate']));
 
 
 <table class="table bordertable" width="100%">
-	<tbody><tr bgcolor="#817F88">
-		<td colspan="13">SKEC (Main Contractor) - Reviewed and Accepted by:</td>
-	</tr>
-</tbody></table>
+	<tbody>
+    <tr bgcolor="#817F88">
+		    <td colspan="13">SKEC (Main Contractor) - Reviewed and Accepted by:</td>
+	  </tr>
+    <tr style="height:100px">
+      <td colspan="4">
+        Name/Safety Officer/Sign
+        <br />
+        <br />
+      </td>
+      <td colspan="5">
+        Name/Safety Manager/Sign
+        <br />
+        <br />
+      </td>
+      <td colspan="4">
+        Name/Project Manager/Sign
+        <br />
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
 <table class="table bordertable" width="100%">
 	<tbody><tr>
 
