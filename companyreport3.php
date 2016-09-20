@@ -158,7 +158,7 @@ td p{
 		<td style="padding:0px;">
       <?php foreach($resultlRAMember as $ra )
         {
-          echo $ra["name"]."(".$ra["designation"]. ") <br />";
+          echo $ra["name"]."(".$ra["designation"]. ") <br />".$ra["signature"]!=""?'<img width="80" src="staff/'.$ra["signature"].'"/> <br />':"";
         }
        ?>
 			</td>
@@ -173,19 +173,19 @@ td p{
 
 	<tr>
 		<td>(Name,designation)</td>
-		<td rowspan="2">Last Review Date:<?php if($risk['approveDate'] !='0000-00-00 00:00:00')
+		<td rowspan="2">Last Review Date:<?php if($risk['approveDate'] !=null)
        {
 echo $date = date('d-m-Y', strtotime($risk['approveDate']));
 }
 ?></td>
 		<td rowspan="2">Next Review Date: 					 <?php
 
-    					 if($risk['approveDate'] !='0000-00-00 00:00:00')
+    					 if($risk['approveDate'] !=null)
                             {
                               echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
 
                             }
-                            else if($risk['createdDate'] != '0000-00-00 00:00:00')
+                            else if($risk['createdDate'] != null)
                             {
     							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
     						}
