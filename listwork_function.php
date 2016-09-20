@@ -435,11 +435,11 @@ function create_options($name){
 				<label class="col-sm-6">Likelihood:</label>
 				<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood2<?php echo $name; ?>[]">
 					<option value="-">Select likelihood</option>
-					<option value="5">(V) Almost Certain</option>
-					<option value="4">(IV) Frequent</option>
-					<option value="3">(III) Occasional</option>
-					<option value="2">(II) Remote</option>
-					<option value="1">(I) Rare</option>
+					<option value="5">(5) Almost Certain</option>
+					<option value="4">(4) Frequent</option>
+					<option value="3">(3) Occasional</option>
+					<option value="2">(2) Remote</option>
+					<option value="1">(1) Rare</option>
 				</select>
 			</div>
 	</div>
