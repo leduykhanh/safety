@@ -128,9 +128,8 @@ function create_header($page_number,$risk){
 		<div >
 			<h3>Table-1</h3>
 			<table class="table bordertable" border="0">
-				<thead><tr class="table-firstrow"><th width="10%">No</th><th width="5%">Consequence </th><th width="5%">Rating </th><th>Description (*) </th></tr>
-				</thead>
 					<tbody>
+           <tr class="table-firstrow"><th width="10%">No</th><th width="5%">Consequence </th><th width="5%">Rating </th><th>Description (*) </th></tr>
 					 <tr><td>1</td><td>Catastrophic</td><td>1</td><td>Fatality, fatal diseases or multiple major injuries; or <br>
 						Loss of whole production for greater than 10 calendar days; or <br>
 					 	Total loss in excess of S$3 million.</td></tr>
@@ -153,8 +152,8 @@ function create_header($page_number,$risk){
 		<p>2. Assessment of <strong>Likelihood</strong> - with the existing risk controls in consideration, each Risk Assessment Team (RAT) member is to rate the likelihood hazard that may cause the possible injury or ill-health: see <u>Table 2</u> below.</p>
 		<h3>Table-2</h3>
 		<table class="table bordertable" border="1">
-			<thead><tr class="table-firstrow"><th width="15%">Likelihood </th><th width="15%">Rating </th><th>Description</th></tr></thead>
 				<tbody>
+          <tr class="table-firstrow"><th width="15%">Likelihood </th><th width="15%">Rating </th><th>Description</th></tr>
 					 <tr><td>Frequent </td><td>I </td><td>Likely to occur 12 times or more per year</td></tr>
 					 <tr><td>Probable </td><td>II </td><td>Likely to occur 4 times per year </td></tr>
 					 <tr><td>Occasional </td><td>III </td><td>Likely to occur once a year </td></tr>
