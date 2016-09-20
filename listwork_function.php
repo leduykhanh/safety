@@ -246,7 +246,7 @@ function generate_list_work($con,$a){
                         <td ><?php echo $row['id'];?></td>
                         <td ><?php echo $row['location'];?></td>
                         <td ><?php echo wordwrap($row['process'], 25, "\n", 1);?></td>
-                        <td ><?php if($row['approveDate'] =='0000-00-00 00:00:00')
+                        <td ><?php if($row['approveDate'] ==null)
                         {
                           echo '';
                         }
@@ -256,7 +256,7 @@ function generate_list_work($con,$a){
                         }
                         ?></td>
                         <td >
-                       <?php if($row['approveDate'] =='0000-00-00 00:00:00')
+                       <?php if($row['approveDate'] ==null)
                         {
                           echo '';
                         }

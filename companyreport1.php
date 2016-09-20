@@ -377,7 +377,7 @@ function create_header($page_number,$risk){
                                       if ($appoverDesignation!="") echo "(".$appoverDesignation.")";
                                   ?>
                     </br>
-                    Date and Signature:<?php if($risk['approveDate'] !='0000-00-00 00:00:00')
+                    Date and Signature:<?php if($risk['approveDate'] !=null)
                                          {
                                            echo $date = date('d-m-Y', strtotime($risk['approveDate']));
                                          }
@@ -413,12 +413,12 @@ function create_header($page_number,$risk){
                      <td rowspan="1" colspan="1" >
           					 <?php
 
-          					 if($risk['approveDate'] !='0000-00-00 00:00:00')
+          					 if($risk['approveDate'] !=null)
                                   {
                                     echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
 
                                   }
-                                  else if($risk['createdDate'] != '0000-00-00 00:00:00')
+                                  else if($risk['createdDate'] != null)
                                   {
           							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
           						}
@@ -696,7 +696,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
             </div>
             <div style="width:45%;float:right">
         			<table class="table bordertable" border="1">
-        				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: <?php echo $risk["revisionDate"];?></p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
+        				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: <?php echo $risk["revisionDate"]!=null?$risk["revisionDate"]:"";?></p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
         				<tr class="table-firstrow"><th>Name</th><th>Designation: </th><!--<th>Signature</th>--></tr>
         					</tbody><tbody>
 
