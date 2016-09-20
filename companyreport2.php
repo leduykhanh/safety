@@ -91,18 +91,7 @@ function create_header($page_number,$risk){
 	<?php
 
 }
-function getRiskLabel($s,$l){
-  $r=$s * $l;
-  $Label = "-";
-  if($r>0 && $r<4){return "A";}
-  if($r>3 && $r<7){
-    if($s==2 && $l==2) return "A";
-    return "B";
-  }
-  if($r>6 && $r<16){return "C";}
-  if($r>15){return "D";}
-  return $Label;
-}
+
 ?>
 	<div class="page">
 		<?php create_header(1,$risk); ?>
