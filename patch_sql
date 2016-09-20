@@ -33,3 +33,9 @@ ALTER TABLE `ramember` CHANGE `riskid` `signature` VARCHAR(100) NOT NULL DEFAULT
 ALTER TABLE `riskassessment` ADD `expiry_date` INT(10) NOT NULL DEFAULT '1' AFTER `project_title`;
 ALTER TABLE `ramember` ADD `designation` VARCHAR(50) NOT NULL AFTER `stauts`;
 CREATE TABLE `safety`.`hazard_actionofficer` ( `id` INT NOT NULL AUTO_INCREMENT , `hazardId` INT NOT NULL , `ramemberId` INT NOT NULL , `dateCreated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+DELIMITER $$
+CREATE PROCEDURE archive(IN stat INT)
+BEGIN
+UPDATE `riskassessment` set status=3 WHERE (`createdDate` + INTERVAL `expiry_date` YEAR) < NOW();
+END $$

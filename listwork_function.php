@@ -1,21 +1,22 @@
 <?php
 function generate_list_work($con,$a){
 					$sqlOutStanding = "SELECT * FROM riskassessment where status = 0 AND asTemplate = $a";
-                    $resultlOutStanding = mysqli_query($con, $sqlOutStanding);
-                    $outStandingRow= mysqli_num_rows($resultlOutStanding);
+					mysqli_query($con,"CALL archive(1)");
+          $resultlOutStanding = mysqli_query($con, $sqlOutStanding);
+          $outStandingRow= mysqli_num_rows($resultlOutStanding);
 
-                    $sqlDraft = "SELECT * FROM riskassessment where status = 1 AND asTemplate = $a";
-                    $resultlDraft = mysqli_query($con, $sqlDraft);
-                    $draftRow= mysqli_num_rows($resultlDraft);
+          $sqlDraft = "SELECT * FROM riskassessment where status = 1 AND asTemplate = $a";
+          $resultlDraft = mysqli_query($con, $sqlDraft);
+          $draftRow= mysqli_num_rows($resultlDraft);
 
-                    $sqlApprove = "SELECT * FROM riskassessment where status = 2 AND asTemplate = $a";
-                    $resultlApprove = mysqli_query($con, $sqlApprove);
-                    $OutApprove= mysqli_num_rows($resultlApprove);
+          $sqlApprove = "SELECT * FROM riskassessment where status = 2 AND asTemplate = $a";
+          $resultlApprove = mysqli_query($con, $sqlApprove);
+          $OutApprove= mysqli_num_rows($resultlApprove);
 
 
-                    $sqlArchived = "SELECT * FROM riskassessment where status = 3 AND asTemplate = $a";
-                    $resultlArchived = mysqli_query($con, $sqlArchived);
-                    $OutArchived= mysqli_num_rows($resultlArchived);?>
+          $sqlArchived = "SELECT * FROM riskassessment where status = 3 AND asTemplate = $a";
+          $resultlArchived = mysqli_query($con, $sqlArchived);
+          $OutArchived= mysqli_num_rows($resultlArchived);?>
 	    <div class="row"  style="padding-bottom: 10px;">
     		<div class="col-sm-5" style="text-align:left; padding:0px"><strong>QE Safety Consultancy Pte Ltd</strong></div>
             <div class="col-sm-7" style="padding:0px; text-align:right;">
