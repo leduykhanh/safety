@@ -158,7 +158,7 @@ td p{
 		<td style="padding:0px;">
       <?php foreach($resultlRAMember as $ra )
         {
-          echo $ra["name"]."(".$ra["designation"]. ") <br />".($ra["signature"]!=""?'<img width="80" src="staff/'.$ra["signature"].'"/> <br />':"");
+          echo $ra["name"]."(".$ra["designation"]. ") <br />".($ra["signature"]!=""?'<img width="50" src="staff/'.$ra["signature"].'"/> <br />':"");
         }
        ?>
 			</td>
