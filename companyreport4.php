@@ -265,8 +265,9 @@ td p{
             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
             <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?></td>
             <td rowspan="1" colspan="1">   <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
+            <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
-            <td rowspan="1" colspan="1"> <?php echo $roman[$hzardsValue['likehood']];?> </td>
+
 
               <?php
             $RPNLabel = "-";$RPN_TWOLabel = "-";
