@@ -143,14 +143,15 @@
 		table td{
 			padding:5px;
 		}
-@media print {
-  @page{
-    height: 210mm;
-    width: 297mm;
-		bottom:3em;
-  }
-	@page{
-		/*size: A4;*/
-	}
-  /* ... the rest of the rules ... */
-}
+		@page {
+		  size: landscape;
+		}
+
+		@media print {
+		  .page {
+		    page-break-after: always
+		  }
+		  .no-print {
+		    display: none;
+		  }
+		}
