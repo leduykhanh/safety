@@ -612,25 +612,21 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
         {
           $securitysecond="-";
           $likehoodsecond="-";
-          $RPN="-";
+          $RPNLabel="-";
         }
         else
         {
           $securitysecond= $hzardsValue['securitysecond'];
           $likehoodsecond= $hzardsValue['likehoodsecond'];
-          $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+          $RPNLabel=getRiskLabel($hzardsValue['securitysecond'], $hzardsValue['likehoodsecond']);
 
-          if($RPN>0 && $RPN<4){$RPNLabel = "A";}
-          if($RPN>3 && $RPN<13){$RPNLabel = "B";}
-          if($RPN>13 && $RPN<25){$RPNLabel = "C";}
-          if($RPN>24){$RPNLabel = "D";}
         }
         ?>
 
 
                         <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
 
-                           <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+                           <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
 
                             <td rowspan="1" colspan="1"><?php echo $RPNLabel;?>
                            </td>

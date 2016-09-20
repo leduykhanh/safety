@@ -96,6 +96,21 @@ td p{
          // $totalWorkActivity = mysqli_num_rows($resultAlluser);
 
           $valueAllUser = mysqli_fetch_assoc($resultAlluser);
+          $romans = array("1"=>"I","2"=>"II","3"=>"III","4"=>"IV","5"=>"V","-"=>"-",""=>"");
+
+          function getRiskLabel($s,$l){
+            $r=$s * $l;
+            $Label = "-";
+            if($r>0 && $r<4){return "A";}
+            if($r>3 && $r<7){
+              if($s==2 && $l==2) return "A";
+              return "B";
+            }
+            if($r>6 && $r<16){return "C";}
+            if($r>15){return "D";}
+            return $Label;
+          }
+
           ?>
 
 
@@ -250,21 +265,22 @@ td p{
             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
             <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?></td>
             <td rowspan="1" colspan="1">   <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
-            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
+            <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
+            <td rowspan="1" colspan="1"> <?php echo $roman[$hzardsValue['likehood']];?> </td>
 
               <?php
+            $RPNLabel = "-";$RPN_TWOLabel = "-";
             if($hzardsValue['likehood']=="-"|| $hzardsValue['security']=="-")
             {
-              $RPN_TWO="-";
+              $RPNLabel="-";
             }
             else
             {
-              $RPN_TWO=$hzardsValue['security'] * $hzardsValue['likehood'];
+              $RPNLabel=getRiskLabel($hzardsValue['security'] , $hzardsValue['likehood']);
             }
             ?>
 
-           <td rowspan="1" colspan="1"><?php echo $RPN_TWO;?>
+           <td rowspan="1" colspan="1"><?php echo $RPNLabel;?>
              <td rowspan="1" colspan="3" style="text-align: justify;">  </td>
              </td>
 
@@ -273,21 +289,21 @@ td p{
             {
               $securitysecond="-";
               $likehoodsecond="-";
-              $RPN="-";
+              $RPN_TWOLabel="-";
             }
             else
             {
               $securitysecond= $hzardsValue['securitysecond'];
               $likehoodsecond= $hzardsValue['likehoodsecond'];
-              $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+              $RPN_TWOLabel=getRiskLabel($hzardsValue['securitysecond'] , $hzardsValue['likehoodsecond']);
             }
             ?>
 
-               <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+               <td rowspan="1" colspan="1"><?php echo $romans[$securitysecond];?></td>
 
-               <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+               <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
 
-              <td rowspan="1" colspan="1"><?php echo $RPN;?></td>
+              <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?></td>
               <td rowspan="1" colspan="1"></td>
               <td rowspan="1" colspan="1">
                 <?php $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
@@ -337,32 +353,33 @@ td p{
                                 <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
                                 <td rowspan="1" colspan="1"> <?php echo $hzardsValue['accident'];?> </td>
                                 <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_control'];?> </td>
-                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
-                                <td rowspan="1" colspan="1"><?php echo $hzardsValue['security'] * $hzardsValue['likehood'];?>
+                                <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
+                                <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
+                                <td rowspan="1" colspan="1"><?php echo getRiskLabel($hzardsValue['security'] , $hzardsValue['likehood']);?>
                                </td>
                                 <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
                                   <?php
+              $RPN_TWOLabel = "-";
             if($hzardsValue['risk_additional']=="")
             {
               $securitysecond="-";
               $likehoodsecond="-";
-              $RPN="-";
+              $RPN_TWOLabel="-";
             }
             else
             {
               $securitysecond= $hzardsValue['securitysecond'];
               $likehoodsecond= $hzardsValue['likehoodsecond'];
-              $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+              $RPN_TWOLabel=getRiskLabel($hzardsValue['securitysecond'] , $hzardsValue['likehoodsecond']);
             }
             ?>
 
 
-                            <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
+                            <td rowspan="1" colspan="1"><?php echo $romans[$securitysecond];?></td>
 
-                               <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+                               <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
 
-                                <td rowspan="1" colspan="1"><?php echo $RPN;?>
+                                <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?>
                                </td>
 
                                 <td rowspan="1" colspan="1"> <?php
@@ -609,12 +626,12 @@ td p{
           <td align="center">Risk shall only be accepted if further risk reduction is not practicable.</td>
         </tr>
         <tr>
-          <td bgcolor="#eaf1dd" align="center">C</td>
+          <td align="center">C</td>
           <td align="center">Tolerable</td>
           <td align="center">Risk shall be accepted subject to demonstration that the level of risk is as low as reasonably practicable.</td>
         </tr>
         <tr>
-          <td bgcolor="#eaf1dd" align="center">D</td>
+          <td align="center">D</td>
           <td align="center">Acceptable</td>
           <td align="center">Risk is acceptable.</td>
         </tr>
