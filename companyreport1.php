@@ -433,7 +433,7 @@ function create_header($page_number,$risk){
                 </tr>
                 </table>
     </div>
-    <div style="background-color: #FFF;
+    <div class="page" style="background-color: #FFF;
     			margin : 10pt 0pt 10pt 0pt;
     			width:800pt;
     			padding: 22pt;">
