@@ -61,7 +61,7 @@ include_once 'config.php';
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
 
         $valueAllUser = mysqli_fetch_assoc($resultAlluser);
-        $romans = array("1"=>"I","2"=>"II","3"=>"III","4"=>"IV","5"=>"V","-"=>"-");
+        $romans = array("1"=>"I","2"=>"II","3"=>"III","4"=>"IV","5"=>"V","-"=>"-",""=>"");
 function create_header($page_number,$risk){
 	?>
 	<div class="main-header" style="width:756pt; background: #fff; top: 0;">
@@ -99,8 +99,19 @@ function create_header($page_number,$risk){
 		</div>
 	<?php
 
+};
+function getRiskLabel($s,$l){
+  $r=$s * $l;
+  $Label = "-";
+  if($r>0 && $r<4){return "A";}
+  if($r>3 && $r<7){
+    if($s==2 && $l==2) return "A";
+    return "B";
+  }
+  if($r>6 && $r<16){return "C";}
+  if($r>15){return "D";}
+  return $Label;
 }
-
 
 ?>
 	<div class="page">
@@ -495,69 +506,55 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
               {
 
 
-      ?>
+                ?>
+
+            <tr>
+                <td rowspan="<?php echo $totalHazards;?>" colspan="1"> <?php echo $m; ?></td>
+                <td rowspan="<?php echo $totalHazards;?>" colspan="1">  <?php echo $valueAllWork['name'];?></td>
+                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?></td>
 
 
+                <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo $hzardsValue['accident'];?> </td>
 
-                      <tr>
-                          <td rowspan="<?php echo $totalHazards;?>" colspan="1"> <?php echo $m; ?></td>
-                          <td rowspan="<?php echo $totalHazards;?>" colspan="1">  <?php echo $valueAllWork['name'];?></td>
-                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?></td>
-
-
-                          <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo $hzardsValue['accident'];?> </td>
-
-                          <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
-                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                          <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
+                <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
+                <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
+                <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
 
                             <?php
-        $RPN_TWOLabel = "-";
+        $RPN_Label = "-";$RPN_TWOLabel="-";
         if($hzardsValue['likehood']=="-"|| $hzardsValue['security']=="-")
         {
-          $RPN_TWO="-";
+          $RPN_Label="-";
         }
         else
         {
-          $RPN_TWO=$hzardsValue['security'] * $hzardsValue['likehood'];
-          if($RPN_TWO>0 && $RPN_TWO<4){$RPN_TWOLabel = "A";}
-          if($RPN_TWO>3 && $RPN_TWO<13){$RPN_TWOLabel = "B";}
-          if($RPN_TWO>13 && $RPN_TWO<25){$RPN_TWOLabel = "C";}
-          if($RPN_TWO>24){$RPN_TWOLabel = "D";}
+          $RPN_Label = getRiskLabel($hzardsValue['security'],$hzardsValue['likehood']);
         }
         ?>
 
-                         <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?>
-                           </td>
+         <td rowspan="1" colspan="1"><?php echo $RPN_Label;?></td>
+          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
 
-
-                          <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
-
-                          <?php
+        <?php
         if($hzardsValue['risk_additional']=="")
         {
           $securitysecond="-";
           $likehoodsecond="-";
-          $RPN="-";
+          $RPN_TWOLabel="-";
         }
         else
         {
           $securitysecond= $hzardsValue['securitysecond'];
           $likehoodsecond= $hzardsValue['likehoodsecond'];
-          $RPN=$hzardsValue['securitysecond'] * $hzardsValue['likehoodsecond'];
+          $RPN_TWOLabel=getRiskLabel($hzardsValue['securitysecond'], $hzardsValue['likehoodsecond']);
         }
         ?>
 
                            <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
 
-                           <td rowspan="1" colspan="1"><?php echo $likehoodsecond;?></td>
+                           <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
 
-
-
-
-
-                          <td rowspan="1" colspan="1"><?php echo $RPN;?>
-                           </td>
+                          <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?> </td>
 
                          <td rowspan="1" colspan="1"> <?php
 
