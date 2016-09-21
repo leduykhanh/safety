@@ -446,6 +446,7 @@ function getRiskLabel($s,$l){
     <div class="page" style="background-color: #FFF;
     			margin : 10pt 0pt 10pt 0pt;
     			width:800pt;
+          height:auto;
     			padding: 22pt;">
           <?php create_header(9,$risk); ?>
       <table style="width:756pt;">
