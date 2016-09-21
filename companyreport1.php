@@ -603,8 +603,8 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['accident'];?> </td>
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_control'];?> </td>
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
-                            <td rowspan="1" colspan="1"> <?php echo $hzardsValue['likehood'];?> </td>
-                            <td rowspan="1" colspan="1"><?php echo $hzardsValue['security'] * $hzardsValue['likehood'];?>
+                            <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
+                            <td rowspan="1" colspan="1"><?php echo getRiskLabel($hzardsValue['security'], $hzardsValue['likehood']);?>
                            </td>
                             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['risk_additional'];?> </td>
                               <?php
