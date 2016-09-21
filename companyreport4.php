@@ -72,6 +72,12 @@ td p{
     border-bottom: none;
     padding-left: 10px;
 }
+@media print {
+  .no-print {
+    display: none;
+  }
+  thead {display: table-row-group}
+}
 </style>
 
 <body>
