@@ -8,8 +8,6 @@
 
         <div class="col-sm-7" id="workActivityNameCopy"><h3 class="workActivityNameCopy">Work Activity</h3></div>
 		<div class="col-sm-5">
-           <button class="col-sm-5 btn btn-success addWorkActivity" id="add_new_work" style="margin-top:15px;">+ Add a new work activity</button>
-
            <button class="col-sm-5 btn btn-danger deleteWorkActivity" style="margin-left:5px; margin-top:15px;">Remove work activity</button>
         </div>
 
@@ -31,48 +29,23 @@
 
 
                         <div class="col-sm-6">
-                          <div class="row">
+                          <div class="form-row">
                             <label class="col-sm-6">Hazard:</label>
                             <input rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]"  placeholder="" required></input>
                           </div>
-                          <div class="row">
+                          <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
                             <input rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" placeholder="" required></input>
                           </div>
-                          <div class="row">
+                          <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
                            <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""></textarea>
 
                           </div>
 
-                          <div class="row">
-                            <label class="col-sm-6">Severity:</label>
+                           <?php create_options_edit_copy("",$asTemplate); ?>
 
-                            <select class="severity col-sm-6 btn btn-default" id="inputSaving" name="severity[]">
-                              <option value="-">Select severity</option>
-                              <option value="5">(5) Catastrophic</option>
-                              <option value="4">(4) Major</option>
-                              <option value="3">(3) Moderate</option>
-                              <option value="2">(2) Minor</option>
-                              <option value="1">(1) Negligible</option>
-                            </select>
-
-
-                          </div>
-
-                          <div class="row">
-                            <label class="col-sm-6">Likelihood:</label>
-                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5">(5) Almost Certain</option>
-                              <option value="4">(4) Frequent</option>
-                              <option value="3">(3) Occasional</option>
-                              <option value="2">(2) Remote</option>
-                              <option value="1">(1) Rare</option>
-                            </select>
-                          </div>
-
-                          <div class="row">
+                          <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
                                <?php for ($i=1; $i < 32; $i++)
@@ -121,13 +94,13 @@
 
 
 
-                          <div class="row">
+                          <div class="form-row">
                             <label class="col-sm-6">Risk Level:</label>
                             <label class="col-sm-6 riskLevel"></label>
 
                           </div>
 
-                          <div class="row">
+                          <div class="form-row">
                             <label class="col-sm-6">Additional Risk Control:</label>
 
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
@@ -136,38 +109,7 @@
                           </div>
                           <div class="clearfix"></div>
 
-                          <div class="row">
-                            <label class="col-sm-6">Severity:</label>
-
-                            <select class="severity col-sm-6 btn btn-default" id="inputSaving" name="severitySecond[]">
-                            <option value="-">Select severity</option>
-                               <option value="5">(5) Catastrophic</option>
-                              <option value="4">(4) Major</option>
-                              <option value="3">(3) Moderate</option>
-                              <option value="2">(2) Minor</option>
-                              <option value="1">(1) Negligible</option>
-                            </select>
-
-
-                          </div>
-
-                          <div class="row">
-                            <label class="col-sm-6">Likelihood:</label>
-                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihoodSecond[]">
-                              <option value="-">Select likelihood</option>
-                              <option value="5">(5) Almost Certain</option>
-                              <option value="4">(4) Frequent</option>
-                              <option value="3">(3) Occasional</option>
-                              <option value="2">(2) Remote</option>
-                              <option value="1">(1) Rare</option>
-                            </select>
-                          </div>
-
-
-
-
-
-
+                          <?php create_options_edit_copy("Second",$asTemplate); ?>
 
                         </div>
                        <div class="clearfix"></div>
@@ -176,7 +118,7 @@
                        <hr class="add_activity"/>
 
                       <div>
-                       <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="1" />
+                       <input type="hidden" name="hazardsActionOfficerCount[]" id="hazardsActionOfficerCount" value="0" />
 
                         <div class="row form-row">
    <div class="col-sm-12">
@@ -217,6 +159,7 @@
                        <button class="col-sm-2 btn btn-danger pull-right deleteHazards">Remove Hazards</button>
                       <div class="clearfix"></div>
                         <hr class="add_activity"/>
+                        <button class="col-sm-5 btn btn-success addWorkActivity" id="add_new_work" style="margin-top:15px;">+ Add a new work activity</button>
                   </div>
           </div>
 

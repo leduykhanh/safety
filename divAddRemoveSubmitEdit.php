@@ -94,10 +94,12 @@ else
     ?>
 <input type="hidden" name="RA_MemberCount" id="RA_MemberCount" value="<?php echo $numRAMamber; ?>" />
    <input type="hidden" name="workactivityCount" id="workactivityCount" value="1" />
+   <input type="hidden" name="template" id="template" value="<?php echo $asTemplate;?>" />
 
 
       <div class="col-sm-12 form_pad">
                 <h3>Edit Risk Assessment</h3>
+                <img src="images/template<?php echo $asTemplate + 1 ; ?>logo.png" class="img-responsive img-radio">
                 <hr class="add_risk">
                 <div class="col-sm-12 form-row">
                             <div class="col-sm-12">
@@ -181,12 +183,7 @@ else
         <button class="col-sm-2 btn btn-primary addMember" id="add_new_member" style="margin-bottom:10px">
         +Add RA Member</button>
 
-
-
-
-
-
-              <?php
+      <?php
 
               if(mysqli_num_rows($resultRAMember) > 0)
               {
@@ -258,7 +255,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
           <div class="row">
               <div class="col-sm-7"><h3 class="workActivityName">Work Activity</h3></div>
                 <div class="5">
-                   <button class="col-sm-2 btn btn-success addWorkActivity" id="add_new_work" style="margin-top:15px;">+ Add a new work activity</button>
 
                    <input type="hidden" name="workactivity_a_id_1" id="workactivity_a_id_1" value="" />
 
@@ -455,32 +451,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           </div>
                           <div class="clearfix"></div>
 
-                          <div class="form-row">
-                            <label class="col-sm-6">Accident Severity:</label>
-
-                            <select class="col-sm-6 severity btn btn-default" id="inputSaving" name="severity1Second[]">
-                              <option value="-">Select severity</option>
-                              <option value="1" <?php if($valueAllHazards['securitysecond'] == '1') echo 'selected="selected"';?>>(1) Catastrophic</option>
-                              <option value="2" <?php if($valueAllHazards['securitysecond'] == '2') echo 'selected="selected"';?>>(2) Critical</option>
-                              <option value="3" <?php if($valueAllHazards['securitysecond'] == '3') echo 'selected="selected"';?>>(3) Marginal</option>
-                              <option value="4" <?php if($valueAllHazards['securitysecond'] == '4') echo 'selected="selected"';?>>(4) Negligible</option>
-                            </select>
-
-
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Accident Frequency:</label>
-
-                            <select class="col-sm-6 likelihood btn btn-default" id="inputSaving" name="likelihood1Second[]">
-                              <option value="-">Select Frequency</option>
-                              <option value="1" <?php if($valueAllHazards['likehoodsecond'] == '1') echo 'selected="selected"';?>>(I) Frequent</option>
-                              <option value="2" <?php if($valueAllHazards['likehoodsecond'] == '2') echo 'selected="selected"';?>>(II) Probable</option>
-                              <option value="3" <?php if($valueAllHazards['likehoodsecond'] == '3') echo 'selected="selected"';?>>(III) Occasional</option>
-                              <option value="4" <?php if($valueAllHazards['likehoodsecond'] == '4') echo 'selected="selected"';?>>(IV) Remote</option>
-                            </select>
-
-                          </div>
+                        <?php create_options_edit("Second",$asTemplate,$valueAllHazards)?>
                           <div class="clearfix"></div>
                         </div>
                    </div>
@@ -492,14 +463,14 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                         $resultAllActionOfficer=mysqli_query($con, $sqlActionOfficer);
                          $numActionOfficer =  mysqli_num_rows($resultAllActionOfficer);
-                          if($numActionOfficer > 0)
-                          {
-
-                          }
-                          else
-                          {
-                            $numActionOfficer = 1;
-                          }
+                          // if($numActionOfficer > 0)
+                          // {
+                          //
+                          // }
+                          // else
+                          // {
+                          //   $numActionOfficer = 1;
+                          // }
                           ?>
 
                       <div class="row form-row">
@@ -576,6 +547,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                        <button class="col-sm-2 btn btn-danger pull-right deleteHazards">Remove Hazards</button>
                       <div class="clearfix"></div>
                         <hr class="add_activity"/>
+                        <button class="col-sm-2 btn btn-success addWorkActivity" id="add_new_work" style="margin-top:15px;">+ Add a new work activity</button>
                   </div>
 
 
