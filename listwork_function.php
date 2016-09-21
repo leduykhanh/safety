@@ -536,10 +536,10 @@ function create_options_edit($name,$asTemplate,$valueAllHazards){
 
 						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity1<?php echo $name; ?>[]">
 							<option value="-">Select severity</option>
-							<option value="1">(1) Catastrophic</option>
-							<option value="2">(2) Critical</option>
-							<option value="3">(3) Marginal</option>
-							<option value="4">(4) Negligible</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '1') echo 'selected="selected"';?>  value="1">(1) Catastrophic</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '2') echo 'selected="selected"';?> value="2">(2) Critical</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '3') echo 'selected="selected"';?> value="3">(3) Marginal</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '4') echo 'selected="selected"';?> value="4">(4) Negligible</option>
 						</select>
 
 
@@ -549,10 +549,10 @@ function create_options_edit($name,$asTemplate,$valueAllHazards){
 						<label class="col-sm-6">Accident Frequency:</label>
 						<select class="likelihood  col-sm-6 btn btn-default " id="inputSaving" name="likelihood1<?php echo $name; ?>[]">
 							<option value="-">Select Frequency</option>
-							<option value="1">(I) Frequent</option>
-							<option value="2">(II) Probable</option>
-							<option value="3">(III) Occasional</option>
-							<option value="4">(IV) Remote</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '1') echo 'selected="selected"';?> value="1">(I) Frequent</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '2') echo 'selected="selected"';?> value="2">(II) Probable</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '3') echo 'selected="selected"';?> value="3">(III) Occasional</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '4') echo 'selected="selected"';?> value="4">(IV) Remote</option>
 						</select>
 					</div>
 			</div>
@@ -597,10 +597,10 @@ function create_options_edit($name,$asTemplate,$valueAllHazards){
 						<label class="col-sm-6">Accident Severity:</label>
 						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity3<?php echo $name; ?>[]">
 							<option value="-">Select severity</option>
-							<option value="1">(I) Catastrophic</option>
-							<option value="2">(II) Critical</option>
-							<option value="3">(III) Marginal</option>
-							<option value="4">(IV) Negligible</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '1') echo 'selected="selected"';?> value="1">(I) Catastrophic</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '2') echo 'selected="selected"';?> value="2">(II) Critical</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '3') echo 'selected="selected"';?> value="3">(III) Marginal</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '4') echo 'selected="selected"';?> value="4">(IV) Negligible</option>
 						</select>
 
 					</div>
@@ -609,10 +609,10 @@ function create_options_edit($name,$asTemplate,$valueAllHazards){
 						<label class="col-sm-6">Accident Frequency:</label>
 						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood3<?php echo $name; ?>[]">
 							<option value="-">Select Frequency</option>
-							<option value="1">(I) Frequent</option>
-							<option value="2">(II) Probable</option>
-							<option value="3">(III) Occasional</option>
-							<option value="4">(IV) Remote</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '1') echo 'selected="selected"';?> value="1">(I) Frequent</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '2') echo 'selected="selected"';?> value="2">(II) Probable</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '3') echo 'selected="selected"';?> value="3">(III) Occasional</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '4') echo 'selected="selected"';?> value="4">(IV) Remote</option>
 						</select>
 					</div>
 			</div>
@@ -624,10 +624,10 @@ function create_options_edit($name,$asTemplate,$valueAllHazards){
 						<label class="col-sm-6">Accident Severity:</label>
 						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity4<?php echo $name; ?>[]">
 							<option value="-">Select severity</option>
-							<option value="1">(I) Catastrophic</option>
-							<option value="2">(II) Critical</option>
-							<option value="3">(III) Marginal</option>
-							<option value="4">(IV) Negligible</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '1') echo 'selected="selected"';?> value="1">(I) Catastrophic</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '2') echo 'selected="selected"';?> value="2">(II) Critical</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '3') echo 'selected="selected"';?> value="3">(III) Marginal</option>
+							<option <?php if($valueAllHazards['security'.$lower_name] == '4') echo 'selected="selected"';?> value="4">(IV) Negligible</option>
 						</select>
 
 					</div>
@@ -636,11 +636,11 @@ function create_options_edit($name,$asTemplate,$valueAllHazards){
 						<label class="col-sm-6">Accident Frequency:</label>
 						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood4<?php echo $name; ?>[]">
 							<option value="-">Select Frequency</option>
-							<option value="1">(I) Frequent</option>
-							<option value="2">(II) Probable</option>
-							<option value="3">(III) Occasional</option>
-							<option value="4">(IV) Remote</option>
-							<option value="5">(V) Improbable</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '1') echo 'selected="selected"';?> value="1">(I) Frequent</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '2') echo 'selected="selected"';?> value="2">(II) Probable</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '3') echo 'selected="selected"';?> value="3">(III) Occasional</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '4') echo 'selected="selected"';?> value="4">(IV) Remote</option>
+							<option <?php if($valueAllHazards['likehood'.$lower_name] == '5') echo 'selected="selected"';?> value="5">(V) Improbable</option>
 						</select>
 					</div>
 			</div>

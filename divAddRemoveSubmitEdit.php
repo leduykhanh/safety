@@ -274,7 +274,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                    ?>
                    <input type="hidden" name="hazardsCount[]" id="hazardsCount" value="<?php echo $numHazardsCount;?>" />
-
+                   <button class="col-sm-2 btn btn-success addWorkActivity" id="add_new_work" style="margin-top:15px;">+ Add a new work activity</button>
                   <button class="col-sm-2 btn btn-danger  deleteWorkActivity" style="margin-left:5px; margin-top:15px;">Remove work activity</button>
                  </div>
                 </div>
@@ -547,7 +547,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                        <button class="col-sm-2 btn btn-danger pull-right deleteHazards">Remove Hazards</button>
                       <div class="clearfix"></div>
                         <hr class="add_activity"/>
-                        <button class="col-sm-2 btn btn-success addWorkActivity" id="add_new_work" style="margin-top:15px;">+ Add a new work activity</button>
                   </div>
 
 
