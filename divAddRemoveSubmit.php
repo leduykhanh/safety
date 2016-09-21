@@ -222,7 +222,7 @@ if(!$_SESSION['adminid'])
 
 
 
-
+<?php include_once 'copyworkactivity.php' ?>
 
 <div class="col-sm-12"> <hr class="add_risk"></div>
 
@@ -267,7 +267,7 @@ if(!$_SESSION['adminid'])
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6 compulsary">Existing Risk Control:</label>
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" rows="5" placeholder=""><?php echo $name;?></textarea>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" rows="5" placeholder=""></textarea>
                           </div>
 
                             <?php create_options(""); ?>

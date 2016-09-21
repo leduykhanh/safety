@@ -93,6 +93,7 @@ $('.addMember').click(function(e){
 $('.addWorkActivity').click(function(e){
         e.preventDefault();
         var toRepeatingGroup = $('.tocopy').first();
+        console.log(toRepeatingGroup);
         var lastRepeatingGroup = $('.repeatingSection').last();
         var cloned = toRepeatingGroup.clone(true);
         cloned.insertAfter(lastRepeatingGroup);
