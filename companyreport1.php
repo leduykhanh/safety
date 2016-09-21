@@ -711,8 +711,8 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
             </div>
     </div>
 <br>
-       <div class ="no-print" style="margin: 0 auto; width: 656px; text-align: center;position:fixed;left:2px;top:50%"><button onClick="window.print()">Print</button></div>
  </div>
+ <div class ="no-print" style="margin: 0 auto; width: 656px; text-align: center;position:fixed;left:2px;top:50%"><button onClick="window.print()">Print</button></div>
 <script src="js1/jquery.js"></script>
 <!-- <script src="js/splitPage.js"></script> -->
     </body>
