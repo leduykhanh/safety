@@ -243,13 +243,14 @@ td p{
            $resultAllHazards=mysqli_query($con, $getAllHazardsSql);
            $totalHazards = mysqli_num_rows($resultAllHazards);
 
-              $hazrdsControl = 1;
-              while($hzardsValue = mysqli_fetch_assoc($resultAllHazards))
+          $hazrdsControl = 1;
+          while($hzardsValue = mysqli_fetch_assoc($resultAllHazards))
 
-              {
+          {
 
-                  if($hazrdsControl == 1)
-                  {
+            // if($hazrdsControl == 1)
+            if(true)
+            {
 
 
           ?>
