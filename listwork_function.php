@@ -523,4 +523,265 @@ function create_options($name){
 	</div>
 	<?php
 }
+
+function create_options_edit($name,$asTemplate,$valueAllHazards){
+	switch ($asTemplate) {
+		case '1':
+			?>
+			<div class="template1options">
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Severity:</label>
+
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity1<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option value="1">(1) Catastrophic</option>
+							<option value="2">(2) Critical</option>
+							<option value="3">(3) Marginal</option>
+							<option value="4">(4) Negligible</option>
+						</select>
+
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Frequency:</label>
+						<select class="likelihood  col-sm-6 btn btn-default " id="inputSaving" name="likelihood1<?php echo $name; ?>[]">
+							<option value="-">Select Frequency</option>
+							<option value="1">(I) Frequent</option>
+							<option value="2">(II) Probable</option>
+							<option value="3">(III) Occasional</option>
+							<option value="4">(IV) Remote</option>
+						</select>
+					</div>
+			</div>
+			<?php
+			break;
+			case '2':?>
+			<div class="template2options" >
+
+					<div class="form-row">
+						<label class="col-sm-6">Severity:</label>
+
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity2<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option <?php if($valueAllHazards['security'] == '5') echo 'selected="selected"';?> value="5">(5) Catastrophic</option>
+							<option <?php if($valueAllHazards['security'] == '4') echo 'selected="selected"';?> value="4">(4) Major</option>
+							<option <?php if($valueAllHazards['security'] == '3') echo 'selected="selected"';?> value="3">(3) Moderate</option>
+							<option <?php if($valueAllHazards['security'] == '2') echo 'selected="selected"';?> value="2">(2) Minor</option>
+							<option <?php if($valueAllHazards['security'] == '1') echo 'selected="selected"';?> value="1">(1) Negligible</option>
+						</select>
+
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Likelihood:</label>
+						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood2<?php echo $name; ?>[]">
+							<option value="-">Select likelihood</option>
+							<option <?php if($valueAllHazards['likehood'] == '5') echo 'selected="selected"';?>value="5">(5) Almost Certain</option>
+							<option <?php if($valueAllHazards['likehood'] == '4') echo 'selected="selected"';?>value="4">(4) Frequent</option>
+							<option <?php if($valueAllHazards['likehood'] == '3') echo 'selected="selected"';?>value="3">(3) Occasional</option>
+							<option <?php if($valueAllHazards['likehood'] == '2') echo 'selected="selected"';?>value="2">(2) Remote</option>
+							<option <?php if($valueAllHazards['likehood'] == '1') echo 'selected="selected"';?>value="1">(1) Rare</option>
+						</select>
+					</div>
+			</div>
+
+			<?php break;
+			case '3':?>
+			<div class="template3options">
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Severity:</label>
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity3<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option value="1">(I) Catastrophic</option>
+							<option value="2">(II) Critical</option>
+							<option value="3">(III) Marginal</option>
+							<option value="4">(IV) Negligible</option>
+						</select>
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Frequency:</label>
+						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood3<?php echo $name; ?>[]">
+							<option value="-">Select Frequency</option>
+							<option value="1">(I) Frequent</option>
+							<option value="2">(II) Probable</option>
+							<option value="3">(III) Occasional</option>
+							<option value="4">(IV) Remote</option>
+						</select>
+					</div>
+			</div>
+			<?php break;
+			case '4':?>
+			<div class="template4options">
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Severity:</label>
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity4<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option value="1">(I) Catastrophic</option>
+							<option value="2">(II) Critical</option>
+							<option value="3">(III) Marginal</option>
+							<option value="4">(IV) Negligible</option>
+						</select>
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Frequency:</label>
+						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood4<?php echo $name; ?>[]">
+							<option value="-">Select Frequency</option>
+							<option value="1">(I) Frequent</option>
+							<option value="2">(II) Probable</option>
+							<option value="3">(III) Occasional</option>
+							<option value="4">(IV) Remote</option>
+							<option value="5">(V) Improbable</option>
+						</select>
+					</div>
+			</div>
+			<?php break;
+		default:
+			# code...
+			break;
+	}
+	?>
+
+
+
+	<?php
+}
+function create_options_edit_copy($name,$asTemplate){
+	switch ($asTemplate) {
+		case '1':
+			?>
+			<div class="template1options">
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Severity:</label>
+
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity1<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option value="1">(1) Catastrophic</option>
+							<option value="2">(2) Critical</option>
+							<option value="3">(3) Marginal</option>
+							<option value="4">(4) Negligible</option>
+						</select>
+
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Frequency:</label>
+						<select class="likelihood  col-sm-6 btn btn-default " id="inputSaving" name="likelihood1<?php echo $name; ?>[]">
+							<option value="-">Select Frequency</option>
+							<option value="1">(I) Frequent</option>
+							<option value="2">(II) Probable</option>
+							<option value="3">(III) Occasional</option>
+							<option value="4">(IV) Remote</option>
+						</select>
+					</div>
+			</div>
+			<?php
+			break;
+			case '2':?>
+			<div class="template2options" >
+
+					<div class="form-row">
+						<label class="col-sm-6">Severity:</label>
+
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity2<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option  value="5">(5) Catastrophic</option>
+							<option  value="4">(4) Major</option>
+							<option  value="3">(3) Moderate</option>
+							<option  value="2">(2) Minor</option>
+							<option  value="1">(1) Negligible</option>
+						</select>
+
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Likelihood:</label>
+						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood2<?php echo $name; ?>[]">
+							<option value="-">Select likelihood</option>
+							<option value="5">(5) Almost Certain</option>
+							<option value="4">(4) Frequent</option>
+							<option value="3">(3) Occasional</option>
+							<option value="2">(2) Remote</option>
+							<option value="1">(1) Rare</option>
+						</select>
+					</div>
+			</div>
+
+			<?php break;
+			case '3':?>
+			<div class="template3options">
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Severity:</label>
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity3<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option value="1">(I) Catastrophic</option>
+							<option value="2">(II) Critical</option>
+							<option value="3">(III) Marginal</option>
+							<option value="4">(IV) Negligible</option>
+						</select>
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Frequency:</label>
+						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood3<?php echo $name; ?>[]">
+							<option value="-">Select Frequency</option>
+							<option value="1">(I) Frequent</option>
+							<option value="2">(II) Probable</option>
+							<option value="3">(III) Occasional</option>
+							<option value="4">(IV) Remote</option>
+						</select>
+					</div>
+			</div>
+			<?php break;
+			case '4':?>
+			<div class="template4options">
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Severity:</label>
+						<select class="severity col-sm-6 btn btn-default  " id="inputSaving" name="severity4<?php echo $name; ?>[]">
+							<option value="-">Select severity</option>
+							<option value="1">(I) Catastrophic</option>
+							<option value="2">(II) Critical</option>
+							<option value="3">(III) Marginal</option>
+							<option value="4">(IV) Negligible</option>
+						</select>
+
+					</div>
+
+					<div class="form-row">
+						<label class="col-sm-6">Accident Frequency:</label>
+						<select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood4<?php echo $name; ?>[]">
+							<option value="-">Select Frequency</option>
+							<option value="1">(I) Frequent</option>
+							<option value="2">(II) Probable</option>
+							<option value="3">(III) Occasional</option>
+							<option value="4">(IV) Remote</option>
+							<option value="5">(V) Improbable</option>
+						</select>
+					</div>
+			</div>
+			<?php break;
+		default:
+			# code...
+			break;
+	}
+	?>
+
+
+
+	<?php
+}
 ?>

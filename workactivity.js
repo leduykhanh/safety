@@ -100,24 +100,15 @@ $('.addWorkActivity').click(function(e){
 		});
 		var nextI = $('.workActivityName').length;
 		$('.workActivityNameCopy').parent('div').html('<h3 class="workActivityName">Work Activity '+i+'</h3>');
-
-
-
-
        var toRepeatingGroup = $('.tocopy').first();
+       console.log(toRepeatingGroup);
         var lastRepeatingGroup = $('.repeatingSection').last();
         var cloned = toRepeatingGroup.clone(true);
         cloned.insertAfter(lastRepeatingGroup);
-
-
         resetAttributeNames(cloned);
-
-
         var workactivityCount = $('#workactivityCount').val();
         var newworkactivityCount = parseInt(workactivityCount) +1;
         $('#workactivityCount').val(newworkactivityCount);
-
-
         $('#workActivityNameCopy').html('<h3 class="workActivityNameCopy">Work Activity</h3>');
 
     });

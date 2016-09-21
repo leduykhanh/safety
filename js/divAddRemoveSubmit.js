@@ -96,8 +96,6 @@ $('.addWorkActivity').click(function(e){
         var lastRepeatingGroup = $('.repeatingSection').last();
         var cloned = toRepeatingGroup.clone(true);
         cloned.insertAfter(lastRepeatingGroup);
-
-
         resetAttributeNames(cloned);
 
 

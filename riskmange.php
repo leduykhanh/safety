@@ -103,7 +103,7 @@ define('NON_ACTIVE', 0);
             // var_dump($_POST['severity1']);
             $security = $_POST["severity".$asTemplate];
             $likehood = $_POST["likelihood".$asTemplate];
-            // var_dump( $security);
+            var_dump( $security);
             //we have to loop for hazarads
             for($j=1; $j <= $_POST['hazardsCount'][$i]; $j++)
             {
@@ -160,7 +160,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-   echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+  //  echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {

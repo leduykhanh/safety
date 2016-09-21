@@ -38,9 +38,6 @@ if(!$_SESSION['adminid'])
   </style>
  <script src="workactivity.js"></script>
 
-
-
-
 <?php
 if(isset($_GET['riskid']) && $_GET['riskid'] != '')
 {
@@ -63,8 +60,6 @@ if(isset($_GET['riskid']) && $_GET['riskid'] != '')
 
   //get RA list
   $raMembers =(mysqli_query($con,"SELECT * FROM ramember"));
-  // get asTemplate
-  $asTemplate = $valueRisk["asTemplate"];
 
 }
 else
@@ -308,19 +303,19 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                   <div class="col-sm-12 hazardSection">
                   <div class="row">
                         <div class="col-sm-6">
-                         <div class="form-row">
+                         <div class="row">
                             <label class="col-sm-6">Hazard:</label>
 
                             <textarea rows="2" type="text" class="col-sm-6" id="inputSaving" name="Hazard[]" value="<?php echo $valueAllHazards['name'];?>" placeholder="" required><?php echo $valueAllHazards['name'];?></textarea>
 
                           </div>
-                          <div class="form-row">
+                          <div class="row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
 
                             <input type="text" class="col-sm-6" id="inputSaving" name="InjuryAccident[]" value="<?php echo $valueAllHazards['accident'];?>" placeholder="" required />
 
                           </div>
-                          <div class="form-row">
+                          <div class="row">
                             <label class="col-sm-6">Existing Risk Control:</label>
 
 
@@ -328,9 +323,34 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                           </div>
 
-                          <?php create_options_edit("",$asTemplate,$valueAllHazards)?>
+                          <div class="row" >
+                            <label class="col-sm-6">Accident Severity:</label>
 
-                          <div class="form-row">
+                            <select class="severity col-sm-6 btn btn-default "  id="inputSaving" name="severity1[1]">
+                              <option value="-">Select severity</option>
+                              <option value="1" <?php if($valueAllHazards['security'] == '1') echo 'selected="selected"';?>>(1) Catastrophic</option>
+                              <option value="2" <?php if($valueAllHazards['security'] == '2') echo 'selected="selected"';?>>(2) Critical</option>
+                              <option value="3" <?php if($valueAllHazards['security'] == '3') echo 'selected="selected"';?>>(3) Marginal</option>
+                              <option value="4" <?php if($valueAllHazards['security'] == '4') echo 'selected="selected"';?>>(4) Negligible</option>
+                            </select>
+
+
+                          </div>
+
+                          <div class="row" >
+                            <label class="col-sm-6">Accident Frequency:</label>
+
+                            <select class="likelihood col-sm-6 btn btn-default " id="inputSaving" name="likelihood1[1]">
+                              <option value="-">Select Frequency</option>
+                              <option value="1" <?php if($valueAllHazards['likehood'] == '1') echo 'selected="selected"';?>>(I) Frequent</option>
+                              <option value="2" <?php if($valueAllHazards['likehood'] == '2') echo 'selected="selected"';?>>(II) Probable</option>
+                              <option value="3" <?php if($valueAllHazards['likehood'] == '3') echo 'selected="selected"';?>>(III) Occasional</option>
+                              <option value="4" <?php if($valueAllHazards['likehood'] == '4') echo 'selected="selected"';?>>(IV) Remote</option>
+                            </select>
+
+                          </div>
+
+                          <div class="row">
                             <label class="col-sm-6">Action Date:</label>
 
                              <?php
@@ -441,12 +461,12 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 
 
-                          <div class="form-row">
+                          <div class="row">
                             <label class="col-sm-6">Risk Level:</label>
                             <label class="col-sm-6 riskLevel"><?php echo $htmlRisk; ?></label>
                           </div>
 
-                          <div class="form-row">
+                          <div class="row">
                             <label class="col-sm-6">Additional Risk Control:</label>
 
                           <textarea  type="text" class="col-sm-6" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"><?php echo $valueAllHazards['risk_additional'];?></textarea>
@@ -455,7 +475,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           </div>
                           <div class="clearfix"></div>
 
-                          <div class="form-row">
+                          <div class="row">
                             <label class="col-sm-6">Accident Severity:</label>
 
                             <select class="col-sm-6 severity btn btn-default" id="inputSaving" name="severity1Second[]">
@@ -469,7 +489,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                           </div>
 
-                          <div class="form-row">
+                          <div class="row">
                             <label class="col-sm-6">Accident Frequency:</label>
 
                             <select class="col-sm-6 likelihood btn btn-default" id="inputSaving" name="likelihood1Second[]">
