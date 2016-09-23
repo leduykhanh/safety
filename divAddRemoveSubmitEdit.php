@@ -459,7 +459,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                         <hr class="add_activity"/>
                         <?php
 
-                        $sqlActionOfficer = "SELECT * FROM  `actionofficer` WHERE  `hazardid` =$valueAllHazards[hazard_id]";
+                        $sqlActionOfficer = "SELECT * FROM  `hazard_actionofficer` WHERE  `hazardid` =$valueAllHazards[hazard_id]";
 
                         $resultAllActionOfficer=mysqli_query($con, $sqlActionOfficer);
                          $numActionOfficer =  mysqli_num_rows($resultAllActionOfficer);
@@ -483,7 +483,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                       </div>
 
 
-
                           <?php
                            if($numActionOfficer > 0)
                           {
@@ -497,7 +496,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                                         <label class="col-sm-6">Action Officer:</label>
                                         <select name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder="">
                                           <?php foreach ($raMembers as $raMember) {
-                                              $selected = $valueActionOfficer["id"] == $raMember["id"]?"selected":"";
+                                              $selected = $valueActionOfficer["ramemberId"] == $raMember["id"]?"selected":"";
                                             echo "<option $selected value=".$raMember["id"].">".$raMember["name"]."</option>";
                                           }?>
                                         </select>
