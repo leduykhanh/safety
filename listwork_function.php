@@ -18,7 +18,7 @@ function generate_list_work($con,$a){
           $resultlArchived = mysqli_query($con, $sqlArchived);
           $OutArchived= mysqli_num_rows($resultlArchived);?>
 	    <div class="row"  style="padding-bottom: 10px;">
-    		<div class="col-sm-5" style="text-align:left; padding:0px"><strong>QE Safety Consultancy Pte Ltd</strong></div>
+    		<div class="col-sm-5" style="text-align:left; padding:0px"><strong>THI Engineering Construction Pte Ltd</strong></div>
             <div class="col-sm-7" style="padding:0px; text-align:right;">
 
                           <?php

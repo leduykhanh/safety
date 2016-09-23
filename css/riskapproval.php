@@ -4,7 +4,7 @@ session_start();
  include_once 'config.php';
  if(isset($_SESSION['adminid'])=="")
  {
- 
+
  ?><script type="text/javascript">window.location.assign('index.php');</script>
  <?php
 
@@ -15,7 +15,7 @@ session_start();
 
  if(isset($_POST['sendDocument']) && $_POST['sendDocument'] == 'Send Document' && isset($_GET['riskId']))
  {
-   
+
 
     if($_POST['NotifySignatureAdded'] == 'on')
     {
@@ -77,7 +77,7 @@ session_start();
   mysqli_query($con,$update);
   $j = 0;
   mysqli_query($con, "DELETE FROM `signing` WHERE `riskid` = ".$_GET['riskId']."");
-  foreach ($_POST['staffName'] as $staffName) 
+  foreach ($_POST['staffName'] as $staffName)
   {
       $sqlStaffName = "INSERT INTO `signing` (`id`, `riskid`, `name`, `email`
         ) VALUES (NULL, '".$_GET['riskId']."', '".$staffName."', '".trim($_POST['staffEnail'][$j])."')";
@@ -100,26 +100,26 @@ session_start();
         //create one with the user name and email
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
         $password = substr( str_shuffle( $chars ), 0, 4 );
-        
+
         $insertUser = "INSERT INTO `staff_login` (`id`, `email`, `password`, `name`, `designation`, `age`, `sex`) VALUES (NULL, '".trim($_POST['staffEnail'][$j])."', '".$password."', '".$staffName."', '', '', '')";
         mysqli_query($con,$insertUser);
       }
 
 
 
-     
+
 
       //define the receiver of the email
       $to = $_POST['staffEnail'][$j];
       //define the subject of the email
-      $subject = 'new approval request for you'; 
-      //create a boundary string. It must be unique 
+      $subject = 'new approval request for you';
+      //create a boundary string. It must be unique
       //so we use the MD5 algorithm to generate a random hash
-      $random_hash = md5(time()); 
+      $random_hash = md5(time());
       //define the headers we want passed. Note that they are separated with \r\n
       $headers = "From: webmaster@mrphpguru.com\r\nReply-To: webmaster@mrphpguru.com";
       //add boundary string and mime type specification
-      $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\""; 
+      $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
       //define the body of the message.
       ob_start(); //Turn on output buffering
 
@@ -130,7 +130,7 @@ session_start();
 
       Hello <?php echo $staffName;?>! Please review risk assessment and approve it
 
-      To approve risk assessment please use following credentials. 
+      To approve risk assessment please use following credentials.
 
       Site link : http://demo.mrphpguru.com/riskmanagement
 
@@ -154,11 +154,11 @@ session_start();
       $message = ob_get_clean();
       //send the email
       $mail_sent = @mail( $to, $subject, $message, $headers );
-      //if the message is sent successfully print "Mail sent". Otherwise print "Mail failed" 
+      //if the message is sent successfully print "Mail sent". Otherwise print "Mail failed"
      // echo $mail_sent ? "Mail sent" : "Mail failed";
 
       $j++;
-  }    
+  }
 
    ?>
     <script type="text/javascript">window.location.assign("listwork_activity.php?id=<?php echo $_GET['riskId'];?>&status=0&message=document sents successfully")</script>
@@ -192,8 +192,8 @@ session_start();
             margin: 10px;
         }
         .clonedInput { padding: 10px; border-radius: 5px; background-color: #def;}
-    
-    
+
+
     </style>
 
 
@@ -201,7 +201,7 @@ session_start();
 $(window).load(function(){
 // Add a new repeating section
 var attrs = ['for', 'id', 'value'];
-function resetAttributeNames(section) { 
+function resetAttributeNames(section) {
     var tags = section.find('input, label'), idx = section.index();
     tags.each(function() {
       var $this = $(this);
@@ -216,7 +216,7 @@ function resetAttributeNames(section) {
 
       })
 
-        
+
     })
 }
 
@@ -224,13 +224,13 @@ $('.addWorkActivity').click(function(e){
         e.preventDefault();
         var toRepeatingGroup = $('.repeatingSection').last();
         var lastRepeatingGroup = $('.repeatingSection').last();
-        var cloned = toRepeatingGroup.clone(true);  
+        var cloned = toRepeatingGroup.clone(true);
         cloned.insertAfter(lastRepeatingGroup);
         resetAttributeNames(cloned);
     });
 
 
-                    
+
 // Delete a repeating section
 $('.deleteWorkActivity').click(function(e){
         e.preventDefault();
@@ -242,30 +242,30 @@ $('.deleteWorkActivity').click(function(e){
         }
         current_fight.slideUp('slow', function() {
             current_fight.remove();
-            
+
             other_fights.each(function() {
-            resetAttributeNames($(this)); 
-            })  
-            
+            resetAttributeNames($(this));
+            })
+
         })
-       
-            
+
+
     });
 
-});//]]> 
+});//]]>
 
 </script>
-<form action="riskapproval.php?riskId=<?php echo $_GET['riskId'];?>" method="post">  
+<form action="riskapproval.php?riskId=<?php echo $_GET['riskId'];?>" method="post">
 
 
 
 
      <div class="container" style="border:2px solid black;">
-      
+
             <div class="col-sm-12 form_pad">
                         <h3>Approval of Risk Assessment</h3>
                         <hr class="add_risk" />
-                    
+
                         <div class="row form-row">
                             <div class="col-sm-2"><label>RA Leader:</label></div>
                             <div class="col-sm-4">
@@ -276,7 +276,7 @@ $('.deleteWorkActivity').click(function(e){
                         <div class="row form-row">
                             <div class="col-sm-2"><label>Company:</label></div>
                             <div class="col-sm-4">
-                                <label>QE Safety Consultancy Pte Ltd</label>
+                                <label>THI Engineering Construction Pte Ltd</label>
                             </div>
 
                             <div class="col-sm-2"><label>Reference No:</label></div>
@@ -284,7 +284,7 @@ $('.deleteWorkActivity').click(function(e){
                                     <label>00<?php echo $valueRisk['id']; ?></label>
                             </div>
                         </div>
-                    
+
 
                         <div class="row form-row">
                             <div class="col-sm-2"><label>Risk Location:</label></div>
@@ -307,7 +307,7 @@ $('.deleteWorkActivity').click(function(e){
             </div>
 
 
-          
+
             <div class="col-sm-12 form_pad">
                 <h3>Who needs to sign the document?</h3>
                 <hr class="add_risk">
@@ -316,7 +316,7 @@ $('.deleteWorkActivity').click(function(e){
                   $signing = mysqli_query($con, $getSigningSQl);
 
                  $getSigning = mysqli_fetch_assoc($signing);
-                
+
                ?>
 
                 <div class="col-sm-12 form-row">
@@ -326,101 +326,101 @@ $('.deleteWorkActivity').click(function(e){
                   <input class="col-sm-3" type="email" id="staffemail_a_id_1" placeholder="" name="staffEnail[]" required value="<?php echo $getSigning['email'];?>">
                 </div>
             </div>
-            
+
 <!--Footer button-->
-        
+
             <div class="col-sm-12 form_pad" style="display:none">
                 <div class="row col-sm-12">
                     <h3>Declaration of Risk Assessment</h3>
                     <hr class="add_risk" />
                 </div>
-          
-           
-             
+
+
+
                     <div class="row col-sm-12 margin">
-                        <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>  
-                       
-                        
+                        <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>
 
-                        <input type="checkbox" name="NotifySignatureAdded" <?php if($valueRisk['NotifySignatureAdded'] == 1){echo 'checked';} ?>> Notify me when a signature is added 
 
-                    </div> 
-                   
-                    <div class="row col-sm-12 margin"> 
-                        <span class="notify_checkbox"></span>
-                        <input type="checkbox" name="whenViewed" <?php if($valueRisk['whenViewed'] == 1){echo 'checked';} ?>>Before the document is signed continue emailing me when ever it is viewed
-                     
+
+                        <input type="checkbox" name="NotifySignatureAdded" <?php if($valueRisk['NotifySignatureAdded'] == 1){echo 'checked';} ?>> Notify me when a signature is added
+
                     </div>
 
-                   
                     <div class="row col-sm-12 margin">
-                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>  
-                     <input type="checkbox" name="whenSignatureAdded" <?php if($valueRisk['whenSignatureAdded'] == 1){echo 'checked';} ?>> Notify me when a signature is added 
-                    </div> 
-                    
-                    <div class="row col-sm-12 margin"> 
-                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>  
+                        <span class="notify_checkbox"></span>
+                        <input type="checkbox" name="whenViewed" <?php if($valueRisk['whenViewed'] == 1){echo 'checked';} ?>>Before the document is signed continue emailing me when ever it is viewed
+
+                    </div>
+
+
+                    <div class="row col-sm-12 margin">
+                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>
+                     <input type="checkbox" name="whenSignatureAdded" <?php if($valueRisk['whenSignatureAdded'] == 1){echo 'checked';} ?>> Notify me when a signature is added
+                    </div>
+
+                    <div class="row col-sm-12 margin">
+                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>
                      <input type="checkbox" name="asTemplate" <?php if($valueRisk['asTemplate'] == 1){echo 'checked';} ?>> Save documents as template
                     </div>
 
 
-                    <div class="row col-sm-12 margin"> 
-                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>  
+                    <div class="row col-sm-12 margin">
+                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>
                      <input type="checkbox" name="sendAttachment" <?php if($valueRisk['sendAttachment'] == 1){echo 'checked';} ?>> Send the PDF of this aggrement as an email attachment
 
-                    </div> 
-                    
+                    </div>
+
                     <div class="row col-sm-12 margin">
-                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>  
+                     <span class="glyphicon glyphicon-question-sign question_icon_spaccing"></span>
                      <input type="checkbox" name="signingReminders" <?php if($valueRisk['signingReminders'] == 1){echo 'checked';} ?>> Enable signing reminders
-                    </div> 
-                    
-                    <div class="row col-sm-12 margin">   
-                       <span class="simple_text">Send the reminder eamil to the signer in</span> 
+                    </div>
+
+                    <div class="row col-sm-12 margin">
+                       <span class="simple_text">Send the reminder eamil to the signer in</span>
                        <input type="text" class="days_input" name="sendReminder" value="<?php echo $valueRisk['sendReminder'];?>" > days
 
                     </div>
-                    
-                    <div class="row col-sm-12 margin">   
+
+                    <div class="row col-sm-12 margin">
                        <span class="simple_text">After the first remeinder send reminder everday </span>
                        <input type="text" class="days_input" name="afterFirstReminder" value="<?php echo $valueRisk['afterFirstReminder'];?>"> days
                     </div>
 
-                    <div class="row col-sm-12 margin"> 
-                       <span class="simple_text">Expire reminders in</span> 
+                    <div class="row col-sm-12 margin">
+                       <span class="simple_text">Expire reminders in</span>
                        <input type="text" class="days_input" name="ecpireReminder" value="<?php echo $valueRisk['ecpireReminder'];?>"> days
-                    </div>   
+                    </div>
 
-                    <div class="row"> 
+                    <div class="row">
                         <div class="col-sm-10 margin">
                             <label>
                                 <a class="advance-setting" id="advance_setting">(+)Advance document setting</a>
                             </label>
                         </div>
                     </div>
-          </div>     
-             
-           
-       <div class="row"> 
-           
+          </div>
+
+
+       <div class="row">
+
 
                    <div class="col-sm-8">
-                    
-                      
-                        <a class="btn btn-success col-sm-2" target="_blank" href="companyreport.php?riskid=<?php echo $_GET['riskId'];?>">Preview</a>
-                     
 
-                   
+
+                        <a class="btn btn-success col-sm-2" target="_blank" href="companyreport.php?riskid=<?php echo $_GET['riskId'];?>">Preview</a>
+
+
+
                     </div>
                     <div class="col-sm-4">
-                        
-                        <input type="submit" value="Send Document" name="sendDocument" class="btn btn-success pull-right">
-                                
 
-                        
+                        <input type="submit" value="Send Document" name="sendDocument" class="btn btn-success pull-right">
+
+
+
 
                     </div>
-            
+
 
         </div>
       <div class="row">&nbsp; </div>
@@ -432,4 +432,3 @@ $('.deleteWorkActivity').click(function(e){
 <div class="form-row col-sm-12"></div>
 
  <?php include_once 'footer.php';?>
-

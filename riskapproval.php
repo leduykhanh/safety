@@ -289,7 +289,7 @@ $('.deleteWorkActivity').click(function(e){
                         <div class="row form-row">
                             <div class="col-sm-2"><label>Company:</label></div>
                             <div class="col-sm-4">
-                                <label>QE Safety Consultancy Pte Ltd</label>
+                                <label>THI Engineering Construction Pte Ltd</label>
                             </div>
 
                             <div class="col-sm-2"><label>Reference No:</label></div>
