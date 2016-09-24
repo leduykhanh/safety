@@ -39,3 +39,5 @@ CREATE PROCEDURE archive(IN stat INT)
 BEGIN
 UPDATE `riskassessment` set status=3 WHERE (`createdDate` + INTERVAL `expiry_date` YEAR) < NOW();
 END $$
+CREATE TABLE `safety`.`hazard_cause` ( `id` INT(10) NOT NULL AUTO_INCREMENT , `hazardId` INT(10) NOT NULL , `cause` INT NOT NULL , `dateCreated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `hazard_cause` CHANGE `cause` `cause` TEXT NOT NULL;

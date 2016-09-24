@@ -249,11 +249,14 @@ td p{
            $resultAllHazards=mysqli_query($con, $getAllHazardsSql);
            $totalHazards = mysqli_num_rows($resultAllHazards);
 
+
           $hazrdsControl = 1;
           while($hzardsValue = mysqli_fetch_assoc($resultAllHazards))
 
           {
-
+            $sqlHazardCauseSQL = "SELECT * from `hazard_cause` WHERE hazardId=".$hzardsValue["hazard_id"];
+            $resultAllHazardCauses=mysqli_query($con, $sqlHazardCauseSQL);
+            $numHazardCauses = mysqli_num_rows($resultAllHazardCauses);
 
             if(true)
             {
@@ -272,7 +275,7 @@ td p{
               <td rowspan="<?php echo $totalHazards; ?>" colspan="1"> <?php echo $valueAllWork['name'];?> </td>
               <?php } ?>
             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
-            <td rowspan="1" colspan="1">  </td>
+            <td rowspan="1" colspan="1">  <?php foreach($resultAllHazardCauses as $cause) echo $cause["cause"]; ?></td>
             <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>

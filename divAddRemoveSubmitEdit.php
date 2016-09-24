@@ -299,6 +299,10 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
   while($valueAllHazards = mysqli_fetch_assoc($resultAllHazards))
   {
+        var_dump($asTemplate);
+        $sqlHazardCauseSQL = "SELECT * from `hazard_cause` WHERE hazardId=".$valueAllHazards["hazard_id"];
+        $resultAllHazardCauses=mysqli_query($con, $sqlHazardCauseSQL);
+        $numHazardCauses = mysqli_num_rows($resultAllHazardCauses);
   ?>
 
                   <div class="col-sm-12 hazardSection">
@@ -451,7 +455,16 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           </div>
                           <div class="clearfix"></div>
 
-                        <?php create_options_edit("Second",$asTemplate,$valueAllHazards)?>
+                        <?php create_options_edit("Second",$asTemplate,$valueAllHazards);?>
+                        <?php if($asTemplate==='4'&&$numHazardCauses>0){
+                          foreach($resultAllHazardCauses as $cause)
+                          ?>
+                          <div class="onlyfortemplate5 form-row">
+                            <label class="col-sm-6">Hazard Cause:</label>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"><?php echo $cause["cause"];?></textarea>
+                          </div>
+                          <?php
+                        }?>
                           <div class="clearfix"></div>
                         </div>
                    </div>

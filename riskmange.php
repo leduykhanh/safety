@@ -60,6 +60,7 @@ define('NON_ACTIVE', 0);
 
       while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
       {
+        mysqli_query($con, "DELETE FROM `hazard_cause` WHERE harzardId in (select hazard_id FROM `hazard` WHERE `work_id` = ".$valueAllWork['work_id'].")");
         mysqli_query($con, "DELETE FROM `hazard` WHERE `work_id` = ".$valueAllWork['work_id']."");
       }
       mysqli_query($con, "DELETE FROM `workactivity` WHERE `riskId` = ".$_GET['riskid']."");
@@ -105,6 +106,7 @@ define('NON_ACTIVE', 0);
             $likehood = $_POST["likelihood".$asTemplate];
             $securitySecond = $_POST['severity'.$asTemplate.'Second'];
             $likehoodSecond = $_POST['likelihood'.$asTemplate.'Second'];
+            $hazardCauses = $_POST["hazardCauses"];
             // var_dump( $securitySecond);
             //we have to loop for hazarads
             for($j=1; $j <= $_POST['hazardsCount'][$i]; $j++)
@@ -122,9 +124,12 @@ define('NON_ACTIVE', 0);
             //  echo $sqlHazards;
 
 
+
              $insertHazards=mysqli_query($con, $sqlHazards);
              $insertHazardsId = mysqli_insert_id($con);
-
+             $sqlHazardCauses = "INSERT INTO `hazard_cause`(`hazardid`,`cause`) VALUES($insertHazardsId,'$hazardCauses[$k]')";
+            //  echo $sqlHazardCauses;
+             mysqli_query($con, $sqlHazardCauses);
 
              //insert hazards action officer of this hazards
              $numOfActionOfficer = $_POST['hazardsActionOfficerCount'][$k];

@@ -343,6 +343,10 @@ if(!$_SESSION['adminid'])
                           <div class="clearfix"></div>
 
                           <?php create_options("Second"); ?>
+                          <div class="onlyfortemplate5 form-row">
+                            <label class="col-sm-6">Hazard Cause:</label>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                          </div>
 
                         </div>
                        <div class="clearfix"></div>
@@ -501,6 +505,10 @@ if(!$_SESSION['adminid'])
                           <div class="clearfix"></div>
 
                           <?php create_options("Second"); ?>
+                          <div class="onlyfortemplate5 form-row">
+                            <label class="col-sm-6">Hazard Cause:</label>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                          </div>
                         </div>
                        <div class="clearfix"></div>
 
