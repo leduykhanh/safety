@@ -254,7 +254,7 @@ td p{
 
           {
 
-            // if($hazrdsControl == 1)
+
             if(true)
             {
 
@@ -268,10 +268,12 @@ td p{
             <td rowspan="1" colspan="1">  </td>
             <td rowspan="1" colspan="1"> <?php //echo $m;?></td>
             <td rowspan="1" colspan="1"> <?php //echo $hzardsValue["hazard_id"] - 1;  ?></td>
-            <td rowspan="1" colspan="1"> <?php echo $valueAllWork['name'];?> </td>
+            <?php if($hazrdsControl == 1){ ?>
+              <td rowspan="<?php echo $totalHazards; ?>" colspan="1"> <?php echo $valueAllWork['name'];?> </td>
+              <?php } ?>
             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
-            <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?></td>
-            <td rowspan="1" colspan="1">   </td>
+            <td rowspan="1" colspan="1">  </td>
+            <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
 
