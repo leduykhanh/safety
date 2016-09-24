@@ -442,14 +442,14 @@ function create_header($page_number,$risk){
 				<td class="grey">Process:</td>
 				<td><?php echo $risk["process"]; ?></td>
 				<td class="grey">1)Team  Leader</td>
-				<td>rajesh</td>
+				<td><?php echo $valueAllUser['name']; ?></td>
 				<td>WSHO</td>
 				<td>27-04-2019</td>
 
 			</tr>
 			<tr>
 				<td class="grey">Activity Location:</td>
-				<td>warehouse</td>
+				<td><?php echo $risk["location"] ; ?></td>
 				<td class="grey">2) Member</td>
 				<td> <br>
 				<img src="images/" height="60"> </td>
@@ -465,7 +465,7 @@ function create_header($page_number,$risk){
 				<td></td>
 				<td></td>
 				<td class="grey">Name:</td>
-				<td>Julius Lim</td>
+				<td><?php echo $valueAllUser['name']; ?></td>
 			</tr>
 			<tr>
 				<td class="grey">Last Review Date:</td>
