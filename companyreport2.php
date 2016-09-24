@@ -465,7 +465,7 @@ function create_header($page_number,$risk){
 				<td></td>
 				<td></td>
 				<td class="grey">Name:</td>
-				<td><?php echo $valueAllUser['name']; ?></td>
+				<td><?php echo $appoverName; ?></td>
 			</tr>
 			<tr>
 				<td class="grey">Last Review Date:</td>
@@ -479,7 +479,7 @@ function create_header($page_number,$risk){
 				<td></td>
 				<td></td>
 				<td class="grey">Designation:</td>
-				<td>manager</td>
+				<td><?php echo $appoverDesignation; ?></td>
 			</tr>
 			<tr>
 				<td class="grey">Next Review Date:</td>
