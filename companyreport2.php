@@ -81,7 +81,7 @@ function create_header($page_number,$risk){
 					<tr>
 						<td colspan="2">
 							<div class="text-center"><strong>Risk Assessment for <span class="under-line"> <?php echo $risk["process"];?> </span></strong></div>
-							<div class="text-center"><strong>Undertaken by <span class="under-line"> QE Safety Consultancy  </span></strong></div>
+							<div class="text-center"><strong>Undertaken by <span class="under-line"> THI Engineering Construction Pte Ltd  </span></strong></div>
 
 						</td>
 					</tr>
