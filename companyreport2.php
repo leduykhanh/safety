@@ -436,14 +436,14 @@ function create_header($page_number,$risk){
 				<td class="grey">Designation</td>
 				<td class="grey">Date</td>
 				<td class="grey" rowspan="3">Approved by:<?php echo $appoverName;?><br>Signature:</td>
-				<td rowspan="3"><?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?></td>
+				<td rowspan="3"><?php echo $appoverSingature!=""?'<img width="80" src="staff/'.$appoverSingature.'"/>':""; ?></td>
 			</tr>
 			<tr>
 				<td class="grey">Process:</td>
 				<td><?php echo $risk["process"]; ?></td>
 				<td class="grey">1)Team  Leader</td>
 				<td><?php echo $valueAllUser['name']; ?></td>
-				<td>WSHO</td>
+				<td><?php echo $valueAllUser['designation']; ?></td>
 				<td>27-04-2019</td>
 
 			</tr>
