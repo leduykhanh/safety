@@ -640,12 +640,12 @@ td p{
           <td align="center">Risk shall only be accepted if further risk reduction is not practicable.</td>
         </tr>
         <tr>
-          <td align="center">C</td>
+          <td bgcolor="#eaf1dd" align="center">C</td>
           <td align="center">Tolerable</td>
           <td align="center">Risk shall be accepted subject to demonstration that the level of risk is as low as reasonably practicable.</td>
         </tr>
         <tr>
-          <td align="center">D</td>
+          <td bgcolor="#eaf1dd" align="center">D</td>
           <td align="center">Acceptable</td>
           <td align="center">Risk is acceptable.</td>
         </tr>
