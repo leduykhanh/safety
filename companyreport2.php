@@ -39,9 +39,17 @@ include_once 'config.php';
         $totalWorkActivity = mysqli_num_rows($resultAllWork);
 
         $valueAllWork = mysqli_fetch_assoc($resultAllWork);
-
-		//get user details
-		$getAllUserSql = "SELECT * FROM `staff_login` WHERE `id` = ".$risk['createdBy']."";
+        // RA details
+        $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
+        $queryRamember = mysqli_query($con, $sqlRAMember);
+        $resultlRAMember = array();
+        while($res = mysqli_fetch_assoc($queryRamember)) {
+            $resultlRAMember[] = $res;
+            // var_dump($res);
+        }
+        $raCount = count($resultlRAMember);
+  		//get user details
+  		  $getAllUserSql = "SELECT * FROM `staff_login` WHERE `id` = ".$risk['createdBy']."";
         $resultAlluser=mysqli_query($con, $getAllUserSql);
        // $totalWorkActivity = mysqli_num_rows($resultAlluser);
 
@@ -444,15 +452,14 @@ function create_header($page_number,$risk){
 				<td class="grey">1)Team  Leader</td>
 				<td><?php echo $valueAllUser['name']; ?></td>
 				<td><?php echo $valueAllUser['designation']; ?></td>
-				<td>27-04-2019</td>
+				<td><?php echo $risk["createdDate"]; ?></td>
 
 			</tr>
 			<tr>
 				<td class="grey">Activity Location:</td>
 				<td><?php echo $risk["location"] ; ?></td>
 				<td class="grey">2) Member</td>
-				<td> <br>
-				<img src="images/" height="60"> </td>
+				<td><?php echo $resultlRAMember[0]["name"]."<br /><img src='images/".$resultlRAMember[0]["signature"]."' height='60'/>"; ?></td>
 				<td></td>
 				<td>27-04-2019</td>
 
@@ -461,7 +468,7 @@ function create_header($page_number,$risk){
 				<td class="grey">Original Assessment Date:</td>
 				<td><?php echo date('d-m-Y', strtotime($risk['createdDate'])); ?></td>
 				<td class="grey">3) Member</td>
-				<td></td>
+				<td><?php if($raCount>1)  echo $resultlRAMember[1]["name"];?></td>
 				<td></td>
 				<td></td>
 				<td class="grey">Name:</td>
