@@ -100,6 +100,8 @@ td p{
   		    $getAllUserSql = "SELECT * FROM `staff_login` WHERE `id` = ".$risk['createdBy']."";
           $resultAlluser=mysqli_query($con, $getAllUserSql);
          // $totalWorkActivity = mysqli_num_rows($resultAlluser);
+         $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
+         $resultlRAMember = mysqli_query($con, $sqlRAMember);
 
           $valueAllUser = mysqli_fetch_assoc($resultAlluser);
           $romans = array("1"=>"I","2"=>"II","3"=>"III","4"=>"IV","5"=>"V","-"=>"-",""=>"");
@@ -166,7 +168,11 @@ td p{
   				<td colspan="6"><strong style="text-transform: uppercase;"><?php echo $risk["project_title"];?></strong></td>
   				<td>STAGE:</td>
   				<td></td>
-  				<td>PREPARED BY: <?php echo $valueAllUser['name'];?></td>
+  				<td>PREPARED BY: <?php echo $valueAllUser['name'];?>(RA Leader) <br />
+            <?php foreach($resultlRAMember as $ra){
+              echo $ra["name"]."(RA Member)</br>";
+            }?>
+          </td>
   				<td>REVISION:</td>
   				<td>-</td>
   				<td>DATE:</td>
