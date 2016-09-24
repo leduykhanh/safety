@@ -314,28 +314,23 @@ td p{
               <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?></td>
               <td rowspan="1" colspan="1"></td>
               <td rowspan="1" colspan="1">
-                <?php $sqlRAMember = "SELECT * FROM  `ramember` WHERE  `id` in (SELECT ramemberId as id from risk_ramemeber WHERE `riskId` = $_GET[riskid])";
-                $resultlRAMember = mysqli_query($con, $sqlRAMember);
-                foreach ($resultlRAMember as $ra){
-                  echo "<div>".$ra["name"]."</div>";
-                }
-                ?>
+                <?php
+
+                     $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
+                          $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
+
+
+                          foreach($resultActtionOfficer as $valueAllActionOfficer)
+                          {
+                            echo "<div>$valueAllActionOfficer[name]</div>";
+                          }
+
+
+
+                  ?> 
               </td>
               <td rowspan="1" colspan="1"></td>
-             <td rowspan="1" colspan="1"> <?php
-
-                   $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
-                        $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
-
-
-                        foreach($resultActtionOfficer as $valueAllActionOfficer)
-                        {
-                          echo "<div>$valueAllActionOfficer[name]</div>";
-                        }
-
-
-
-                ?> </td>
+             <td rowspan="1" colspan="1"></td>
 
                                  <?php
             if($hzardsValue['risk_additional']=="")
