@@ -168,7 +168,7 @@ td p{
   				<td colspan="6"><strong style="text-transform: uppercase;"><?php echo $risk["project_title"];?></strong></td>
   				<td>STAGE:</td>
   				<td></td>
-  				<td>PREPARED BY: <?php echo $valueAllUser['name'];?>(RA Leader) <br />
+  				<td>PREPARED BY:<br /> <?php echo $valueAllUser['name'];?>(RA Leader) <br />
             <?php foreach($resultlRAMember as $ra){
               echo $ra["name"]."(RA Member)</br>";
             }?>

@@ -106,7 +106,7 @@ define('NON_ACTIVE', 0);
             $likehood = $_POST["likelihood".$asTemplate];
             $securitySecond = $_POST['severity'.$asTemplate.'Second'];
             $likehoodSecond = $_POST['likelihood'.$asTemplate.'Second'];
-            $hazardCauses = $_POST["hazardCauses"];
+
             // var_dump( $securitySecond);
             //we have to loop for hazarads
             for($j=1; $j <= $_POST['hazardsCount'][$i]; $j++)
@@ -127,9 +127,13 @@ define('NON_ACTIVE', 0);
 
              $insertHazards=mysqli_query($con, $sqlHazards);
              $insertHazardsId = mysqli_insert_id($con);
-             $sqlHazardCauses = "INSERT INTO `hazard_cause`(`hazardid`,`cause`) VALUES($insertHazardsId,'$hazardCauses[$k]')";
+             if(isset($_POST["hazardCauses"]))
+             {
+               $hazardCauses = $_POST["hazardCauses"];
+               $sqlHazardCauses = "INSERT INTO `hazard_cause`(`hazardid`,`cause`) VALUES($insertHazardsId,'$hazardCauses[$k]')";
             //  echo $sqlHazardCauses;
-             mysqli_query($con, $sqlHazardCauses);
+              mysqli_query($con, $sqlHazardCauses);
+            }
 
              //insert hazards action officer of this hazards
              $numOfActionOfficer = $_POST['hazardsActionOfficerCount'][$k];
@@ -167,7 +171,7 @@ if(isset($insertHazardsId))
 
   if($_POST['saveAsDraft'] == 'Next')
   {
-   echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
+    echo "<script>window.open('riskapproval.php?riskId=".$riskassessmentId."','_self')</script>";
   }
   else
   {

@@ -536,7 +536,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           {
 
                         ?>
-                          <div id="clonedInput1" class="row repeatingActionOfficer">
+                          <!-- <div id="clonedInput1" class="row repeatingActionOfficer">
 
                                     <div class="col-sm-6">
                                       <div class="row">
@@ -547,11 +547,11 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                                           }?>
                                         </select>
                                         <!-- <input name="actionOfficer[]" class="col-sm-6" type="text" id="inputSaving" placeholder=""  value="" > -->
-                                      </div>
+                                      <!-- </div>
                                     </div>
-                                    <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
+                                    <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button> -->
 
-                              </div>
+                              <!-- </div> --> 
                         <?php
                           }
                         ?>
