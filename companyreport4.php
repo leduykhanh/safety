@@ -264,14 +264,14 @@ td p{
 
 
         <tr>
-            <td rowspan="1" colspan="1"> <?php echo $hzardsValue["hazard_id"];  ?></td>
+            <td rowspan="1" colspan="1"> <?php //echo $hzardsValue["hazard_id"];  ?></td>
             <td rowspan="1" colspan="1">  </td>
-            <td rowspan="1" colspan="1"> <?php echo $m;?></td>
-            <td rowspan="1" colspan="1"> <?php echo $hzardsValue["hazard_id"] - 1;  ?></td>
+            <td rowspan="1" colspan="1"> <?php //echo $m;?></td>
+            <td rowspan="1" colspan="1"> <?php //echo $hzardsValue["hazard_id"] - 1;  ?></td>
             <td rowspan="1" colspan="1"> <?php echo $valueAllWork['name'];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
             <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?></td>
-            <td rowspan="1" colspan="1">   <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
+            <td rowspan="1" colspan="1">   </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
 
@@ -288,9 +288,9 @@ td p{
             }
             ?>
 
-           <td rowspan="1" colspan="1"><?php echo $RPNLabel;?>
-             <td rowspan="1" colspan="3" style="text-align: justify;">  </td>
-             </td>
+           <td rowspan="1" colspan="1"><?php echo $RPNLabel;?></td>
+             <td rowspan="1" colspan="3" style="text-align: justify;">  <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
+
 
             <?php
             if($hzardsValue['risk_additional']=="")
@@ -327,7 +327,7 @@ td p{
 
 
 
-                  ?> 
+                  ?>
               </td>
               <td rowspan="1" colspan="1"></td>
              <td rowspan="1" colspan="1"></td>
