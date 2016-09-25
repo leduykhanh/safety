@@ -146,7 +146,7 @@ td p{
  <body>
 
 <div class="page">
-	<table class="table bordertable" width="100%">
+	<table class="table bordertable" style="margin-bottom: 0px" width="100%">
 	<tbody><tr>
 		<th width="280"><img src="images/SKengineering.png" width="250"></th>
 		<th colspan="3" valign="top"><h1 style="margin:0px; padding:0px;">Risk Assessment Form<br><?php echo $risk["process"]; ?></h1></th>
@@ -221,7 +221,7 @@ echo $date = date('d-m-Y', strtotime($risk['approveDate']));
 
 
 
-<table class="table bordertable" width="100%">
+<table class="table bordertable" style="margin-bottom: 0px" width="100%">
 	<tbody>
     <tr bgcolor="#817F88">
 		    <td colspan="13">SKEC (Main Contractor) - Reviewed and Accepted by:</td>
