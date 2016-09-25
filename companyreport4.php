@@ -31,8 +31,7 @@ include_once 'config.php';
     table, tr, td {
     border: 1px solid black;
     border-collapse: collapse;
-     vertical-align: text-top;
-
+    vertical-align: text-top;
     }
    #risk_register tr td {
     padding: 8px;
@@ -73,6 +72,9 @@ td p{
     padding-left: 10px;
 }
 @media print {
+  .page {
+    page-break-after: always
+  }
   .no-print {
     display: none;
   }
@@ -121,9 +123,8 @@ td p{
 
           ?>
 
-
-
-	<table class="table bordertable fullwidthtable " width="100%">
+<div class="page">
+	<table class="table bordertable fullwidthtable " style="margin-bottom:0px" width="100%">
 		<thead>
 			<tr class="table-firstrow">
 				<th colspan="6">RISK REGISTER</th>
@@ -157,11 +158,7 @@ td p{
 		</tbody>
 	</table>
 
-
-<br>
-<br>
-
-		<table class="table bordertable " width="100%">
+		<table class="table bordertable " style="margin-bottom:0px" width="100%">
 			<tbody>
         <tr>
   				<td>Project Title</td>
@@ -180,9 +177,6 @@ td p{
   				<td><?php echo date('d-m-Y', strtotime($risk['createdDate']));?></td>
 			</tr>
 		</tbody></table>
-<br>
-<br>
-
 		<table class="table bordertable template5table breakabaletable" width="100%">
 			<tbody><tr bgcolor="#FDE9D9">
 				<th colspan="3">1</th>
@@ -436,8 +430,9 @@ td p{
            ?>
 		</tbody>
 	</table>
-	<br>
-  <div class="row">
+</div>
+<div class="page">
+  <div class="row ">
     <div class="col-sm-6">
       <table class="table bordertable">
         <thead>
@@ -557,7 +552,6 @@ td p{
 
     </div>
   <div>
-  <div class="row">
     <div class="col-sm-6">
       <table class="table bordertable">
         <tbody><tr class="table-firstrow">
@@ -652,18 +646,11 @@ td p{
       </tbody></table>
     <br>
     </div>
-  <div>
-
-
-
-
-
-	<br>
-
+<br>
 
 <br>
 	<p>Note: (*) If more than one of the descriptions occurs, the severity rating would be increased to the next higher level. Applicable to item numbers 2 and 3 only.</p>
 
-
+</div>
 </body>
     </html>
