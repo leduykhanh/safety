@@ -152,10 +152,10 @@ td p{
 		<td>Location of shafts:</td>
 		<td><?php echo $risk['location'];?></td>
 		<td>Names,designations:<br />
-      <?php echo $valueAllUser['name'];?> <br />
-      <?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?>
     </td>
 		<td style="padding:0px;">
+      <?php echo $valueAllUser['name'];?>(RA Leader) <br />
+      <?php echo $valueAllUser["signature"]!=""?'<img width="80" src="staff/'.$valueAllUser["signature"].'"/>':""; ?>
       <?php foreach($resultlRAMember as $ra )
         {
           echo $ra["name"]."(".$ra["designation"]. ") <br />".($ra["signature"]!=""?'<img width="50" src="staff/'.$ra["signature"].'"/> <br />':"");
