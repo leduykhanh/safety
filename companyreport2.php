@@ -18,7 +18,7 @@ include_once 'config.php';
 
 
     <meta charset="utf-8">
-    <title>Inventory of Work Activities</title>
+    <title>Inventory of Work Activities and Hazard Identifications</title>
 	<link rel="stylesheet" type="text/css" href="css/template.css">
       </head>
 
@@ -119,7 +119,7 @@ function create_header($page_number,$risk){
 				 <td><b>Date</b></td>
 				 <td><?php echo date('d-m-Y', strtotime($risk['createdDate']));?></td>
 
-				 <td><?php echo date('d-m-Y', strtotime($risk['approveDate']));?></td>
+				 <td></td>
 
 				 <td></td>
 
