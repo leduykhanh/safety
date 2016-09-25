@@ -76,6 +76,15 @@ td p{
     border-bottom: none;
     padding-left: 10px;
 }
+@media print {
+  .page {
+    page-break-after: always
+  }
+  .no-print {
+    display: none;
+  }
+  thead {display: table-row-group}
+}
 </style>
 
 <body>
@@ -136,7 +145,7 @@ td p{
 
  <body>
 
-
+<div class="page">
 	<table class="table bordertable" width="100%">
 	<tbody><tr>
 		<th width="280"><img src="images/SKengineering.png" width="250"></th>
@@ -236,6 +245,8 @@ echo $date = date('d-m-Y', strtotime($risk['approveDate']));
     </tr>
   </tbody>
 </table>
+</div>
+<div class="page">
 <table class="table bordertable" width="100%">
 	<tbody><tr>
 
@@ -453,9 +464,12 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 }//end of while  workactivity
        ?>
-				</tbody></table>
+				</tbody>
+      </table>
+  </div>
+  <br />
+<div class="page">
 
-<br>
 <div  style="width:45%;float:left">
 	<table class="table bordertable">
 		<thead>
@@ -583,8 +597,9 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
  <tr><td>B</td><td>Undesirable</td><td>This risk is only acceptable if further risk reduction is not practicable.  The measures implemented shall be such as to reduce the risk as low as reasonably practical.  Management attention is required.  Risk mitigation measures shall be identified with management responsibility assigned.</td></tr>
  <tr><td>C</td><td>Tolerable</td><td>This risk is acceptable subject to demonstration that the level of risk is as low as reasonably practical.  The hazard shall be managed by routine procedures through the project.</td></tr>
  <tr><td>D</td><td>Acceptable</td><td>This risk is acceptable.</td></tr>
-</tbody></table>
-
+</tbody>
+</table>
+</div>
 </body>
 
 
