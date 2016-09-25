@@ -132,7 +132,7 @@ function getRiskLabel($s,$l){
 
 		</div>
 	</div>
-	<div class="page">
+	<div class="page" style="height:auto">
 		<?php create_header(2,$risk); ?>
 		<h4>Risk Matrices</h4>
 		<div>1. Assessment of <strong>Severity (Consequence)</strong> - with the existing risk controls in consideration, each Risk Assessment Team (RAT) member is to rate the most likely severity outcome of the possible injury or ill-health identified: see <span class="under-line">Table 1</span> below.</div>
