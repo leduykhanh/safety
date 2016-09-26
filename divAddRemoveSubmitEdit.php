@@ -551,7 +551,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                                     </div>
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button> -->
 
-                              <!-- </div> --> 
+                              <!-- </div> -->
                         <?php
                           }
                         ?>

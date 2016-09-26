@@ -214,7 +214,7 @@ td p{
 				<th rowspan="2">Future Action (max. 4000 characters)</th>
 				<th rowspan="2">Risk Owner</th>
 				<th rowspan="2" >Action Owner</th>
-				<th rowspan="2">*Due Date by (dd/mm/yyyy)</th>
+				<th rowspan="2" style="max-width:60px;word-wrap:break-word;padding:0px">*Due Date by (dd/mm/yyyy)</th>
 				<th rowspan="2">Risk Exposure Period</th>
 				<th rowspan="2">Target Risk Rating</th>
 				<th rowspan="2">Status</th>
@@ -294,7 +294,7 @@ td p{
             ?>
 
            <td rowspan="1" colspan="1"><?php echo $RPNLabel;?></td>
-             <td rowspan="1" colspan="5" style="text-align: justify;">  <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
+             <td rowspan="1" colspan="5" style="text-align: left;">  <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
 
 
             <?php
