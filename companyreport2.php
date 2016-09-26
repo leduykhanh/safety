@@ -460,7 +460,7 @@ function create_header($page_number,$risk){
 				<td><?php echo $risk["location"] ; ?></td>
 				<td class="grey">2) Member</td>
 				<td><?php echo $resultlRAMember[0]["name"]."<br /><img src='staff/".$resultlRAMember[0]["signature"]."' height='60'/>"; ?></td>
-				<td></td>
+				<td><?php echo $resultlRAMember[0]["designation"]; ?></td>
 				<td>27-04-2019</td>
 
 			</tr>
@@ -469,7 +469,7 @@ function create_header($page_number,$risk){
 				<td><?php echo date('d-m-Y', strtotime($risk['createdDate'])); ?></td>
 				<td class="grey">3) Member</td>
 				<td><?php if($raCount>1)  echo $resultlRAMember[1]["name"]."<br /><img src='staff/".$resultlRAMember[1]["signature"]."' height='60'/>";?></td>
-				<td></td>
+				<td><?php if($raCount>1) echo $resultlRAMember[1]["designation"]; ?></td>
 				<td></td>
 				<td class="grey">Name:</td>
 				<td><?php echo $appoverName; ?></td>
@@ -483,7 +483,7 @@ function create_header($page_number,$risk){
  } ?>				</td>
 				<td class="grey">4) Member</td>
 				<td><?php if($raCount>2)  echo $resultlRAMember[2]["name"]."<br /><img src='staff/".$resultlRAMember[2]["signature"]."' height='60'/>";?></td>
-				<td></td>
+				<td><?php  if($raCount>2) echo $resultlRAMember[2]["designation"]; ?></td>
 				<td></td>
 				<td class="grey">Designation:</td>
 				<td><?php echo $appoverDesignation; ?></td>
@@ -512,7 +512,7 @@ function create_header($page_number,$risk){
         				</td>
 				<td class="grey">5) Member</td>
 				<td><?php if($raCount>3)  echo $resultlRAMember[3]["name"]."<br /><img src='staff/".$resultlRAMember[3]["signature"]."' height='60'/>";?></td>
-				<td></td>
+				<td><?php if($raCount>3) echo $resultlRAMember[3]["designation"]; ?></td>
 				<td></td>
 				<td class="grey">Date:</td>
 				<td><?php
