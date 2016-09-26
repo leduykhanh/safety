@@ -151,8 +151,6 @@ session_start();
       password: <?php echo $password;?>
 
 
-      <?php echo $_SESSION['name']; ?>
-
       <?php   $sql = "SELECT created_by FROM workactivity WHERE riskid='".$_GET['riskId']."'";
       $result_new = mysqli_query($con, $sql);
 	  $raleader = mysqli_fetch_assoc($result_new);
