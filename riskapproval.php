@@ -118,7 +118,7 @@ session_start();
       //define the receiver of the email
       $to = $staffName['email'];
       //define the subject of the email
-      $subject = 'New approval request for you';
+      $subject = 'Risk assessment for approval';
       //create a boundary string. It must be unique
       //so we use the MD5 algorithm to generate a random hash
       $random_hash = md5(time());
@@ -138,9 +138,10 @@ session_start();
 
 	  ?>
 
-      Dear <?php echo $apovngmngrname['name'];?> , RA (00<?php echo $_GET['riskId'];?>) is ready for your approval.
+      Dear <?php echo $apovngmngrname['name'];?> ,
+      RA (00<?php echo $_GET['riskId'];?>) is ready for your approval.
 
-      Please click on the link below to approve the Risk assessment.
+      Please follow the link below approve the RA.
 
       Site link : http://jangkoo.com/projects/safety/
 
@@ -150,7 +151,7 @@ session_start();
       password: <?php echo $password;?>
 
 
-      Thanks
+      <?php echo $_SESSION['name']; ?>
 
       <?php   $sql = "SELECT created_by FROM workactivity WHERE riskid='".$_GET['riskId']."'";
       $result_new = mysqli_query($con, $sql);
