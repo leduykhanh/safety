@@ -32,7 +32,6 @@ include_once 'config.php';
     border: 1px solid black;
     border-collapse: collapse;
     vertical-align: text-top;
-    white-space: pre;
     }
    #risk_register tr td {
     padding: 8px;
@@ -295,7 +294,7 @@ td p{
             ?>
 
            <td rowspan="1" colspan="1"><?php echo $RPNLabel;?></td>
-             <td rowspan="1" colspan="3" style="text-align: justify;">  <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
+             <td rowspan="1" colspan="3" style="text-align: left;white-space: pre;">  <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
 
 
             <?php
