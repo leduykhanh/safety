@@ -188,7 +188,7 @@ td p{
 				<th>5</th>
 				<th>6</th>
 				<th colspan="3">7</th>
-				<th colspan="3">8</th>
+				<th colspan="5">8</th>
 				<th colspan="3">9</th>
 
 				<th>10</th>
@@ -209,7 +209,7 @@ td p{
 				<th rowspan="2">*Hazard Cause (max. 2000 characters)</th>
 				<th rowspan="2">*Impact (max. 2000 characters)</th>
 				<th colspan="3">*Initial Risk Category</th>
-				<th colspan="3" rowspan="2">Mitigation Measures (max. 4000 characters)</th>
+				<th colspan="5" rowspan="2">Mitigation Measures (max. 4000 characters)</th>
 				<th colspan="3">*Residual Risk Category</th>
 				<th rowspan="2">Future Action (max. 4000 characters)</th>
 				<th rowspan="2">Risk Owner</th>
@@ -294,7 +294,7 @@ td p{
             ?>
 
            <td rowspan="1" colspan="1"><?php echo $RPNLabel;?></td>
-             <td rowspan="1" colspan="3" style="text-align: left;white-space: pre;">  <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
+             <td rowspan="1" colspan="5" style="text-align: left;white-space: pre;">  <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?></td>
 
 
             <?php
