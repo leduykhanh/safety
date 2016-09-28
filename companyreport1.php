@@ -517,7 +517,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                 <td rowspan="1" colspan="1" style="text-align: justify;"> <?php echo $hzardsValue['accident'];?> </td>
 
-                <td rowspan="1" colspan="1" style="text-align: left;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
+                <td rowspan="1" colspan="1" style="text-align: left;white-space:pre;"> <?php echo wordwrap ($hzardsValue['risk_control'], 15, "\n", 1);?> </td>
                 <td rowspan="1" colspan="1"> <?php echo $hzardsValue['security'];?></td>
                 <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
 
