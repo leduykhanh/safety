@@ -630,7 +630,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                          </td>
 
 
-                        <td rowspan="1" colspan="1" style="text-align: left;white-space:pre"> <?php echo $hzardsValue['risk_additional'];?> </td>
+                        <td rowspan="1" colspan="1" style="text-align: left;white-space:pre" ><?php echo wordwrap ($hzardsValue['risk_additional'], 30, "\n", 1);?></td>
 
                         <?php
       if($hzardsValue['risk_additional']=="")
