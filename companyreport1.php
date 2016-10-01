@@ -627,25 +627,25 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                         <td rowspan="1" colspan="1"><?php echo $securitysecond;?></td>
 
-                           <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
+                        <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
 
-                            <td rowspan="1" colspan="1"><?php echo $RPNLabel;?>
-                           </td>
+                        <td rowspan="1" colspan="1"><?php echo $RPNLabel;?>
+                        </td>
 
-                            <td rowspan="1" colspan="1"> <?php
+                        <td rowspan="1" colspan="1"> <?php
 
-                               $getAllActtionOfficerSql = "SELECT * FROM `actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id']."";
-                                    $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
-
-
-                                    while($valueAllActionOfficer = mysqli_fetch_assoc($resultActtionOfficer))
-                                    {
-                                      echo "<div>$valueAllActionOfficer[name]</div>";
-                                    }
+                                 $getAllActtionOfficerSql = "SELECT * FROM `ramember` WHERE `id` in (SELECT ramemberId FROM `hazard_actionofficer` WHERE `hazardid` = ".$hzardsValue['hazard_id'].")";
+                                      $resultActtionOfficer = mysqli_query($con, $getAllActtionOfficerSql);
 
 
+                                      foreach($resultActtionOfficer as $valueAllActionOfficer)
+                                      {
+                                        echo "<div>".$valueAllActionOfficer["name"]."</div>";//"<div><img width='40' src='staff/".$valueAllActionOfficer["signature"]."'/></div>";
+                                      }
 
-                            ?> </td>
+
+
+                          ?> </td>
                                <?php
         if($hzardsValue['risk_additional']=="")
         {
