@@ -758,7 +758,12 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
 
 
-                        <td rowspan="1" colspan="1"> <?php echo $hzardsValue["action_officer"] ;?> </td>
+      <td rowspan="1" colspan="1"> <?php
+        foreach($resultActtionOfficer as $valueAllActionOfficer)
+        {
+          echo "<div>".$valueAllActionOfficer["designation"]."</div>";
+        }?>
+     </td>
                           <td rowspan="1" colspan="1"> - </td>
                       </tr>
                     <?php
