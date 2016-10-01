@@ -277,7 +277,38 @@ if(!$_SESSION['adminid'])
 
                           <?php create_options("") ;?>
 
+                          <div class="onlyfortemplate5 form-row">
+                            <label class="col-sm-6">Hazard Cause:</label>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                          </div>
 
+                        </div>
+
+
+
+
+
+
+                        <div class="col-sm-6 form-row">
+
+
+
+                          <div class="form-row">
+                            <label class="col-sm-4">Risk Level:</label>
+                            <label class="col-sm-8 riskLevel" name="riskLevel"></label>
+
+                          </div>
+
+                          <div class="form-row">
+                            <label class="col-sm-6">Additional Risk Control:</label>
+
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" rows="5"></textarea>
+
+
+                          </div>
+                          <div class="clearfix"></div>
+
+                          <?php create_options("Second"); ?>
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
@@ -315,39 +346,6 @@ if(!$_SESSION['adminid'])
                             </select>
 
                           </div>
-
-                        </div>
-
-
-
-
-
-
-                        <div class="col-sm-6 form-row">
-
-
-
-                          <div class="form-row">
-                            <label class="col-sm-4">Risk Level:</label>
-                            <label class="col-sm-8 riskLevel" name="riskLevel"></label>
-
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Additional Risk Control:</label>
-
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" rows="5"></textarea>
-
-
-                          </div>
-                          <div class="clearfix"></div>
-
-                          <?php create_options("Second"); ?>
-                          <div class="onlyfortemplate5 form-row">
-                            <label class="col-sm-6">Hazard Cause:</label>
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                          </div>
-
                         </div>
                        <div class="clearfix"></div>
 
@@ -440,7 +438,32 @@ if(!$_SESSION['adminid'])
                           </div>
 
                             <?php create_options(""); ?>
+                          <div class="onlyfortemplate5 form-row">
+                            <label class="col-sm-6">Hazard Cause:</label>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                          </div>
 
+                        </div>
+
+                        <div class="col-sm-6 form-row">
+
+
+
+                          <div class="form-row">
+                            <label class="col-sm-6">Risk Level:</label>
+                            <label class="col-sm-8 riskLevel" name="riskLevel"></label>
+                          </div>
+
+                          <div class="form-row">
+                            <label class="col-sm-6">Additional Risk Control:</label>
+
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" rows="5"></textarea>
+
+
+                          </div>
+                          <div class="clearfix"></div>
+
+                          <?php create_options("Second"); ?>
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
@@ -478,40 +501,10 @@ if(!$_SESSION['adminid'])
                             </select>
 
                           </div>
-
                         </div>
+                        <div class="clearfix"></div>
 
-
-
-
-
-
-                        <div class="col-sm-6 form-row">
-
-
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Risk Level:</label>
-                            <label class="col-sm-8 riskLevel" name="riskLevel"></label>
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Additional Risk Control:</label>
-
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" rows="5"></textarea>
-
-
-                          </div>
-                          <div class="clearfix"></div>
-
-                          <?php create_options("Second"); ?>
-                          <div class="onlyfortemplate5 form-row">
-                            <label class="col-sm-6">Hazard Cause:</label>
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                          </div>
-                        </div>
                        <div class="clearfix"></div>
-
 
                        <hr class="add_activity"/>
 
@@ -536,10 +529,6 @@ if(!$_SESSION['adminid'])
                                     <button class="col-sm-1 btn btn-danger deleteActonOfficer" style="margin-left:20px;">Remove</button>
                                 </div> -->
                             </div>
-
-
-
-
 
                       <div class="clearfix"></div>
                       <hr class="add_activity"/>

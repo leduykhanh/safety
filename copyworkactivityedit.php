@@ -47,6 +47,42 @@
 
                            <?php create_options_edit_copy("",$asTemplate); ?>
 
+                          <?php if($asTemplate==='4'){
+                            ?>
+                            <div class="onlyfortemplate5 form-row">
+                              <label class="col-sm-6">Hazard Cause:</label>
+                              <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                            </div>
+                            <?php
+                          }?>
+
+                        </div>
+
+
+
+
+
+
+                        <div class="col-sm-6">
+
+
+
+                          <div class="form-row">
+                            <label class="col-sm-6">Risk Level:</label>
+                            <label class="col-sm-6 riskLevel"></label>
+
+                          </div>
+
+                          <div class="form-row">
+                            <label class="col-sm-6">Additional Risk Control:</label>
+
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
+
+
+                          </div>
+                          <div class="clearfix"></div>
+
+                          <?php create_options_edit_copy("Second",$asTemplate); ?>
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
@@ -84,43 +120,6 @@
                             </select>
 
                           </div>
-
-                        </div>
-
-
-
-
-
-
-                        <div class="col-sm-6">
-
-
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Risk Level:</label>
-                            <label class="col-sm-6 riskLevel"></label>
-
-                          </div>
-
-                          <div class="form-row">
-                            <label class="col-sm-6">Additional Risk Control:</label>
-
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
-
-
-                          </div>
-                          <div class="clearfix"></div>
-
-                          <?php create_options_edit_copy("Second",$asTemplate); ?>
-                          <?php if($asTemplate==='4'){
-                            ?>
-                            <div class="onlyfortemplate5 form-row">
-                              <label class="col-sm-6">Hazard Cause:</label>
-                              <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                            </div>
-                            <?php
-                          }?>
-
                         </div>
                        <div class="clearfix"></div>
 

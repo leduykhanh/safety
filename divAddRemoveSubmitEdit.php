@@ -329,86 +329,25 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                           <?php create_options_edit("",$asTemplate,$valueAllHazards)?>
 
-                          <div class="form-row">
-                            <label class="col-sm-6">Action Date:</label>
+                          <?php if($asTemplate==='4'){
+                            if($numHazardCauses!==0){
+                              foreach($resultAllHazardCauses as $cause) {
+                              ?>
+                                <div class="form-row">
+                                  <label class="col-sm-6">Hazard Cause:</label>
+                                  <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"><?php echo $cause["cause"];?></textarea>
+                                </div>
+                            <?php }
+                          }
+                            else {
+                              ?>
 
-                             <?php
-                            $time = strtotime($valueAllHazards['action_date']);
-
-                            $yaer =  date('Y', $time);
-
-                             $month = date('m', $time);
-
-                            $day = date('d', $time);
-
-                            ?>
-
-
-
-
-                            <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
-                               <?php for ($i=1; $i < 32; $i++)
-                              {
-                                # code...
-                                  if($day == $i)
-                                  {
-                                    $dSelcted = 'selected="selected"';
-                                  }
-                                  else
-                                  {
-                                    $dSelcted = '';
-                                  }
-                                ?>
-                                  <option <?php echo $dSelcted;?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                <?php
-                              }
-                             ?>
-                            </select>
-
-                            <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionMonth[]">
-                              <?php for ($i=1; $i < 13; $i++)
-                              {
-                                # code...
-                                if($month == $i)
-                                  {
-                                    $mSelcted = 'selected="selected"';
-                                  }
-                                  else
-                                  {
-                                    $mSelcted = '';
-                                  }
-                                ?>
-                                  <option <?php echo $mSelcted;?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                <?php
-                              }
-                             ?>
-                            </select>
-
-
-                            <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionYear[]">
-                              <?php for ($i=2016; $i < 2025; $i++)
-                              { if($yaer == $i)
-                                  {
-                                    $ySelcted = 'selected="selected"';
-                                  }
-                                  else
-                                  {
-                                    $ySelcted = '';
-                                  }
-                                # code...
-                                ?>
-                                  <option <?php echo $ySelcted;?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                <?php
-                              }
-                             ?>
-
-                            </select>
-
-
-
-
-                          </div>
-
+                            <div class="form-row">
+                              <label class="col-sm-6">Hazard Cause:</label>
+                              <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                            </div>
+                            <?php }
+                          }?>
 
 						            </div>
                         <div class="col-sm-6">
@@ -455,25 +394,81 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="clearfix"></div>
 
                         <?php create_options_edit("Second",$asTemplate,$valueAllHazards);?>
-                        <?php if($asTemplate==='4'){
-                          if($numHazardCauses!==0){
-                            foreach($resultAllHazardCauses as $cause) {
-                            ?>
-                              <div class="form-row">
-                                <label class="col-sm-6">Hazard Cause:</label>
-                                <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"><?php echo $cause["cause"];?></textarea>
-                              </div>
-                          <?php }
-                        }
-                          else {
-                            ?>
+                        <div class="form-row">
+                          <label class="col-sm-6">Action Date:</label>
 
-                          <div class="form-row">
-                            <label class="col-sm-6">Hazard Cause:</label>
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                          </div>
-                          <?php }
-                        }?>
+                           <?php
+                          $time = strtotime($valueAllHazards['action_date']);
+
+                          $yaer =  date('Y', $time);
+
+                           $month = date('m', $time);
+
+                          $day = date('d', $time);
+
+                          ?>
+
+
+
+
+                          <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
+                             <?php for ($i=1; $i < 32; $i++)
+                            {
+                              # code...
+                                if($day == $i)
+                                {
+                                  $dSelcted = 'selected="selected"';
+                                }
+                                else
+                                {
+                                  $dSelcted = '';
+                                }
+                              ?>
+                                <option <?php echo $dSelcted;?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                              <?php
+                            }
+                           ?>
+                          </select>
+
+                          <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionMonth[]">
+                            <?php for ($i=1; $i < 13; $i++)
+                            {
+                              # code...
+                              if($month == $i)
+                                {
+                                  $mSelcted = 'selected="selected"';
+                                }
+                                else
+                                {
+                                  $mSelcted = '';
+                                }
+                              ?>
+                                <option <?php echo $mSelcted;?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                              <?php
+                            }
+                           ?>
+                          </select>
+
+
+                          <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionYear[]">
+                            <?php for ($i=2016; $i < 2025; $i++)
+                            { if($yaer == $i)
+                                {
+                                  $ySelcted = 'selected="selected"';
+                                }
+                                else
+                                {
+                                  $ySelcted = '';
+                                }
+                              # code...
+                              ?>
+                                <option <?php echo $ySelcted;?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                              <?php
+                            }
+                           ?>
+
+                          </select>
+                        </div>
                           <div class="clearfix"></div>
                         </div>
                    </div>
