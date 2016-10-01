@@ -606,7 +606,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
                             <td rowspan="1" colspan="1"><?php echo getRiskLabel($hzardsValue['security'], $hzardsValue['likehood']);?>
                            </td>
-                            <td rowspan="1" colspan="1" style="text-align: left;white-space:pre"> <?php echo $hzardsValue['risk_additional'];?> </td>
+                            <td rowspan="1" colspan="1" style="text-align: left;white-space:pre"> <?php echo wordwrap ($hzardsValue['risk_additional'], 30, "\n", 1);?> </td>
                               <?php
         $RPNLabel = "-";
         if($hzardsValue['risk_additional']=="")
