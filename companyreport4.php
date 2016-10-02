@@ -203,7 +203,7 @@ td p{
 			</tr>
 			<tr bgcolor="#E4DFEC">
 				<th colspan="3">Risk ID</th>
-				<th rowspan="2">Previous Hazard No</th>
+				<th rowspan="2" style="word-wrap:break-word;padding:0px">Previous Hazard No</th>
 				<th rowspan="2">Work Activity</th>
 				<th rowspan="2">*Hazard (max. 2000 characters)</th>
 				<th rowspan="2">*Hazard Cause (max. 2000 characters)</th>
@@ -217,8 +217,8 @@ td p{
 				<th rowspan="2" style="max-width:60px;word-wrap:break-word;padding:0px">*Due Date by (dd/mm/yyyy)</th>
 				<th rowspan="2" style="word-wrap:break-word;padding:0px">Risk Exposure Period</th>
 				<th rowspan="2" style="word-wrap:break-word;padding:0px">Target Risk Rating</th>
-				<th rowspan="2">Status</th>
-				<th rowspan="2">Remarks</th>
+				<th rowspan="2" style="word-wrap:break-word;padding:0px">Status</th>
+				<th rowspan="2" style="word-wrap:break-word;padding:0px">Remarks</th>
 			</tr>
 			<tr bgcolor="#E4DFEC">
 				<th style="word-wrap:break-word;padding:0px">Hazard No</th>
