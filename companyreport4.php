@@ -191,7 +191,7 @@ td p{
 				<th colspan="5">8</th>
 				<th colspan="3">9</th>
 
-				<th style="max-width:200px">10</th>
+				<th style="max-width:100px">10</th>
 				<th>11</th>
 				<th>12</th>
 				<th>13</th>
@@ -211,7 +211,7 @@ td p{
 				<th colspan="3" >*Initial Risk Category</th>
 				<th colspan="5"  rowspan="2">Mitigation Measures (max. 4000 characters)</th>
 				<th colspan="3">*Residual Risk Category</th>
-				<th rowspan="2" style="max-width:200px;word-wrap:break-word;padding:0px">Future Action (max. 4000 characters)</th>
+				<th rowspan="2" style="max-width:100px;word-wrap:break-word;padding:0px">Future Action (max. 4000 characters)</th>
 				<th rowspan="2">Risk Owner</th>
 				<th rowspan="2" >Action Owner</th>
 				<th rowspan="2" style="max-width:60px;word-wrap:break-word;padding:0px">*Due Date by (dd/mm/yyyy)</th>
