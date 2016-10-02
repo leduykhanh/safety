@@ -226,11 +226,11 @@ td p{
 				<th style="word-wrap:break-word;padding:0px">Run No</th>
 				<th style="max-width:40px;word-wrap:break-word;padding:0px">Frequency</th>
 				<th style="max-width:40px;word-wrap:break-word;padding:0px">Severity</th>
-				<th>Risk</th>
+				<th style="word-wrap:break-word;padding:0px">Risk</th>
 
 				<th style="max-width:40px;word-wrap:break-word;padding:0px">Frequency</th>
 				<th style="max-width:40px;word-wrap:break-word;padding:0px">Severity</th>
-				<th>Risk</th>
+				<th style="word-wrap:break-word;padding:0px">Risk</th>
 
 			</tr>
       <?php
