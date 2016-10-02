@@ -191,7 +191,7 @@ td p{
 				<th colspan="5">8</th>
 				<th colspan="3">9</th>
 
-				<th>10</th>
+				<th style="max-width:200px">10</th>
 				<th>11</th>
 				<th>12</th>
 				<th>13</th>
