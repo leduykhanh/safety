@@ -41,7 +41,7 @@
                           </div>
                           <div class="form-row">
                             <label class="col-sm-6">Existing Risk Control:</label>
-                           <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" style="height:65px" placeholder=""></textarea>
+                           <textarea class="col-sm-6" type="text" id="inputSaving" name="ExistingRiskControl[]" rows="5" placeholder=""></textarea>
 
                           </div>
 
@@ -76,7 +76,7 @@
                           <div class="form-row">
                             <label class="col-sm-6">Additional Risk Control:</label>
 
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"></textarea>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="additionalRiskContro[]" rows="5"></textarea>
 
 
                           </div>

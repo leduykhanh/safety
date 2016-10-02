@@ -221,9 +221,9 @@ td p{
 				<th rowspan="2">Remarks</th>
 			</tr>
 			<tr bgcolor="#E4DFEC">
-				<th>Hazard No</th>
-				<th>Haz Code</th>
-				<th>Run No</th>
+				<th style="word-wrap:break-word;padding:0px">Hazard No</th>
+				<th style="word-wrap:break-word;padding:0px">Haz Code</th>
+				<th style="word-wrap:break-word;padding:0px">Run No</th>
 				<th style="max-width:40px;word-wrap:break-word;padding:0px">Frequency</th>
 				<th style="max-width:40px;word-wrap:break-word;padding:0px">Severity</th>
 				<th>Risk</th>

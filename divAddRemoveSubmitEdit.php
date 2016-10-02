@@ -387,7 +387,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="form-row">
                             <label class="col-sm-6">Additional Risk Control:</label>
 
-                          <textarea  type="text" class="col-sm-6" id="inputSaving" name="additionalRiskContro[]" style="height:65px;"><?php echo $valueAllHazards['risk_additional'];?></textarea>
+                          <textarea  type="text" class="col-sm-6" id="inputSaving" name="additionalRiskContro[]" rows="5"><?php echo $valueAllHazards['risk_additional'];?></textarea>
 
 
                           </div>
