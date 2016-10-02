@@ -215,8 +215,8 @@ td p{
 				<th rowspan="2">Risk Owner</th>
 				<th rowspan="2" >Action Owner</th>
 				<th rowspan="2" style="max-width:60px;word-wrap:break-word;padding:0px">*Due Date by (dd/mm/yyyy)</th>
-				<th rowspan="2">Risk Exposure Period</th>
-				<th rowspan="2">Target Risk Rating</th>
+				<th rowspan="2" style="word-wrap:break-word;padding:0px">Risk Exposure Period</th>
+				<th rowspan="2" style="word-wrap:break-word;padding:0px">Target Risk Rating</th>
 				<th rowspan="2">Status</th>
 				<th rowspan="2">Remarks</th>
 			</tr>
@@ -317,7 +317,7 @@ td p{
                <td rowspan="1" colspan="1"><?php echo $romans[$likehoodsecond];?></td>
 
               <td rowspan="1" colspan="1"><?php echo $RPN_TWOLabel;?></td>
-              <td rowspan="1" colspan="1" style="text-align: left;white-space:pre" ><?php echo wordwrap ($hzardsValue['risk_additional'], 25, "\n", 1);?></td>
+              <td rowspan="1" colspan="1" style="text-align: left;white-space:pre" ><?php echo wordwrap ($hzardsValue['risk_additional'], 20, "\n", 1);?></td>
               <td rowspan="1" colspan="1">
                 <?php
 
@@ -365,7 +365,7 @@ td p{
                                 <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
                                 <td rowspan="1" colspan="1"><?php echo getRiskLabel($hzardsValue['security'] , $hzardsValue['likehood']);?>
                                </td>
-                                <td rowspan="1" colspan="1" style="text-align: left;white-space:pre"> <?php echo wordwrap ($hzardsValue['risk_additional'], 25, "\n", 1);?> </td>
+                                <td rowspan="1" colspan="1" style="text-align: left;white-space:pre"> <?php echo wordwrap ($hzardsValue['risk_additional'], 20, "\n", 1);?> </td>
                                   <?php
               $RPN_TWOLabel = "-";
             if($hzardsValue['risk_additional']=="")
