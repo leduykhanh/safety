@@ -155,4 +155,7 @@
 		    display: none;
 		  }
 			thead {display: table-row-group}
+			table { page-break-after:auto;}
+      tr    { page-break-inside:avoid;}
+      td    { page-break-inside:auto;}
 		}
