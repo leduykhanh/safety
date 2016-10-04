@@ -275,7 +275,7 @@ td p{
               <td rowspan="<?php echo $totalHazards; ?>" colspan="1"> <?php echo $valueAllWork['name'];?> </td>
               <?php } ?>
             <td rowspan="1" colspan="1"> <?php echo $hzardsValue['name'];?> </td>
-            <td rowspan="1" colspan="1">  <?php foreach($resultAllHazardCauses as $cause) echo $cause["cause"]; ?></td>
+            <td rowspan="1" colspan="1" style="text-align: left;white-space:pre">  <?php foreach($resultAllHazardCauses as $cause) echo $cause["cause"]; ?></td>
             <td rowspan="1" colspan="1">  <?php echo $hzardsValue['accident'];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['likehood']];?> </td>
             <td rowspan="1" colspan="1"> <?php echo $romans[$hzardsValue['security']];?></td>
