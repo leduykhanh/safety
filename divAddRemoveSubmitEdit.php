@@ -329,26 +329,6 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
 
                           <?php create_options_edit("",$asTemplate,$valueAllHazards)?>
 
-                          <?php if($asTemplate==='4'){
-                            if($numHazardCauses!==0){
-                              foreach($resultAllHazardCauses as $cause) {
-                              ?>
-                                <div class="form-row">
-                                  <label class="col-sm-6">Hazard Cause:</label>
-                                  <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"><?php echo $cause["cause"];?></textarea>
-                                </div>
-                            <?php }
-                          }
-                            else {
-                              ?>
-
-                            <div class="form-row">
-                              <label class="col-sm-6">Hazard Cause:</label>
-                              <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                            </div>
-                            <?php }
-                          }?>
-
 						            </div>
                         <div class="col-sm-6">
                           <?php
@@ -472,6 +452,29 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="clearfix"></div>
                         </div>
                    </div>
+                       <div class="clearfix"></div>
+
+                       <?php if($asTemplate==='4'){
+                         if($numHazardCauses!==0){
+                           foreach($resultAllHazardCauses as $cause) {
+                           ?>
+                             <div class="form-row">
+                               <hr />
+                               <label class="col-sm-3">Hazard Cause:</label>
+                               <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"><?php echo $cause["cause"];?></textarea>
+                             </div>
+                         <?php }
+                       }
+                         else {
+                           ?>
+
+                         <div class="form-row">
+                           <hr />
+                           <label class="col-sm-3">Hazard Cause:</label>
+                           <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                         </div>
+                         <?php }
+                       }?>
                        <div class="clearfix"></div>
                         <hr class="add_activity"/>
                         <?php

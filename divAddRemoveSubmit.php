@@ -276,22 +276,9 @@ if(!$_SESSION['adminid'])
                           </div>
 
                           <?php create_options("") ;?>
-
-                          <div class="onlyfortemplate5 form-row">
-                            <label class="col-sm-6">Hazard Cause:</label>
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                          </div>
-
                         </div>
 
-
-
-
-
-
                         <div class="col-sm-6 form-row">
-
-
 
                           <div class="form-row">
                             <label class="col-sm-4">Risk Level:</label>
@@ -348,7 +335,12 @@ if(!$_SESSION['adminid'])
                           </div>
                         </div>
                        <div class="clearfix"></div>
-
+                       <div class="onlyfortemplate5 form-row">
+                         <hr />
+                         <label class="col-sm-3">Hazard Cause:</label>
+                         <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                       </div>
+                       <div class="clearfix"></div>
 
                        <hr class="add_activity"/>
 
@@ -438,17 +430,10 @@ if(!$_SESSION['adminid'])
                           </div>
 
                             <?php create_options(""); ?>
-                          <div class="onlyfortemplate5 form-row">
-                            <label class="col-sm-6">Hazard Cause:</label>
-                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                          </div>
 
                         </div>
 
                         <div class="col-sm-6 form-row">
-
-
-
                           <div class="form-row">
                             <label class="col-sm-6">Risk Level:</label>
                             <label class="col-sm-8 riskLevel" name="riskLevel"></label>
@@ -505,7 +490,12 @@ if(!$_SESSION['adminid'])
                         <div class="clearfix"></div>
 
                        <div class="clearfix"></div>
-
+                       <div class="onlyfortemplate5 form-row">
+                         <hr />
+                         <label class="col-sm-3">Hazard Cause:</label>
+                         <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                       </div>
+                       <div class="clearfix"></div>
                        <hr class="add_activity"/>
 
 

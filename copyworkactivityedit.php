@@ -47,21 +47,8 @@
 
                            <?php create_options_edit_copy("",$asTemplate); ?>
 
-                          <?php if($asTemplate==='4'){
-                            ?>
-                            <div class="onlyfortemplate5 form-row">
-                              <label class="col-sm-6">Hazard Cause:</label>
-                              <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                            </div>
-                            <?php
-                          }?>
 
                         </div>
-
-
-
-
-
 
                         <div class="col-sm-6">
 
@@ -122,8 +109,16 @@
                           </div>
                         </div>
                        <div class="clearfix"></div>
-
-
+                       <?php if($asTemplate==='4'){
+                         ?>
+                         <div class="onlyfortemplate5 form-row">
+                           <hr />
+                           <label class="col-sm-3">Hazard Cause:</label>
+                           <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                         </div>
+                         <?php
+                       }?>
+                       <div class="clearfix"></div>
                        <hr class="add_activity"/>
 
                       <div>
