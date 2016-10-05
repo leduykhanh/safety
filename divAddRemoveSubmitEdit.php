@@ -313,6 +313,27 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                             <textarea rows="2" type="text" class="col-sm-6" id="inputSaving" name="Hazard[]" value="<?php echo $valueAllHazards['name'];?>" placeholder="" required><?php echo $valueAllHazards['name'];?></textarea>
 
                           </div>
+                          <?php if($asTemplate==='4'){
+                            if($numHazardCauses!==0){
+                              foreach($resultAllHazardCauses as $cause) {
+                              ?>
+                                <div class="form-row">
+
+                                  <label class="col-sm-6">Hazard Cause:</label>
+                                  <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"><?php echo $cause["cause"];?></textarea>
+                                </div>
+                            <?php }
+                          }
+                            else {
+                              ?>
+
+                            <div class="form-row">
+
+                              <label class="col-sm-6">Hazard Cause:</label>
+                              <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                            </div>
+                            <?php }
+                          }?>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
 
@@ -452,29 +473,8 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                           <div class="clearfix"></div>
                         </div>
                    </div>
-                       <div class="clearfix"></div>
 
-                       <?php if($asTemplate==='4'){
-                         if($numHazardCauses!==0){
-                           foreach($resultAllHazardCauses as $cause) {
-                           ?>
-                             <div class="form-row">
-                               <hr />
-                               <label class="col-sm-3">Hazard Cause:</label>
-                               <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"><?php echo $cause["cause"];?></textarea>
-                             </div>
-                         <?php }
-                       }
-                         else {
-                           ?>
 
-                         <div class="form-row">
-                           <hr />
-                           <label class="col-sm-3">Hazard Cause:</label>
-                           <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                         </div>
-                         <?php }
-                       }?>
                        <div class="clearfix"></div>
                         <hr class="add_activity"/>
                         <?php

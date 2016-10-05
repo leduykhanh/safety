@@ -8,11 +8,11 @@
  *dbName = Name of your DataBase
  **********************************************************************/
 $dbHost = 'localhost';
-$dbUser = 'root';
-$dbPass = '';
-$dbName = 'safety';
+$dbUser = 'root';//jangkoo
+$dbPass = '';//ECMGSDAeeDm8
+$dbName = 'safety';//thi_autora
 $con = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName)
         or die('Error Connecting to MySQL DataBase');
 
-date_default_timezone_set('Europe/Bucharest')        
+date_default_timezone_set('Europe/Bucharest')
 ?>

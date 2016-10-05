@@ -263,6 +263,11 @@ if(!$_SESSION['adminid'])
                             <label class="col-sm-6 compulsary">Hazard:</label>
                             <textarea rows="2" class="col-sm-6"  name="Hazard[]"  placeholder="" ></textarea>
                           </div>
+                          <div class="onlyfortemplate5 form-row">
+                            <hr />
+                            <label class="col-sm-6">Hazard Cause:</label>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                          </div>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
                             <textarea rows="2" class="col-sm-6"  name="InjuryAccident[]"  placeholder="" ></textarea>
@@ -334,12 +339,6 @@ if(!$_SESSION['adminid'])
 
                           </div>
                         </div>
-                       <div class="clearfix"></div>
-                       <div class="onlyfortemplate5 form-row">
-                         <hr />
-                         <label class="col-sm-3">Hazard Cause:</label>
-                         <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                       </div>
                        <div class="clearfix"></div>
 
                        <hr class="add_activity"/>
@@ -420,6 +419,10 @@ if(!$_SESSION['adminid'])
                             <label class="col-sm-6 compulsary">Hazard:</label>
                             <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]"  placeholder="" ></textarea>
                           </div>
+                          <div class="onlyfortemplate5 form-row">
+                            <label class="col-sm-6">Hazard Cause:</label>
+                            <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                          </div>
                           <div class="form-row">
                             <label class="col-sm-6 compulsary">Possible Injury / Accident:</label>
                             <textarea rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]"  placeholder="" ></textarea>
@@ -487,14 +490,7 @@ if(!$_SESSION['adminid'])
 
                           </div>
                         </div>
-                        <div class="clearfix"></div>
 
-                       <div class="clearfix"></div>
-                       <div class="onlyfortemplate5 form-row">
-                         <hr />
-                         <label class="col-sm-3">Hazard Cause:</label>
-                         <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                       </div>
                        <div class="clearfix"></div>
                        <hr class="add_activity"/>
 

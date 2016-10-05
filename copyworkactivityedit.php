@@ -35,6 +35,14 @@
                             <label class="col-sm-6">Hazard:</label>
                             <input rows="2" class="col-sm-6" type="text" id="inputSaving" name="Hazard[]"  placeholder="" required></input>
                           </div>
+                          <?php if($asTemplate==='4'){
+                            ?>
+                            <div class="onlyfortemplate5 form-row">
+                              <label class="col-sm-6">Hazard Cause:</label>
+                              <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
+                            </div>
+                            <?php
+                          }?>
                           <div class="form-row">
                             <label class="col-sm-6">Possible Injury / Accident:</label>
                             <input rows="2" class="col-sm-6" type="text" id="inputSaving" name="InjuryAccident[]" placeholder="" required></input>
@@ -108,16 +116,7 @@
 
                           </div>
                         </div>
-                       <div class="clearfix"></div>
-                       <?php if($asTemplate==='4'){
-                         ?>
-                         <div class="onlyfortemplate5 form-row">
-                           <hr />
-                           <label class="col-sm-3">Hazard Cause:</label>
-                           <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
-                         </div>
-                         <?php
-                       }?>
+
                        <div class="clearfix"></div>
                        <hr class="add_activity"/>
 
