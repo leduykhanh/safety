@@ -264,7 +264,6 @@ if(!$_SESSION['adminid'])
                             <textarea rows="2" class="col-sm-6"  name="Hazard[]"  placeholder="" ></textarea>
                           </div>
                           <div class="onlyfortemplate5 form-row">
-                            <hr />
                             <label class="col-sm-6">Hazard Cause:</label>
                             <textarea class="col-sm-6" type="text" id="inputSaving" name="hazardCauses[]" rows="5"></textarea>
                           </div>
