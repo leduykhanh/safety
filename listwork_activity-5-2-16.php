@@ -119,7 +119,7 @@ $afterSevenYears = date('Y-m-d H:i:s', strtotime('+3 years'));
               ?>
               <div class="col-sm-12" style="padding:0px">
              
-                <div class="col-sm-7" style="padding:0px"><strong>QE Safety Consultancy Pte Ltd</strong></div>
+                <div class="col-sm-7" style="padding:0px"><strong>CAK & FG Survey  Pte Ltd</strong></div>
                 <div class="col-sm-5" style="padding:0px"> 
                   <a href="listwork_activity.php?status=0"><strong>Outstanding (<?php echo $outStandingRow;?>)</strong> </a>&nbsp;<strong>|</strong>&nbsp;
                   <a href="listwork_activity.php?status=1"> <strong>Draft (<?php echo $draftRow;?>)</strong> </a> &nbsp;<strong>|</strong>&nbsp;

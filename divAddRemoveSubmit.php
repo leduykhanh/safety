@@ -302,7 +302,8 @@ if(!$_SESSION['adminid'])
                           <?php create_options("Second"); ?>
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
-                            <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
+                            <input name="actionDate[]" class="col-sm-6 date" type="text"  placeholder="" >
+<!--                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
                                <?php for ($i=1; $i < 32; $i++)
                               {
                                 # code...
@@ -334,7 +335,7 @@ if(!$_SESSION['adminid'])
                               }
                              ?>
 
-                            </select>
+                            </select> -->
 
                           </div>
                         </div>
@@ -453,7 +454,8 @@ if(!$_SESSION['adminid'])
                           <?php create_options("Second"); ?>
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
-                            <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
+                            <input name="actionDate[]" class="col-sm-6 date" type="text"  placeholder="" >
+<!--                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
                                <?php for ($i=1; $i < 32; $i++)
                               {
                                 # code...
@@ -485,7 +487,7 @@ if(!$_SESSION['adminid'])
                               }
                              ?>
 
-                            </select>
+                            </select> -->
 
                           </div>
                         </div>

@@ -77,7 +77,7 @@ body {
    <div class="claer-fix"></div>
     
     <div class="row"  style="padding-bottom: 10px;">
-    		<div class="col-sm-5" style="text-align:left; padding:0px"><strong>QE Safety Consultancy Pte Ltd</strong></div>
+    		<div class="col-sm-5" style="text-align:left; padding:0px"><strong>CAK & FG Survey  Pte Ltd</strong></div>
             <div class="col-sm-7" style="padding:0px; text-align:right;"> 
 
                           <a href="listwork_activity.php?status=0"><u><b>Outstanding (84)</b></u> </a>&nbsp;<strong>|</strong>&nbsp;

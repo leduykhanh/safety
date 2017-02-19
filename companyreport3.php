@@ -185,24 +185,26 @@ td p{
 echo $date = date('d-m-Y', strtotime($risk['approveDate']));
 }
 ?></td>
-		<td rowspan="2">Next Review Date: 					 <?php
+		<td rowspan="2">Next Review Date: 
+        <?php
 
-    					 if($risk['approveDate'] !=null)
-                            {
-                              echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
+           if($risk['approveDate'] !=null)
+              {
+                echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years - 1 days', strtotime($risk['approveDate'])));
 
-                            }
-                            else if($risk['createdDate'] != null)
-                            {
-    							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
-    						}
-    						else
-    						{
-    							echo '';
-    						}
+              }
+              else if($risk['createdDate'] != null)
+              {
+              echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years - 1 days', strtotime($risk['createdDate'])));
+            }
+            else
+            {
+              echo '';
+            }
 
 
-    					 ?></td>
+           ?>
+    </td>
 	</tr>
 
 	<tr>

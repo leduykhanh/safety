@@ -281,7 +281,7 @@ $('.deleteHazards').click(function(e){
 
 
 
-$(".date").datepicker();
+$(".date").datepicker({ dateFormat: 'dd-mm-yy' });
 function getRiskLeverl(severity,likelihood,template){
   var riskValue = likelihood * severity;
   var htmlRisk = '';

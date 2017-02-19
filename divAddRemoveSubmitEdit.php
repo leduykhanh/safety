@@ -143,15 +143,29 @@ else
                           </div>
 
                           <div class="col-sm-6">
-
-                            <label class="col-sm-4">Creation Date:</label>
+                          <?php if ($valueRisk["status"] =="2") { ?>
+                            <label class="col-sm-4">Review Date:</label>
                             <label class="col-sm-8">
-                               <input name="creationDate" class="span4 date" type="text" id="creationDate" placeholder="" required value="<?php echo date('d-m-Y', strtotime($valueRisk['createdDate']));?>"></label>
-
+                               <input name="revisionDate" class="span4 date" type="text" id="revisionDate" placeholder="" required value="<?php echo date('d-m-Y', strtotime($valueRisk['revisionDate']));?>">
+                               <input name="creationDate" class="span4 date" type="hidden" id="creationDate" placeholder="" required value="<?php echo date('d-m-Y', strtotime($valueRisk['createdDate']));?>"></label>
 
                             </label>
 
+
+                            
+                            <?php } 
+                            else {
+                              ?>
+                              <label class="col-sm-4">Creation Date:</label>
+                            <label class="col-sm-8">
+                               <input name="createdDate" class="span4 date" type="text" id="createdDate" placeholder="" required value="<?php echo date('d-m-Y', strtotime($valueRisk['createdDate']));?>"></label>
+
+
+                            
+                            <?php  
+                            } ?>
                           </div>
+
                 </div>
 
 
@@ -397,8 +411,8 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                         <?php create_options_edit("Second",$asTemplate,$valueAllHazards);?>
                         <div class="form-row">
                           <label class="col-sm-6">Action Date:</label>
-
-                           <?php
+                          <input name="actionDate[]" class="col-sm-6 date" type="text" value="<?php echo $valueAllHazards['action_date'];?>"  placeholder="" >
+<!--                            <?php
                           $time = strtotime($valueAllHazards['action_date']);
 
                           $yaer =  date('Y', $time);
@@ -468,7 +482,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                             }
                            ?>
 
-                          </select>
+                          </select> -->
                         </div>
                           <div class="clearfix"></div>
                         </div>

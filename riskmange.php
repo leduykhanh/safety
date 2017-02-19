@@ -12,10 +12,11 @@ define('NON_ACTIVE', 0);
   $k = 1; // this is for keep track of j and loop from next level
   $l = 1; //for action officer
   $asTemplate = $_POST["template"];
-
-
-    $creationDates = new DateTime($_POST['creationDate']);
-    $creationDate = date_format($creationDates, 'Y-m-d H:i:s'); // 2011-03-03 00:00:00
+  $revisionDate = null;
+  $creationDates = new DateTime($_POST['creationDate']);
+  $creationDate = date_format($creationDates, 'Y-m-d H:i:s'); // 2011-03-03 00:00:00
+  if (isset($_POST["revisionDate"]))
+      $revisionDate = date_format(new DateTime($_POST['revisionDate']), 'Y-m-d H:i:s');
 
   $today = date('Y-m-d H:i:s');
 
@@ -25,7 +26,7 @@ define('NON_ACTIVE', 0);
   }
   else if($_POST['saveAsDraft'] == 'Next')
   {
-      $status = 0;
+      $status = $revisionDate?2:0;
   }
   else
   {
@@ -36,7 +37,11 @@ define('NON_ACTIVE', 0);
   {
       // $k = 0;
       // $l = 0;
-      $riskassessment = "UPDATE  `riskassessment` SET  `createdDate` =  '".$creationDate."' ,`location` =  '".$_POST['location']."',`process` =  '".$_POST['process']."',`status` = ".$status." WHERE `id` =".$_GET['riskid']."";
+      $set_clause = "";
+      if($revisionDate){
+        $set_clause = $set_clause."`revisionDate` =  '".$revisionDate."' ,`approveDate` =  '".$revisionDate."' ,";
+      }
+      $riskassessment = "UPDATE  `riskassessment` SET  " .$set_clause. "`createdDate` =  '".$creationDate."' ,`location` =  '".$_POST['location']."',`process` =  '".$_POST['process']."',`status` = ".$status." WHERE `id` =".$_GET['riskid']."";
       $update_riskassessment=mysqli_query($con, $riskassessment);
 
       //delete all the RA members
@@ -71,8 +76,8 @@ define('NON_ACTIVE', 0);
   {
 
      $riskassessment = "INSERT INTO `riskassessment` (`id`, `createdBy`, `location`, `process`, `createdDate`, `approveDate`, `revisionDate`, `approveBy`, `status`,`approverEmail`,`asTemplate`,`project_title`,`expiry_date`)
-     VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,NULL, NULL, '".$status."','',".$_POST['template'].",'".$_POST['project_title']."',".$_POST["expiry_date"].");";
-		//  echo $riskassessment;
+     VALUES (NULL, '".$_SESSION['adminid']."', '".$_POST['location']."', '".$_POST['process']."', '".$creationDate."', NULL,'".$creationDate."', NULL, '".$status."','',".$_POST['template'].",'".$_POST['project_title']."',".$_POST["expiry_date"].");";
+		 // echo $riskassessment;
       $insert_riskassessment=mysqli_query($con, $riskassessment);
       $riskassessmentId = mysqli_insert_id($con);
       // echo $riskassessmentId;
@@ -113,15 +118,17 @@ define('NON_ACTIVE', 0);
             {
               // echo $k;
               // var_dump( $securitySecond[$k]);
-              $actionDate = $_POST['actionMonth'][$k].'/'.$_POST['actionDate'][$k].'/'.$_POST['actionYear'][$k];
+              // $actionDate = $_POST['actionMonth'][$k].'/'.$_POST['actionDate'][$k].'/'.$_POST['actionYear'][$k];
+              $actionDate = $_POST['actionDate'][$k];
 
-              $actonDateToInsert = new DateTime($actionDate);
-              $actonDateNow = date_format($actonDateToInsert, 'Y-m-d H:i:s'); // 2011-03-03 00:00:00
-
+              // $actonDateToInsert = new DateTime($actionDate);
+              $actonDateToInsert = $actionDate;
+              // $actonDateNow = date_format($actonDateToInsert, 'Y-m-d H:i:s'); // 2011-03-03 00:00:00
+              $actonDateNow = $actonDateToInsert;
 
             $sqlHazards = "INSERT INTO `hazard` (`hazard_id`, `work_id`, `name`, `security`, `securitysecond`, `accident`, `likehood`, `likehoodsecond`, `risk_control`, `risk_label`, `risk_additional`, `action_officer`, `action_date`, `status`)
             VALUES (NULL, '".$workActivityId."', '".$_POST['Hazard'][$k]."', '".$security[$k]."', '".$securitySecond[$k]."', '".$_POST['InjuryAccident'][$k]."', '".$likehood[$k]."', '".$likehoodSecond[$k]."', '".$_POST['ExistingRiskControl'][$k]."', 0, '".$_POST['additionalRiskContro'][$k]."', '', '".$actonDateNow."', '0');";
-            //  echo $sqlHazards;
+              
 
 
 

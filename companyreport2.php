@@ -374,7 +374,7 @@ function create_header($page_number,$risk){
     <strong>Inventory of Work Activities and Hazard Identification: <?php echo $risk["process"]; ?></strong>
     <table id="risk_register_2" style="width:756pt;">
         <!-- <tr >
-                    <td rowspan="1" colspan="4" style="width:75%"><b>Department:QE Safety Consultancy Pte Ltd</b></td>
+                    <td rowspan="1" colspan="4" style="width:75%"><b>Department:CAK & FG Survey  Pte Ltd</b></td>
                     <td rowspan="1" colspan="1" style="width:25%"><b>Date <?php echo $date = date('d-m-Y', strtotime($risk['createdDate']));?></b></td>
         </tr> -->
          <tr style="background-color:#817F88; color:white;">
@@ -491,24 +491,24 @@ function create_header($page_number,$risk){
 			<tr>
 				<td class="grey">Next Review Date:</td>
 				<td>
-          <?php
+					 <?php
 
-          if($risk['approveDate'] !=null)
-                       {
-                         echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['approveDate'])));
+					 if($risk['approveDate'] !=null)
+                        {
+                          echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years - 1 days', strtotime($risk['approveDate'])));
 
-                       }
-                       else if($risk['createdDate'] != null)
-                       {
-             echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years', strtotime($risk['createdDate'])));
-           }
-           else
-           {
-             echo '';
-           }
+                        }
+                        else if($risk['createdDate'] != null)
+                        {
+							echo $date = date('d-m-Y', strtotime('+'.$risk["expiry_date"].' years - 1 days', strtotime($risk['createdDate'])));
+						}
+						else
+						{
+							echo '';
+						}
 
 
-          ?>
+					 ?>
         				</td>
 				<td class="grey">5) Member</td>
 				<td><?php if($raCount>3)  echo $resultlRAMember[3]["name"]."<br /><img src='staff/".$resultlRAMember[3]["signature"]."' height='60'/>";?></td>
