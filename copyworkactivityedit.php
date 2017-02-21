@@ -80,7 +80,7 @@
                           <?php create_options_edit_copy("Second",$asTemplate); ?>
                           <div class="form-row">
                             <label class="col-sm-6">Action Date:</label>
-                            <input name="actionDate[]" class="col-sm-6 date" type="text"  placeholder="" >
+                            <input name="actionDate[]" class="col-sm-6" type="text"  placeholder="" >
 <!--                             <select class="col-sm-2 btn btn-default" id="inputSaving" name="actionDate[]">
                                <?php for ($i=1; $i < 32; $i++)
                               {

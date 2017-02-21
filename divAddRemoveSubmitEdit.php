@@ -411,7 +411,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
                         <?php create_options_edit("Second",$asTemplate,$valueAllHazards);?>
                         <div class="form-row">
                           <label class="col-sm-6">Action Date:</label>
-                          <input name="actionDate[]" class="col-sm-6 date" type="text" value="<?php echo $valueAllHazards['action_date'];?>"  placeholder="" >
+                          <input name="actionDate[]" class="col-sm-6" type="text" value="<?php echo $valueAllHazards['action_date'];?>"  placeholder="" >
 <!--                            <?php
                           $time = strtotime($valueAllHazards['action_date']);
 
