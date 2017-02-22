@@ -680,7 +680,8 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
       }
       else
       {
-        $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+        // $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+        $action_date = $hzardsValue['action_date']?$hzardsValue['action_date']:"";
       }
       ?>
 
@@ -692,7 +693,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
           echo "<div>".$valueAllActionOfficer["designation"]."</div>";
         }?>
      </td>
-      <td rowspan="1" colspan="1"> - </td>
+      <td rowspan="1" colspan="1"> <?php echo  $action_date; ?> </td>
                      </tr>
     <?php
                 }
@@ -752,7 +753,8 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
       }
       else
       {
-        $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+       // $action_date= date('d-m-Y', strtotime($hzardsValue['action_date']));
+      	$action_date = $hzardsValue['action_date']?$hzardsValue['action_date']:"";
       }
       ?>
 
@@ -764,8 +766,8 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
           echo "<div>".$valueAllActionOfficer["designation"]."</div>";
         }?>
      </td>
-                          <td rowspan="1" colspan="1"> - </td>
-                      </tr>
+     <td rowspan="1" colspan="1"><?php echo  $action_date; ?></td>
+    </tr>
                     <?php
                 }
                 $hazrdsControl++;
