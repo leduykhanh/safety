@@ -452,7 +452,7 @@ function create_header($page_number,$risk){
 				<td class="grey">1)Team  Leader</td>
 				<td><?php echo $valueAllUser['name']; ?></td>
 				<td><?php echo $valueAllUser['designation']; ?></td>
-				<td><?php echo date('d-m-Y', strtotime($risk["createdDate"])); ?></td>
+				<td><?php echo date('d-m-Y', strtotime(($risk["status"] =="2") ? $risk["revisionDate"] : $risk["createdDate"])); ?></td>
 
 			</tr>
 			<tr>
