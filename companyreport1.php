@@ -402,7 +402,7 @@ function getRiskLabel($s,$l){
 
                 <tr>
                      <td rowspan="1" colspan="1">Assessment Date:</td>
-                     <td rowspan="1" colspan="1" ><?php echo $today;?></td>
+                     <td rowspan="1" colspan="1" ><?php echo date('d-m-Y', strtotime($risk['createdDate']));?></td>
                      <td rowspan="3" colspan="4"><strong>Remarks:</strong>
                        <br />
                        <br />
@@ -696,7 +696,7 @@ while($valueAllWork = mysqli_fetch_assoc($resultAllWork))
             </div>
             <div style="width:45%;float:right">
         			<table class="table bordertable" border="1">
-        				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: <?php echo $risk["revisionDate"]!=null?$risk["revisionDate"]:"";?></p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
+        				<tbody><tr><th>Reviewed By: <br> POC Risk Management Team (RMT) <p>Date of Review: <?php echo $risk["revisionDate"]!=null?date('d-m-Y', strtotime($risk['revisionDate'])):"";?></p></th><th colspan="2">Status*: (Acp  /  Acp w/c  / Not Acp)</th></tr>
         				<tr class="table-firstrow"><th>Name</th><th>Designation: </th><!--<th>Signature</th>--></tr>
         					</tbody><tbody>
 
