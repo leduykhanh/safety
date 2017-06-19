@@ -28,12 +28,12 @@
 	 $riskdatasix= $riskcopy["approveBy"];
 	 $riskdataseven= $riskcopy["approverEmail"];
 	 $riskdataeight= $riskcopy["status"];
+	 $asTemplate= $riskcopy["asTemplate"];
  ?>
- <?php echo $sql_risk; ?>
  
  <?php
- $sql_risk = "INSERT INTO riskassessment       (createdBy,location,process,createdDate,approveDate,revisionDate,approveBy,approverEmail,status)
-VALUES ('$riskdata', '$riskdataone', '$riskdatatwo', '$today', '0', '$afterthreeYears', '$riskdatasix', '$riskdataseven', '0')";
+ $sql_risk = "INSERT INTO riskassessment       (createdBy,location,process,createdDate,approveDate,revisionDate,approveBy,approverEmail,status,asTemplate)
+VALUES ('$riskdata', '$riskdataone', '$riskdatatwo', '$today', '0', '$afterthreeYears', '$riskdatasix', '$riskdataseven', '0', '$asTemplate')";
  $insert_copyrecord=mysqli_query($con, $sql_risk);
  $last_id = mysqli_insert_id($con);
  //signing insert Signing against 
@@ -61,17 +61,17 @@ if(isset($_GET['riskid']))
   <?php
  if(isset($_GET['riskid']))
  {
-	    $sqlRamember = "SELECT * FROM ramember where riskid = $_GET[riskid]";
+	    $sqlRamember = "SELECT * FROM risk_ramemeber where riskid = $_GET[riskid]";
         $resultRamember = mysqli_query($con, $sqlRamember);
 		$num_row= mysqli_num_rows($resultRamember);
-    
 	
 	 if($num_row>0)
     {
         while ($riskRamember = mysqli_fetch_assoc($resultRamember))
 		{
-			 $sql_ramember = "INSERT INTO ramember (riskid,name,stauts) VALUES('".$last_id."', '".$riskRamember['name']."', '0')";
+			 $sql_ramember = "INSERT INTO ramember (riskid,ramemberId,dateCreated) VALUES('".$last_id."', '".$riskRamember['ramemberId']."', ".date('Y-m-d').")";
 			 $insert_ramember=mysqli_query($con, $sql_ramember);
+			 var_dump($insert_ramember);
      
         }
     }
@@ -153,4 +153,4 @@ if(isset($_GET['riskid']))
  }
 
  ?>
-  <script type="text/javascript">window.location.assign("listwork_activity.php?id=<?php echo $last_id;?>&status=0&copydata=Data Copied successfully")</script>
+  <!-- <script type="text/javascript">window.location.assign("listwork_activity.php?id=<?php echo $last_id;?>&status=0&copydata=Data Copied successfully")</script> -->

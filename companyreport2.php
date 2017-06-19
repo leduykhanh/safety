@@ -76,7 +76,7 @@ function create_header($page_number,$risk){
 					<tr>
 						<td style="width: 615.2pt;">
 							<div><img src="images/THI_Engineering_and_construction_pte ltd.png" width="100" /></div>
-							<div><strong>THI ENGINEERING AND CONSTRUCTION PTE LTD</strong></div>
+							<div><strong>THI ENGINEERING & CONSTRUCTION PTE LTD</strong></div>
 							<div><strong style="text-transform: uppercase;"><?php echo $risk["project_title"];?></strong></div>
 						</td>
 						<td style="width: 140.8pt;">
@@ -89,7 +89,7 @@ function create_header($page_number,$risk){
 					<tr>
 						<td colspan="2">
 							<div class="text-center"><strong>Risk Assessment for <span class="under-line"> <?php echo $risk["process"];?> </span></strong></div>
-							<div class="text-center"><strong>Undertaken by <span class="under-line"> THI Engineering Construction Pte Ltd  </span></strong></div>
+							<div class="text-center"><strong>Undertaken by <span class="under-line"> THI Engineering & Construction Pte Ltd  </span></strong></div>
 
 						</td>
 					</tr>
@@ -438,7 +438,7 @@ function create_header($page_number,$risk){
     <table class="table bordertable" width="100%" style="float:left;">
 			<tbody><tr>
 				<td bgcolor="#D9D9D9">Company:</td>
-				<td>THI Engineering &amp; Construction Pte Ltd</td>
+				<td>THI Engineering & Construction Pte Ltd</td>
 				<td bgcolor="#D9D9D9"><strong>Risk Assessment Team</strong></td>
 				<td class="grey">Name</td>
 				<td class="grey">Designation</td>
