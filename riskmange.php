@@ -23,11 +23,11 @@ define('NON_ACTIVE', 0);
   if($_POST['saveAsDraft'] == 'Save as Draft')
   {
     $status = 1;
-    $headers = "From: webmaster@mrphpguru.com\r\nReply-To: webmaster@mrphpguru.com";
-      //add boundary string and mime type specification
+    $headers = "From: webmaster@qesafety.com" . "\r\n" .
+"CC: leejangkoo@gmail.com";
     $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
-    $message = "http://qesafety.com/autora/thi";
-     @mail( "leejangkoo@gmail.com", "AutoRA draft", $message, $headers );
+    $message = "There was a RA draft created. \r \n Link :http://qesafety.com/autora/thi";
+     @mail( "Julius@qesafety.com", "AutoRA draft", $message, $headers );
   }
   else if($_POST['saveAsDraft'] == 'Next')
   {
