@@ -143,7 +143,7 @@ session_start();
 
       Please follow the link below approve the RA.
 
-      Site link : http://jangkoo.com/projects/safety/
+      Site link : http://qesafety.com/autora/thi
 
       User name : <?php echo $staffName['email'];?>
 

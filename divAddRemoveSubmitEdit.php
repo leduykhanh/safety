@@ -2,7 +2,7 @@
 session_start();
 include_once 'header.php';
 include_once 'listwork_function.php';
-if(!$_SESSION['adminid'])
+if(!$_SESSION['adminid'] || $_SESSION['view_only']=="1")
 {
     ?><script type="text/javascript">window.location.assign("index.php")</script>
     <?php
@@ -114,11 +114,15 @@ else
                           <label class="col-sm-8"><?php echo $valueUser['name']; ?></label>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                          <label class="col-sm-4">Revision Number:</label>
+                          <label class="col-sm-8"><input type="text" name="revisionNumber" value="<?php echo $valueRisk ['revisionNumber']; ?>" ></label>
+                    </div>
                 </div>
 
                 <div class="row form-row">
                           <div class="col-sm-6">
-							<div class="row">
+							             <div class="row">
                             <label class="col-sm-4">Company:</label>
                             <label class="col-sm-8">THI Engineering & Construction Pte Ltd</label>
                             </div>
@@ -158,7 +162,7 @@ else
                               ?>
                               <label class="col-sm-4">Creation Date:</label>
                             <label class="col-sm-8">
-                               <input name="createdDate" class="span4 date" type="text" id="createdDate" placeholder="" required value="<?php echo date('d-m-Y', strtotime($valueRisk['createdDate']));?>"></label>
+                               <input name="creationDate" class="span4 date" type="text" id="createdDate" placeholder="" required value="<?php echo date('d-m-Y', strtotime($valueRisk['createdDate']));?>"></label>
 
 
                             

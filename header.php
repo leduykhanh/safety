@@ -43,7 +43,7 @@ body {
 			Hi <strong> <i><?php error_reporting(E_ALL);
 			ini_set("display_errors", 1);
 			echo $_SESSION["name"]; ?> </i><strong>
-			<a href="logout.php"><button class="btn btn-danger"> Log Out</button></a>
+			<a href="logout.php"><button class="btn btn-danger" value="Log Out"> Log Out</button></a>
         </span>
         </div>
         </div>

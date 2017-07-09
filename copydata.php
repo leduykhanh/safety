@@ -29,11 +29,12 @@
 	 $riskdataseven= $riskcopy["approverEmail"];
 	 $riskdataeight= $riskcopy["status"];
 	 $asTemplate= $riskcopy["asTemplate"];
+	 $project_title = $riskcopy["project_title"];
  ?>
  
  <?php
- $sql_risk = "INSERT INTO riskassessment       (createdBy,location,process,createdDate,approveDate,revisionDate,approveBy,approverEmail,status,asTemplate)
-VALUES ('$riskdata', '$riskdataone', '$riskdatatwo', '$today', '0', '$afterthreeYears', '$riskdatasix', '$riskdataseven', '0', '$asTemplate')";
+ $sql_risk = "INSERT INTO riskassessment       (createdBy,location,process,createdDate,approveDate,revisionDate,approveBy,approverEmail,status,asTemplate,project_title)
+VALUES ('$riskdata', '$riskdataone', '$riskdatatwo', '$today', '0', '$afterthreeYears', '$riskdatasix', '$riskdataseven', '0', '$asTemplate', '$project_title')";
  $insert_copyrecord=mysqli_query($con, $sql_risk);
  $last_id = mysqli_insert_id($con);
  //signing insert Signing against 
@@ -69,9 +70,8 @@ if(isset($_GET['riskid']))
     {
         while ($riskRamember = mysqli_fetch_assoc($resultRamember))
 		{
-			 $sql_ramember = "INSERT INTO ramember (riskid,ramemberId,dateCreated) VALUES('".$last_id."', '".$riskRamember['ramemberId']."', ".date('Y-m-d').")";
+			 $sql_ramember = "INSERT INTO risk_ramemeber (riskid,ramemberId,dateCreated) VALUES('".$last_id."', '".$riskRamember['ramemberId']."', '".date('Y-m-d')."')";
 			 $insert_ramember=mysqli_query($con, $sql_ramember);
-			 var_dump($insert_ramember);
      
         }
     }
@@ -122,14 +122,14 @@ if(isset($_GET['riskid']))
 										
 										//get all action officer
 										
-										$actionofficerSql = "SELECT * FROM  `actionofficer` WHERE  `hazardid` =".$valueHazards['hazard_id']."";
+										$actionofficerSql = "SELECT * FROM  `hazard_actionofficer` WHERE  `hazardid` =".$valueHazards['hazard_id']."";
 										$resulActionofficer = mysqli_query($con, $actionofficerSql);
 										$numActionofficer= mysqli_num_rows($resulActionofficer);
 										if($numActionofficer>0)
 										{
 												while ($valueActionofficer  = mysqli_fetch_assoc($resulActionofficer))
 												{
-													 $sql_Actionofficer = "INSERT INTO actionofficer (hazardid,name) VALUES( '".$newHazardsId."','".$valueActionofficer['name']."')";
+													 $sql_Actionofficer = "INSERT INTO hazard_actionofficer (hazardid,ramemberId) VALUES( '".$newHazardsId."','".$valueActionofficer['ramemberId']."')";
 													 $insert_Actionofficer = mysqli_query($con, $sql_Actionofficer);
 													 
 													 $newActionofficerId = mysqli_insert_id($con);
@@ -153,4 +153,4 @@ if(isset($_GET['riskid']))
  }
 
  ?>
-  <!-- <script type="text/javascript">window.location.assign("listwork_activity.php?id=<?php echo $last_id;?>&status=0&copydata=Data Copied successfully")</script> -->
+  <script type="text/javascript">window.location.assign("listwork_activity.php?id=<?php echo $last_id;?>&status=0&copydata=Data Copied successfully")</script>

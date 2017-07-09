@@ -1,7 +1,7 @@
 <?php session_start(); include_once 'header.php';
 include_once 'listwork_function.php';
 include_once 'config.php';
-if(!$_SESSION['adminid'])
+if(!$_SESSION['adminid'] || $_SESSION['view_only']=="1")
 {
     ?><script type="text/javascript">window.location.assign("index.php")</script>
     <?php

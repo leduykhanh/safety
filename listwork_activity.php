@@ -112,23 +112,8 @@ $afterSevenYears = date('Y-m-d H:i:s', strtotime('+3 years'));
 		</div>
     </div>
 
-
-
-
-<script>
-language="JavaScript" type="text/javascript">
- function $row['id']
- {
- if (confirm("Are you sure you want to copy data"))
- {
- window.location.href = 'copydata.php?riskid=<?php echo $row['id'];?>';
- }
- }
-</script>
-
-
 <script
- language="JavaScript" type="text/javascript">
+  type="text/javascript">
  function delete_id(id)
  {
  if (confirm("Are you sure you want to delete"))
@@ -137,5 +122,13 @@ language="JavaScript" type="text/javascript">
  }
  }
 </script>
+<?php
+ if($_SESSION['view_only']=="1")
+ {
 
+ ?><script type="text/javascript" src="js/view_only.js"></script>
+ <?php
+
+ }
+ ?>
 <?php include_once 'footer.php'; ?>

@@ -23,6 +23,11 @@ define('NON_ACTIVE', 0);
   if($_POST['saveAsDraft'] == 'Save as Draft')
   {
     $status = 1;
+    $headers = "From: webmaster@mrphpguru.com\r\nReply-To: webmaster@mrphpguru.com";
+      //add boundary string and mime type specification
+    $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
+    $message = "http://qesafety.com/autora/thi";
+     @mail( "leejangkoo@gmail.com", "AutoRA draft", $message, $headers );
   }
   else if($_POST['saveAsDraft'] == 'Next')
   {
@@ -41,7 +46,7 @@ define('NON_ACTIVE', 0);
       if($revisionDate){
         $set_clause = $set_clause."`revisionDate` =  '".$revisionDate."' ,`approveDate` =  '".$revisionDate."' ,";
       }
-      $riskassessment = "UPDATE  `riskassessment` SET  " .$set_clause. "`createdDate` =  '".$creationDate."' ,`location` =  '".$_POST['location']."',`process` =  '".$_POST['process']."',`status` = ".$status." WHERE `id` =".$_GET['riskid']."";
+      $riskassessment = "UPDATE  `riskassessment` SET  " .$set_clause. "`createdDate` =  '".$creationDate."' ,`location` =  '".$_POST['location']."',`process` =  '".$_POST['process']."',`status` = ".$status.", `revisionNumber` = '" .$_POST["revisionNumber"]. "', `project_title` = '". $_POST["project_title"] ."' WHERE `id` =".$_GET['riskid']."";
       $update_riskassessment=mysqli_query($con, $riskassessment);
 
       //delete all the RA members

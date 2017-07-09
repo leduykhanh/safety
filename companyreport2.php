@@ -81,7 +81,7 @@ function create_header($page_number,$risk){
 						</td>
 						<td style="width: 140.8pt;">
 							<div><strong>WSH Form 02-2  </strong></div>
-							<div> Revision:  00</div>
+							<div> Revision:  <?php echo $risk["revisionNumber"]; ?></div>
 							<div> Sheet:  Page <?php echo $page_number; ?> of 9</div>
 							<div> Dated:  <?php echo date('d-m-Y', strtotime($risk['createdDate']));?></div>
 						</td>
@@ -111,7 +111,7 @@ function create_header($page_number,$risk){
 				<td rowspan="2"><b>Signature</b></td>
 				<td><b>01</b></td>
 				<td rowspan="2"><b>Signature</b></td>
-				<td><b>02</b></td>
+				<td><b><?php echo $risk["revisionNumber"]; ?></b></td>
 				<td rowspan="2"><b>Signature</b></td>
 			</tr>
 
@@ -121,21 +121,21 @@ function create_header($page_number,$risk){
 
 				 <td></td>
 
-				 <td></td>
+				 <td><?php echo date('d-m-Y', strtotime($risk['revisionDate']));?></td>
 
 			 </tr>
 			 <tr>
 				 <td><b>Originated by</b></td>
 				 <td><?php echo $valueAllUser['name']."(".$valueAllUser['designation'].")";?></td>
 				 <td><?php echo '<img width="80" src="staff/'.$valueAllUser["signature"].'"/>'; ?></td>
-				 <td><?php echo $appoverName!==""?$appoverName."(".$appoverDesignation.")":"";?></td>
+				 <td><?php echo $resultlRAMember[0]["name"];?></td>
 				 <td><?php echo $appoverSingature!=""?'<img width="80" src="staff/'.$appoverSingature.'"/>':""; ?></td>
 				 <td></td>
 				 <td></td>
 			 </tr>
 			 <tr>
 				 <td><b>Approved by</b></td>
-				 <td></td>
+				 <td><?php echo $appoverName!==""?$appoverName."(".$appoverDesignation.")":"";?></td>
 				 <td></td>
 				 <td></td>
 				 <td></td>

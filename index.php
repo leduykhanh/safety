@@ -39,6 +39,7 @@ setcookie('remember_pass', $_POST['password'], $year);
 			$_SESSION['useremail'] = $result['email'];
 			$_SESSION['adminid'] = $result['id'];
             $_SESSION['name'] = $result['name'];
+            $_SESSION['view_only'] = $result['view_only'];
 
 			echo "<script>window.open('listwork_activity.php','_self')</script>";
 
