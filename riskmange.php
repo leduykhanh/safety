@@ -23,11 +23,7 @@ define('NON_ACTIVE', 0);
   if($_POST['saveAsDraft'] == 'Save as Draft')
   {
     $status = 1;
-    $headers = "From: webmaster@qesafety.com" . "\r\n" .
-"CC: leejangkoo@gmail.com";
-    $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
-    $message = "There was a RA draft created. \r \n Link :http://qesafety.com/autora/thi";
-     @mail( "Julius@qesafety.com", "AutoRA draft", $message, $headers );
+
   }
   else if($_POST['saveAsDraft'] == 'Next')
   {
@@ -96,7 +92,14 @@ define('NON_ACTIVE', 0);
         }
   }
 
-
+if($status == 1){
+      $headers = "From: webmaster@qesafety.com" . "\r\n" .
+      "CC: leejangkoo@gmail.com";
+    $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
+    $message = "There was a RA draft created. \r \n Link :https://qesafety.com/autora/thi/riskapproval.php?riskId=".$riskassessmentId."\r\n" .
+    "RA Leader: ". $_SESSION["name"];
+     @mail( "Julius@qesafety.com", "AutoRA draft", $message, $headers );
+}
 
 
 
